@@ -12,6 +12,9 @@ Testing Process là nhóm hoạt động quản lý và thực thi kiểm thử 
 - [[Test Analysis]]
 - [[Test Design]]
 - [[Test Execution]]
+- [[Test Objective]]
+- [[Test Case]]
+- [[Test Data]]
 - [[Test Management]]
 - [[Incident Management]]
 

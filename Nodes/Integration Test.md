@@ -9,6 +9,10 @@ Integration Test kiểm tra nhiều phần ghép lại có hoạt động đúng
 - [[API Contract]]
 - [[Database Schema]]
 
+## Liên quan
+
+- [[Integration Testing]]
+
 ## Source trace
 
-- Software Testing ISTQB Map Ch02
+- Software Testing ISTQB Map / Ch02

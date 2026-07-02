@@ -9,6 +9,10 @@ E2E Test kiểm tra một luồng hoàn chỉnh gần giống cách người dù
 - [[Use Case]]
 - [[Acceptance Criteria]]
 
+## Liên quan
+
+- [[System Testing]]
+
 ## Source trace
 
-- Software Testing ISTQB Map
+- Software Testing ISTQB Map / Ch02
