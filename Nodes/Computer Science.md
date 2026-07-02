@@ -6,10 +6,6 @@ Computer Science tập trung vào computation, thuật toán, lý thuyết, hệ
 
 ## Gồm những gì
 
-- [[Algorithms]]
-- [[Data Structures]]
-- [[Operating System]]
-- [[Computer Networks]]
 
 ## Source trace
 

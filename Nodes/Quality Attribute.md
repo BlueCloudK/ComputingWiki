@@ -7,8 +7,6 @@ Quality Attribute là chất lượng hệ thống cần đạt như performance
 ## Gồm những gì
 
 - [[Nonfunctional Requirement]]
-- [[Performance]]
-- [[Security]]
 
 ## Source trace
 

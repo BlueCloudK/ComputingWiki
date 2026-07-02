@@ -11,7 +11,6 @@ Congestion Control ngăn sender gây quá tải mạng.
 ## Liên quan
 
 - [[TCP]]
-- [[Performance]]
 
 ## Source trace
 

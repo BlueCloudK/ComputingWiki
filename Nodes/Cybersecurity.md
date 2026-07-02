@@ -6,7 +6,6 @@ Cybersecurity tập trung vào bảo vệ hệ thống, dữ liệu và hoạt �
 
 ## Gồm những gì
 
-- [[Security]]
 
 ## Source trace
 

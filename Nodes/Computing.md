@@ -7,7 +7,6 @@ Computing là meta-discipline bao gồm nhiều ngành liên quan tới máy tí
 ## Gồm những gì
 
 - [[Computer Science]]
-- [[Software Engineering]]
 - [[Cybersecurity]]
 - [[Data Science]]
 - [[Information Systems]]

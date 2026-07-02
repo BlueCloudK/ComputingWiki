@@ -6,7 +6,6 @@ Network là tập hệ thống kết nối để trao đổi dữ liệu.
 
 ## Gồm những gì
 
-- [[Computer Networks]]
 
 ## Source trace
 

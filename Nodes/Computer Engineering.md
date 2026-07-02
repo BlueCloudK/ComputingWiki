@@ -6,8 +6,6 @@ Computer Engineering tập trung vào phần cứng, phần mềm hệ thống v
 
 ## Gồm những gì
 
-- [[Computer Organization]]
-- [[Operating System]]
 
 ## Source trace
 

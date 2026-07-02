@@ -7,7 +7,6 @@ Cache là nơi lưu tạm dữ liệu hoặc kết quả để lần sau lấy n
 ## Gồm những gì
 
 - [[Index]]
-- [[Performance]]
 
 ## Source trace
 

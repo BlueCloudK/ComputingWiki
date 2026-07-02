@@ -10,7 +10,6 @@ Network Security là nhóm đe dọa và biện pháp bảo vệ trong môi trư
 
 ## Liên quan
 
-- [[Security]]
 
 ## Source trace
 

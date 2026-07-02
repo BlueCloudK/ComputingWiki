@@ -6,7 +6,6 @@ Data Science tập trung vào khai thác insight từ dữ liệu bằng thống
 
 ## Gồm những gì
 
-- [[Data Intensive Systems]]
 
 ## Source trace
 

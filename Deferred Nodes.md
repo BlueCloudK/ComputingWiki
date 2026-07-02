@@ -9,11 +9,6 @@ Các node này đã xuất hiện trong Maps/Report nhưng chưa tạo thành no
 - [[Page Controller]]
 - [[Front Controller]]
 
-## Data Format / Tooling
-
-- [[Protocol Buffers]]
-- [[Avro]]
-
 ## Hardware / Low-Level
 
 - [[PCI Express]]

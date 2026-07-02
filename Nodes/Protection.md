@@ -10,7 +10,6 @@ Protection là cơ chế kiểm soát truy cập và cô lập tài nguyên tron
 
 ## Liên quan
 
-- [[Security]]
 
 ## Source trace
 

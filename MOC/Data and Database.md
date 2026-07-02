@@ -9,7 +9,11 @@ Data and Database là nhóm kiến thức về mô hình hóa, lưu trữ, truy 
 - [[ERD]]
 - [[Database Schema]]
 - [[SQL]]
+- [[Index]]
 - [[Transaction]]
+- [[Normalization]]
+- [[Database Systems]]
+- [[Data Intensive Systems]]
 
 ## Source basis
 
