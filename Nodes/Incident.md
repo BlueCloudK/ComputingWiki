@@ -2,13 +2,14 @@
 
 Aliases: production issue, sự cố
 
-Incident là sự cố ảnh hưởng tới hệ thống hoặc người dùng trong môi trường chạy thật.
+Incident là sự cố ảnh hưởng tới service, system hoặc user trong môi trường chạy thật.
 
 ## Gồm những gì
 
-- [[Monitoring]]
+- [[Incident Response]]
+- [[Postmortem]]
 - [[Rollback]]
 
 ## Source trace
 
-- SRE Map incident chapters
+- SRE Map / incident chapters

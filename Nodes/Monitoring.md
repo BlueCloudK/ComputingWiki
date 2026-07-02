@@ -2,13 +2,14 @@
 
 Aliases: metrics, dashboard, giám sát
 
-Monitoring là theo dõi sức khỏe hệ thống bằng số liệu, dashboard và cảnh báo.
+Monitoring là theo dõi sức khỏe service bằng metric, dashboard và signal vận hành.
 
 ## Gồm những gì
 
-- [[SLO]]
+- [[Alert]]
+- [[Service Level Objective]]
 - [[Incident]]
 
 ## Source trace
 
-- SRE Map monitoring chapter
+- SRE Map / monitoring chapter
