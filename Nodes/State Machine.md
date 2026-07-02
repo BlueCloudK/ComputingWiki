@@ -6,8 +6,7 @@ State Machine mô tả các trạng thái và quy tắc chuyển trạng thái c
 
 ## Gồm những gì
 
-- [[State Transition Diagram]]
-
+- Chưa tách nhánh
 ## Source trace
 
 - Software Modeling and Design Map / Ch10

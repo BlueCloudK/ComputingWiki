@@ -6,10 +6,7 @@ Client Server Architecture chia hệ thống thành client gửi request và ser
 
 ## Gồm những gì
 
-- [[Client]]
-- [[Server]]
-- [[API]]
-
+- Chưa tách nhánh
 ## Source trace
 
 - Software Modeling and Design Map / Ch15

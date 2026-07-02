@@ -6,10 +6,7 @@ Systems Thinking là cách suy nghĩ theo relationship, boundary, feedback và e
 
 ## Gồm những gì
 
-- [[Boundary]]
 - [[Relationship]]
-- [[Feedback]]
-- [[Emergence]]
 
 ## Source trace
 

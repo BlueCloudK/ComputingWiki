@@ -7,7 +7,6 @@ System Security là khả năng system chống truy cập, misuse hoặc comprom
 ## Gồm những gì
 
 - Chưa tách nhánh
-- [[Threat]]
 
 ## Source trace
 

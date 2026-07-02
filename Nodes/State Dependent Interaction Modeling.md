@@ -7,7 +7,6 @@ State Dependent Interaction Modeling mô tả behavior thay đổi theo state c�
 ## Gồm những gì
 
 - [[State Machine]]
-- [[State Transition Diagram]]
 
 ## Source trace
 

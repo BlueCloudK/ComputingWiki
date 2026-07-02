@@ -6,8 +6,7 @@ Real Time Architecture là kiến trúc cho hệ thống có ràng buộc thời
 
 ## Gồm những gì
 
-- [[Latency]]
-
+- Chưa tách nhánh
 ## Source trace
 
 - Software Modeling and Design Map / Ch18

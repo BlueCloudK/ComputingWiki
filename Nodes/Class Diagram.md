@@ -6,7 +6,6 @@ Class Diagram là sơ đồ mô tả class, attribute, operation và relationshi
 
 ## Gồm những gì
 
-- [[Class]]
 - [[Relationship]]
 
 ## Source trace

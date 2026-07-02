@@ -6,8 +6,7 @@ Software Product Line Architecture hỗ trợ nhiều biến thể sản phẩm 
 
 ## Gồm những gì
 
-- [[Variability]]
-
+- Chưa tách nhánh
 ## Source trace
 
 - Software Modeling and Design Map / Ch19

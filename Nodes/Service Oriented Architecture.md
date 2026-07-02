@@ -6,7 +6,6 @@ Service Oriented Architecture tổ chức hệ thống thành các service độ
 
 ## Gồm những gì
 
-- [[Service]]
 - [[API Contract]]
 
 ## Source trace

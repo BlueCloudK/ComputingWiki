@@ -7,7 +7,6 @@ System Context Diagram cho thấy hệ thống, user và external system ở m�
 ## Gồm những gì
 
 - [[Software System]]
-- [[External System]]
 
 ## Source trace
 

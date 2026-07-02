@@ -6,7 +6,6 @@ Benchmark là phép đo hiệu năng bằng bài kiểm tra có thể lặp lạ
 
 ## Gồm những gì
 
-- [[Baseline]]
 - [[Load Test]]
 
 ## Source trace

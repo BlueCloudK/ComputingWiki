@@ -6,8 +6,7 @@ Deployment Diagram mô tả môi trường triển khai, runtime node và mappin
 
 ## Gồm những gì
 
-- [[Deployment Environment]]
-
+- Chưa tách nhánh
 ## Source trace
 
 - C4 Model Map / supplementary

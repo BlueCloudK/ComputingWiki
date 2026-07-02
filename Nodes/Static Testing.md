@@ -6,9 +6,7 @@ Static Testing kiểm tra work product mà không cần chạy phần mềm.
 
 ## Gồm những gì
 
-- [[Review]]
-- [[Static Analysis]]
-
+- Chưa tách nhánh
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01.2 / Ch03

@@ -6,8 +6,6 @@ The Nature of Systems mô tả system là gì, boundary, relationship và behavi
 
 ## Gồm những gì
 
-- [[System]]
-- [[Boundary]]
 - [[Relationship]]
 
 ## Source trace
