@@ -2,16 +2,6 @@
 
 Các node này đã xuất hiện trong Maps/Report nhưng chưa tạo thành node chính trong batch đầu.
 
-## Performance
-
-- [[Amdahl Law]]
-- [[Little Law]]
-
-## Networking
-
-- [[BGP]]
-- [[SMTP]]
-
 ## Design Patterns
 
 - [[Factory Method]]
