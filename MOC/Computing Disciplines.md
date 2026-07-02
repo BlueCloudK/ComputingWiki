@@ -15,6 +15,7 @@ Computing Disciplines là nhóm các ngành lớn trong computing như Computer 
 - [[Information Technology]]
 - [[Data Science]]
 - [[Computing Competency]]
+- [[Computing Education]]
 
 ## Source basis
 
