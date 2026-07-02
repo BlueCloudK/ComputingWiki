@@ -1,0 +1,13 @@
+# Knowledge Library raw sources
+Sources/raw/
+Sources/src/
+Sources/downloads/
+Sources/local/
+
+# Raw documents
+*.pdf
+*.epub
+*.mobi
+
+# Local-only inventory / backups
+_pre_batch_inventory_*.txt
