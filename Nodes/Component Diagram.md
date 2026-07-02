@@ -1,17 +1,14 @@
 # Component Diagram
 
-Aliases: C4 level 3, sơ đồ component
+Aliases: C4 component diagram, sơ đồ component
 
-Component Diagram cho thấy các component bên trong một container.
+Component Diagram cho thấy component bên trong một container và relationship giữa chúng.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
-
-## Liên quan
-
-- [[C4 Model]]
+- [[Component]]
+- [[Container]]
 
 ## Source trace
 
-- C4 Model level 3
+- C4 Model Map / Level 3

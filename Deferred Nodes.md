@@ -2,21 +2,10 @@
 
 Các node này đã xuất hiện trong Maps/Report nhưng chưa tạo thành node chính trong batch đầu.
 
-## Design Patterns
-
-- [[Factory Method]]
-- [[Table Data Gateway]]
-- [[Page Controller]]
-- [[Front Controller]]
-
 ## Hardware / Low-Level
 
 - [[PCI Express]]
 - [[Magnetic Tape]]
-
-## Architecture Diagrams
-
-- [[System Landscape Diagram]]
 
 ## Machine Learning
 

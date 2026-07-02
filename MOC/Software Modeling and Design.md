@@ -7,12 +7,15 @@ Software Modeling and Design là nhóm kiến thức về mô hình hóa require
 ## Gồm những gì
 
 - [[UML Notation]]
+- [[Software Life Cycle Model]]
+- [[Software Design Concept]]
+- [[Software Architecture Concept]]
+- [[Software Modeling Method]]
+- [[Software Modeling]]
 - [[Use Case Modeling]]
 - [[Static Modeling]]
 - [[Dynamic Interaction Modeling]]
-- [[Object and Class Structuring]]
 - [[Finite State Machine]]
-- [[Software Modeling Method]]
 - [[Architectural Design]]
 
 ## Source basis

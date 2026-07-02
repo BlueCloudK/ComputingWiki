@@ -1,17 +1,14 @@
 # Relationship
 
-Aliases: relationship, quan hệ
+Aliases: relationship, dependency, quan hệ
 
-Relationship là liên kết giữa các entity hoặc thành phần trong mô hình.
+Relationship là liên kết hoặc dependency giữa các entity, component hoặc system element trong model.
 
 ## Gồm những gì
 
 - Chưa tách nhánh
 
-## Liên quan
-
-- [[ERD]]
-
 ## Source trace
 
-- Database Systems Map / Ch06.2 / C4 Model Map
+- Database Systems Map / Ch06.2
+- C4 Model Map

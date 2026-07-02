@@ -1,16 +1,13 @@
 # Domain Model
 
-Aliases: domain model, mô hình miền nghiệp vụ
+Aliases: domain model pattern, mô hình domain
 
-Domain Model là cách gọi tên và mô tả các đối tượng chính trong bài toán.
-
-## Dùng để làm gì
-
-Dùng để thống nhất ngôn ngữ giữa requirement, database, API và code.
+Domain Model biểu diễn domain behavior và data bằng object model.
 
 ## Gồm những gì
 
-- [[Entity]]
-- [[Value Object]]
-- [[Business Rule]]
-- [[Relationship]]
+- Chưa tách nhánh
+
+## Source trace
+
+- Fowler Pattern Map / PEAA Domain Model

@@ -6,7 +6,9 @@ Design Pattern là cách giải quen thuộc cho một kiểu vấn đề thiế
 
 ## Gồm những gì
 
-- [[State Machine]]
+- [[Creational Pattern]]
+- [[Structural Pattern]]
+- [[Behavioral Pattern]]
 
 ## Source trace
 

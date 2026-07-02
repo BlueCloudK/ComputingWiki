@@ -6,14 +6,16 @@ Architecture Diagrams là nhóm sơ đồ dùng để mô tả hệ thống ở 
 
 ## Gồm những gì
 
+- [[Architecture Diagram]]
 - [[C4 Model]]
 - [[System Context Diagram]]
 - [[Container Diagram]]
 - [[Component Diagram]]
 - [[Code Diagram]]
+- [[Supplementary Diagram]]
+- [[System Landscape Diagram]]
 - [[Dynamic Diagram]]
 - [[Deployment Diagram]]
-- [[System Landscape Diagram]]
 
 ## Source basis
 

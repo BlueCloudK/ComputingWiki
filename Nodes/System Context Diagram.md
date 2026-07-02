@@ -1,17 +1,14 @@
 # System Context Diagram
 
-Aliases: C4 level 1, sơ đồ ngữ cảnh hệ thống
+Aliases: C4 context diagram, sơ đồ context hệ thống
 
-System Context Diagram cho thấy hệ thống, người dùng và hệ thống bên ngoài liên quan.
+System Context Diagram cho thấy hệ thống, user và external system ở mức tổng quan.
 
 ## Gồm những gì
 
-- [[Container Diagram]]
-
-## Liên quan
-
-- [[C4 Model]]
+- [[Software System]]
+- [[External System]]
 
 ## Source trace
 
-- C4 Model level 1
+- C4 Model Map / Level 1

@@ -6,14 +6,21 @@ Design Patterns là nhóm pattern thiết kế hướng đối tượng cho các
 
 ## Gồm những gì
 
+- [[Design Pattern]]
 - [[Creational Pattern]]
 - [[Structural Pattern]]
 - [[Behavioral Pattern]]
 - [[Factory Method]]
 - [[Abstract Factory]]
 - [[Builder]]
+- [[Prototype]]
+- [[Singleton]]
 - [[Adapter]]
+- [[Bridge]]
+- [[Composite]]
+- [[Decorator]]
 - [[Facade]]
+- [[Proxy]]
 - [[Observer]]
 - [[State]]
 - [[Strategy]]
