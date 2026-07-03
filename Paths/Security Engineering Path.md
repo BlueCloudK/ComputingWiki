@@ -14,7 +14,7 @@ Path này giúp người đọc đi từ asset, identity, input boundary tới a
 
 - [[Security]] — bản đồ vùng lớn của security.
 - [[Threat Modeling]] — xác định asset, actor, trust boundary và abuse case.
-- Attack surface — phần hệ thống attacker có thể tương tác.
+- [[Attack Surface]] — phần hệ thống attacker có thể tương tác.
 - [[Least Privilege]] — giảm quyền để failure ít lan rộng.
 - [[Audit Log]] — ghi dấu hành động nhạy cảm để điều tra.
 

@@ -48,7 +48,7 @@ Path này giúp người đọc thiết kế API rõ contract, dễ dùng, dễ 
 ## 5. Evolution và integration
 
 - [[API Versioning]] — thay đổi API mà không phá client cũ.
-- Backward compatibility — giữ behavior cũ đủ để client không vỡ.
+- [[Backward Compatibility]] — giữ behavior cũ đủ để client không vỡ.
 - [[Webhook]] — server gọi ngược client khi có event.
 - [[Webhook Signature]] — xác minh webhook thật từ provider.
 - [[Idempotency]] — retry an toàn với operation nhạy cảm.

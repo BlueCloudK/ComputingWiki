@@ -14,6 +14,7 @@
 - [[Programming Languages]]
 - [[Web Development]]
 - [[Backend Engineering]]
+- [[Application Engineering]]
 - [[Compiler and Interpreter]]
 - [[Computer Organization]]
 - [[Operating System]]
