@@ -16,6 +16,7 @@ Khác với MOC, path không cố gom toàn bộ node trong một vùng. Path ch
 - [[Database Engineering Path]]
 - [[Database Internals Path]]
 - [[Cloud Infrastructure Path]]
+- [[Cloud DevOps Tooling Path]]
 - [[Linux Server Admin Path]]
 - [[AI Application Engineering Path]]
 

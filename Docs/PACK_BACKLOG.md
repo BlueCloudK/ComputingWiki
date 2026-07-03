@@ -93,6 +93,8 @@ Priority: High
 
 ## Cloud / DevOps Tooling Pack
 
+Status: Initial pack added.
+
 Purpose: expand cloud infrastructure, CI/CD, Kubernetes, IaC, and operational tooling.
 
 Example missing nodes:

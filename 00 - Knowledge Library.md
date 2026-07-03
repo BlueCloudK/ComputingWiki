@@ -43,6 +43,7 @@
 - [[Performance]]
 - [[Deployment and Operations]]
 - [[Cloud and Infrastructure]]
+- [[Cloud DevOps Tooling]]
 - [[Linux and Server Admin]]
 - [[Data Engineering]]
 - [[SRE and Reliability]]
