@@ -1,4 +1,4 @@
-﻿# Deferred Nodes
+# Deferred Nodes
 
 Các node này đã xuất hiện trong Maps/Report nhưng chưa tạo thành node chính vì chưa có source trace đủ rõ trong Maps hiện tại.
 
