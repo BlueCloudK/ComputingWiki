@@ -4,28 +4,35 @@ Aliases: data-intensive applications, hệ thống dữ liệu lớn
 
 Type: Data / Database
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Data Intensive Systems liên quan tới cách dữ liệu được mô hình hóa, lưu, truy vấn, giữ nhất quán và thay đổi theo thời gian. Trong dự án thật, data issue thường không chỉ là code bug mà là schema, relationship, transaction, migration hoặc query không được nghĩ kỹ. Nó nối với các phần liên quan như [[Data Intensive Application]], [[Reliability]], [[Scalability]] và nhóm quyết định quanh data intensive systems.
+Data Intensive Systems xuất hiện khi hệ thống cần lưu, truy vấn, migrate, kiểm soát consistency hoặc hiểu dữ liệu qua thời gian. Nó thường nằm trong database schema, data model, query path hoặc integration payload.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Data Intensive Systems là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Data Intensive Systems là một phần của cách dữ liệu được biểu diễn, ràng buộc, truy cập hoặc giữ đúng trong hệ thống.
 
-- Thiết kế schema/model hoặc thay đổi field/relationship
-- Dữ liệu sai, thiếu, trùng, inconsistent hoặc migrate khó
-- Query chậm, index thiếu hoặc transaction lock bất thường
-- Cần backup, audit trail, history hoặc rollback dữ liệu
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không chỉ là nơi cất data; nếu thiếu schema, constraint, transaction hoặc migration strategy thì code rất dễ phải vá dữ liệu sai.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi xoay quanh model/schema, relationship, constraint, transaction, index và migration. Những thứ này quyết định dữ liệu có nhất quán, truy vấn có nhanh và thay đổi có an toàn không.
+
+## Project Role / Vai trò trong dự án
+
+Data Intensive Systems là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
+
+## Output / Artifact nên có
 
 - Schema/model hoặc migration note rõ thay đổi dữ liệu
-- Constraint/index/transaction decision nếu có ảnh hưởng consistency/performance
+- Constraint/index/transaction decision nếu ảnh hưởng consistency/performance
 - Checklist backup, audit hoặc data validation cho dữ liệu quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Schema có biểu diễn đúng relationship và cardinality không?
 - Migration có plan rollback/backfill và kiểm tra dữ liệu sau chạy không?
@@ -33,7 +40,7 @@ Data Intensive Systems là MOC để đi từ vùng kiến thức lớn xuống 
 - Query chính có index và baseline performance chưa?
 - Dữ liệu quan trọng có backup/history/audit đủ truy vết không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Schema sai làm code phải vá vòng quanh
 - Migration mất dữ liệu hoặc gây downtime
@@ -61,9 +68,16 @@ Data Intensive Systems là MOC để đi từ vùng kiến thức lớn xuống 
 - [[Batch Processing]]
 - [[Stream Processing]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Database
+- Backend
+- Data migration
+- Observability
 
 ## Source trace
 

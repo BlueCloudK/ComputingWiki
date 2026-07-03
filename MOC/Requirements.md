@@ -4,36 +4,43 @@ Aliases: software requirements, requirements engineering, yêu cầu phần mề
 
 Type: Requirement / Planning
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Requirements là phần làm rõ nhu cầu, phạm vi hoặc tiêu chí chấp nhận trước khi team thiết kế và code. Điểm quan trọng là nó phải đủ đo được: biết ai cần gì, điều kiện nào được xem là đạt, và trace được từ stakeholder sang design/test. Nếu phần này mơ hồ, downstream sẽ sinh tranh luận ở lúc review hoặc QA. Nó nối với các phần liên quan như [[Requirement]], [[Use Case]], [[User Story]].
+Requirements xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Requirements là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Requirements là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
 
-- Stakeholder dùng từ mơ hồ như nhanh, ổn định, dễ dùng, bảo mật hoặc linh hoạt
-- Developer và tester hiểu khác nhau về hành vi cần giao
-- Acceptance criteria chưa đo được hoặc chưa có điều kiện pass/fail
-- Một thay đổi scope kéo theo design/test nhưng chưa được trace
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
 
-- Acceptance criteria hoặc decision note rõ điều kiện pass/fail
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+
+## Project Role / Vai trò trong dự án
+
+Requirements là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
+
+## Output / Artifact nên có
+
+- Acceptance criteria hoặc decision note có điều kiện pass/fail
 - Trace từ requirement sang design, test và release scope
 - Danh sách assumption/open question cần stakeholder xác nhận
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Tiêu chí này có đo được bằng test, metric hoặc review không?
 - Ai là stakeholder/consumer chịu ảnh hưởng chính?
 - Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này có trace tới design và test case liên quan chưa?
+- Requirement này trace tới design và test case nào?
 - Nếu scope đổi, node nào phải cập nhật theo?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
 - Acceptance mơ hồ làm QA không kết luận được
@@ -42,8 +49,8 @@ Requirements là MOC để đi từ vùng kiến thức lớn xuống các node 
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa quá mạnh khi chỉ là prototype cá nhân hoặc spike ngắn
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement nặng nề
+- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
+- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
 
 ## Gồm những gì
 
@@ -54,9 +61,16 @@ Requirements là MOC để đi từ vùng kiến thức lớn xuống các node 
 - [[Traceability]]
 - [[Change Control]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Product planning
+- Documentation
+- Testing
+- Scope management
 
 ## Source trace
 

@@ -4,28 +4,35 @@ Aliases: integration testing, kiểm thử tích hợp
 
 Type: API / Integration
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Integration Testing nằm ở boundary nơi client, backend, service hoặc third-party phải hiểu nhau bằng contract. Vấn đề chính không chỉ là gọi được, mà là request/response, validation, error format và compatibility có ổn định không. Nó nối với các phần liên quan như [[Integration Test]], [[API Contract]] và nhóm quyết định quanh integration testing.
+Integration Testing xuất hiện ở boundary giữa client, backend, service nội bộ hoặc third-party. Nó thường liên quan tới endpoint, request/response, validation, auth boundary, timeout và error format.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Integration Testing quyết định cách các phần của hệ thống tích hợp, đổi version và debug lỗi mismatch. Trong dự án, nó giúp chốt contract trước khi nhiều team/client phụ thuộc vào nhau.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Integration Testing là phần làm rõ hai bên tích hợp phải gửi gì, nhận gì, xử lý lỗi ra sao và giữ compatibility thế nào khi một bên thay đổi.
 
-- Thiết kế hoặc thay đổi request/response giữa client và server
-- Client/server hiểu khác field, status code hoặc error format
-- Cần giữ backward compatibility cho consumer cũ
-- Tích hợp third-party, webhook, REST/RPC hoặc service nội bộ
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không chỉ là URL hoặc function call; nếu thiếu contract, error format và validation thì integration vẫn mỏng dù gọi được.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là contract: request schema, response schema, status/error format, validation rule và versioning. Contract càng rõ thì client/server càng ít mismatch và dễ test độc lập.
+
+## Project Role / Vai trò trong dự án
+
+Integration Testing ảnh hưởng tới API design, frontend/backend handoff, integration test, backward compatibility và debug lỗi giữa service.
+
+## Output / Artifact nên có
 
 - API contract hoặc integration decision ghi rõ request/response/error
 - Validation rule và compatibility/versioning note
-- Test contract hoặc integration test cho path quan trọng
+- Contract test hoặc integration test cho path quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Request/response có schema và required/optional field rõ chưa?
 - Error format có thống nhất và đủ debug không?
@@ -33,7 +40,7 @@ Integration Testing quyết định cách các phần của hệ thống tích h
 - Change này có breaking với consumer hiện tại không?
 - Có test cho mismatch dữ liệu, auth và timeout không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Client/server mismatch làm lỗi chỉ xuất hiện khi tích hợp
 - Error format không chuẩn khiến frontend và log khó debug
@@ -50,9 +57,16 @@ Integration Testing quyết định cách các phần của hệ thống tích h
 - [[Integration Test]]
 - [[API Contract]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Backend
+- Frontend
+- Third-party integration
+- Contract testing
 
 ## Source trace
 

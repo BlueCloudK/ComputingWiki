@@ -4,28 +4,35 @@ Aliases: post-incident review, báo cáo sau sự cố
 
 Type: Reliability / SRE
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Postmortem tập trung vào việc service tiếp tục đáp ứng kỳ vọng qua thời gian, kể cả khi có lỗi, tải tăng hoặc deploy thay đổi. Nó gắn reliability với SLO, error budget, monitoring, incident response và postmortem. Nó nối với các phần liên quan như [[Incident]], [[Incident Response]].
+Postmortem xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Postmortem giúp team quyết định khi nào ưu tiên feature, khi nào dừng để giảm risk vận hành. Trong dự án, nó biến 'ổn định' thành tín hiệu đo được và quy trình phản ứng khi service degrade.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Postmortem là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
 
-- Service có user thật và downtime/error gây ảnh hưởng
-- Cần đặt SLO, alert hoặc error budget
-- Incident lặp lại nhưng chưa có postmortem/action item
-- Toil vận hành thủ công tăng theo traffic
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
+
+## Project Role / Vai trò trong dự án
+
+Postmortem ảnh hưởng tới quyết định release, ưu tiên technical debt, incident response và automation giảm toil.
+
+## Output / Artifact nên có
 
 - SLO/SLI hoặc reliability metric được owner chấp nhận
 - Alert rule, runbook và incident response checklist
 - Postmortem/action item sau incident quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - User-visible reliability được đo bằng metric nào?
 - Alert có actionable hay chỉ tạo noise?
@@ -33,7 +40,7 @@ Postmortem giúp team quyết định khi nào ưu tiên feature, khi nào dừn
 - Runbook có giúp người trực xử lý trong incident không?
 - Postmortem có action item giảm recurrence không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Alert fatigue làm team bỏ qua tín hiệu thật
 - SLO đặt sai nên tối ưu không khớp user impact
@@ -50,9 +57,16 @@ Postmortem giúp team quyết định khi nào ưu tiên feature, khi nào dừn
 - [[Incident]]
 - [[Incident Response]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Production reliability
+- Incident management
+- Monitoring
+- Release governance
 
 ## Source trace
 

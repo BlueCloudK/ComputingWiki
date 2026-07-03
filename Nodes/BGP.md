@@ -4,28 +4,35 @@ Aliases: Border Gateway Protocol, giao thức BGP
 
 Type: Protocol / Data Format
 
-## Bản chất
+## Context / Ngữ cảnh
 
-BGP là quy ước để hệ thống encode, parse, truyền hoặc hiểu dữ liệu/giao tiếp. Vấn đề chính là compatibility: producer và consumer phải thống nhất schema, version, error và behavior khi dữ liệu lệch. Nó nối với các phần liên quan như [[Routing Algorithm]].
+BGP xuất hiện khi hệ thống cần encode, parse, truyền hoặc hiểu dữ liệu/giao tiếp giữa producer và consumer.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-BGP ảnh hưởng tới API payload, message, config, log, network call hoặc storage format. Trong dự án, nó giúp tránh lỗi serialize/parse, client-server mismatch và breaking change giữa service.
+### Nó là gì
 
-## Khi nào cần quan tâm
+BGP là quy ước compatibility: field/type/version/error behavior phải được hai bên hiểu giống nhau.
 
-- Thiết kế payload, message, config, log hoặc protocol call
-- Consumer cũ cần đọc dữ liệu producer mới
-- Parse/serialize lỗi hoặc dữ liệu mất kiểu
-- Cần versioning/schema để nhiều service cùng hiểu
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không chỉ là syntax hoặc format file; nếu thiếu schema/versioning/error handling thì integration vẫn dễ vỡ.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là serialization/parsing + schema/contract + compatibility. Producer tạo dữ liệu, consumer parse và xử lý; lỗi xuất hiện khi hai bên hiểu khác nhau.
+
+## Project Role / Vai trò trong dự án
+
+BGP ảnh hưởng tới API payload, message, config, log, network call hoặc storage format.
+
+## Output / Artifact nên có
 
 - Schema/contract hoặc format decision ghi rõ field, type và version
 - Parser/serializer validation rule và error handling
 - Compatibility test cho consumer/producer quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Producer và consumer có hiểu cùng schema/type không?
 - Versioning/backward compatibility được xử lý thế nào?
@@ -33,7 +40,7 @@ BGP ảnh hưởng tới API payload, message, config, log, network call hoặc 
 - Date/time/number/binary encoding có rủi ro mất dữ liệu không?
 - Payload size hoặc protocol behavior có ảnh hưởng performance không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Client/server hiểu khác type hoặc optional field
 - Breaking schema làm consumer cũ lỗi
@@ -49,9 +56,16 @@ BGP ảnh hưởng tới API payload, message, config, log, network call hoặc 
 
 - Chưa tách nhánh
 
-## Liên quan
+## Nối mạnh
 
-- [[Routing Algorithm]]
+- [[Routing Algorithm]] vì node này thường được kiểm tra cùng khi ra quyết định
+
+## Liên quan rộng
+
+- Interoperability
+- Network communication
+- Data exchange
+- Backward compatibility
 
 ## Source trace
 

@@ -2,48 +2,55 @@
 
 Aliases: operations, SRE, production, deploy và vận hành
 
-Type: Deployment / Operations
+Type: Reliability / SRE
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Deployment and Operations là vùng biến code thành service chạy được, quan sát được và phục hồi được trong môi trường thật. Nó bao gồm environment, config, health check, logging, monitoring, rollback và troubleshooting.
+Deployment and Operations xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Deployment and Operations là MOC để tìm các node phục vụ release, cấu hình môi trường, vận hành và xử lý sự cố. Khi chuẩn bị đưa hệ thống lên staging/production, dùng trang này để kiểm tra thứ gì cần có trước khi deploy.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Deployment and Operations là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
 
-- Chuẩn bị deploy staging/production hoặc đổi config
-- Service cần health check, log và dashboard để vận hành
-- Release có rủi ro cần rollback
-- Incident cần troubleshooting theo environment cụ thể
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
 
-- Deployment/runbook hoặc config checklist theo environment
-- Health check, logging và monitoring signal tối thiểu
-- Rollback plan và troubleshooting note cho lỗi thường gặp
+## Core Mechanism / Cơ chế lõi
 
-## Checklist kiểm tra
+Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
 
-- Environment/config khác nhau đã được ghi rõ chưa?
-- Health check có phản ánh service thật sự usable không?
-- Log có đủ context để debug nhưng không lộ secret không?
-- Rollback có được thử hoặc ít nhất mô tả rõ không?
-- Incident path có owner và bước troubleshooting không?
+## Project Role / Vai trò trong dự án
 
-## Lỗi / rủi ro thường gặp
+Deployment and Operations là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
 
-- Config lệch giữa môi trường gây lỗi chỉ xuất hiện ở production
-- Health check xanh nhưng chức năng chính hỏng
-- Không có rollback nên release lỗi kéo dài
-- Log thiếu context hoặc quá ồn làm incident khó xử lý
+## Output / Artifact nên có
+
+- SLO/SLI hoặc reliability metric được owner chấp nhận
+- Alert rule, runbook và incident response checklist
+- Postmortem/action item sau incident quan trọng
+
+## Decision Checklist / Câu hỏi kiểm tra
+
+- User-visible reliability được đo bằng metric nào?
+- Alert có actionable hay chỉ tạo noise?
+- Error budget có ảnh hưởng quyết định release không?
+- Runbook có giúp người trực xử lý trong incident không?
+- Postmortem có action item giảm recurrence không?
+
+## Failure Modes / Cách nó gây lỗi
+
+- Alert fatigue làm team bỏ qua tín hiệu thật
+- SLO đặt sai nên tối ưu không khớp user impact
+- Incident không có learning nên lỗi lặp lại
+- Automation thiếu kiểm soát gây blast radius lớn
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần pipeline/runbook phức tạp cho app thử nghiệm chưa deploy
-- Dễ over-engineer nếu tạo quá nhiều môi trường/tool khi team chưa vận hành nổi
+- Chưa cần SRE process nặng cho service chưa có user thật
+- Dễ over-engineer nếu đặt quá nhiều SLO/alert trước khi biết user journey quan trọng
 
 ## Gồm những gì
 
@@ -55,9 +62,16 @@ Deployment and Operations là MOC để tìm các node phục vụ release, cấ
 - [[Rollback]]
 - [[Backup]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Production reliability
+- Incident management
+- Monitoring
+- Release governance
 
 ## Source trace
 

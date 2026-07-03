@@ -2,56 +2,70 @@
 
 Aliases: entity relationship diagram, sơ đồ thực thể quan hệ
 
-Type: Artifact / Diagram
+Type: Protocol / Data Format
 
-## Bản chất
+## Context / Ngữ cảnh
 
-ERD là artifact dùng để nhìn thấy cấu trúc, luồng hoặc quan hệ mà đọc code/tài liệu chữ khó thấy. Giá trị của nó nằm ở việc làm rõ boundary, actor, component, data flow hoặc state chứ không phải vẽ cho đẹp. Nó nối với các phần liên quan như [[Database Schema]].
+ERD xuất hiện khi hệ thống cần encode, parse, truyền hoặc hiểu dữ liệu/giao tiếp giữa producer và consumer.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-ERD giúp team thống nhất hình dung trước khi sửa architecture, API, database hoặc workflow. Nó là output để review quyết định, phát hiện dependency ẩn và onboarding người mới nhanh hơn.
+### Nó là gì
 
-## Khi nào cần quan tâm
+ERD là quy ước compatibility: field/type/version/error behavior phải được hai bên hiểu giống nhau.
 
-- Team giải thích hệ thống bằng lời nhưng mỗi người hiểu một kiểu
-- Một thay đổi chạm nhiều component, service, table hoặc actor
-- Cần review boundary, data flow, state transition hoặc dependency
-- Người mới cần hiểu hệ thống mà đọc code quá lâu
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không chỉ là syntax hoặc format file; nếu thiếu schema/versioning/error handling thì integration vẫn dễ vỡ.
 
-- Diagram hoặc artifact có tên version/date và phạm vi rõ
-- Legend hoặc note ngắn giải thích ký hiệu quan trọng
-- Decision/link tới node liên quan nếu diagram dẫn đến thay đổi thiết kế
+## Core Mechanism / Cơ chế lõi
 
-## Checklist kiểm tra
+Cơ chế lõi là serialization/parsing + schema/contract + compatibility. Producer tạo dữ liệu, consumer parse và xử lý; lỗi xuất hiện khi hai bên hiểu khác nhau.
 
-- Diagram có nói rõ scope và mức abstraction không?
-- Các node/edge quan trọng có khớp hệ thống thật không?
-- Có bỏ sót external system, actor, database hoặc failure path không?
-- Diagram có còn đúng sau thay đổi gần nhất không?
-- Người đọc có biết dùng diagram này để ra quyết định gì không?
+## Project Role / Vai trò trong dự án
 
-## Lỗi / rủi ro thường gặp
+ERD ảnh hưởng tới API payload, message, config, log, network call hoặc storage format.
 
-- Diagram đẹp nhưng không khớp production/code thật
-- Quá nhiều chi tiết làm mất insight chính
-- Thiếu boundary làm người đọc hiểu sai trách nhiệm
-- Không version nên dùng nhầm diagram cũ
+## Output / Artifact nên có
+
+- Schema/contract hoặc format decision ghi rõ field, type và version
+- Parser/serializer validation rule và error handling
+- Compatibility test cho consumer/producer quan trọng
+
+## Decision Checklist / Câu hỏi kiểm tra
+
+- Producer và consumer có hiểu cùng schema/type không?
+- Versioning/backward compatibility được xử lý thế nào?
+- Parse error, missing field và extra field trả lỗi ra sao?
+- Date/time/number/binary encoding có rủi ro mất dữ liệu không?
+- Payload size hoặc protocol behavior có ảnh hưởng performance không?
+
+## Failure Modes / Cách nó gây lỗi
+
+- Client/server hiểu khác type hoặc optional field
+- Breaking schema làm consumer cũ lỗi
+- Date/time/number precision bị serialize sai
+- Payload lớn hoặc parsing đắt làm API/log chậm
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần vẽ riêng nếu thay đổi nhỏ và code đã đủ rõ
-- Dễ over-engineer khi vẽ nhiều view nhưng không view nào phục vụ decision cụ thể
+- Chưa cần schema/versioning phức tạp khi dữ liệu nội bộ nhỏ và consumer ít
+- Dễ over-engineer nếu chọn format/protocol nặng hơn nhu cầu tích hợp thật
 
 ## Gồm những gì
 
 - [[Database Schema]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Interoperability
+- Network communication
+- Data exchange
+- Backward compatibility
 
 ## Source trace
 

@@ -4,28 +4,35 @@ Aliases: site reliability engineering, reliability engineering, SRE và độ ti
 
 Type: Reliability / SRE
 
-## Bản chất
+## Context / Ngữ cảnh
 
-SRE and Reliability tập trung vào việc service tiếp tục đáp ứng kỳ vọng qua thời gian, kể cả khi có lỗi, tải tăng hoặc deploy thay đổi. Nó gắn reliability với SLO, error budget, monitoring, incident response và postmortem. Nó nối với các phần liên quan như [[Site Reliability Engineering]], [[Reliability]], [[Risk]] và nhóm quyết định quanh sre and reliability.
+SRE and Reliability xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-SRE and Reliability là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
+### Nó là gì
 
-## Khi nào cần quan tâm
+SRE and Reliability là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
 
-- Service có user thật và downtime/error gây ảnh hưởng
-- Cần đặt SLO, alert hoặc error budget
-- Incident lặp lại nhưng chưa có postmortem/action item
-- Toil vận hành thủ công tăng theo traffic
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
+
+## Project Role / Vai trò trong dự án
+
+SRE and Reliability là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
+
+## Output / Artifact nên có
 
 - SLO/SLI hoặc reliability metric được owner chấp nhận
 - Alert rule, runbook và incident response checklist
 - Postmortem/action item sau incident quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - User-visible reliability được đo bằng metric nào?
 - Alert có actionable hay chỉ tạo noise?
@@ -33,7 +40,7 @@ SRE and Reliability là MOC để đi từ vùng kiến thức lớn xuống cá
 - Runbook có giúp người trực xử lý trong incident không?
 - Postmortem có action item giảm recurrence không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Alert fatigue làm team bỏ qua tín hiệu thật
 - SLO đặt sai nên tối ưu không khớp user impact
@@ -63,9 +70,16 @@ SRE and Reliability là MOC để đi từ vùng kiến thức lớn xuống cá
 - [[Capacity Planning]]
 - [[Overload Handling]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Production reliability
+- Incident management
+- Monitoring
+- Release governance
 
 ## Source trace
 

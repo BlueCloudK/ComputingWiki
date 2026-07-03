@@ -4,28 +4,35 @@ Aliases: env var, biến môi trường
 
 Type: Deployment / Operations
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Environment Variable nằm ở phần đưa hệ thống chạy đúng môi trường và giữ nó quan sát được. Nó liên quan tới environment, config, release, health check, log, rollback và troubleshooting khi có lỗi thật. Nó nối với các phần liên quan như [[Secret]], [[Deployment]] và nhóm quyết định quanh environment variable.
+Environment Variable xuất hiện khi code cần chạy ổn định trong staging/production với environment, config, health check, log và rollback rõ ràng.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Environment Variable giúp biến code thành service có thể deploy, monitor và phục hồi. Trong dự án, nó giảm rủi ro 'chạy máy tôi được' nhưng fail ở staging/production.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Environment Variable là phần biến code thành service vận hành được và troubleshoot được.
 
-- Chuẩn bị deploy staging/production hoặc đổi config
-- Service cần health check, log và dashboard để vận hành
-- Release có rủi ro cần rollback
-- Incident cần troubleshooting theo environment cụ thể
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không chỉ là lệnh deploy; nếu thiếu monitoring, rollback và config discipline thì release vẫn rủi ro cao.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là kiểm soát môi trường chạy: config, dependency, health signal, log/metric, release step và rollback path.
+
+## Project Role / Vai trò trong dự án
+
+Environment Variable ảnh hưởng tới release safety, incident response, troubleshooting và khả năng phục hồi khi deploy lỗi.
+
+## Output / Artifact nên có
 
 - Deployment/runbook hoặc config checklist theo environment
 - Health check, logging và monitoring signal tối thiểu
 - Rollback plan và troubleshooting note cho lỗi thường gặp
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Environment/config khác nhau đã được ghi rõ chưa?
 - Health check có phản ánh service thật sự usable không?
@@ -33,7 +40,7 @@ Environment Variable giúp biến code thành service có thể deploy, monitor 
 - Rollback có được thử hoặc ít nhất mô tả rõ không?
 - Incident path có owner và bước troubleshooting không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Config lệch giữa môi trường gây lỗi chỉ xuất hiện ở production
 - Health check xanh nhưng chức năng chính hỏng
@@ -50,9 +57,16 @@ Environment Variable giúp biến code thành service có thể deploy, monitor 
 - [[Secret]]
 - [[Deployment]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- DevOps
+- Production operations
+- Release management
+- Troubleshooting
 
 ## Source trace
 

@@ -4,28 +4,35 @@ Aliases: API, integration, API và tích hợp
 
 Type: API / Integration
 
-## Bản chất
+## Context / Ngữ cảnh
 
-API and Integration là vùng boundary nơi frontend, backend, service nội bộ và third-party phải hiểu cùng contract. Trọng tâm là request/response, validation, error format, auth boundary và compatibility khi một bên thay đổi. MOC này gom các node giúp kiểm soát lỗi tích hợp trước khi chúng thành bug production.
+API and Integration xuất hiện ở boundary giữa client, backend, service nội bộ hoặc third-party. Nó thường liên quan tới endpoint, request/response, validation, auth boundary, timeout và error format.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-API and Integration là MOC để đi nhanh tới các node phục vụ thiết kế contract, kiểm tra mismatch và debug integration. Khi làm dự án, dùng trang này để xác định phải tạo contract gì, test gì và rule compatibility nào trước khi nhiều consumer phụ thuộc vào API.
+### Nó là gì
 
-## Khi nào cần quan tâm
+API and Integration là phần làm rõ hai bên tích hợp phải gửi gì, nhận gì, xử lý lỗi ra sao và giữ compatibility thế nào khi một bên thay đổi.
 
-- Thiết kế hoặc thay đổi request/response giữa client và server
-- Client/server hiểu khác field, status code hoặc error format
-- Cần giữ backward compatibility cho consumer cũ
-- Tích hợp third-party, webhook, REST/RPC hoặc service nội bộ
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không chỉ là URL hoặc function call; nếu thiếu contract, error format và validation thì integration vẫn mỏng dù gọi được.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là contract: request schema, response schema, status/error format, validation rule và versioning. Contract càng rõ thì client/server càng ít mismatch và dễ test độc lập.
+
+## Project Role / Vai trò trong dự án
+
+API and Integration là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
+
+## Output / Artifact nên có
 
 - API contract hoặc integration decision ghi rõ request/response/error
 - Validation rule và compatibility/versioning note
 - Contract test hoặc integration test cho path quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Request/response có schema và required/optional field rõ chưa?
 - Error format có thống nhất và đủ debug không?
@@ -33,7 +40,7 @@ API and Integration là MOC để đi nhanh tới các node phục vụ thiết 
 - Change này có breaking với consumer hiện tại không?
 - Có test cho mismatch dữ liệu, auth và timeout không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Client/server mismatch làm lỗi chỉ xuất hiện khi tích hợp
 - Error format không chuẩn khiến frontend và log khó debug
@@ -51,9 +58,16 @@ API and Integration là MOC để đi nhanh tới các node phục vụ thiết 
 - [[Validation]]
 - [[Error Handling]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Backend
+- Frontend
+- Third-party integration
+- Contract testing
 
 ## Source trace
 

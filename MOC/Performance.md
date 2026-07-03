@@ -2,48 +2,55 @@
 
 Aliases: scalability, performance, hiệu năng
 
-Type: Performance / Scalability
+Type: Reliability / SRE
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Performance là vùng đo tốc độ, throughput, resource usage và khả năng chịu tải của hệ thống. Nó chỉ có ý nghĩa khi gắn với metric, workload và threshold cụ thể; nếu không có số đo thì rất dễ tối ưu nhầm chỗ.
+Performance xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Performance là MOC để đi tới các node phục vụ benchmark, profiling, bottleneck analysis, load test và capacity decision. Khi dự án có triệu chứng chậm hoặc chuẩn bị tăng tải, dùng trang này để chọn metric và cách đo trước khi tối ưu.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Performance là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
 
-- Response time, throughput hoặc resource usage vượt ngưỡng
-- Traffic/data tăng nhanh hoặc chuẩn bị release lớn
-- Cần so sánh trước/sau một thay đổi tối ưu
-- Chi phí hạ tầng tăng nhưng bottleneck chưa rõ
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
 
-- Metric/baseline rõ p95 latency, throughput, error rate hoặc resource usage
-- Benchmark hoặc load test mô phỏng workload chính
-- Decision note về bottleneck, threshold và trade-off cost/complexity
+## Core Mechanism / Cơ chế lõi
 
-## Checklist kiểm tra
+Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
 
-- Metric nào chứng minh vấn đề performance thật?
-- Workload test có giống usage production không?
-- Bottleneck nằm ở CPU, memory, I/O, database, network hay lock?
-- Threshold pass/fail là bao nhiêu và ai chấp nhận?
-- Tối ưu này làm tăng cost/complexity ở đâu?
+## Project Role / Vai trò trong dự án
 
-## Lỗi / rủi ro thường gặp
+Performance là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
 
-- Benchmark không giống production nên kết luận sai
-- Tối ưu sớm làm code phức tạp mà chưa giải bottleneck thật
-- Cache/index/scale làm tăng cost hoặc inconsistency
-- Không đo baseline nên không biết thay đổi có hiệu quả không
+## Output / Artifact nên có
+
+- SLO/SLI hoặc reliability metric được owner chấp nhận
+- Alert rule, runbook và incident response checklist
+- Postmortem/action item sau incident quan trọng
+
+## Decision Checklist / Câu hỏi kiểm tra
+
+- User-visible reliability được đo bằng metric nào?
+- Alert có actionable hay chỉ tạo noise?
+- Error budget có ảnh hưởng quyết định release không?
+- Runbook có giúp người trực xử lý trong incident không?
+- Postmortem có action item giảm recurrence không?
+
+## Failure Modes / Cách nó gây lỗi
+
+- Alert fatigue làm team bỏ qua tín hiệu thật
+- SLO đặt sai nên tối ưu không khớp user impact
+- Incident không có learning nên lỗi lặp lại
+- Automation thiếu kiểm soát gây blast radius lớn
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tối ưu sâu khi chưa có metric hoặc user impact
-- Dễ over-engineer nếu scale architecture trước khi workload chứng minh cần
+- Chưa cần SRE process nặng cho service chưa có user thật
+- Dễ over-engineer nếu đặt quá nhiều SLO/alert trước khi biết user journey quan trọng
 
 ## Gồm những gì
 
@@ -54,9 +61,16 @@ Performance là MOC để đi tới các node phục vụ benchmark, profiling, 
 - [[Queue]]
 - [[Load Test]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Production reliability
+- Incident management
+- Monitoring
+- Release governance
 
 ## Source trace
 

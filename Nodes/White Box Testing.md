@@ -4,28 +4,35 @@ Aliases: white-box testing, kiểm thử hộp trắng
 
 Type: Testing / Verification
 
-## Bản chất
+## Context / Ngữ cảnh
 
-White Box Testing là cách kiểm tra một loại rủi ro cụ thể trong phần mềm: logic sai, tích hợp vỡ, regression, dữ liệu test lệch hoặc behavior không khớp expectation. Nó phải nói rõ bắt lỗi gì và ở test level nào. Nó nối với các phần liên quan như [[Test Coverage]], [[Unit Test]] và nhóm quyết định quanh white box testing.
+White Box Testing xuất hiện khi cần chứng minh một behavior, artifact hoặc thay đổi kỹ thuật đúng như mong đợi. Nó nằm trong test level, CI, regression, test data và review flow.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-White Box Testing giúp chọn test data, test level, CI gate và regression suite để giảm lỗi trước khi release. Trong dự án, nó gắn code change với bằng chứng kiểm tra thay vì chỉ dựa vào cảm giác.
+### Nó là gì
 
-## Khi nào cần quan tâm
+White Box Testing là cơ chế kiểm tra một loại rủi ro cụ thể: logic sai, tích hợp vỡ, regression, dữ liệu test lệch hoặc behavior không khớp expectation.
 
-- Chuẩn bị merge/release thay đổi có rủi ro
-- Bug cũ quay lại hoặc behavior mới chưa chắc đúng
-- Cần test data đại diện edge case và failure case
-- CI báo flaky/false positive hoặc test bỏ sót lỗi thật
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải bằng chứng tuyệt đối rằng hệ thống đúng; test luôn có phạm vi, false positive/false negative và blind spot.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là chọn test level phù hợp, chuẩn bị test data đại diện, xác định expected result và đưa check vào CI/regression khi rủi ro lặp lại.
+
+## Project Role / Vai trò trong dự án
+
+White Box Testing gắn code change với bằng chứng kiểm tra, giúp team quyết định merge/release dựa trên tín hiệu thay vì cảm giác.
+
+## Output / Artifact nên có
 
 - Test case hoặc checklist rõ input, expected result và level test
 - Test data cho happy path, edge case và failure case
 - CI/regression rule cho luồng quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Test này bắt loại lỗi nào và không bắt loại lỗi nào?
 - Nó thuộc unit, integration, system hay acceptance level?
@@ -33,7 +40,7 @@ White Box Testing giúp chọn test data, test level, CI gate và regression sui
 - False positive/false negative có dễ xảy ra không?
 - Có chạy trong CI/regression suite đúng thời điểm không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Test chỉ cover happy path nên production vẫn lỗi edge case
 - Mock quá sâu làm test pass nhưng integration fail
@@ -50,9 +57,16 @@ White Box Testing giúp chọn test data, test level, CI gate và regression sui
 - [[Test Coverage]]
 - [[Unit Test]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Quality assurance
+- CI/CD
+- Regression safety
+- Release confidence
 
 ## Source trace
 

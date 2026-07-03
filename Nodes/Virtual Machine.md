@@ -4,28 +4,35 @@ Aliases: VM, máy ảo
 
 Type: Tooling / Implementation Detail
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Virtual Machine là chi tiết triển khai hoặc tầng runtime ảnh hưởng tới cách code chạy trong môi trường thật. Nó thường nằm dưới lớp feature, nhưng khi lỗi xảy ra thì có thể quyết định performance, concurrency, memory, file hoặc platform behavior. Nó nối với các phần liên quan như [[Virtualization]] và nhóm quyết định quanh virtual machine.
+Virtual Machine xuất hiện ở tầng implementation hoặc runtime: OS, process, memory, file, environment, tool hoặc platform behavior.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Virtual Machine giúp debug và ra quyết định ở tầng implementation: config, runtime, OS, memory, thread, file, tool hoặc framework boundary. Trong dự án, nó nên được quan tâm khi triệu chứng đã chạm tới tầng chạy thật.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Virtual Machine là chi tiết có thể ảnh hưởng trực tiếp tới cách code chạy trong môi trường thật.
 
-- Bug chỉ xảy ra ở một environment hoặc runtime cụ thể
-- Có lỗi memory, file, process, thread hoặc config
-- Performance/debug cần nhìn dưới tầng business logic
-- Tool/framework behavior khác giả định của team
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải abstraction business; nếu dùng sai tầng, team có thể debug nhầm symptom thay vì nguyên nhân.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là behavior của runtime/tool/platform: version, config, resource, scheduling, filesystem hoặc dependency quyết định kết quả thực thi.
+
+## Project Role / Vai trò trong dự án
+
+Virtual Machine giúp debug lỗi environment-specific, performance thấp tầng, concurrency, file/memory hoặc config lệch.
+
+## Output / Artifact nên có
 
 - Troubleshooting note hoặc checklist tái hiện lỗi
 - Config/runtime decision nếu ảnh hưởng deploy
 - Test hoặc script kiểm tra behavior quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Triệu chứng có phụ thuộc environment/runtime không?
 - Config/tool/version nào đang ảnh hưởng behavior?
@@ -33,7 +40,7 @@ Virtual Machine giúp debug và ra quyết định ở tầng implementation: co
 - Thay đổi implementation này có ảnh hưởng portability không?
 - Có cách kiểm tra tự động để tránh regression không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Fix symptom ở tầng tool nhưng bỏ sót nguyên nhân hệ thống
 - Phụ thuộc behavior riêng của environment
@@ -49,9 +56,16 @@ Virtual Machine giúp debug và ra quyết định ở tầng implementation: co
 
 - Chưa tách nhánh
 
-## Liên quan
+## Nối mạnh
 
-- [[Virtualization]]
+- [[Virtualization]] vì node này thường được kiểm tra cùng khi ra quyết định
+
+## Liên quan rộng
+
+- Runtime behavior
+- Developer tooling
+- Operating system
+- Troubleshooting
 
 ## Source trace
 

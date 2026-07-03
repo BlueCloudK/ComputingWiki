@@ -4,28 +4,35 @@ Aliases: software testing, testing, kiểm thử và kiểm chứng
 
 Type: Testing / Verification
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Testing and Verification là cách kiểm tra một loại rủi ro cụ thể trong phần mềm: logic sai, tích hợp vỡ, regression, dữ liệu test lệch hoặc behavior không khớp expectation. Nó phải nói rõ bắt lỗi gì và ở test level nào. Nó nối với các phần liên quan như [[Why Testing Is Necessary]], [[What Is Testing]], [[Test Process]] và nhóm quyết định quanh testing and verification.
+Testing and Verification xuất hiện khi cần chứng minh một behavior, artifact hoặc thay đổi kỹ thuật đúng như mong đợi. Nó nằm trong test level, CI, regression, test data và review flow.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Testing and Verification là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Testing and Verification là cơ chế kiểm tra một loại rủi ro cụ thể: logic sai, tích hợp vỡ, regression, dữ liệu test lệch hoặc behavior không khớp expectation.
 
-- Chuẩn bị merge/release thay đổi có rủi ro
-- Bug cũ quay lại hoặc behavior mới chưa chắc đúng
-- Cần test data đại diện edge case và failure case
-- CI báo flaky/false positive hoặc test bỏ sót lỗi thật
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải bằng chứng tuyệt đối rằng hệ thống đúng; test luôn có phạm vi, false positive/false negative và blind spot.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là chọn test level phù hợp, chuẩn bị test data đại diện, xác định expected result và đưa check vào CI/regression khi rủi ro lặp lại.
+
+## Project Role / Vai trò trong dự án
+
+Testing and Verification là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
+
+## Output / Artifact nên có
 
 - Test case hoặc checklist rõ input, expected result và level test
 - Test data cho happy path, edge case và failure case
 - CI/regression rule cho luồng quan trọng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Test này bắt loại lỗi nào và không bắt loại lỗi nào?
 - Nó thuộc unit, integration, system hay acceptance level?
@@ -33,7 +40,7 @@ Testing and Verification là MOC để đi từ vùng kiến thức lớn xuốn
 - False positive/false negative có dễ xảy ra không?
 - Có chạy trong CI/regression suite đúng thời điểm không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Test chỉ cover happy path nên production vẫn lỗi edge case
 - Mock quá sâu làm test pass nhưng integration fail
@@ -62,9 +69,16 @@ Testing and Verification là MOC để đi từ vùng kiến thức lớn xuốn
 - [[Verification]]
 - [[Validation]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Quality assurance
+- CI/CD
+- Regression safety
+- Release confidence
 
 ## Source trace
 

@@ -4,41 +4,48 @@ Aliases: FSM, máy trạng thái hữu hạn
 
 Type: Artifact / Diagram
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Finite State Machine là artifact dùng để nhìn thấy cấu trúc, luồng hoặc quan hệ mà đọc code/tài liệu chữ khó thấy. Giá trị của nó nằm ở việc làm rõ boundary, actor, component, data flow hoặc state chứ không phải vẽ cho đẹp. Nó nối với các phần liên quan như [[State Machine]], [[State Dependent Interaction Modeling]] và nhóm quyết định quanh finite state machine.
+Finite State Machine xuất hiện khi cấu trúc, flow, state hoặc relationship cần được nhìn thấy thay vì chỉ đọc chữ/code. Nó thường hỗ trợ architecture review, requirement clarification hoặc onboarding.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Finite State Machine giúp team thống nhất hình dung trước khi sửa architecture, API, database hoặc workflow. Nó là output để review quyết định, phát hiện dependency ẩn và onboarding người mới nhanh hơn.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Finite State Machine là artifact biểu diễn một góc nhìn cụ thể của hệ thống để hỗ trợ quyết định.
 
-- Team giải thích hệ thống bằng lời nhưng mỗi người hiểu một kiểu
-- Một thay đổi chạm nhiều component, service, table hoặc actor
-- Cần review boundary, data flow, state transition hoặc dependency
-- Người mới cần hiểu hệ thống mà đọc code quá lâu
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải tranh minh họa cho đẹp; nếu không trả lời câu hỏi review nào thì artifact này dễ thành rác tài liệu.
 
-- Diagram hoặc artifact có tên version/date và phạm vi rõ
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là chọn đúng abstraction: bỏ bớt chi tiết không cần, giữ boundary/relationship/flow quan trọng, và gắn artifact với decision hoặc checklist.
+
+## Project Role / Vai trò trong dự án
+
+Finite State Machine giúp team review dependency, data flow, state transition, actor/system boundary hoặc deployment shape trước khi implement lớn.
+
+## Output / Artifact nên có
+
+- Diagram hoặc artifact có scope, version/date và owner rõ
 - Legend hoặc note ngắn giải thích ký hiệu quan trọng
 - Decision/link tới node liên quan nếu diagram dẫn đến thay đổi thiết kế
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
-- Diagram có nói rõ scope và mức abstraction không?
+- Artifact có nói rõ scope và mức abstraction không?
 - Các node/edge quan trọng có khớp hệ thống thật không?
-- Có bỏ sót external system, actor, database hoặc failure path không?
-- Diagram có còn đúng sau thay đổi gần nhất không?
-- Người đọc có biết dùng diagram này để ra quyết định gì không?
+- Có bỏ sót actor, external system, database hoặc failure path không?
+- Artifact có còn đúng sau thay đổi gần nhất không?
+- Người đọc có biết dùng artifact này để ra quyết định gì không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Diagram đẹp nhưng không khớp production/code thật
 - Quá nhiều chi tiết làm mất insight chính
 - Thiếu boundary làm người đọc hiểu sai trách nhiệm
-- Không version nên dùng nhầm diagram cũ
+- Không version nên dùng nhầm artifact cũ
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
@@ -50,9 +57,16 @@ Finite State Machine giúp team thống nhất hình dung trước khi sửa arc
 - [[State Machine]]
 - [[State Dependent Interaction Modeling]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Documentation
+- Architecture review
+- Onboarding
+- System communication
 
 ## Source trace
 

@@ -4,28 +4,35 @@ Aliases: web presentation pattern, mẫu presentation web
 
 Type: Code Design / Pattern
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Web Presentation Pattern là cách tổ chức responsibility, dependency hoặc variation trong code. Nó chỉ có giá trị khi làm code dễ đổi, dễ test hoặc giảm coupling; nếu dùng vì tên pattern nghe hay thì thường làm code khó đọc hơn. Nó nối với các phần liên quan như [[Model View Controller]], [[Page Controller]], [[Front Controller]] và nhóm quyết định quanh web presentation pattern.
+Web Presentation Pattern xuất hiện trong codebase khi team phải chia trách nhiệm, dependency, interface hoặc biến thể behavior. Nó nằm gần refactor, testability và maintainability.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Web Presentation Pattern ảnh hưởng tới module boundary, interface, testability và nơi đặt business logic. Trong dự án, nó giúp xử lý code đang phình, trùng logic hoặc phụ thuộc chéo giữa layer/object.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Web Presentation Pattern là cách tổ chức code để một phần thay đổi không kéo theo quá nhiều phần khác.
 
-- Một class/module có quá nhiều trách nhiệm
-- Logic bị duplicate giữa nhiều handler/service
-- Dependency làm unit test khó viết hoặc mock quá nặng
-- Có nhiều biến thể behavior cần thay đổi độc lập
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải nhãn pattern để làm code trông chuyên nghiệp; nếu không giảm coupling, duplication hoặc volatility thì nó chỉ thêm indirection.
 
-- Design decision ngắn ghi pattern/responsibility được chọn
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai gọi ai, dependency đi hướng nào, interface nào được expose và behavior nào có thể thay thế.
+
+## Project Role / Vai trò trong dự án
+
+Web Presentation Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+
+## Output / Artifact nên có
+
+- Design decision ngắn ghi responsibility/pattern được chọn
 - Interface hoặc module boundary rõ input/output
-- Refactor checklist và test regression cho behavior cũ
+- Refactor checklist và regression test cho behavior cũ
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Pattern này giải quyết coupling/duplication cụ thể nào?
 - Responsibility mới nằm đúng layer chưa?
@@ -33,7 +40,7 @@ Web Presentation Pattern ảnh hưởng tới module boundary, interface, testab
 - Có làm tăng indirection quá mức không?
 - Regression test có giữ behavior cũ không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Áp pattern máy móc làm code nhiều lớp hơn nhưng không rõ hơn
 - Business rule bị giấu sai layer
@@ -51,9 +58,16 @@ Web Presentation Pattern ảnh hưởng tới module boundary, interface, testab
 - [[Page Controller]]
 - [[Front Controller]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Codebase
+- Refactoring
+- Unit testing
+- Maintainability
 
 ## Source trace
 

@@ -2,48 +2,55 @@
 
 Aliases: architecture, architectural design, kiến trúc phần mềm
 
-Type: Architecture / System Design
+Type: Artifact / Diagram
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Software Architecture là vùng quyết định boundary, component, dependency, data ownership và failure mode của hệ thống. Nó không chỉ là diagram; nó quyết định hệ thống scale, deploy, debug và maintain như thế nào khi dự án lớn dần.
+Software Architecture xuất hiện khi cấu trúc, flow, state hoặc relationship cần được nhìn thấy thay vì chỉ đọc chữ/code. Nó thường hỗ trợ architecture review, requirement clarification hoặc onboarding.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Software Architecture là MOC để đi tới các node phục vụ architecture decision, C4 diagram, quality attribute và trade-off. Khi một thay đổi ảnh hưởng nhiều phần, dùng trang này để kiểm tra boundary, dependency và rủi ro trước khi code.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Software Architecture là artifact biểu diễn một góc nhìn cụ thể của hệ thống để hỗ trợ quyết định.
 
-- Một thay đổi ảnh hưởng nhiều module/service/database
-- Team cần chốt boundary hoặc ownership
-- Có failure mode, scalability hoặc maintainability risk
-- Cần giải thích architecture cho review/onboarding
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải tranh minh họa cho đẹp; nếu không trả lời câu hỏi review nào thì artifact này dễ thành rác tài liệu.
 
-- Architecture decision record hoặc diagram có boundary rõ
-- Danh sách dependency, owner và failure mode chính
-- Trade-off note về scalability, maintainability, cost và complexity
+## Core Mechanism / Cơ chế lõi
 
-## Checklist kiểm tra
+Cơ chế lõi là chọn đúng abstraction: bỏ bớt chi tiết không cần, giữ boundary/relationship/flow quan trọng, và gắn artifact với decision hoặc checklist.
 
-- Boundary giữa component/service đã rõ chưa?
-- Dependency nào là bắt buộc, dependency nào có thể đảo chiều?
-- Failure của phần này lan sang phần nào?
-- Thiết kế này scale bằng cách nào và tốn cost gì?
-- Có cách đơn giản hơn đủ dùng cho giai đoạn hiện tại không?
+## Project Role / Vai trò trong dự án
 
-## Lỗi / rủi ro thường gặp
+Software Architecture là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
 
-- Boundary sai làm team ownership và data ownership rối
-- Coupling cao khiến một thay đổi kéo theo nhiều service
-- Không nghĩ failure mode nên incident khó khoanh vùng
-- Thiết kế quá lớn so với nhu cầu hiện tại
+## Output / Artifact nên có
+
+- Diagram hoặc artifact có scope, version/date và owner rõ
+- Legend hoặc note ngắn giải thích ký hiệu quan trọng
+- Decision/link tới node liên quan nếu diagram dẫn đến thay đổi thiết kế
+
+## Decision Checklist / Câu hỏi kiểm tra
+
+- Artifact có nói rõ scope và mức abstraction không?
+- Các node/edge quan trọng có khớp hệ thống thật không?
+- Có bỏ sót actor, external system, database hoặc failure path không?
+- Artifact có còn đúng sau thay đổi gần nhất không?
+- Người đọc có biết dùng artifact này để ra quyết định gì không?
+
+## Failure Modes / Cách nó gây lỗi
+
+- Diagram đẹp nhưng không khớp production/code thật
+- Quá nhiều chi tiết làm mất insight chính
+- Thiếu boundary làm người đọc hiểu sai trách nhiệm
+- Không version nên dùng nhầm artifact cũ
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách service/layer phức tạp khi một module đơn giản đủ kiểm soát
-- Dễ over-engineer nếu tối ưu scalability chưa có traffic hoặc team vận hành tương ứng
+- Chưa cần vẽ riêng nếu thay đổi nhỏ và code đã đủ rõ
+- Dễ over-engineer khi vẽ nhiều view nhưng không view nào phục vụ decision cụ thể
 
 ## Gồm những gì
 
@@ -59,9 +66,16 @@ Software Architecture là MOC để đi tới các node phục vụ architecture
 - [[C4 Model]]
 - [[Architecture Diagram]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Documentation
+- Architecture review
+- Onboarding
+- System communication
 
 ## Source trace
 

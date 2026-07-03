@@ -2,56 +2,70 @@
 
 Aliases: deployment diagram, sơ đồ triển khai
 
-Type: Artifact / Diagram
+Type: Deployment / Operations
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Deployment Diagram là artifact dùng để nhìn thấy cấu trúc, luồng hoặc quan hệ mà đọc code/tài liệu chữ khó thấy. Giá trị của nó nằm ở việc làm rõ boundary, actor, component, data flow hoặc state chứ không phải vẽ cho đẹp. Nó nối với nhóm quyết định quanh deployment diagram.
+Deployment Diagram xuất hiện khi code cần chạy ổn định trong staging/production với environment, config, health check, log và rollback rõ ràng.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Deployment Diagram giúp team thống nhất hình dung trước khi sửa architecture, API, database hoặc workflow. Nó là output để review quyết định, phát hiện dependency ẩn và onboarding người mới nhanh hơn.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Deployment Diagram là phần biến code thành service vận hành được và troubleshoot được.
 
-- Team giải thích hệ thống bằng lời nhưng mỗi người hiểu một kiểu
-- Một thay đổi chạm nhiều component, service, table hoặc actor
-- Cần review boundary, data flow, state transition hoặc dependency
-- Người mới cần hiểu hệ thống mà đọc code quá lâu
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không chỉ là lệnh deploy; nếu thiếu monitoring, rollback và config discipline thì release vẫn rủi ro cao.
 
-- Diagram hoặc artifact có tên version/date và phạm vi rõ
-- Legend hoặc note ngắn giải thích ký hiệu quan trọng
-- Decision/link tới node liên quan nếu diagram dẫn đến thay đổi thiết kế
+## Core Mechanism / Cơ chế lõi
 
-## Checklist kiểm tra
+Cơ chế lõi là kiểm soát môi trường chạy: config, dependency, health signal, log/metric, release step và rollback path.
 
-- Diagram có nói rõ scope và mức abstraction không?
-- Các node/edge quan trọng có khớp hệ thống thật không?
-- Có bỏ sót external system, actor, database hoặc failure path không?
-- Diagram có còn đúng sau thay đổi gần nhất không?
-- Người đọc có biết dùng diagram này để ra quyết định gì không?
+## Project Role / Vai trò trong dự án
 
-## Lỗi / rủi ro thường gặp
+Deployment Diagram ảnh hưởng tới release safety, incident response, troubleshooting và khả năng phục hồi khi deploy lỗi.
 
-- Diagram đẹp nhưng không khớp production/code thật
-- Quá nhiều chi tiết làm mất insight chính
-- Thiếu boundary làm người đọc hiểu sai trách nhiệm
-- Không version nên dùng nhầm diagram cũ
+## Output / Artifact nên có
+
+- Deployment/runbook hoặc config checklist theo environment
+- Health check, logging và monitoring signal tối thiểu
+- Rollback plan và troubleshooting note cho lỗi thường gặp
+
+## Decision Checklist / Câu hỏi kiểm tra
+
+- Environment/config khác nhau đã được ghi rõ chưa?
+- Health check có phản ánh service thật sự usable không?
+- Log có đủ context để debug nhưng không lộ secret không?
+- Rollback có được thử hoặc ít nhất mô tả rõ không?
+- Incident path có owner và bước troubleshooting không?
+
+## Failure Modes / Cách nó gây lỗi
+
+- Config lệch giữa môi trường gây lỗi chỉ xuất hiện ở production
+- Health check xanh nhưng chức năng chính hỏng
+- Không có rollback nên release lỗi kéo dài
+- Log thiếu context hoặc quá ồn làm incident khó xử lý
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần vẽ riêng nếu thay đổi nhỏ và code đã đủ rõ
-- Dễ over-engineer khi vẽ nhiều view nhưng không view nào phục vụ decision cụ thể
+- Chưa cần pipeline/runbook phức tạp cho app thử nghiệm chưa deploy
+- Dễ over-engineer nếu tạo quá nhiều môi trường/tool khi team chưa vận hành nổi
 
 ## Gồm những gì
 
 - Chưa tách nhánh
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- DevOps
+- Production operations
+- Release management
+- Troubleshooting
 
 ## Source trace
 

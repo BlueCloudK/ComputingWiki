@@ -4,28 +4,35 @@ Aliases: network delay/loss/throughput, độ trễ mất gói thông lượng
 
 Type: Performance / Scalability
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Delay Loss and Throughput liên quan tới tốc độ, throughput, resource usage hoặc khả năng chịu tải khi dữ liệu/user tăng. Điểm chính là phải đo được bằng metric và workload thật, không tối ưu theo cảm giác. Nó nối với các phần liên quan như [[Computer Performance]] và nhóm quyết định quanh delay loss and throughput.
+Delay Loss and Throughput xuất hiện khi tốc độ, throughput, resource usage hoặc khả năng chịu tải ảnh hưởng tới user, cost hoặc reliability.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Delay Loss and Throughput giúp đặt baseline, benchmark/load test, tìm bottleneck và chọn trade-off giữa performance, cost và complexity. Trong dự án, nó quyết định khi nào cần index/cache/scale/refactor.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Delay Loss and Throughput là cách nhìn hệ thống qua metric và bottleneck thay vì cảm giác nhanh/chậm.
 
-- Response time, throughput hoặc resource usage vượt ngưỡng
-- Traffic/data tăng nhanh hoặc chuẩn bị release lớn
-- Cần so sánh trước/sau một thay đổi tối ưu
-- Chi phí hạ tầng tăng nhưng bottleneck chưa rõ
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải tối ưu mọi thứ; nếu không có baseline, workload và threshold thì tối ưu dễ sai chỗ.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là đo metric, tạo benchmark/load test đại diện, tìm bottleneck và chốt trade-off giữa performance, cost và complexity.
+
+## Project Role / Vai trò trong dự án
+
+Delay Loss and Throughput ảnh hưởng tới việc chọn index/cache/queue/scale/refactor và quyết định khi nào tối ưu là đáng làm.
+
+## Output / Artifact nên có
 
 - Metric/baseline rõ p95 latency, throughput, error rate hoặc resource usage
 - Benchmark hoặc load test mô phỏng workload chính
 - Decision note về bottleneck, threshold và trade-off cost/complexity
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Metric nào chứng minh vấn đề performance thật?
 - Workload test có giống usage production không?
@@ -33,7 +40,7 @@ Delay Loss and Throughput giúp đặt baseline, benchmark/load test, tìm bottl
 - Threshold pass/fail là bao nhiêu và ai chấp nhận?
 - Tối ưu này làm tăng cost/complexity ở đâu?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Benchmark không giống production nên kết luận sai
 - Tối ưu sớm làm code phức tạp mà chưa giải bottleneck thật
@@ -49,9 +56,16 @@ Delay Loss and Throughput giúp đặt baseline, benchmark/load test, tìm bottl
 
 - Chưa tách nhánh
 
-## Liên quan
+## Nối mạnh
 
-- [[Computer Performance]]
+- [[Computer Performance]] vì nó là tín hiệu hoặc quyết định performance liên quan trực tiếp
+
+## Liên quan rộng
+
+- Capacity planning
+- Operations
+- Database tuning
+- Cost control
 
 ## Source trace
 

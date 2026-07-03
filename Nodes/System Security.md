@@ -4,28 +4,35 @@ Aliases: system security, bảo mật hệ thống
 
 Type: Security
 
-## Bản chất
+## Context / Ngữ cảnh
 
-System Security liên quan tới bảo vệ asset, identity, permission, input, secret hoặc boundary khỏi misuse. Trọng tâm là attack surface và impact khi fail, không chỉ là thêm một bước check cho có. Nó nối với nhóm quyết định quanh system security.
+System Security xuất hiện ở nơi hệ thống có asset cần bảo vệ: identity, permission, secret, dữ liệu nhạy cảm, input công khai hoặc boundary với third-party.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-System Security ảnh hưởng tới auth flow, data exposure, logging/audit và cách hệ thống phản ứng khi bị abuse. Trong dự án, nó giúp chặn lỗi bảo mật trước khi biến thành leak, privilege escalation hoặc incident.
+### Nó là gì
 
-## Khi nào cần quan tâm
+System Security là control hoặc vùng kiến thức giúp giảm khả năng misuse và giảm impact khi control fail.
 
-- Có user input, token, secret, file upload hoặc dữ liệu nhạy cảm
-- Thiết kế permission/authentication/authorization
-- API public hoặc boundary giữa service/third-party
-- Cần log/audit hành động nhạy cảm
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải checkbox thêm vào cuối dự án; nếu không map với asset và attack surface thì control dễ sai chỗ.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là asset + attack surface + control + audit. Cần biết bảo vệ gì, ai có thể tấn công/lạm dụng, chặn ở đâu, và log thế nào để điều tra.
+
+## Project Role / Vai trò trong dự án
+
+System Security ảnh hưởng tới auth flow, permission, validation, secret handling, logging/audit và failure response.
+
+## Output / Artifact nên có
 
 - Security checklist cho asset và attack surface liên quan
 - Permission/auth/input validation rule rõ ràng
 - Audit/logging decision cho hành động nhạy cảm
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Asset nào cần bảo vệ và ai có quyền truy cập?
 - Attack surface chính nằm ở input, auth, secret hay dependency?
@@ -33,7 +40,7 @@ System Security ảnh hưởng tới auth flow, data exposure, logging/audit và
 - Log có đủ audit nhưng không lộ secret/PII không?
 - Nếu control này fail thì impact tới user/system là gì?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Tin tưởng input hoặc token quá mức
 - Authorization bị kiểm tra thiếu ở backend
@@ -49,9 +56,16 @@ System Security ảnh hưởng tới auth flow, data exposure, logging/audit và
 
 - Chưa tách nhánh
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Application security
+- Backend
+- Audit
+- Risk management
 
 ## Source trace
 

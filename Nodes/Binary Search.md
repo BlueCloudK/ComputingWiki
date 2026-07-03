@@ -4,28 +4,35 @@ Aliases: tìm kiếm nhị phân
 
 Type: Computer Foundation
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Binary Search là kiến thức nền giúp hiểu vì sao software chạy đúng, chạy chậm hoặc fail ở một số điều kiện. Nó không phải phần luôn viết vào code, nhưng giúp dev chọn cấu trúc dữ liệu, thuật toán và debug vấn đề sâu hơn. Nó nối với nhóm quyết định quanh binary search.
+Binary Search xuất hiện như nền tảng giúp hiểu correctness, complexity, data structure, algorithm hoặc mô hình tính toán phía dưới phần mềm.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Binary Search ảnh hưởng tới lựa chọn algorithm, data structure, complexity, correctness và reasoning khi dữ liệu lớn hoặc edge case xuất hiện. Trong dự án, nó giúp tránh giải pháp 'chạy được demo' nhưng vỡ khi scale.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Binary Search là kiến thức nền để giải thích vì sao code chạy đúng, chậm, sai ở edge case hoặc không scale khi input tăng.
 
-- Cần phân tích complexity hoặc correctness
-- Dữ liệu tăng làm cách làm đơn giản bị chậm
-- Bug liên quan edge case, ordering, recursion, graph hoặc state
-- Cần chọn data structure/algorithm trước khi tối ưu
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải thứ luôn cần formalize trong mọi feature; giá trị nằm ở lúc constraint, correctness hoặc performance thật sự quan trọng.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là reasoning: input constraint, invariant, complexity, representation và edge case. Khi hiểu cơ chế, dev chọn được algorithm/data structure phù hợp hơn.
+
+## Project Role / Vai trò trong dự án
+
+Binary Search ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, test edge case và debug lỗi performance/correctness.
+
+## Output / Artifact nên có
 
 - Decision note về thuật toán/cấu trúc dữ liệu được chọn
 - Complexity hoặc invariant ngắn nếu ảnh hưởng performance/correctness
 - Test case cho edge case nền tảng
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Input size và constraint thật là gì?
 - Complexity worst-case/average-case có chấp nhận được không?
@@ -33,7 +40,7 @@ Binary Search ảnh hưởng tới lựa chọn algorithm, data structure, compl
 - Data structure hiện tại có phù hợp pattern truy cập không?
 - Có test chứng minh invariant/correctness quan trọng không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Chọn cấu trúc dữ liệu sai làm query/update chậm
 - Nhầm complexity khiến hệ thống vỡ khi data tăng
@@ -49,9 +56,16 @@ Binary Search ảnh hưởng tới lựa chọn algorithm, data structure, compl
 
 - Chưa tách nhánh
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Algorithms
+- Data structures
+- Debugging
+- Performance reasoning
 
 ## Source trace
 

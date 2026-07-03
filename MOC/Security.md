@@ -4,28 +4,35 @@ Aliases: application security, software security, cybersecurity, bảo mật
 
 Type: Security
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Security liên quan tới bảo vệ asset, identity, permission, input, secret hoặc boundary khỏi misuse. Trọng tâm là attack surface và impact khi fail, không chỉ là thêm một bước check cho có. Nó nối với các phần liên quan như [[Authentication]], [[Authorization]], [[Secret]].
+Security xuất hiện ở nơi hệ thống có asset cần bảo vệ: identity, permission, secret, dữ liệu nhạy cảm, input công khai hoặc boundary với third-party.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Security là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Security là control hoặc vùng kiến thức giúp giảm khả năng misuse và giảm impact khi control fail.
 
-- Có user input, token, secret, file upload hoặc dữ liệu nhạy cảm
-- Thiết kế permission/authentication/authorization
-- API public hoặc boundary giữa service/third-party
-- Cần log/audit hành động nhạy cảm
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải checkbox thêm vào cuối dự án; nếu không map với asset và attack surface thì control dễ sai chỗ.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là asset + attack surface + control + audit. Cần biết bảo vệ gì, ai có thể tấn công/lạm dụng, chặn ở đâu, và log thế nào để điều tra.
+
+## Project Role / Vai trò trong dự án
+
+Security là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
+
+## Output / Artifact nên có
 
 - Security checklist cho asset và attack surface liên quan
 - Permission/auth/input validation rule rõ ràng
 - Audit/logging decision cho hành động nhạy cảm
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Asset nào cần bảo vệ và ai có quyền truy cập?
 - Attack surface chính nằm ở input, auth, secret hay dependency?
@@ -33,7 +40,7 @@ Security là MOC để đi từ vùng kiến thức lớn xuống các node có 
 - Log có đủ audit nhưng không lộ secret/PII không?
 - Nếu control này fail thì impact tới user/system là gì?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Tin tưởng input hoặc token quá mức
 - Authorization bị kiểm tra thiếu ở backend
@@ -52,9 +59,16 @@ Security là MOC để đi từ vùng kiến thức lớn xuống các node có 
 - [[Secret]]
 - [[Input Validation]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Application security
+- Backend
+- Audit
+- Risk management
 
 ## Source trace
 

@@ -2,48 +2,55 @@
 
 Aliases: software modeling, modeling and design, mô hình hóa và thiết kế phần mềm
 
-Type: Architecture / System Design
+Type: Artifact / Diagram
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Software Modeling and Design là vùng dùng model, UML, interaction và architecture concept để làm rõ phần mềm trước hoặc trong khi code. Trọng tâm là biểu diễn behavior, structure và trade-off đủ rõ để team review quyết định.
+Software Modeling and Design xuất hiện khi cấu trúc, flow, state hoặc relationship cần được nhìn thấy thay vì chỉ đọc chữ/code. Nó thường hỗ trợ architecture review, requirement clarification hoặc onboarding.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Software Modeling and Design là MOC để đi tới các node về model, diagram, design method và architecture style. Khi yêu cầu hoặc code khó hình dung bằng chữ, dùng trang này để chọn artifact/model phù hợp để review.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Software Modeling and Design là artifact biểu diễn một góc nhìn cụ thể của hệ thống để hỗ trợ quyết định.
 
-- Behavior hoặc structure khó giải thích bằng text/code
-- Cần model hóa use case, class, sequence hoặc state
-- Thiết kế ảnh hưởng nhiều object/component
-- Cần review design trước khi implement lớn
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không phải tranh minh họa cho đẹp; nếu không trả lời câu hỏi review nào thì artifact này dễ thành rác tài liệu.
 
-- Model/diagram có scope và abstraction level rõ
-- Design decision ghi responsibility, interaction hoặc state chính
-- Checklist review model so với requirement/test
+## Core Mechanism / Cơ chế lõi
 
-## Checklist kiểm tra
+Cơ chế lõi là chọn đúng abstraction: bỏ bớt chi tiết không cần, giữ boundary/relationship/flow quan trọng, và gắn artifact với decision hoặc checklist.
 
-- Model đang trả lời câu hỏi thiết kế nào?
-- Mức chi tiết có phù hợp người đọc không?
-- Behavior/state/interaction quan trọng có bị bỏ sót không?
-- Model có trace tới requirement hoặc test không?
-- Có cách biểu diễn đơn giản hơn đủ dùng không?
+## Project Role / Vai trò trong dự án
 
-## Lỗi / rủi ro thường gặp
+Software Modeling and Design là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
 
-- Model đẹp nhưng không dẫn tới decision cụ thể
-- Diagram quá chi tiết làm người đọc rối
-- Model không cập nhật theo code thật
-- Dùng UML/pattern như nghi thức thay vì giải quyết vấn đề
+## Output / Artifact nên có
+
+- Diagram hoặc artifact có scope, version/date và owner rõ
+- Legend hoặc note ngắn giải thích ký hiệu quan trọng
+- Decision/link tới node liên quan nếu diagram dẫn đến thay đổi thiết kế
+
+## Decision Checklist / Câu hỏi kiểm tra
+
+- Artifact có nói rõ scope và mức abstraction không?
+- Các node/edge quan trọng có khớp hệ thống thật không?
+- Có bỏ sót actor, external system, database hoặc failure path không?
+- Artifact có còn đúng sau thay đổi gần nhất không?
+- Người đọc có biết dùng artifact này để ra quyết định gì không?
+
+## Failure Modes / Cách nó gây lỗi
+
+- Diagram đẹp nhưng không khớp production/code thật
+- Quá nhiều chi tiết làm mất insight chính
+- Thiếu boundary làm người đọc hiểu sai trách nhiệm
+- Không version nên dùng nhầm artifact cũ
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần model riêng nếu thay đổi nhỏ và code/test đã rõ
-- Dễ over-engineer nếu tạo nhiều diagram nhưng không ai dùng để quyết định
+- Chưa cần vẽ riêng nếu thay đổi nhỏ và code đã đủ rõ
+- Dễ over-engineer khi vẽ nhiều view nhưng không view nào phục vụ decision cụ thể
 
 ## Gồm những gì
 
@@ -59,9 +66,16 @@ Software Modeling and Design là MOC để đi tới các node về model, diagr
 - [[Finite State Machine]]
 - [[Architectural Design]]
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Documentation
+- Architecture review
+- Onboarding
+- System communication
 
 ## Source trace
 

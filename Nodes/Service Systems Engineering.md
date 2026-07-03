@@ -4,28 +4,35 @@ Aliases: service systems engineering, systems engineering cho dịch vụ
 
 Type: Architecture / System Design
 
-## Bản chất
+## Context / Ngữ cảnh
 
-Service Systems Engineering là quyết định ở mức system: boundary, dependency, runtime component, failure mode và trade-off. Nó không chỉ là sơ đồ; nó quyết định phần nào sở hữu dữ liệu, phần nào gọi phần nào, và hệ thống chịu tải/lỗi ra sao. Nó nối với nhóm quyết định quanh service systems engineering.
+Service Systems Engineering xuất hiện ở mức system: component, service, boundary, dependency, deployment shape hoặc failure mode. Nó thường liên quan tới maintainability, scalability và ownership.
 
-## Dùng trong dự án để làm gì
+## Boundary / Ranh giới
 
-Service Systems Engineering ảnh hưởng tới khả năng mở rộng, maintainability, deployability và cách team chia việc. Trong dự án, nó giúp chọn boundary, giảm coupling và ghi lại trade-off trước khi codebase khóa vào một hướng khó đổi.
+### Nó là gì
 
-## Khi nào cần quan tâm
+Service Systems Engineering là quyết định về cấu trúc và ranh giới hệ thống: phần nào sở hữu dữ liệu, phần nào gọi phần nào, và hệ thống chịu lỗi/tăng tải ra sao.
 
-- Một thay đổi ảnh hưởng nhiều module/service/database
-- Team cần chốt boundary hoặc ownership
-- Có failure mode, scalability hoặc maintainability risk
-- Cần giải thích architecture cho review/onboarding
+### Nó không phải là gì
 
-## Output / artifact nên có
+Nó không chỉ là diagram; diagram chỉ là artifact để nói về quyết định architecture.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là boundary + dependency + trade-off. Mỗi boundary tạo ownership và interface; mỗi dependency tạo coupling và failure path; mỗi trade-off đổi simplicity lấy scalability hoặc ngược lại.
+
+## Project Role / Vai trò trong dự án
+
+Service Systems Engineering ảnh hưởng tới cách chia module/service, deploy, debug incident, scale và onboard người mới.
+
+## Output / Artifact nên có
 
 - Architecture decision record hoặc diagram có boundary rõ
 - Danh sách dependency, owner và failure mode chính
 - Trade-off note về scalability, maintainability, cost và complexity
 
-## Checklist kiểm tra
+## Decision Checklist / Câu hỏi kiểm tra
 
 - Boundary giữa component/service đã rõ chưa?
 - Dependency nào là bắt buộc, dependency nào có thể đảo chiều?
@@ -33,7 +40,7 @@ Service Systems Engineering ảnh hưởng tới khả năng mở rộng, mainta
 - Thiết kế này scale bằng cách nào và tốn cost gì?
 - Có cách đơn giản hơn đủ dùng cho giai đoạn hiện tại không?
 
-## Lỗi / rủi ro thường gặp
+## Failure Modes / Cách nó gây lỗi
 
 - Boundary sai làm team ownership và data ownership rối
 - Coupling cao khiến một thay đổi kéo theo nhiều service
@@ -49,9 +56,16 @@ Service Systems Engineering ảnh hưởng tới khả năng mở rộng, mainta
 
 - Chưa tách nhánh
 
-## Liên quan
+## Nối mạnh
 
-- Chưa liên kết thêm
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- System design
+- Backend
+- Operations
+- Technical decision
 
 ## Source trace
 
