@@ -1,6 +1,6 @@
 # Unrestricted File Upload
 
-Aliases: Unrestricted File Upload, unrestricted file upload, upload không kiểm soát, upload shell
+Aliases: Unrestricted File Upload, unrestricted file upload, File Upload Vulnerability, upload không kiểm soát, upload shell
 
 Type: Security Attack Pattern
 
@@ -68,6 +68,7 @@ Unrestricted File Upload giúp team viết requirement bảo mật, review API/c
 
 - Unrestricted File Upload
 - unrestricted file upload
+- File Upload Vulnerability
 - upload không kiểm soát
 - upload shell
 - unrestricted

@@ -1,6 +1,6 @@
 # Malicious File Upload
 
-Aliases: Malicious File Upload, malicious file upload, file upload attack, upload độc hại
+Aliases: Malicious File Upload, malicious file upload, file upload attack, File Upload Vulnerability, upload độc hại
 
 Type: Security Attack Pattern
 
@@ -68,6 +68,7 @@ Malicious File Upload giúp team viết requirement bảo mật, review API/code
 - Malicious File Upload
 - malicious file upload
 - file upload attack
+- File Upload Vulnerability
 - upload độc hại
 - malicious
 - file

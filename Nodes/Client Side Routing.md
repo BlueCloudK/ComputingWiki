@@ -1,6 +1,6 @@
 # Client Side Routing
 
-Aliases: Client Side Routing, client-side routing, SPA routing, định tuyến frontend
+Aliases: Client Side Routing, client-side routing, Frontend Routing, SPA routing, định tuyến frontend
 
 Type: Web Development
 
@@ -68,6 +68,7 @@ Client Side Routing giúp team đặt tên đúng khi đọc tài liệu, review
 
 - Client Side Routing
 - client-side routing
+- Frontend Routing
 - SPA routing
 - định tuyến frontend
 - client

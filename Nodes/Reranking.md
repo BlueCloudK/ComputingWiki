@@ -1,6 +1,6 @@
 # Reranking
 
-Aliases: Reranking, reranking
+Aliases: Reranking, reranking, Reranker
 
 Type: AI / RAG / Agent Engineering
 
@@ -68,6 +68,7 @@ Reranking giúp team thiết kế, review, test, deploy hoặc vận hành hệ 
 
 - Reranking
 - reranking
+- Reranker
 - reranking design
 - reranking debugging
 - reranking production

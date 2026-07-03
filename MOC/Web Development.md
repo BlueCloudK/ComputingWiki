@@ -66,6 +66,7 @@ Web Development giúp mở rộng ComputingWiki theo breadth mà vẫn giữ gra
 - [[API Contract]]
 - [[HTTP]]
 - [[HTTPS]]
+- [[Same Origin Policy]]
 - [[CSP]]
 - [[CSRF Token]]
 - [[Browser Rendering]]

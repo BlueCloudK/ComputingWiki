@@ -1,6 +1,6 @@
 # AI Evaluation
 
-Aliases: LLM evaluation, đánh giá AI
+Aliases: AI Evaluation, LLM evaluation, Evaluation, đánh giá AI
 
 Type: AI / ML Engineering
 
@@ -67,6 +67,7 @@ AI Evaluation giúp team đọc code, thiết kế, debug hoặc vận hành b�
 
 - AI Evaluation
 - LLM evaluation
+- Evaluation
 - đánh giá AI
 - ai evaluation debugging
 - ai evaluation design

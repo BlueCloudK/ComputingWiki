@@ -1,6 +1,6 @@
 # Web Storage
 
-Aliases: localStorage, sessionStorage, lưu trữ browser
+Aliases: localStorage, sessionStorage, Browser Storage, lưu trữ browser
 
 Type: Web Development
 
@@ -69,6 +69,7 @@ Web Storage giúp team đọc code, thiết kế, debug hoặc vận hành bằn
 ## Keywords / Từ khóa tìm kiếm
 
 - Web Storage
+- Browser Storage
 - localStorage
 - sessionStorage
 - lưu trữ browser

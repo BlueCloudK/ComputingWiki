@@ -1,6 +1,6 @@
 # Cron
 
-Aliases: Cron, cron, crontab, lịch chạy lệnh
+Aliases: Cron, cron, crontab, Cron Job, scheduled job, lịch chạy lệnh
 
 Type: Linux / Server Admin
 
@@ -69,6 +69,8 @@ Cron giúp developer/operator deploy, debug incident, đọc log, quản lý quy
 - Cron
 - cron
 - crontab
+- Cron Job
+- scheduled job
 - lịch chạy lệnh
 
 ## Source trace

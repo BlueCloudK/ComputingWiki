@@ -1,6 +1,6 @@
 # Chunking Strategy
 
-Aliases: Chunking Strategy, chunking strategy
+Aliases: Chunking Strategy, chunking strategy, Chunking
 
 Type: AI / RAG / Agent Engineering
 
@@ -68,6 +68,7 @@ Chunking Strategy giúp team thiết kế, review, test, deploy hoặc vận hà
 
 - Chunking Strategy
 - chunking strategy
+- Chunking
 - chunking strategy design
 - chunking strategy debugging
 - chunking strategy production

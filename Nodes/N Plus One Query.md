@@ -1,6 +1,6 @@
 # N Plus One Query
 
-Aliases: N+1 query, truy vấn N cộng 1
+Aliases: N Plus One Query, N+1 Query, N+1 query, truy vấn N cộng 1
 
 Type: Failure Pattern / Database
 
@@ -69,6 +69,7 @@ N Plus One Query giúp team đọc code, thiết kế, debug hoặc vận hành 
 ## Keywords / Từ khóa tìm kiếm
 
 - N Plus One Query
+- N+1 Query
 - N+1 query
 - truy vấn N cộng 1
 - n plus one query debugging

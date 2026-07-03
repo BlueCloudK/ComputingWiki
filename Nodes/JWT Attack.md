@@ -1,6 +1,6 @@
 # JWT Attack
 
-Aliases: JWT vulnerability, tấn công JWT
+Aliases: JWT Attack, JWT vulnerability, JSON Web Token attack, tấn công JWT
 
 Type: Security
 
@@ -67,6 +67,7 @@ JWT Attack giúp team đọc code, thiết kế, debug hoặc vận hành bằng
 
 - JWT Attack
 - JWT vulnerability
+- JSON Web Token attack
 - tấn công JWT
 - jwt attack debugging
 - jwt attack design

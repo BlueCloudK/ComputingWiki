@@ -54,6 +54,7 @@ Vùng này giúp đọc lỗi build/runtime có ngữ cảnh hơn: lỗi đến 
 
 ## Gồm những gì
 
+- [[Lexer]]
 - [[Compiler]]
 - [[Interpreter]]
 

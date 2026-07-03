@@ -1,6 +1,6 @@
 # Connection Pool Saturation
 
-Aliases: Connection Pool Saturation, connection pool saturation
+Aliases: Connection Pool Saturation, connection pool saturation, Connection Pool Exhaustion, pool exhaustion
 
 Type: Database Internals
 
@@ -68,6 +68,8 @@ Connection Pool Saturation giúp team thiết kế, review, test, deploy hoặc 
 
 - Connection Pool Saturation
 - connection pool saturation
+- Connection Pool Exhaustion
+- pool exhaustion
 - connection pool saturation design
 - connection pool saturation debugging
 - connection pool saturation production

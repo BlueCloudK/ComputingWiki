@@ -1,6 +1,6 @@
 # JWT
 
-Aliases: JSON Web Token, token JWT, bearer token
+Aliases: JSON Web Token, token JWT, bearer token, JWT vulnerability
 
 Type: Backend Security
 
@@ -82,6 +82,7 @@ JWT ảnh hưởng trực tiếp tới login, session, authorization, API securi
 
 - JWT
 - JSON Web Token
+- JWT vulnerability
 - bearer token
 - access token
 - refresh token

@@ -1,6 +1,6 @@
 # AI Agent
 
-Aliases: AI Agent, ai agent
+Aliases: AI Agent, ai agent, Agent
 
 Type: AI / RAG / Agent Engineering
 
@@ -68,6 +68,7 @@ AI Agent giúp team thiết kế, review, test, deploy hoặc vận hành hệ t
 
 - AI Agent
 - ai agent
+- Agent
 - ai agent design
 - ai agent debugging
 - ai agent production

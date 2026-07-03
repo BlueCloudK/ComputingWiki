@@ -66,6 +66,8 @@ Debugging and Failure Patterns giúp mở rộng ComputingWiki theo breadth mà 
 - [[Stale Cache]]
 - [[Config Drift]]
 - [[N Plus One Query]]
+- [[Duplicate Request]]
+- [[Circular Dependency]]
 - [[Split Brain]]
 - [[Log Correlation]]
 - [[Trace ID]]
