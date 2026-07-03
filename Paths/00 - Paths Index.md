@@ -20,6 +20,7 @@ Khác với MOC, path không cố gom toàn bộ node trong một vùng. Path ch
 - [[Linux Server Admin Path]]
 - [[AI Application Engineering Path]]
 - [[AI RAG and Agent Engineering Path]]
+- [[Programming Languages Deep Path]]
 
 ## Cách dùng
 

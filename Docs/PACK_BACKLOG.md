@@ -142,6 +142,8 @@ Priority: High
 
 ## Programming Languages Deep Pack
 
+Status: Initial pack added.
+
 Purpose: deepen language semantics, runtimes, type systems, memory models, and common language families.
 
 Example missing nodes:

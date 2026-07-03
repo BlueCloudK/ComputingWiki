@@ -12,6 +12,7 @@
 - [[Algorithms]]
 - [[Data Structures]]
 - [[Programming Languages]]
+- [[Programming Languages Deep]]
 - [[Web Development]]
 - [[Backend Engineering]]
 - [[Application Engineering]]
