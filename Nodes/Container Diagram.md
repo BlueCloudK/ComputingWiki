@@ -68,6 +68,15 @@ Container Diagram giúp team review dependency, data flow, state transition, act
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Container Diagram
+- C4 container diagram
+- sơ đồ container
+- container
+- diagram
+- Artifact
+
 ## Source trace
 
 - C4 Model Map / Level 2

@@ -68,6 +68,16 @@ Static Typing giúp refactor an toàn hơn và làm contract module rõ hơn. N�
 - Compile-time feedback
 - Refactoring safety
 
+## Keywords / Từ khóa tìm kiếm
+
+- Static Typing
+- statically typed
+- kiểu tĩnh
+- static
+- typing
+- Computer Foundation
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Types and Programming Languages

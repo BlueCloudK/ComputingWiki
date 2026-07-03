@@ -70,6 +70,17 @@ Incident Response ảnh hưởng tới API design, frontend/backend handoff, int
 - Third-party integration
 - Contract testing
 
+## Keywords / Từ khóa tìm kiếm
+
+- Incident Response
+- ứng phó sự cố
+- incident
+- response
+- API
+- Integration
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - SRE Map / incident chapters

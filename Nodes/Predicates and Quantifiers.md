@@ -67,6 +67,15 @@ Predicates and Quantifiers ảnh hưởng tới lựa chọn thuật toán, cấ
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Predicates and Quantifiers
+- vị từ và lượng từ
+- predicates quantifiers
+- predicates
+- quantifiers
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch01.4

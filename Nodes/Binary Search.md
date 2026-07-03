@@ -1,6 +1,6 @@
 # Binary Search
 
-Aliases: tìm kiếm nhị phân
+Aliases: tìm kiếm nhị phân, half-interval search, logarithmic search
 
 Type: Computer Foundation
 
@@ -66,6 +66,18 @@ Binary Search ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ 
 - Data structures
 - Debugging
 - Performance reasoning
+
+## Keywords / Từ khóa tìm kiếm
+
+- Binary Search
+- tìm kiếm nhị phân
+- half-interval search
+- logarithmic search
+- binary
+- search
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
 
 ## Source trace
 

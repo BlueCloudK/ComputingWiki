@@ -67,6 +67,17 @@ Test Objective gắn code change với bằng chứng kiểm tra, giúp team quy
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Objective
+- mục tiêu test
+- test
+- objective
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01.2

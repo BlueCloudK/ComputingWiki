@@ -67,6 +67,16 @@ Mock gắn code change với bằng chứng kiểm tra, giúp team quyết đị
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Mock
+- mock object
+- mock function
+- đối tượng giả
+- Testing
+- Verification
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map

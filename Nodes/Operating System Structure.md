@@ -69,6 +69,19 @@ Operating System Structure giúp debug lỗi environment-specific, performance t
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Operating System Structure
+- OS structure
+- cấu trúc hệ điều hành
+- operating
+- system
+- structure
+- Tooling
+- Implementation Detail
+- hệ điều hành
+- hệ thống
+
 ## Source trace
 
 - Operating Systems Map / Ch01.7

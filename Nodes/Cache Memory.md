@@ -67,6 +67,19 @@ Cache Memory ảnh hưởng tới database design, query performance, migration,
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Cache Memory
+- CPU cache
+- bộ nhớ đệm phần cứng
+- cache
+- memory
+- Data
+- Database
+- bộ nhớ
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Computer Organization Map / Ch04

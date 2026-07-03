@@ -69,6 +69,18 @@ Unit Test gắn code change với bằng chứng kiểm tra, giúp team quyết 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Unit Test
+- unit testing
+- kiểm thử đơn vị
+- unit
+- test
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch02

@@ -68,6 +68,16 @@ Use Case giúp team nhìn hành vi theo luồng nghiệp vụ thay vì chỉ the
 - UX flow
 - Scenario testing
 
+## Keywords / Từ khóa tìm kiếm
+
+- Use Case
+- usage scenario
+- ca sử dụng
+- use
+- case
+- Requirement
+- Planning
+
 ## Source trace
 
 - Software Requirements 3rd Ed Ch08

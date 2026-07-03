@@ -68,6 +68,14 @@ SLO ảnh hưởng tới quyết định release, ưu tiên technical debt, inci
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- SLO
+- service level objective
+- mục tiêu mức dịch vụ
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map SLO chapters

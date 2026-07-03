@@ -70,6 +70,16 @@ UML Notation giúp team review dependency, data flow, state transition, actor/sy
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- UML Notation
+- UML
+- Unified Modeling Language
+- ký pháp UML
+- notation
+- Artifact
+- Diagram
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch02

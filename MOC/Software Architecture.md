@@ -77,6 +77,19 @@ Software Architecture là MOC điều hướng: dùng để đi từ vùng lớn
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Architecture
+- architecture
+- architectural design
+- kiến trúc phần mềm
+- software
+- Artifact
+- Diagram
+- phần mềm
+- kiến trúc
+- mục lục kiến thức
+
 ## Source trace
 
 - SWEBOK Map

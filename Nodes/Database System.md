@@ -71,6 +71,19 @@ Database System ảnh hưởng tới database design, query performance, migrati
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Database System
+- hệ thống database
+- database
+- system
+- Data
+- cơ sở dữ liệu
+- hệ thống
+- dữ liệu
+- hệ thống dữ liệu
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Database Systems Map / Ch01

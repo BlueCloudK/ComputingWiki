@@ -69,6 +69,15 @@ Validation bảo vệ API, database và business logic khỏi dữ liệu rác h
 - Defensive programming
 - Security boundary
 
+## Keywords / Từ khóa tìm kiếm
+
+- Validation
+- validate input
+- xác thực dữ liệu
+- Requirement
+- Planning
+- xác thực
+
 ## Source trace
 
 - Requirements Engineering Map / OWASP Map

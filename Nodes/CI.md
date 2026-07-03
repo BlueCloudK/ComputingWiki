@@ -68,6 +68,16 @@ CI giúp phát hiện regression sớm và tạo baseline tin cậy trước khi
 - Pull request checks
 - Quality gates
 
+## Keywords / Từ khóa tìm kiếm
+
+- CI
+- Continuous Integration
+- tích hợp liên tục
+- Deployment
+- Operations
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Continuous Delivery

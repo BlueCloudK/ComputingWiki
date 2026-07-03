@@ -70,6 +70,19 @@ Systems Engineering and Management ảnh hưởng tới cách chia module/servic
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Engineering and Management
+- SE management
+- quản lý systems engineering
+- systems engineering management
+- systems
+- engineering
+- management
+- Architecture
+- System Design
+- hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 3

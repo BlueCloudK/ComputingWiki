@@ -68,6 +68,17 @@ Finite State Machine giúp team review dependency, data flow, state transition, 
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Finite State Machine
+- FSM
+- máy trạng thái hữu hạn
+- finite
+- state
+- machine
+- Artifact
+- Diagram
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch10

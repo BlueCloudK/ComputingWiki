@@ -67,6 +67,16 @@ Avro ảnh hưởng tới API payload, message, config, log, network call hoặc
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Avro
+- Apache Avro
+- định dạng Avro
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch04

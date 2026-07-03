@@ -63,6 +63,15 @@ Node này giúp debug protocol/file corruption, bit flag, numeric overflow hoặ
 - Bit flags
 - Byte layout
 
+## Keywords / Từ khóa tìm kiếm
+
+- Binary Representation
+- binary encoding
+- biểu diễn nhị phân
+- binary
+- representation
+- Computer Foundation
+
 ## Source trace
 
 - Computer Foundations Map Ch02-Ch03

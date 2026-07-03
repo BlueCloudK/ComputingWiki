@@ -67,6 +67,15 @@ Technical Review giúp debug lỗi environment-specific, performance thấp tầ
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Technical Review
+- đánh giá kỹ thuật
+- technical
+- review
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - SEBoK Map / Part 3a

@@ -67,6 +67,16 @@ Visitor thêm operation mới trên object structure mà không sửa từng cla
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Visitor
+- visitor pattern
+- mẫu visitor
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

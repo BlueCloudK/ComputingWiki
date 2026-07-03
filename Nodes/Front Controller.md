@@ -67,6 +67,18 @@ Front Controller gom request entrypoint của web app vào một nơi để xử
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Front Controller
+- front controller pattern
+- mẫu front controller
+- front
+- controller
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

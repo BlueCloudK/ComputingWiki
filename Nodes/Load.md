@@ -68,6 +68,13 @@ Load ảnh hưởng tới việc chọn index/cache/queue/scale/refactor và quy
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Load
+- tải
+- Performance
+- Scalability
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch01

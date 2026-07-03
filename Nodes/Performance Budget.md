@@ -63,6 +63,15 @@ Node này giúp performance trở thành constraint thiết kế thay vì xử l
 - Web performance
 - Release gates
 
+## Keywords / Từ khóa tìm kiếm
+
+- Performance Budget
+- ngân sách hiệu năng
+- performance
+- budget
+- Scalability
+- hiệu năng
+
 ## Source trace
 
 - Google SRE Books

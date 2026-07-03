@@ -62,6 +62,17 @@ Node này giúp debug hang, blocked process, resource wait và scheduling behavi
 
 - Runtime debugging
 
+## Keywords / Từ khóa tìm kiếm
+
+- Process State
+- process lifecycle state
+- trạng thái tiến trình
+- process
+- state
+- Operating System
+- tiến trình
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map

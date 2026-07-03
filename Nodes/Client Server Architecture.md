@@ -67,6 +67,19 @@ Client Server Architecture giúp team review dependency, data flow, state transi
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Client Server Architecture
+- client-server architecture
+- kiến trúc client-server
+- client
+- server
+- architecture
+- Artifact
+- Diagram
+- kiến trúc
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch15

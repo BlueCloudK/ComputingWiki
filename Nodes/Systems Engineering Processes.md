@@ -69,6 +69,19 @@ Systems Engineering Processes ảnh hưởng tới cách chia module/service, de
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Engineering Processes
+- SE processes
+- process systems engineering
+- systems
+- engineering
+- processes
+- Architecture
+- System Design
+- hệ thống
+- kỹ thuật
+
 ## Source trace
 
 - SEBoK Map / Part 3c

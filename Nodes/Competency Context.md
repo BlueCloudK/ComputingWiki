@@ -67,6 +67,16 @@ Competency Context giúp debug lỗi environment-specific, performance thấp t�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Competency Context
+- context of competency
+- bối cảnh năng lực
+- competency
+- context
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - CC2020 Map / Executive Summary

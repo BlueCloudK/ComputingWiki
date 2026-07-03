@@ -63,6 +63,16 @@ Node này hữu ích khi cần vừa raw/flexible vừa query/model có governan
 - Delta/Iceberg/Hudi
 - Table formats
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Lakehouse
+- lakehouse
+- kiến trúc lakehouse
+- data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Fundamentals of Data Engineering

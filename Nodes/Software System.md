@@ -68,6 +68,18 @@ Software System ảnh hưởng tới cách chia module/service, deploy, debug in
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software System
+- hệ thống phần mềm
+- software
+- system
+- Architecture
+- System Design
+- phần mềm
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - C4 Model Map

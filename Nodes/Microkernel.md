@@ -67,6 +67,13 @@ Microkernel giúp debug lỗi environment-specific, performance thấp tầng, c
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Microkernel
+- vi nhân
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch01.7

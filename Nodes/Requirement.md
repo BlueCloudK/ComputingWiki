@@ -70,6 +70,14 @@ Requirement là đơn vị neo cho scope, design decision, test coverage và cha
 - Software specification
 - Change management
 
+## Keywords / Từ khóa tìm kiếm
+
+- Requirement
+- software requirement
+- yêu cầu phần mềm
+- Planning
+- yêu cầu
+
 ## Source trace
 
 - Requirements Engineering - A Good Practice Guide Ch01 / Software Requirements 3rd Ed Ch01

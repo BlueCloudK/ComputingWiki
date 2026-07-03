@@ -67,6 +67,18 @@ Transaction Script ảnh hưởng tới API payload, message, config, log, netwo
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Transaction Script
+- transaction script pattern
+- mẫu transaction script
+- transaction
+- script
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA Transaction Script

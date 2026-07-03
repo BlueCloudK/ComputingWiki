@@ -62,6 +62,14 @@ Node này giúp hiểu IO, scheduling, latency thấp tầng và device interact
 
 - Hardware events
 
+## Keywords / Từ khóa tìm kiếm
+
+- Interrupt
+- hardware interrupt
+- ngắt
+- Operating System
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map

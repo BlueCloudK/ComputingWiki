@@ -77,6 +77,19 @@ Testing Process là MOC điều hướng: dùng để đi từ vùng lớn xuố
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Testing Process
+- test process
+- quy trình kiểm thử
+- testing
+- process
+- Verification
+- kiểm thử
+- tiến trình
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - Software Testing ISTQB Map

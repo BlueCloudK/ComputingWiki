@@ -67,6 +67,13 @@ Protection ảnh hưởng tới auth flow, permission, validation, secret handli
 - Audit
 - Risk management
 
+## Keywords / Từ khóa tìm kiếm
+
+- Protection
+- bảo vệ tài nguyên
+- Security
+- bảo mật phần mềm
+
 ## Source trace
 
 - Operating Systems Map / Ch01.5/security chapter

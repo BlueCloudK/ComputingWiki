@@ -67,6 +67,16 @@ Facade tạo interface đơn giản trước subsystem phức tạp để client
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Facade
+- facade pattern
+- mẫu facade
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

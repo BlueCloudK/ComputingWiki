@@ -67,6 +67,15 @@ Page Replacement giúp debug lỗi environment-specific, performance thấp tầ
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Page Replacement
+- thay trang
+- page
+- replacement
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch03.4

@@ -76,6 +76,19 @@ Architecture Diagrams là MOC điều hướng: dùng để đi từ vùng lớn
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Architecture Diagrams
+- architecture views
+- sơ đồ kiến trúc
+- architecture
+- diagrams
+- Artifact
+- Diagram
+- kiến trúc
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - C4 Model Map

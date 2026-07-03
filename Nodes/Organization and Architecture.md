@@ -67,6 +67,19 @@ Organization and Architecture ảnh hưởng tới cách chia module/service, de
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Organization and Architecture
+- organization vs architecture
+- tổ chức và kiến trúc
+- organization architecture
+- organization
+- architecture
+- System Design
+- tổ chức máy tính
+- kiến trúc
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Computer Organization Map / Ch01.1

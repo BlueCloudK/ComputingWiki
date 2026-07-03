@@ -63,6 +63,17 @@ Node này giúp build reproducible và CI/CD đáng tin hơn.
 - Artifact management
 - Build automation
 
+## Keywords / Từ khóa tìm kiếm
+
+- Build Pipeline
+- pipeline build
+- build
+- pipeline
+- Deployment
+- Operations
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Continuous Delivery

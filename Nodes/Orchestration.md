@@ -63,6 +63,16 @@ Node này giúp data pipeline/release workflow rõ ràng và dễ retry/backfill
 - Airflow
 - Workflow engine
 
+## Keywords / Từ khóa tìm kiếm
+
+- Orchestration
+- workflow orchestration
+- điều phối workflow
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Apache Airflow docs

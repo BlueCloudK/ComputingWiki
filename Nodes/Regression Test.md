@@ -68,6 +68,18 @@ Regression Test gắn code change với bằng chứng kiểm tra, giúp team qu
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Regression Test
+- regression testing
+- kiểm thử hồi quy
+- regression
+- test
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map

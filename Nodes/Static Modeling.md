@@ -68,6 +68,18 @@ Static Modeling giúp team review dependency, data flow, state transition, actor
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Static Modeling
+- static model
+- mô hình tĩnh
+- static
+- modeling
+- Artifact
+- Diagram
+- mô hình hóa
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch07

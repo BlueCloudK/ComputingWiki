@@ -67,6 +67,14 @@ Dynamic Diagram giúp team review dependency, data flow, state transition, actor
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Dynamic Diagram
+- sơ đồ động
+- dynamic
+- diagram
+- Artifact
+
 ## Source trace
 
 - C4 Model Map / supplementary

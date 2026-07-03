@@ -71,6 +71,19 @@ Enterprise Application Architecture Pattern ảnh hưởng tới cách chia modu
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Enterprise Application Architecture Pattern
+- PEAA pattern
+- mẫu kiến trúc ứng dụng doanh nghiệp
+- enterprise
+- application
+- architecture
+- System Design
+- ứng dụng
+- kiến trúc
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA catalog

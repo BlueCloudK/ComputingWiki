@@ -63,6 +63,18 @@ Node này giúp nối instruction, CPU, memory, runtime và OS khi debug behavio
 - Computer architecture
 - Machine organization
 
+## Keywords / Từ khóa tìm kiếm
+
+- Von Neumann Model
+- stored-program model
+- mô hình Von Neumann
+- von
+- neumann
+- model
+- Computer Foundation
+- mô hình
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Computer Foundations Map Ch01

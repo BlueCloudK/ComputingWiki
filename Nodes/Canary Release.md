@@ -63,6 +63,18 @@ Node này giảm blast radius cho thay đổi rủi ro cao.
 - Progressive delivery
 - Blast radius
 
+## Keywords / Từ khóa tìm kiếm
+
+- Canary Release
+- canary deployment
+- phát hành canary
+- canary
+- release
+- Deployment
+- Operations
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Google SRE Books

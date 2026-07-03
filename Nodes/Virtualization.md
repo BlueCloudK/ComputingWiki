@@ -67,6 +67,13 @@ Virtualization giúp debug lỗi environment-specific, performance thấp tầng
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Virtualization
+- ảo hóa
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / later chapter

@@ -67,6 +67,17 @@ Functional Dependency ảnh hưởng tới database design, query performance, m
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Functional Dependency
+- phụ thuộc hàm
+- functional
+- dependency
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch07.2

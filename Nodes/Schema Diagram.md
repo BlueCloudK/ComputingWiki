@@ -67,6 +67,14 @@ Schema Diagram giúp team review dependency, data flow, state transition, actor/
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Schema Diagram
+- sơ đồ schema
+- schema
+- diagram
+- Artifact
+
 ## Source trace
 
 - Database Systems Map / Ch02.4

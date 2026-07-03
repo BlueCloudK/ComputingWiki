@@ -1,6 +1,6 @@
 # API and Integration
 
-Aliases: API, integration, API và tích hợp
+Aliases: API, integration, API và tích hợp, systems integration, service integration, tích hợp hệ thống
 
 Type: API / Integration
 
@@ -74,6 +74,18 @@ API and Integration là MOC điều hướng: dùng để đi từ vùng lớn x
 - Frontend
 - Third-party integration
 - Contract testing
+
+## Keywords / Từ khóa tìm kiếm
+
+- API and Integration
+- API
+- integration
+- API và tích hợp
+- systems integration
+- api integration
+- tích hợp
+- mục lục kiến thức
+- nhánh kiến thức
 
 ## Source trace
 

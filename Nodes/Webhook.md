@@ -1,6 +1,6 @@
 # Webhook
 
-Aliases: callback webhook, webhook callback
+Aliases: callback webhook, webhook callback, HTTP callback, event callback, callback sự kiện
 
 Type: API / Integration
 
@@ -67,6 +67,16 @@ Webhook giúp integration gần realtime với third-party như payment, auth, r
 - Event-driven integration
 - Third-party callbacks
 - Message delivery
+
+## Keywords / Từ khóa tìm kiếm
+
+- Webhook
+- callback webhook
+- webhook callback
+- HTTP callback
+- event callback
+- API
+- Integration
 
 ## Source trace
 

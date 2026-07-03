@@ -69,6 +69,15 @@ Overload Handling ảnh hưởng tới quyết định release, ưu tiên techni
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Overload Handling
+- xử lý quá tải
+- overload
+- handling
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / overload chapters

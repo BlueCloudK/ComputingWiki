@@ -67,6 +67,19 @@ Systems Engineering Introduction ảnh hưởng tới cách chia module/service,
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Engineering Introduction
+- SE introduction
+- giới thiệu systems engineering
+- systems
+- engineering
+- introduction
+- Architecture
+- System Design
+- hệ thống
+- kỹ thuật
+
 ## Source trace
 
 - SEBoK Map / Part 1

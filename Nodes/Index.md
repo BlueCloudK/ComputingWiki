@@ -67,6 +67,16 @@ Index ảnh hưởng tới database design, query performance, migration, audit/
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Index
+- database index
+- chỉ mục database
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database System Concepts Ch04.6 / Part Five

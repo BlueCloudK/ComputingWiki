@@ -69,6 +69,18 @@ Database Language ảnh hưởng tới database design, query performance, migra
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Database Language
+- ngôn ngữ database
+- database
+- language
+- Data
+- cơ sở dữ liệu
+- ngôn ngữ
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch01.4

@@ -67,6 +67,18 @@ System Context Diagram giúp team review dependency, data flow, state transition
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- System Context Diagram
+- C4 context diagram
+- sơ đồ context hệ thống
+- system
+- context
+- diagram
+- Artifact
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - C4 Model Map / Level 1

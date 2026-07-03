@@ -68,6 +68,19 @@ Dynamic Interaction Modeling giúp team review dependency, data flow, state tran
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Dynamic Interaction Modeling
+- interaction modeling
+- mô hình tương tác động
+- dynamic
+- interaction
+- modeling
+- Artifact
+- Diagram
+- mô hình hóa
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch09

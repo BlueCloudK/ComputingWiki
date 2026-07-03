@@ -67,6 +67,19 @@ Computer Engineering ảnh hưởng tới API payload, message, config, log, net
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computer Engineering
+- CE
+- kỹ thuật máy tính
+- computer
+- engineering
+- Protocol
+- Data Format
+- máy tính
+- kỹ thuật
+- dữ liệu
+
 ## Source trace
 
 - CC2020 Map / CC2020 disciplines

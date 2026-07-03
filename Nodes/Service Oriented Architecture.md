@@ -67,6 +67,19 @@ Service Oriented Architecture giúp team review dependency, data flow, state tra
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Service Oriented Architecture
+- SOA
+- kiến trúc hướng dịch vụ
+- service
+- oriented
+- architecture
+- Artifact
+- Diagram
+- kiến trúc
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch16

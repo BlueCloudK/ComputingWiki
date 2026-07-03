@@ -67,6 +67,19 @@ Table Data Gateway gom SQL cho một table vào gateway riêng, hợp với data
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Table Data Gateway
+- table data gateway pattern
+- mẫu table data gateway
+- table
+- data
+- gateway
+- Code Design
+- Pattern
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

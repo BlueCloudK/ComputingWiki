@@ -70,6 +70,19 @@ Software Modeling Method giúp team review dependency, data flow, state transiti
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Modeling Method
+- modeling method
+- phương pháp mô hình hóa phần mềm
+- software
+- modeling
+- method
+- Artifact
+- Diagram
+- phần mềm
+- mô hình hóa
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch05

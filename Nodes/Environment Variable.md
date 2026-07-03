@@ -68,6 +68,18 @@ Environment Variable ảnh hưởng tới release safety, incident response, tro
 - Release management
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Environment Variable
+- env var
+- biến môi trường
+- environment
+- variable
+- Deployment
+- Operations
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Deployment and Operations

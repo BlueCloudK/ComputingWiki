@@ -67,6 +67,15 @@ Development Approaches giúp debug lỗi environment-specific, performance thấ
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Development Approaches
+- cách tiếp cận phát triển
+- development
+- approaches
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - SEBoK Map / Part 3a

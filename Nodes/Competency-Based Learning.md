@@ -67,6 +67,17 @@ Competency-Based Learning giúp debug lỗi environment-specific, performance th
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Competency-Based Learning
+- học theo năng lực
+- competency based learning
+- competency
+- based
+- learning
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - CC2020 Map / Chapter 3

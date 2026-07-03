@@ -68,6 +68,17 @@ Error Handling ảnh hưởng tới API design, frontend/backend handoff, integr
 - Third-party integration
 - Contract testing
 
+## Keywords / Từ khóa tìm kiếm
+
+- Error Handling
+- exception handling
+- error response
+- xử lý lỗi
+- error
+- handling
+- API
+- Integration
+
 ## Source trace
 
 - SWEBOK Map / API and Integration

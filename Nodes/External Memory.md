@@ -67,6 +67,19 @@ External Memory ảnh hưởng tới database design, query performance, migrati
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- External Memory
+- external storage
+- bộ nhớ ngoài
+- external
+- memory
+- Data
+- Database
+- bộ nhớ
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Computer Organization Map / Ch06

@@ -68,6 +68,14 @@ Traceability giúp trả lời "nếu đổi requirement này thì vỡ gì" và
 - Compliance evidence
 - Regression safety
 
+## Keywords / Từ khóa tìm kiếm
+
+- Traceability
+- requirements traceability
+- truy vết yêu cầu
+- Requirement
+- Planning
+
 ## Source trace
 
 - Software Requirements 3rd Ed Ch29

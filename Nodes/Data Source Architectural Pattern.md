@@ -71,6 +71,19 @@ Data Source Architectural Pattern ảnh hưởng tới cách chia module/service
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Source Architectural Pattern
+- data source architecture pattern
+- mẫu truy cập dữ liệu
+- data
+- source
+- architectural
+- Architecture
+- System Design
+- dữ liệu
+- nguồn dữ liệu
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA catalog

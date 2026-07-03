@@ -67,6 +67,17 @@ Batch Processing ảnh hưởng tới database design, query performance, migrat
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Batch Processing
+- xử lý batch
+- batch
+- processing
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch10

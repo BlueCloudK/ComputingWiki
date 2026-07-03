@@ -69,6 +69,14 @@ Syntax ảnh hưởng readability, formatter, linting và lỗi build rất sớ
 - Formatter
 - Linter
 
+## Keywords / Từ khóa tìm kiếm
+
+- Syntax
+- grammar
+- cú pháp
+- Computer Foundation
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Computer Foundations Map Ch09

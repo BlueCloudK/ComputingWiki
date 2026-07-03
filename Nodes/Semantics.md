@@ -69,6 +69,14 @@ Semantics giúp debug bug tinh vi như scope nhầm, mutation ngoài ý muốn, 
 - Program correctness
 - Debugging edge cases
 
+## Keywords / Từ khóa tìm kiếm
+
+- Semantics
+- meaning of programs
+- ngữ nghĩa chương trình
+- Computer Foundation
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Types and Programming Languages

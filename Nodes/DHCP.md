@@ -1,6 +1,6 @@
 ﻿# DHCP
 
-Aliases: Dynamic Host Configuration Protocol, DHCP
+Aliases: Dynamic Host Configuration Protocol, DHCP, cấp phát IP động
 
 Type: Protocol / Data Format
 
@@ -61,6 +61,17 @@ Node này giúp debug máy không vào mạng, IP conflict hoặc network lab.
 ## Liên quan rộng
 
 - Network configuration
+
+## Keywords / Từ khóa tìm kiếm
+
+- DHCP
+- Dynamic Host Configuration Protocol
+- cấp phát IP động
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+- mạng máy tính
 
 ## Source trace
 

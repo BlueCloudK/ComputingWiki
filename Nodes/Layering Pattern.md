@@ -70,6 +70,16 @@ Layering Pattern chia hệ thống thành tầng trách nhiệm để dependency
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Layering Pattern
+- mẫu phân lớp
+- layering
+- pattern
+- Code Design
+- mẫu thiết kế
+- design pattern
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA catalog

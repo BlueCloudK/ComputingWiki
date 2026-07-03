@@ -67,6 +67,16 @@ XSS ảnh hưởng tới API payload, message, config, log, network call hoặc 
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- XSS
+- cross-site scripting
+- lỗi XSS
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - OWASP XSS Prevention Cheat Sheet

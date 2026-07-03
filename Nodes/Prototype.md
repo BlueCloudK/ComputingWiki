@@ -67,6 +67,16 @@ Prototype tạo object mới bằng clone object mẫu, hữu ích khi chi phí 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Prototype
+- prototype pattern
+- mẫu prototype
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

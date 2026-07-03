@@ -67,6 +67,14 @@ Sequence Diagram giúp team review dependency, data flow, state transition, acto
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Sequence Diagram
+- sơ đồ tuần tự
+- sequence
+- diagram
+- Artifact
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch09

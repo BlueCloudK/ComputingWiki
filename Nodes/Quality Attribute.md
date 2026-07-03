@@ -68,6 +68,17 @@ Quality Attribute giúp kiến trúc không chỉ xoay quanh feature. Nó buộc
 - SLO/SLA design
 - Risk analysis
 
+## Keywords / Từ khóa tìm kiếm
+
+- Quality Attribute
+- quality characteristic
+- thuộc tính chất lượng
+- quality
+- attribute
+- Requirement
+- Planning
+- chất lượng
+
 ## Source trace
 
 - Software Requirements 3rd Ed Ch14 / Software Modeling and Design Map Ch20

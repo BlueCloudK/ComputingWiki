@@ -68,6 +68,13 @@ Process giúp debug lỗi environment-specific, performance thấp tầng, concu
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Process
+- tiến trình
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch01.5/Ch02.1

@@ -68,6 +68,18 @@ White Box Testing gắn code change với bằng chứng kiểm tra, giúp team 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- White Box Testing
+- white-box testing
+- kiểm thử hộp trắng
+- white
+- box
+- testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch04

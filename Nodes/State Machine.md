@@ -67,6 +67,17 @@ State Machine giúp team review dependency, data flow, state transition, actor/s
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- State Machine
+- finite state machine
+- state-transition model
+- máy trạng thái
+- state
+- machine
+- Artifact
+- Diagram
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch10

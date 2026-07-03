@@ -67,6 +67,17 @@ Deployment Diagram ảnh hưởng tới release safety, incident response, troub
 - Release management
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Deployment Diagram
+- sơ đồ triển khai
+- deployment
+- diagram
+- Operations
+- triển khai
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - C4 Model Map / supplementary

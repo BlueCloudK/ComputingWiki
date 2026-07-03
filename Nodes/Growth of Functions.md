@@ -67,6 +67,16 @@ Growth of Functions ảnh hưởng tới lựa chọn thuật toán, cấu trúc
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Growth of Functions
+- asymptotic growth
+- độ tăng của hàm
+- growth functions
+- growth
+- functions
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch03.2

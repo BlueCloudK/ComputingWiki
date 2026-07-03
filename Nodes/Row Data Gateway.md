@@ -67,6 +67,19 @@ Row Data Gateway đại diện một row database và gom SQL cho row đó vào 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Row Data Gateway
+- row data gateway pattern
+- mẫu row data gateway
+- row
+- data
+- gateway
+- Code Design
+- Pattern
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

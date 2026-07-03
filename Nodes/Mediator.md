@@ -67,6 +67,16 @@ Mediator gom giao tiếp nhiều object vào trung tâm phối hợp để giả
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Mediator
+- mediator pattern
+- mẫu mediator
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

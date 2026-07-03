@@ -67,6 +67,17 @@ Hash Index ảnh hưởng tới database design, query performance, migration, a
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Hash Index
+- chỉ mục hash
+- hash
+- index
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch03

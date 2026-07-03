@@ -71,6 +71,17 @@ Creational Pattern kiểm soát cách object được tạo khi constructor tr�
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Creational Pattern
+- creational design pattern
+- mẫu khởi tạo
+- creational
+- pattern
+- Code Design
+- mẫu thiết kế
+- design pattern
+
 ## Source trace
 
 - Design Pattern Map / catalog

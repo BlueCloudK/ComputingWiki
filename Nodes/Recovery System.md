@@ -68,6 +68,19 @@ Recovery System ảnh hưởng tới database design, query performance, migrati
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Recovery System
+- recovery
+- khôi phục database
+- system
+- Data
+- Database
+- hệ thống
+- dữ liệu
+- hệ thống dữ liệu
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Database Systems Map / Ch19

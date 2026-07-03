@@ -67,6 +67,18 @@ Data Science ảnh hưởng tới database design, query performance, migration,
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Science
+- khoa học dữ liệu
+- data
+- science
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - CC2020 Map / CC2020 emerging curricula

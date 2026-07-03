@@ -77,6 +77,19 @@ Vùng này giúp dữ liệu không bị biến thành file rời rạc hoặc q
 - Data governance
 - Machine learning data
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Engineering
+- data pipelines
+- kỹ thuật dữ liệu
+- data
+- engineering
+- Database
+- dữ liệu
+- kỹ thuật
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - Designing Data-Intensive Applications

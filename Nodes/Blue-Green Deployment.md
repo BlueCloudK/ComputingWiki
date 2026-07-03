@@ -1,6 +1,6 @@
 ﻿# Blue-Green Deployment
 
-Aliases: blue green release, triển khai blue-green
+Aliases: blue green release, triển khai blue-green, blue/green deployment, triển khai xanh lam xanh lá
 
 Type: Deployment / Operations
 
@@ -61,6 +61,19 @@ Node này giúp release an toàn hơn khi cần cutover rõ ràng.
 ## Liên quan rộng
 
 - Zero-downtime release
+
+## Keywords / Từ khóa tìm kiếm
+
+- Blue-Green Deployment
+- blue green release
+- triển khai blue-green
+- blue/green deployment
+- triển khai xanh lam xanh lá
+- blue green deployment
+- blue
+- green
+- deployment
+- Operations
 
 ## Source trace
 

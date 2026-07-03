@@ -68,6 +68,16 @@ Derived Data ảnh hưởng tới database design, query performance, migration,
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Derived Data
+- dữ liệu dẫn xuất
+- derived
+- data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Part III

@@ -68,6 +68,17 @@ Integrity Constraint ảnh hưởng tới database design, query performance, mi
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Integrity Constraint
+- constraint
+- ràng buộc toàn vẹn
+- integrity
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch04.4

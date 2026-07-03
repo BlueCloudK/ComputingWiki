@@ -71,6 +71,17 @@ Architecture Diagram giúp team review dependency, data flow, state transition, 
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Architecture Diagram
+- architecture view
+- sơ đồ kiến trúc
+- architecture
+- diagram
+- Artifact
+- kiến trúc
+- kiến trúc hệ thống
+
 ## Source trace
 
 - C4 Model Map

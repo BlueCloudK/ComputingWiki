@@ -67,6 +67,17 @@ Network Management giúp debug lỗi environment-specific, performance thấp t�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Network Management
+- quản lý mạng
+- network
+- management
+- Tooling
+- Implementation Detail
+- mạng
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map / management chapter

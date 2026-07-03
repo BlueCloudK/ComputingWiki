@@ -77,6 +77,19 @@ Computer Organization là MOC điều hướng: dùng để đi từ vùng lớn
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computer Organization
+- computer organization and architecture
+- tổ chức máy tính
+- computer
+- organization
+- Architecture
+- System Design
+- máy tính
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - Computer Organization Map

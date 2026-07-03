@@ -67,6 +67,19 @@ Systems Engineering and Software Engineering ảnh hưởng tới cách chia mod
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Engineering and Software Engineering
+- SE and software engineering
+- systems engineering và software engineering
+- systems engineering software engineering
+- systems
+- engineering
+- software
+- Architecture
+- System Design
+- hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 6

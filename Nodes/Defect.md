@@ -67,6 +67,16 @@ Defect gắn code change với bằng chứng kiểm tra, giúp team quyết đ�
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Defect
+- bug
+- fault
+- lỗi trong phần mềm
+- Testing
+- Verification
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01.1

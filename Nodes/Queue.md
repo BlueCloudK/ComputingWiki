@@ -68,6 +68,16 @@ Queue ảnh hưởng tới việc chọn index/cache/queue/scale/refactor và qu
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Queue
+- async queue
+- hàng đợi
+- Performance
+- Scalability
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Performance maps

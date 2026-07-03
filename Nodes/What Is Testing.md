@@ -70,6 +70,18 @@ What Is Testing gắn code change với bằng chứng kiểm tra, giúp team qu
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- What Is Testing
+- testing definition
+- testing là gì
+- what
+- is
+- testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01.2

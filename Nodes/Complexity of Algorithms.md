@@ -67,6 +67,18 @@ Complexity of Algorithms ảnh hưởng tới lựa chọn thuật toán, cấu 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Complexity of Algorithms
+- algorithm complexity
+- độ phức tạp thuật toán
+- complexity algorithms
+- complexity
+- algorithms
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch03.3

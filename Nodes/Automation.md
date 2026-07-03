@@ -68,6 +68,13 @@ Automation ảnh hưởng tới quyết định release, ưu tiên technical deb
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Automation
+- tự động hóa
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / automation chapters

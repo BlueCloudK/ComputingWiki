@@ -70,6 +70,17 @@ Network Layer giúp debug lỗi environment-specific, performance thấp tầng,
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Network Layer
+- tầng mạng
+- network
+- layer
+- Tooling
+- Implementation Detail
+- mạng
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map / Ch04-Ch05

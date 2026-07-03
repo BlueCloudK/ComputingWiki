@@ -67,6 +67,16 @@ Observer tách publisher khỏi subscriber để nhiều bên phản ứng với
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Observer
+- observer pattern
+- mẫu observer
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

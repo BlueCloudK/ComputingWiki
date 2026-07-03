@@ -1,6 +1,6 @@
 ﻿# TLS
 
-Aliases: Transport Layer Security, bảo mật tầng vận chuyển
+Aliases: Transport Layer Security, bảo mật tầng vận chuyển, SSL successor, bảo mật tầng truyền tải
 
 Type: Protocol / Data Format
 
@@ -62,6 +62,19 @@ Node này giúp debug HTTPS, certificate, API security và transport protection.
 
 - Certificates
 - Encryption in transit
+
+## Keywords / Từ khóa tìm kiếm
+
+- TLS
+- Transport Layer Security
+- bảo mật tầng vận chuyển
+- SSL successor
+- bảo mật tầng truyền tải
+- Protocol
+- Data Format
+- bảo mật phần mềm
+- dữ liệu
+- hệ thống dữ liệu
 
 ## Source trace
 

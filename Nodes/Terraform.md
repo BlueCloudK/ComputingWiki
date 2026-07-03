@@ -64,6 +64,17 @@ Node này giúp quản lý cloud resource có review, history và drift awarenes
 - IaC workflow
 - State management
 
+## Keywords / Từ khóa tìm kiếm
+
+- Terraform
+- Terraform IaC
+- Deployment
+- Operations
+- cloud infrastructure
+- hạ tầng cloud
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Terraform official docs

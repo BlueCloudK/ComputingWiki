@@ -68,6 +68,14 @@ Throughput giúp capacity planning, load test và scaling decision. Nó trả l�
 - Scaling
 - Queueing
 
+## Keywords / Từ khóa tìm kiếm
+
+- Throughput
+- processing rate
+- thông lượng
+- Performance
+- Scalability
+
 ## Source trace
 
 - Designing Data-Intensive Applications Ch01

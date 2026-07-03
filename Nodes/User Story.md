@@ -68,6 +68,16 @@ User Story giúp backlog bám vào outcome thay vì danh sách việc kỹ thu�
 - Product discovery
 - Iteration planning
 
+## Keywords / Từ khóa tìm kiếm
+
+- User Story
+- agile story
+- câu chuyện người dùng
+- user
+- story
+- Requirement
+- Planning
+
 ## Source trace
 
 - Software Requirements 3rd Ed Ch20

@@ -67,6 +67,19 @@ Data Mapper tách domain object khỏi database schema bằng mapper riêng, gi�
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Mapper
+- data mapper pattern
+- mẫu data mapper
+- data
+- mapper
+- Code Design
+- Pattern
+- dữ liệu
+- hệ thống dữ liệu
+- design pattern
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

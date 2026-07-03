@@ -68,6 +68,18 @@ Risk and Testing gắn code change với bằng chứng kiểm tra, giúp team q
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Risk and Testing
+- risk-based testing
+- risk và testing
+- risk testing
+- risk
+- testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch05

@@ -68,6 +68,16 @@ Little Law ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Little Law
+- Little's law
+- định luật Little
+- little
+- law
+- Performance
+- Scalability
+
 ## Source trace
 
 - Computer Organization Map / Ch02.3

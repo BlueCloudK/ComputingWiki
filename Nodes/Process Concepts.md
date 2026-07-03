@@ -68,6 +68,16 @@ Process Concepts giúp debug lỗi environment-specific, performance thấp tầ
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Process Concepts
+- khái niệm process
+- process
+- concepts
+- Tooling
+- Implementation Detail
+- tiến trình
+
 ## Source trace
 
 - SEBoK Map / Part 3b

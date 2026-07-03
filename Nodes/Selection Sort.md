@@ -67,6 +67,16 @@ Selection Sort ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Selection Sort
+- sắp xếp chọn
+- selection
+- sort
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Algorithms Map / Ch02

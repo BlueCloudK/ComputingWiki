@@ -67,6 +67,18 @@ Table Module đặt business logic quanh một table hoặc record set, hợp v�
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Table Module
+- table module pattern
+- mẫu table module
+- table
+- module
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA Table Module

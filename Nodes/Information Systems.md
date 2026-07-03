@@ -67,6 +67,19 @@ Information Systems ảnh hưởng tới API payload, message, config, log, netw
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Information Systems
+- IS
+- hệ thống thông tin
+- information
+- systems
+- Protocol
+- Data Format
+- hệ thống
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - CC2020 Map / CC2020 disciplines

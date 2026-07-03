@@ -67,6 +67,16 @@ Dijkstra Algorithm ảnh hưởng tới lựa chọn thuật toán, cấu trúc 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Dijkstra Algorithm
+- Dijkstra
+- thuật toán Dijkstra
+- algorithm
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Algorithms Map / Ch07

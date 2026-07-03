@@ -68,6 +68,16 @@ Functional Requirement định hình backlog, API contract, domain logic và tes
 - Domain logic
 - API behavior
 
+## Keywords / Từ khóa tìm kiếm
+
+- Functional Requirement
+- function requirement
+- yêu cầu chức năng
+- functional
+- requirement
+- Planning
+- yêu cầu
+
 ## Source trace
 
 - Requirements Engineering Map / Software Requirements 3rd Ed Ch01

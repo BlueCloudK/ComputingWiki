@@ -67,6 +67,16 @@ Code Diagram giúp team review dependency, data flow, state transition, actor/sy
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Code Diagram
+- C4 code diagram
+- sơ đồ code
+- code
+- diagram
+- Artifact
+- thiết kế code
+
 ## Source trace
 
 - C4 Model Map / Level 4

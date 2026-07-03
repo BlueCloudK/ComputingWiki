@@ -67,6 +67,16 @@ Relationship ảnh hưởng tới API payload, message, config, log, network cal
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Relationship
+- dependency
+- quan hệ
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch06.2

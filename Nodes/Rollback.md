@@ -68,6 +68,14 @@ Rollback ảnh hưởng tới quyết định release, ưu tiên technical debt,
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Rollback
+- revert deployment
+- quay lại phiên bản trước
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / Deployment and Operations

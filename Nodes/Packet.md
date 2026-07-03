@@ -62,6 +62,17 @@ Node này giúp debug latency, loss, MTU và protocol behavior.
 
 - Network troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Packet
+- network packet
+- gói tin
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map

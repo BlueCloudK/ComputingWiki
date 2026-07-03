@@ -68,6 +68,15 @@ Replication ảnh hưởng tới database design, query performance, migration, 
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Replication
+- nhân bản dữ liệu
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch05

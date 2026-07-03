@@ -67,6 +67,16 @@ Proxy đứng thay object thật để kiểm soát access, lazy load, remote ca
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Proxy
+- proxy pattern
+- mẫu proxy
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

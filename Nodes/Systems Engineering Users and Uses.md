@@ -67,6 +67,19 @@ Systems Engineering Users and Uses ảnh hưởng tới cách chia module/servic
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Engineering Users and Uses
+- SE users and uses
+- người dùng systems engineering
+- systems engineering users uses
+- systems
+- engineering
+- users
+- Architecture
+- System Design
+- hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 1

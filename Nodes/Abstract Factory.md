@@ -67,6 +67,18 @@ Abstract Factory gom việc tạo các family object tương thích để client
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Abstract Factory
+- abstract factory pattern
+- mẫu abstract factory
+- abstract
+- factory
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

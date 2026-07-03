@@ -63,6 +63,16 @@ Node này giúp phòng XSS và injection ở output boundary.
 - Escaping
 - Template security
 
+## Keywords / Từ khóa tìm kiếm
+
+- Output Encoding
+- output escaping
+- mã hóa output
+- output
+- encoding
+- Security
+- bảo mật phần mềm
+
 ## Source trace
 
 - OWASP XSS Prevention Cheat Sheet

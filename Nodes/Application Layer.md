@@ -69,6 +69,16 @@ Application Layer giúp debug lỗi environment-specific, performance thấp t�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Application Layer
+- tầng ứng dụng
+- application
+- layer
+- Tooling
+- Implementation Detail
+- ứng dụng
+
 ## Source trace
 
 - Computer Networks Map / Ch02

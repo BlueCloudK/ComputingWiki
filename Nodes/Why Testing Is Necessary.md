@@ -70,6 +70,18 @@ Why Testing Is Necessary gắn code change với bằng chứng kiểm tra, giú
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Why Testing Is Necessary
+- why testing matters
+- vì sao cần testing
+- why
+- testing
+- is
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01.1

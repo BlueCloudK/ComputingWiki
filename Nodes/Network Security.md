@@ -67,6 +67,17 @@ Network Security ảnh hưởng tới auth flow, permission, validation, secret 
 - Audit
 - Risk management
 
+## Keywords / Từ khóa tìm kiếm
+
+- Network Security
+- bảo mật mạng
+- network
+- security
+- mạng
+- bảo mật
+- bảo mật phần mềm
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map / security chapter

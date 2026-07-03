@@ -67,6 +67,16 @@ Adapter dịch interface của dependency cũ hoặc third-party sang interface 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Adapter
+- adapter pattern
+- mẫu adapter
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

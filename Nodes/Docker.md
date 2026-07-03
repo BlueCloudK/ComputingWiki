@@ -1,6 +1,6 @@
 ﻿# Docker
 
-Aliases: container runtime/tooling, Docker
+Aliases: container runtime/tooling, Docker, container runtime, docker container, container hóa
 
 Type: Deployment / Operations
 
@@ -63,6 +63,19 @@ Node này giúp reproducible dev/deploy và giảm lệch dependency giữa môi
 
 - Container images
 - Dev environment
+
+## Keywords / Từ khóa tìm kiếm
+
+- Docker
+- container runtime/tooling
+- container runtime
+- docker container
+- Deployment
+- Operations
+- cloud infrastructure
+- hạ tầng cloud
+- devops
+- triển khai phần mềm
 
 ## Source trace
 

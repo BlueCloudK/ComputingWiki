@@ -67,6 +67,19 @@ LSM Tree ảnh hưởng tới database design, query performance, migration, aud
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- LSM Tree
+- log-structured merge tree
+- cây LSM
+- lsm
+- tree
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+- thuật toán
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch03

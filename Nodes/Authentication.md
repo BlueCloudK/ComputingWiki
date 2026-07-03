@@ -1,6 +1,6 @@
 # Authentication
 
-Aliases: identity verification, xác thực
+Aliases: identity verification, xác thực, authn, login verification, xác thực người dùng
 
 Type: Security
 
@@ -67,6 +67,17 @@ Authentication ảnh hưởng tới auth flow, permission, validation, secret ha
 - Backend
 - Audit
 - Risk management
+
+## Keywords / Từ khóa tìm kiếm
+
+- Authentication
+- identity verification
+- xác thực
+- authn
+- login verification
+- Security
+- xác thực đăng nhập
+- bảo mật phần mềm
 
 ## Source trace
 

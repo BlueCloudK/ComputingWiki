@@ -67,6 +67,16 @@ Composite cho client xử lý object đơn và cây object qua cùng interface, 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Composite
+- composite pattern
+- mẫu composite
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

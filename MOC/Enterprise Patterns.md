@@ -89,6 +89,19 @@ Enterprise Patterns là MOC điều hướng: dùng để đi từ vùng lớn x
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Enterprise Patterns
+- PEAA patterns
+- enterprise application patterns
+- mẫu enterprise
+- enterprise
+- patterns
+- Code Design
+- Pattern
+- mẫu thiết kế
+- mục lục kiến thức
+
 ## Source trace
 
 - Fowler Pattern Map

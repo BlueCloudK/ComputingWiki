@@ -68,6 +68,18 @@ Incident Management gắn code change với bằng chứng kiểm tra, giúp tea
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Incident Management
+- quản lý incident trong testing
+- incident
+- management
+- Testing
+- Verification
+- kiểm thử phần mềm
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch05

@@ -68,6 +68,14 @@ Latency giúp đặt NFR, SLO và performance budget. Nó chỉ ra user journey 
 - User experience
 - Tail latency
 
+## Keywords / Từ khóa tìm kiếm
+
+- Latency
+- response time
+- độ trễ
+- Performance
+- Scalability
+
 ## Source trace
 
 - Designing Data-Intensive Applications Ch01

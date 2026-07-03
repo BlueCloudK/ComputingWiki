@@ -67,6 +67,16 @@ Iterator chuẩn hóa cách duyệt collection để client không cần biết 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Iterator
+- iterator pattern
+- mẫu iterator
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

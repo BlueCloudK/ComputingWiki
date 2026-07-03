@@ -67,6 +67,19 @@ Real Time Architecture giúp team review dependency, data flow, state transition
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Real Time Architecture
+- real-time architecture
+- kiến trúc thời gian thực
+- real
+- time
+- architecture
+- Artifact
+- Diagram
+- kiến trúc
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch18

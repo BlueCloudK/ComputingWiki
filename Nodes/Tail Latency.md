@@ -63,6 +63,17 @@ Node này giúp SLO/performance nhìn đúng user bị chậm nhất thay vì tr
 - Percentiles
 - User experience
 
+## Keywords / Từ khóa tìm kiếm
+
+- Tail Latency
+- p95/p99 latency
+- độ trễ đuôi
+- tail
+- latency
+- Performance
+- Scalability
+- độ trễ
+
 ## Source trace
 
 - Google SRE Books

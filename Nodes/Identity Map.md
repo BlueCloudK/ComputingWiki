@@ -67,6 +67,18 @@ Identity Map đảm bảo cùng một record trong một unit of work chỉ có 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Identity Map
+- identity map pattern
+- mẫu identity map
+- identity
+- map
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

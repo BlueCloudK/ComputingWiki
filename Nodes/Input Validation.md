@@ -69,6 +69,17 @@ Input Validation ảnh hưởng tới auth flow, permission, validation, secret 
 - Audit
 - Risk management
 
+## Keywords / Từ khóa tìm kiếm
+
+- Input Validation
+- validate untrusted input
+- kiểm tra input
+- input
+- validation
+- Security
+- xác thực
+- bảo mật phần mềm
+
 ## Source trace
 
 - OWASP Input Validation Cheat Sheet

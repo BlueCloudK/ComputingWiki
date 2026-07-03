@@ -70,6 +70,13 @@ Interpreter ảnh hưởng startup behavior, runtime error timing, debugging, sc
 - Scripting
 - Runtime diagnostics
 
+## Keywords / Từ khóa tìm kiếm
+
+- Interpreter
+- trình thông dịch
+- Computer Foundation
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Crafting Interpreters

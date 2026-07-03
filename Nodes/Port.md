@@ -64,6 +64,15 @@ Node này giúp debug service binding, firewall, Docker port mapping và API end
 - Service discovery
 - Firewall rules
 
+## Keywords / Từ khóa tìm kiếm
+
+- Port
+- network port
+- cổng mạng
+- Tooling
+- Implementation Detail
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map

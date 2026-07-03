@@ -67,6 +67,17 @@ Systems Thinking giúp debug lỗi environment-specific, performance thấp tầ
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Thinking
+- tư duy hệ thống
+- systems
+- thinking
+- Tooling
+- Implementation Detail
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 2 KA

@@ -67,6 +67,16 @@ Relations ảnh hưởng tới database design, query performance, migration, au
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Relations
+- relation
+- quan hệ
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch09

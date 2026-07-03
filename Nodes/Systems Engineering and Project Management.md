@@ -67,6 +67,19 @@ Systems Engineering and Project Management ảnh hưởng tới cách chia modul
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Engineering and Project Management
+- SE and project management
+- systems engineering và quản lý dự án
+- systems engineering project management
+- systems
+- engineering
+- project
+- Architecture
+- System Design
+- hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 6

@@ -67,6 +67,17 @@ File System giúp debug lỗi environment-specific, performance thấp tầng, c
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- File System
+- hệ thống tập tin
+- file
+- system
+- Tooling
+- Implementation Detail
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map / Ch04

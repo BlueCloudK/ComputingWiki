@@ -67,6 +67,18 @@ Page Controller gắn controller với từng page/action, đơn giản cho web 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Page Controller
+- page controller pattern
+- mẫu page controller
+- page
+- controller
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

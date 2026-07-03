@@ -68,6 +68,13 @@ Scheduling giúp debug lỗi environment-specific, performance thấp tầng, co
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Scheduling
+- lập lịch
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch02.4

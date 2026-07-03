@@ -67,6 +67,16 @@ Builder gom quá trình dựng object phức tạp thành từng bước rõ rà
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Builder
+- builder pattern
+- mẫu builder
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

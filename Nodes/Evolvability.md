@@ -67,6 +67,15 @@ Evolvability ảnh hưởng tới database design, query performance, migration,
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Evolvability
+- khả năng tiến hóa
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch01

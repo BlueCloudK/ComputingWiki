@@ -67,6 +67,13 @@ File giúp debug lỗi environment-specific, performance thấp tầng, concurre
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- File
+- tập tin
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch01.5/Ch04

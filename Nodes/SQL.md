@@ -68,6 +68,16 @@ SQL ảnh hưởng tới database design, query performance, migration, audit/hi
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- SQL
+- query language
+- ngôn ngữ truy vấn
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database System Concepts Ch03-Ch05

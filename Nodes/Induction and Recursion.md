@@ -67,6 +67,15 @@ Induction and Recursion ảnh hưởng tới lựa chọn thuật toán, cấu t
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Induction and Recursion
+- induction
+- recursion
+- quy nạp và đệ quy
+- induction recursion
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch05

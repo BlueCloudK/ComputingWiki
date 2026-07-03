@@ -82,6 +82,16 @@ Algorithms là MOC điều hướng: dùng để đi từ vùng lớn xuống no
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Algorithms
+- algorithm
+- thuật toán
+- Computer Foundation
+- mục lục kiến thức
+- nhánh kiến thức
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Algorithms Map

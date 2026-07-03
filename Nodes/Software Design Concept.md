@@ -70,6 +70,19 @@ Software Design Concept giúp team review dependency, data flow, state transitio
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Design Concept
+- design concept
+- khái niệm thiết kế phần mềm
+- software
+- design
+- concept
+- Artifact
+- Diagram
+- phần mềm
+- thiết kế
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch04

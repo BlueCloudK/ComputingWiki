@@ -75,6 +75,18 @@ Protocols là MOC điều hướng: dùng để đi từ vùng lớn xuống nod
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Protocols
+- network protocols
+- giao thức
+- Protocol
+- Data Format
+- mục lục kiến thức
+- nhánh kiến thức
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Computer Networks Map

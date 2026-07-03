@@ -67,6 +67,15 @@ Trigger ảnh hưởng tới database design, query performance, migration, audi
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Trigger
+- database trigger
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch05.3

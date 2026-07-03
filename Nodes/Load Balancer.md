@@ -1,6 +1,6 @@
 ﻿# Load Balancer
 
-Aliases: LB, cân bằng tải
+Aliases: LB, cân bằng tải, traffic load balancing
 
 Type: Deployment / Operations
 
@@ -62,6 +62,19 @@ Node này giúp scale, HA và deploy nhiều instance an toàn hơn.
 
 - Traffic routing
 - High availability
+
+## Keywords / Từ khóa tìm kiếm
+
+- Load Balancer
+- LB
+- cân bằng tải
+- traffic load balancing
+- load
+- balancer
+- Deployment
+- Operations
+- cloud infrastructure
+- hạ tầng cloud
 
 ## Source trace
 

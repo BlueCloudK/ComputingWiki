@@ -1,6 +1,6 @@
 ﻿# Kubernetes
 
-Aliases: K8s, Kubernetes
+Aliases: K8s, Kubernetes, container orchestration, điều phối container
 
 Type: Deployment / Operations
 
@@ -63,6 +63,19 @@ Node này hữu ích khi workload cần orchestration, nhưng có thể quá n�
 
 - Container orchestration
 - Platform engineering
+
+## Keywords / Từ khóa tìm kiếm
+
+- Kubernetes
+- K8s
+- container orchestration
+- điều phối container
+- Deployment
+- Operations
+- cloud infrastructure
+- hạ tầng cloud
+- devops
+- triển khai phần mềm
 
 ## Source trace
 

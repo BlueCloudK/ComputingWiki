@@ -70,6 +70,19 @@ Relational Model ảnh hưởng tới database design, query performance, migrat
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Relational Model
+- mô hình quan hệ
+- relational
+- model
+- Data
+- Database
+- mô hình
+- dữ liệu
+- hệ thống dữ liệu
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Database Systems Map / Part One Ch02

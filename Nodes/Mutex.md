@@ -67,6 +67,14 @@ Mutex giúp debug lỗi environment-specific, performance thấp tầng, concurr
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Mutex
+- mutual exclusion
+- khóa mutex
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch02.3

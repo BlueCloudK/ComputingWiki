@@ -70,6 +70,19 @@ Code Design là MOC điều hướng: dùng để đi từ vùng lớn xuống n
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Code Design
+- software design
+- detailed design
+- thiết kế code
+- code
+- design
+- Artifact
+- Diagram
+- thiết kế
+- mục lục kiến thức
+
 ## Source trace
 
 - SWEBOK Map

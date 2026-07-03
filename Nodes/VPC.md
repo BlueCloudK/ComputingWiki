@@ -63,6 +63,18 @@ Node này giúp debug connectivity, exposure và blast radius của cloud worklo
 - Subnets
 - Cloud networking
 
+## Keywords / Từ khóa tìm kiếm
+
+- VPC
+- Virtual Private Cloud
+- mạng riêng ảo cloud
+- Deployment
+- Operations
+- cloud infrastructure
+- hạ tầng cloud
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - AWS Well-Architected

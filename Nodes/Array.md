@@ -67,6 +67,12 @@ Array ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Array
+- mảng
+- Computer Foundation
+
 ## Source trace
 
 - Algorithms Map / Ch02

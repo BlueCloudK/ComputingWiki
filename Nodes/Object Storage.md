@@ -1,6 +1,6 @@
 ﻿# Object Storage
 
-Aliases: object store, lưu trữ object
+Aliases: object store, lưu trữ object, blob storage, cloud object storage, lưu trữ đối tượng
 
 Type: Data / Database
 
@@ -62,6 +62,19 @@ Node này giúp lưu asset, backup, export và data lake với cost/durability t
 
 - Blob storage
 - Static assets
+
+## Keywords / Từ khóa tìm kiếm
+
+- Object Storage
+- object store
+- lưu trữ object
+- blob storage
+- cloud object storage
+- object
+- storage
+- Data
+- Database
+- lưu trữ
 
 ## Source trace
 

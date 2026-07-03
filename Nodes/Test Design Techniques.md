@@ -69,6 +69,19 @@ Test Design Techniques gắn code change với bằng chứng kiểm tra, giúp 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Design Techniques
+- test design technique
+- kỹ thuật thiết kế test
+- test
+- design
+- techniques
+- Testing
+- Verification
+- kiểm thử
+- thiết kế
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch04

@@ -67,6 +67,17 @@ Cybersecurity ảnh hưởng tới API payload, message, config, log, network ca
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Cybersecurity
+- cyber security
+- an ninh mạng
+- Protocol
+- Data Format
+- bảo mật phần mềm
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - CC2020 Map / CC2020 disciplines

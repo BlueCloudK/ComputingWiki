@@ -67,6 +67,14 @@ Dispositions giúp debug lỗi environment-specific, performance thấp tầng, 
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Dispositions
+- know-why
+- thái độ nghề nghiệp
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - CC2020 Map / Executive Summary

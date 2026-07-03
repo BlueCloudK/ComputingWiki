@@ -67,6 +67,16 @@ Strategy đóng gói thuật toán có thể thay thế để caller chọn beha
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Strategy
+- strategy pattern
+- mẫu strategy
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

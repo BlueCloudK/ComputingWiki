@@ -63,6 +63,14 @@ Node này giúp phát hiện bottleneck thật trong performance/capacity planni
 - Utilization
 - Resource limits
 
+## Keywords / Từ khóa tìm kiếm
+
+- Saturation
+- resource saturation
+- bão hòa tài nguyên
+- Performance
+- Scalability
+
 ## Source trace
 
 - Google SRE Books

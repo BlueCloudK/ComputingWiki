@@ -62,6 +62,14 @@ Node này giúp debug upload/download chậm, replication lag hoặc media deliv
 
 - Network capacity
 
+## Keywords / Từ khóa tìm kiếm
+
+- Bandwidth
+- network bandwidth
+- băng thông
+- Performance
+- Scalability
+
 ## Source trace
 
 - Computer Networks Map

@@ -67,6 +67,14 @@ Network giúp debug lỗi environment-specific, performance thấp tầng, concu
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Network
+- mạng
+- Tooling
+- Implementation Detail
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map / Candidate Nodes

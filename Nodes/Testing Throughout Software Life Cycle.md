@@ -70,6 +70,19 @@ Testing Throughout Software Life Cycle gắn code change với bằng chứng ki
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Testing Throughout Software Life Cycle
+- testing through SDLC
+- testing trong vòng đời phần mềm
+- testing
+- throughout
+- software
+- Verification
+- kiểm thử
+- phần mềm
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch02

@@ -71,6 +71,19 @@ Vùng này giúp đọc lỗi build/runtime có ngữ cảnh hơn: lỗi đến 
 - Runtime performance
 - Developer diagnostics
 
+## Keywords / Từ khóa tìm kiếm
+
+- Compiler and Interpreter
+- compilers and interpreters
+- trình biên dịch và trình thông dịch
+- compiler interpreter
+- compiler
+- interpreter
+- Computer Foundation
+- trình biên dịch
+- trình thông dịch
+- mục lục kiến thức
+
 ## Source trace
 
 - Computer Foundations Map Ch09

@@ -68,6 +68,14 @@ Bottleneck ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Bottleneck
+- limiting part
+- điểm nghẽn
+- Performance
+- Scalability
+
 ## Source trace
 
 - Data Intensive Applications Map Ch01

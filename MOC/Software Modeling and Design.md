@@ -77,6 +77,19 @@ Software Modeling and Design là MOC điều hướng: dùng để đi từ vùn
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Modeling and Design
+- software modeling
+- modeling and design
+- mô hình hóa và thiết kế phần mềm
+- software modeling design
+- software
+- modeling
+- design
+- Artifact
+- Diagram
+
 ## Source trace
 
 - Software Modeling and Design Map

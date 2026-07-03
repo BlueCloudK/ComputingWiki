@@ -67,6 +67,17 @@ Abstraction Level ảnh hưởng tới cách chia module/service, deploy, debug 
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Abstraction Level
+- level of abstraction
+- mức trừu tượng
+- abstraction
+- level
+- Architecture
+- System Design
+- kiến trúc hệ thống
+
 ## Source trace
 
 - C4 Model Map

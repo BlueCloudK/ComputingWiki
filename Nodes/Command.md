@@ -67,6 +67,16 @@ Command biến hành động thành object để queue, undo, log hoặc dispatc
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Command
+- command pattern
+- mẫu command
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

@@ -67,6 +67,19 @@ Chain of Responsibility cho request đi qua chuỗi handler, phù hợp khi rule
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Chain of Responsibility
+- chain of responsibility pattern
+- mẫu chuỗi trách nhiệm
+- chain responsibility
+- chain
+- responsibility
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

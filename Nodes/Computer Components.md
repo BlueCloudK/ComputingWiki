@@ -69,6 +69,18 @@ Computer Components ảnh hưởng tới cách chia module/service, deploy, debu
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computer Components
+- computer parts
+- thành phần máy tính
+- computer
+- components
+- Architecture
+- System Design
+- máy tính
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Computer Foundations Map / Ch01-Ch05

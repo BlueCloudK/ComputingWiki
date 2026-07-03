@@ -67,6 +67,15 @@ Component ảnh hưởng tới cách chia module/service, deploy, debug incident
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Component
+- software component
+- thành phần phần mềm
+- Architecture
+- System Design
+- kiến trúc hệ thống
+
 ## Source trace
 
 - C4 Model Map

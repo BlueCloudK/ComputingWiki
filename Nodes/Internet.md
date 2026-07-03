@@ -69,6 +69,13 @@ Internet giúp debug lỗi environment-specific, performance thấp tầng, conc
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Internet
+- mạng Internet
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Computer Networks Map / Ch01

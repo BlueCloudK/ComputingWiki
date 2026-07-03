@@ -67,6 +67,16 @@ ERD ảnh hưởng tới API payload, message, config, log, network call hoặc 
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- ERD
+- entity relationship diagram
+- sơ đồ thực thể quan hệ
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database System Concepts Ch06

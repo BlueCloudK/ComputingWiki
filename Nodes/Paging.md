@@ -62,6 +62,14 @@ Node này giúp hiểu virtual memory, memory pressure và page replacement.
 
 - Memory management
 
+## Keywords / Từ khóa tìm kiếm
+
+- Paging
+- memory paging
+- phân trang
+- Operating System
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map

@@ -1,6 +1,6 @@
 ﻿# HTTPS
 
-Aliases: HTTP over TLS, HTTPS
+Aliases: HTTP over TLS, HTTPS, secure HTTP, HTTP bảo mật
 
 Type: Protocol / Data Format
 
@@ -61,6 +61,18 @@ Node này giúp đọc browser/API errors, mixed content, redirect và cert prob
 ## Liên quan rộng
 
 - Web security
+
+## Keywords / Từ khóa tìm kiếm
+
+- HTTPS
+- HTTP over TLS
+- secure HTTP
+- HTTP bảo mật
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+- mạng máy tính
 
 ## Source trace
 

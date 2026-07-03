@@ -69,6 +69,16 @@ Design Pattern giúp đặt tên cho một trade-off thiết kế lặp lại; g
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Design Pattern
+- GoF pattern
+- mẫu thiết kế
+- design
+- pattern
+- Code Design
+- thiết kế
+
 ## Source trace
 
 - Design Pattern Map

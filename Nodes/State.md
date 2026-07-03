@@ -67,6 +67,16 @@ State chuyển behavior theo trạng thái object, tránh if/switch lớn khi st
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- State
+- state pattern
+- mẫu state
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

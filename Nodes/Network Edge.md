@@ -67,6 +67,17 @@ Network Edge giúp debug lỗi environment-specific, performance thấp tầng, 
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Network Edge
+- biên mạng
+- network
+- edge
+- Tooling
+- Implementation Detail
+- mạng
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map / Ch01.2

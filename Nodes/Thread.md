@@ -67,6 +67,13 @@ Thread giúp debug lỗi environment-specific, performance thấp tầng, concur
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Thread
+- luồng
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch02.2

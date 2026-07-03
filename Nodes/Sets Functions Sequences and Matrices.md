@@ -70,6 +70,17 @@ Sets Functions Sequences and Matrices ảnh hưởng tới lựa chọn thuật 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Sets Functions Sequences and Matrices
+- sets/functions/sequences/matrices
+- cấu trúc rời rạc cơ bản
+- sets functions sequences matrices
+- sets
+- functions
+- sequences
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch02

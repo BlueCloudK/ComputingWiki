@@ -68,6 +68,16 @@ Acceptance Criteria khóa lại nghĩa thực tế của "done". Nó giúp dev b
 - QA workflow
 - Release readiness
 
+## Keywords / Từ khóa tìm kiếm
+
+- Acceptance Criteria
+- acceptance condition
+- tiêu chí chấp nhận
+- acceptance
+- criteria
+- Requirement
+- Planning
+
 ## Source trace
 
 - Software Requirements 3rd Ed Ch17

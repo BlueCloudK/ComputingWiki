@@ -69,6 +69,17 @@ Web Presentation Pattern tổ chức request, controller, view và presentation 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Web Presentation Pattern
+- mẫu presentation web
+- web
+- presentation
+- pattern
+- Code Design
+- mẫu thiết kế
+- design pattern
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA catalog

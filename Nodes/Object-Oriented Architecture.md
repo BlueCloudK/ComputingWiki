@@ -68,6 +68,19 @@ Object-Oriented Architecture giúp team review dependency, data flow, state tran
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Object-Oriented Architecture
+- OO architecture
+- kiến trúc hướng đối tượng
+- object oriented architecture
+- object
+- oriented
+- architecture
+- Artifact
+- Diagram
+- kiến trúc
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch14

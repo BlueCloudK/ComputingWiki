@@ -63,6 +63,17 @@ Node này giúp tránh report sai hoặc model học từ dữ liệu hỏng.
 - Freshness
 - Completeness
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Quality
+- chất lượng dữ liệu
+- data
+- quality
+- Database
+- dữ liệu
+- chất lượng
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Fundamentals of Data Engineering

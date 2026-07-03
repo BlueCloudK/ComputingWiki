@@ -79,6 +79,16 @@ Performance là MOC điều hướng: dùng để đi từ vùng lớn xuống n
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Performance
+- scalability
+- hiệu năng
+- Reliability
+- SRE
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - Data Intensive Applications Map

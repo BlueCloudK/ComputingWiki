@@ -67,6 +67,16 @@ Amdahl Law ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Amdahl Law
+- Amdahl's law
+- định luật Amdahl
+- amdahl
+- law
+- Performance
+- Scalability
+
 ## Source trace
 
 - Computer Organization Map / Ch02.3

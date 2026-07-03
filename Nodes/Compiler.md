@@ -71,6 +71,13 @@ Compiler ảnh hưởng feedback loop, build time, error diagnostics, performanc
 - Optimization
 - Toolchain diagnostics
 
+## Keywords / Từ khóa tìm kiếm
+
+- Compiler
+- trình biên dịch
+- Computer Foundation
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Crafting Interpreters

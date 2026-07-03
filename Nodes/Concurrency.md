@@ -69,6 +69,13 @@ Concurrency giúp debug lỗi environment-specific, performance thấp tầng, c
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Concurrency
+- đồng thời
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Candidate Nodes

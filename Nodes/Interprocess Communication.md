@@ -67,6 +67,18 @@ Interprocess Communication ảnh hưởng tới API payload, message, config, lo
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Interprocess Communication
+- IPC
+- giao tiếp liên tiến trình
+- interprocess
+- communication
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Operating Systems Map / Ch02.3

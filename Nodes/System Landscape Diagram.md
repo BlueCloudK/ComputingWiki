@@ -67,6 +67,18 @@ System Landscape Diagram giúp team review dependency, data flow, state transiti
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- System Landscape Diagram
+- landscape diagram
+- sơ đồ landscape hệ thống
+- system
+- landscape
+- diagram
+- Artifact
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - C4 Model Map / supplementary

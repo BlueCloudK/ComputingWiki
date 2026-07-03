@@ -67,6 +67,19 @@ Life Cycle Model ảnh hưởng tới cách chia module/service, deploy, debug i
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Life Cycle Model
+- lifecycle model
+- mô hình vòng đời
+- life
+- cycle
+- model
+- Architecture
+- System Design
+- mô hình
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 3a

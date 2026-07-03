@@ -70,6 +70,15 @@ Computing Competency ảnh hưởng tới lựa chọn thuật toán, cấu trú
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computing Competency
+- competency
+- năng lực computing
+- computing
+- Computer Foundation
+- điện toán
+
 ## Source trace
 
 - CC2020 Map / Executive Summary

@@ -71,6 +71,19 @@ Operating System Concepts giúp debug lỗi environment-specific, performance th
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Operating System Concepts
+- OS concepts
+- khái niệm hệ điều hành
+- operating
+- system
+- concepts
+- Tooling
+- Implementation Detail
+- hệ điều hành
+- hệ thống
+
 ## Source trace
 
 - Operating Systems Map / Ch01.5

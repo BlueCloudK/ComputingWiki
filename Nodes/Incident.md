@@ -69,6 +69,16 @@ Incident ảnh hưởng tới quyết định release, ưu tiên technical debt,
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Incident
+- production issue
+- sự cố
+- Reliability
+- SRE
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - SRE Map / incident chapters

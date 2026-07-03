@@ -1,6 +1,6 @@
 # Protocol Buffers
 
-Aliases: protobuf, Protocol Buffers
+Aliases: protobuf, Protocol Buffers, Google Protocol Buffers, định dạng protobuf
 
 Type: Protocol / Data Format
 
@@ -66,6 +66,19 @@ Protocol Buffers ảnh hưởng tới API payload, message, config, log, network
 - Network communication
 - Data exchange
 - Backward compatibility
+
+## Keywords / Từ khóa tìm kiếm
+
+- Protocol Buffers
+- protobuf
+- Google Protocol Buffers
+- định dạng protobuf
+- protocol
+- buffers
+- Data Format
+- giao thức
+- dữ liệu
+- hệ thống dữ liệu
 
 ## Source trace
 

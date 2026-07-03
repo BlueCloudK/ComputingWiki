@@ -67,6 +67,15 @@ Congestion Control giúp debug lỗi environment-specific, performance thấp t�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Congestion Control
+- điều khiển tắc nghẽn
+- congestion
+- control
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Computer Networks Map / Ch03.6-Ch03.7

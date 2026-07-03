@@ -69,6 +69,15 @@ Supplementary Diagram giúp team review dependency, data flow, state transition,
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Supplementary Diagram
+- supplementary architecture diagram
+- sơ đồ bổ sung
+- supplementary
+- diagram
+- Artifact
+
 ## Source trace
 
 - C4 Model Map / supplementary diagrams

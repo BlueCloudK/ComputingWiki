@@ -68,6 +68,19 @@ Software Architecture Concept giúp team review dependency, data flow, state tra
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Architecture Concept
+- architecture concept
+- khái niệm kiến trúc phần mềm
+- software
+- architecture
+- concept
+- Artifact
+- Diagram
+- phần mềm
+- kiến trúc
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch04

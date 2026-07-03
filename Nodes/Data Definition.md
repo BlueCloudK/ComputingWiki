@@ -68,6 +68,17 @@ Data Definition ảnh hưởng tới database design, query performance, migrati
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Definition
+- DDL
+- định nghĩa dữ liệu
+- data
+- definition
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch03.2

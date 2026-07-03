@@ -67,6 +67,12 @@ Function ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệ
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Function
+- hàm
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch02.3

@@ -63,6 +63,17 @@ Node này giúp chọn giữa memory-heavy speedup và low-memory algorithm.
 - Memory pressure
 - Algorithm analysis
 
+## Keywords / Từ khóa tìm kiếm
+
+- Space Complexity
+- memory cost
+- độ phức tạp bộ nhớ
+- space
+- complexity
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Algorithms Map

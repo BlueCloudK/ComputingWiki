@@ -70,6 +70,18 @@ Encoding and Evolution ảnh hưởng tới API payload, message, config, log, n
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Encoding and Evolution
+- mã hóa và tiến hóa dữ liệu
+- encoding evolution
+- encoding
+- evolution
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch04

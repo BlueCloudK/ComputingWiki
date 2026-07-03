@@ -1,6 +1,6 @@
 # ETL
 
-Aliases: Extract Transform Load, trích xuất biến đổi nạp dữ liệu
+Aliases: Extract Transform Load, trích xuất biến đổi nạp dữ liệu, trích xuất biến đổi nạp
 
 Type: Data / Database
 
@@ -67,6 +67,17 @@ ETL giúp dữ liệu operational trở thành dữ liệu phân tích ổn đ�
 - ELT
 - Data cleaning
 - Incremental loading
+
+## Keywords / Từ khóa tìm kiếm
+
+- ETL
+- Extract Transform Load
+- trích xuất biến đổi nạp dữ liệu
+- trích xuất biến đổi nạp
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
 
 ## Source trace
 

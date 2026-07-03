@@ -68,6 +68,13 @@ Alert ảnh hưởng tới quyết định release, ưu tiên technical debt, in
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Alert
+- cảnh báo
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / monitoring/alerting

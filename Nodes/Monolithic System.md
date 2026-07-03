@@ -67,6 +67,18 @@ Monolithic System giúp debug lỗi environment-specific, performance thấp t�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Monolithic System
+- monolithic kernel
+- hệ nguyên khối
+- monolithic
+- system
+- Tooling
+- Implementation Detail
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map / Ch01.7

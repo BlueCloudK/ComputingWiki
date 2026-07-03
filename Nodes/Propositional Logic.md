@@ -67,6 +67,14 @@ Propositional Logic ảnh hưởng tới lựa chọn thuật toán, cấu trúc
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Propositional Logic
+- logic mệnh đề
+- propositional
+- logic
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch01.1

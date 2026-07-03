@@ -67,6 +67,17 @@ Database Engine ảnh hưởng tới database design, query performance, migrati
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Database Engine
+- engine database
+- database
+- engine
+- Data
+- cơ sở dữ liệu
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch01.6

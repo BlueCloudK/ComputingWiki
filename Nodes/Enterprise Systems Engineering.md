@@ -67,6 +67,19 @@ Enterprise Systems Engineering ảnh hưởng tới cách chia module/service, d
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Enterprise Systems Engineering
+- systems engineering cấp enterprise
+- enterprise
+- systems
+- engineering
+- Architecture
+- System Design
+- hệ thống
+- kỹ thuật
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 4

@@ -1,6 +1,6 @@
 ﻿# Least Privilege
 
-Aliases: principle of least privilege, quyền tối thiểu
+Aliases: principle of least privilege, quyền tối thiểu, minimum permission
 
 Type: Security
 
@@ -62,6 +62,17 @@ Node này giảm blast radius khi account/token/service bị lộ hoặc bug b�
 
 - Access control
 - Blast radius
+
+## Keywords / Từ khóa tìm kiếm
+
+- Least Privilege
+- principle of least privilege
+- quyền tối thiểu
+- minimum permission
+- least
+- privilege
+- Security
+- bảo mật phần mềm
 
 ## Source trace
 

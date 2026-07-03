@@ -67,6 +67,13 @@ Counting ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệ
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Counting
+- combinatorics
+- đếm
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch06

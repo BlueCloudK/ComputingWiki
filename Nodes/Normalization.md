@@ -67,6 +67,16 @@ Normalization ảnh hưởng tới database design, query performance, migration
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Normalization
+- relational normalization
+- chuẩn hóa dữ liệu
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database System Concepts Ch07

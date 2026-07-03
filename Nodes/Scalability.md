@@ -67,6 +67,12 @@ Scalability ảnh hưởng tới việc chọn index/cache/queue/scale/refactor 
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Scalability
+- khả năng mở rộng
+- Performance
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch01

@@ -67,6 +67,18 @@ Computer Function and Interconnection ảnh hưởng tới lựa chọn thuật 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computer Function and Interconnection
+- function and interconnection
+- chức năng và kết nối máy tính
+- computer function interconnection
+- computer
+- function
+- interconnection
+- Computer Foundation
+- máy tính
+
 ## Source trace
 
 - Computer Organization Map / Ch03

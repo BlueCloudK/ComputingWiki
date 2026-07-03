@@ -67,6 +67,19 @@ Model View Controller giúp team review dependency, data flow, state transition,
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Model View Controller
+- MVC
+- model-view-controller
+- mẫu MVC
+- model
+- view
+- controller
+- Artifact
+- Diagram
+- mô hình
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA MVC

@@ -67,6 +67,15 @@ Rules of Inference ảnh hưởng tới lựa chọn thuật toán, cấu trúc 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Rules of Inference
+- quy tắc suy luận
+- rules inference
+- rules
+- inference
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch01.6

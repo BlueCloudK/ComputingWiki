@@ -67,6 +67,17 @@ Input Output giúp debug lỗi environment-specific, performance thấp tầng, 
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Input Output
+- I/O
+- IO
+- nhập xuất
+- input
+- output
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Computer Organization Map Ch07 / Operating Systems Map Ch01.5

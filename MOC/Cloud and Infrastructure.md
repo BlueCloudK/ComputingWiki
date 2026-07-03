@@ -79,6 +79,19 @@ Vùng này giúp tránh lỗi môi trường: dev chạy được nhưng product
 - Cost management
 - Security operations
 
+## Keywords / Từ khóa tìm kiếm
+
+- Cloud and Infrastructure
+- cloud infrastructure
+- hạ tầng cloud
+- cloud
+- infrastructure
+- Deployment
+- Operations
+- điện toán đám mây
+- hạ tầng
+- mục lục kiến thức
+
 ## Source trace
 
 - AWS Well-Architected Framework

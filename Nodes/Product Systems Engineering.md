@@ -67,6 +67,19 @@ Product Systems Engineering ảnh hưởng tới cách chia module/service, depl
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Product Systems Engineering
+- systems engineering cho sản phẩm
+- product
+- systems
+- engineering
+- Architecture
+- System Design
+- hệ thống
+- kỹ thuật
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 4

@@ -67,6 +67,17 @@ System Reliability ảnh hưởng tới quyết định release, ưu tiên techn
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- System Reliability
+- độ tin cậy hệ thống
+- system
+- reliability
+- SRE
+- hệ thống
+- độ tin cậy
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 6 quality attributes

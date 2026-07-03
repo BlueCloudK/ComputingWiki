@@ -68,6 +68,16 @@ Change Control giúp team không âm thầm đổi scope rồi làm lệch timel
 - Stakeholder approval
 - Impact analysis
 
+## Keywords / Từ khóa tìm kiếm
+
+- Change Control
+- change management
+- kiểm soát thay đổi
+- change
+- control
+- Requirement
+- Planning
+
 ## Source trace
 
 - Software Requirements 3rd Ed Ch28

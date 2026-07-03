@@ -67,6 +67,14 @@ Response ảnh hưởng tới API design, frontend/backend handoff, integration 
 - Third-party integration
 - Contract testing
 
+## Keywords / Từ khóa tìm kiếm
+
+- Response
+- API response
+- phản hồi API
+- API
+- Integration
+
 ## Source trace
 
 - API and Integration

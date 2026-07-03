@@ -68,6 +68,17 @@ Foreign Key ảnh hưởng tới database design, query performance, migration, 
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Foreign Key
+- khóa ngoại
+- foreign
+- key
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch06 / Ch04

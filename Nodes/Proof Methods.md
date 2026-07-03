@@ -67,6 +67,15 @@ Proof Methods ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Proof Methods
+- proof techniques
+- phương pháp chứng minh
+- proof
+- methods
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch01.8

@@ -81,6 +81,19 @@ Deployment and Operations là MOC điều hướng: dùng để đi từ vùng l
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Deployment and Operations
+- operations
+- SRE
+- production
+- deploy và vận hành
+- deployment operations
+- deployment
+- Reliability
+- triển khai
+- vận hành
+
 ## Source trace
 
 - SWEBOK Map

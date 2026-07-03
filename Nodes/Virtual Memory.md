@@ -67,6 +67,16 @@ Virtual Memory giúp debug lỗi environment-specific, performance thấp tầng
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Virtual Memory
+- bộ nhớ ảo
+- virtual
+- memory
+- Tooling
+- Implementation Detail
+- bộ nhớ
+
 ## Source trace
 
 - Operating Systems Map / Ch03.3

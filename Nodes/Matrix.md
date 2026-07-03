@@ -67,6 +67,12 @@ Matrix ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu,
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Matrix
+- ma trận
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch02.6

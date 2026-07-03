@@ -67,6 +67,19 @@ Unit of Work gom các thay đổi trong một transaction boundary để commit/
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Unit of Work
+- unit of work pattern
+- mẫu unit of work
+- unit work
+- unit
+- work
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

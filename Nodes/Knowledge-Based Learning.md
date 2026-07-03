@@ -67,6 +67,17 @@ Knowledge-Based Learning giúp debug lỗi environment-specific, performance th�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Knowledge-Based Learning
+- học theo vùng kiến thức
+- knowledge based learning
+- knowledge
+- based
+- learning
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - CC2020 Map / Chapter 3

@@ -71,6 +71,16 @@ Transport Layer giúp debug lỗi environment-specific, performance thấp tần
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Transport Layer
+- tầng vận chuyển
+- transport
+- layer
+- Tooling
+- Implementation Detail
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map / Ch03

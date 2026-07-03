@@ -68,6 +68,14 @@ Graph ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Graph
+- đồ thị
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Discrete Mathematics Map Ch10 / Algorithms Map Ch06

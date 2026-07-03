@@ -67,6 +67,15 @@ Race Condition giúp debug lỗi environment-specific, performance thấp tầng
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Race Condition
+- lỗi tranh chấp thời gian
+- race
+- condition
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch02.3

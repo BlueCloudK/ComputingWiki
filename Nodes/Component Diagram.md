@@ -68,6 +68,16 @@ Component Diagram giúp team review dependency, data flow, state transition, act
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Component Diagram
+- C4 component diagram
+- sơ đồ component
+- component
+- diagram
+- Artifact
+- kiến trúc hệ thống
+
 ## Source trace
 
 - C4 Model Map / Level 3

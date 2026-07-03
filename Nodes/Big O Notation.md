@@ -1,6 +1,6 @@
 # Big O Notation
 
-Aliases: Big-O, ký hiệu Big O
+Aliases: Big-O, ký hiệu Big O, asymptotic notation, độ phức tạp tiệm cận
 
 Type: Computer Foundation
 
@@ -67,6 +67,18 @@ Big O Notation ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ
 - Data structures
 - Debugging
 - Performance reasoning
+
+## Keywords / Từ khóa tìm kiếm
+
+- Big O Notation
+- Big-O
+- ký hiệu Big O
+- asymptotic notation
+- độ phức tạp tiệm cận
+- big
+- o
+- notation
+- Computer Foundation
 
 ## Source trace
 

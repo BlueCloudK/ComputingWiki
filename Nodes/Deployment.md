@@ -68,6 +68,17 @@ Deployment ảnh hưởng tới quyết định release, ưu tiên technical deb
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Deployment
+- release
+- rollout
+- triển khai
+- Reliability
+- SRE
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - SWEBOK Operations / SRE Map

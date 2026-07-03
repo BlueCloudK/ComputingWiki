@@ -67,6 +67,16 @@ Bridge tách abstraction khỏi implementation để hai chiều thay đổi đ�
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Bridge
+- bridge pattern
+- mẫu bridge
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

@@ -67,6 +67,19 @@ Process Selection and Tailoring giúp debug lỗi environment-specific, performa
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Process Selection and Tailoring
+- process tailoring
+- tùy biến process
+- process selection tailoring
+- process
+- selection
+- tailoring
+- Tooling
+- Implementation Detail
+- tiến trình
+
 ## Source trace
 
 - SEBoK Map / Part 3b

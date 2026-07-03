@@ -67,6 +67,15 @@ Query ảnh hưởng tới database design, query performance, migration, audit/
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Query
+- truy vấn
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch03

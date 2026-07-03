@@ -68,6 +68,15 @@ Join ảnh hưởng tới database design, query performance, migration, audit/h
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Join
+- phép nối
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch04.1

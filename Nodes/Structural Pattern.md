@@ -72,6 +72,17 @@ Structural Pattern tập trung vào cách ghép class/object để giảm coupli
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Structural Pattern
+- structural design pattern
+- mẫu cấu trúc
+- structural
+- pattern
+- Code Design
+- mẫu thiết kế
+- design pattern
+
 ## Source trace
 
 - Design Pattern Map / catalog

@@ -63,6 +63,18 @@ Node này giúp API, webhook và service communication không gửi secret/plain
 - Data in transit
 - Certificate management
 
+## Keywords / Từ khóa tìm kiếm
+
+- Transport Layer Protection
+- transport security
+- bảo vệ dữ liệu truyền tải
+- transport
+- layer
+- protection
+- Security
+- bảo mật phần mềm
+- mạng máy tính
+
 ## Source trace
 
 - OWASP Transport Layer Protection Cheat Sheet

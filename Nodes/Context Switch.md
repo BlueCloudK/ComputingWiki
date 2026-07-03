@@ -62,6 +62,16 @@ Node này giúp hiểu overhead concurrency, scheduling và performance khi quá
 
 - Concurrency overhead
 
+## Keywords / Từ khóa tìm kiếm
+
+- Context Switch
+- task switch
+- chuyển ngữ cảnh
+- context
+- switch
+- Operating System
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map

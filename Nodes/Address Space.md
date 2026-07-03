@@ -67,6 +67,15 @@ Address Space giúp debug lỗi environment-specific, performance thấp tầng,
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Address Space
+- không gian địa chỉ
+- address
+- space
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch01.5/Ch03

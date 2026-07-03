@@ -68,6 +68,14 @@ Scope giữ cho planning, estimation, design và acceptance cùng nhìn về m�
 - Estimation
 - Release planning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Scope
+- project scope
+- phạm vi
+- Requirement
+- Planning
+
 ## Source trace
 
 - Software Requirements 3rd Ed Ch05

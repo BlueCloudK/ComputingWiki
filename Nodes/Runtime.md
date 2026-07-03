@@ -70,6 +70,14 @@ Runtime ảnh hưởng deploy, performance, memory usage, startup time và bug c
 - Event loop
 - Production environment
 
+## Keywords / Từ khóa tìm kiếm
+
+- Runtime
+- runtime environment
+- môi trường chạy
+- Computer Foundation
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Computer Foundations Map Ch09

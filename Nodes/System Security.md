@@ -67,6 +67,17 @@ System Security ảnh hưởng tới auth flow, permission, validation, secret h
 - Audit
 - Risk management
 
+## Keywords / Từ khóa tìm kiếm
+
+- System Security
+- bảo mật hệ thống
+- system
+- security
+- hệ thống
+- bảo mật
+- bảo mật phần mềm
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 6 quality attributes

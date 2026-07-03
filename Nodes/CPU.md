@@ -1,6 +1,6 @@
 # CPU
 
-Aliases: central processing unit, bộ xử lý trung tâm
+Aliases: central processing unit, bộ xử lý trung tâm, processor
 
 Type: Tooling / Implementation Detail
 
@@ -67,6 +67,15 @@ CPU giúp debug lỗi environment-specific, performance thấp tầng, concurren
 - Developer tooling
 - Operating system
 - Troubleshooting
+
+## Keywords / Từ khóa tìm kiếm
+
+- CPU
+- central processing unit
+- bộ xử lý trung tâm
+- processor
+- Tooling
+- Implementation Detail
 
 ## Source trace
 

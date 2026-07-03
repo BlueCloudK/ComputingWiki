@@ -67,6 +67,15 @@ Flow Control giúp debug lỗi environment-specific, performance thấp tầng, 
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Flow Control
+- điều khiển luồng
+- flow
+- control
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Computer Networks Map / Ch03.5

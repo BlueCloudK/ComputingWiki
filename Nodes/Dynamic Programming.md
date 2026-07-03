@@ -67,6 +67,17 @@ Dynamic Programming ảnh hưởng tới lựa chọn thuật toán, cấu trúc
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Dynamic Programming
+- DP
+- quy hoạch động
+- dynamic
+- programming
+- Computer Foundation
+- lập trình
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Algorithms Map / Ch09

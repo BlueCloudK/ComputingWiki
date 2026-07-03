@@ -77,6 +77,18 @@ Vùng này giúp dev hiểu vì sao cùng một ý tưởng nhưng behavior khá
 - Developer productivity
 - Software construction
 
+## Keywords / Từ khóa tìm kiếm
+
+- Programming Languages
+- programming language theory
+- ngôn ngữ lập trình
+- programming
+- languages
+- Computer Foundation
+- lập trình
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - Computer Foundations Map Ch09

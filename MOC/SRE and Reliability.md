@@ -1,6 +1,6 @@
 # SRE and Reliability
 
-Aliases: site reliability engineering, reliability engineering, SRE và độ tin cậy
+Aliases: site reliability engineering, reliability engineering, SRE và độ tin cậy, kỹ thuật độ tin cậy
 
 Type: Reliability / SRE
 
@@ -80,6 +80,19 @@ SRE and Reliability là MOC điều hướng: dùng để đi từ vùng lớn x
 - Incident management
 - Monitoring
 - Release governance
+
+## Keywords / Từ khóa tìm kiếm
+
+- SRE and Reliability
+- site reliability engineering
+- reliability engineering
+- SRE và độ tin cậy
+- kỹ thuật độ tin cậy
+- sre reliability
+- sre
+- reliability
+- độ tin cậy
+- mục lục kiến thức
 
 ## Source trace
 

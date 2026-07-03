@@ -62,6 +62,17 @@ Node này giúp bảo vệ user khi credential store bị lộ.
 
 - Credential security
 
+## Keywords / Từ khóa tìm kiếm
+
+- Password Storage
+- password hashing
+- lưu mật khẩu
+- password
+- storage
+- Security
+- lưu trữ
+- bảo mật phần mềm
+
 ## Source trace
 
 - OWASP Password Storage Cheat Sheet

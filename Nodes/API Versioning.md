@@ -1,6 +1,6 @@
 # API Versioning
 
-Aliases: API compatibility, phiên bản API
+Aliases: API compatibility, phiên bản API, versioned API
 
 Type: API / Integration
 
@@ -67,6 +67,16 @@ API Versioning giúp release server không phá client/mobile/third-party đang 
 - Backward compatibility
 - Deprecation policy
 - Consumer migration
+
+## Keywords / Từ khóa tìm kiếm
+
+- API Versioning
+- API compatibility
+- phiên bản API
+- versioned API
+- api
+- versioning
+- Integration
 
 ## Source trace
 

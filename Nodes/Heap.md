@@ -63,6 +63,14 @@ Node này giúp dùng priority queue, scheduling và graph algorithms như Dijks
 - Scheduler
 - Top-k
 
+## Keywords / Từ khóa tìm kiếm
+
+- Heap
+- binary heap
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - CLRS

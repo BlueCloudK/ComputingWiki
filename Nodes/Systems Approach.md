@@ -67,6 +67,17 @@ Systems Approach giúp debug lỗi environment-specific, performance thấp tầ
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Approach
+- cách tiếp cận hệ thống
+- systems
+- approach
+- Tooling
+- Implementation Detail
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 2 KA

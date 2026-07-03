@@ -1,6 +1,6 @@
 # Data Warehouse
 
-Aliases: analytical warehouse, kho dữ liệu
+Aliases: analytical warehouse, kho dữ liệu, DWH, enterprise data warehouse
 
 Type: Data / Database
 
@@ -67,6 +67,19 @@ Warehouse giúp team tránh mỗi dashboard tự join dữ liệu khác nhau. N�
 - BI
 - Dimensional modeling
 - Metrics layer
+
+## Keywords / Từ khóa tìm kiếm
+
+- Data Warehouse
+- analytical warehouse
+- kho dữ liệu
+- DWH
+- enterprise data warehouse
+- data
+- warehouse
+- Database
+- dữ liệu
+- hệ thống dữ liệu
 
 ## Source trace
 

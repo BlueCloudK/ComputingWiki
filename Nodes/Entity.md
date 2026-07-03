@@ -68,6 +68,15 @@ Entity ảnh hưởng tới database design, query performance, migration, audit
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Entity
+- thực thể
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch06.2

@@ -68,6 +68,19 @@ Socket Programming ảnh hưởng tới API payload, message, config, log, netwo
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Socket Programming
+- lập trình socket
+- socket
+- programming
+- Protocol
+- Data Format
+- lập trình
+- dữ liệu
+- hệ thống dữ liệu
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map / Ch02.7

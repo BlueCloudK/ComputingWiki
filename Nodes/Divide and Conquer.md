@@ -67,6 +67,15 @@ Divide and Conquer ảnh hưởng tới lựa chọn thuật toán, cấu trúc 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Divide and Conquer
+- chia để trị
+- divide conquer
+- divide
+- conquer
+- Computer Foundation
+
 ## Source trace
 
 - Algorithms Map / Ch04

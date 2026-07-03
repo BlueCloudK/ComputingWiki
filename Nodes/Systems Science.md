@@ -67,6 +67,19 @@ Systems Science giúp debug lỗi environment-specific, performance thấp tần
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Science
+- khoa học hệ thống
+- systems
+- science
+- Tooling
+- Implementation Detail
+- hệ thống
+- kiến trúc hệ thống
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - SEBoK Map / Part 2 KA

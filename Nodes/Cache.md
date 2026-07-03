@@ -67,6 +67,15 @@ Cache ảnh hưởng tới database design, query performance, migration, audit/
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Cache
+- caching
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Computer Organization Map

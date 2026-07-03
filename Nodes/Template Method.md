@@ -67,6 +67,18 @@ Template Method định nghĩa skeleton algorithm trong base class và để sub
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Template Method
+- template method pattern
+- mẫu template method
+- template
+- method
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

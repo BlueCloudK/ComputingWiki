@@ -71,6 +71,19 @@ MOC này giúp đọc graph backend/data/SRE khi vấn đề vượt khỏi mộ
 - Replication
 - Message delivery
 
+## Keywords / Từ khóa tìm kiếm
+
+- Distributed Systems
+- distributed computing
+- hệ phân tán
+- distributed
+- systems
+- Architecture
+- System Design
+- phân tán
+- hệ thống
+- mục lục kiến thức
+
 ## Source trace
 
 - Designing Data-Intensive Applications

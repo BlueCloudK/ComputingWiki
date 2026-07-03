@@ -1,6 +1,6 @@
 ﻿# Availability Zone
 
-Aliases: AZ, vùng sẵn sàng
+Aliases: AZ, vùng sẵn sàng, cloud availability zone
 
 Type: Deployment / Operations
 
@@ -62,6 +62,19 @@ Node này giúp thiết kế HA cho compute, load balancer và database.
 
 - Failure domain
 - High availability
+
+## Keywords / Từ khóa tìm kiếm
+
+- Availability Zone
+- AZ
+- vùng sẵn sàng
+- cloud availability zone
+- availability
+- zone
+- Deployment
+- Operations
+- cloud infrastructure
+- hạ tầng cloud
 
 ## Source trace
 

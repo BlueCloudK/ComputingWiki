@@ -69,6 +69,17 @@ Concurrent Architecture giúp team review dependency, data flow, state transitio
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Concurrent Architecture
+- kiến trúc đồng thời
+- concurrent
+- architecture
+- Artifact
+- Diagram
+- kiến trúc
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch18

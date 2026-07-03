@@ -67,6 +67,17 @@ Internal Memory giúp debug lỗi environment-specific, performance thấp tần
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Internal Memory
+- main memory
+- bộ nhớ trong
+- internal
+- memory
+- Tooling
+- Implementation Detail
+- bộ nhớ
+
 ## Source trace
 
 - Computer Organization Map / Ch05

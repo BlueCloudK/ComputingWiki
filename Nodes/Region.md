@@ -63,6 +63,18 @@ Node này ảnh hưởng latency, disaster recovery, data residency và cost.
 - Data residency
 - Geographic latency
 
+## Keywords / Từ khóa tìm kiếm
+
+- Region
+- cloud region
+- vùng cloud
+- Deployment
+- Operations
+- cloud infrastructure
+- hạ tầng cloud
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - AWS Well-Architected

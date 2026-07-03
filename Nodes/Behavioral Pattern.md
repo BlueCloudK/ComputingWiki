@@ -75,6 +75,17 @@ Behavioral Pattern giúp đọc cách object phân phối trách nhiệm, gửi 
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Behavioral Pattern
+- behavioral design pattern
+- mẫu hành vi
+- behavioral
+- pattern
+- Code Design
+- mẫu thiết kế
+- design pattern
+
 ## Source trace
 
 - Design Pattern Map / catalog

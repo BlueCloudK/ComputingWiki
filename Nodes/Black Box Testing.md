@@ -68,6 +68,18 @@ Black Box Testing gắn code change với bằng chứng kiểm tra, giúp team 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Black Box Testing
+- black-box testing
+- kiểm thử hộp đen
+- black
+- box
+- testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch04

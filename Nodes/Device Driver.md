@@ -62,6 +62,15 @@ Node này giúp debug IO, GPU, network adapter, storage và hardware-dependent b
 
 - Hardware abstraction
 
+## Keywords / Từ khóa tìm kiếm
+
+- Device Driver
+- driver
+- trình điều khiển thiết bị
+- device
+- Operating System
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map

@@ -68,6 +68,17 @@ Concurrency Control ảnh hưởng tới database design, query performance, mig
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Concurrency Control
+- kiểm soát đồng thời
+- concurrency
+- control
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch18

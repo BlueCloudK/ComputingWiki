@@ -69,6 +69,18 @@ Data Model ảnh hưởng tới database design, query performance, migration, a
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Model
+- mô hình dữ liệu
+- data
+- model
+- Database
+- dữ liệu
+- mô hình
+- hệ thống dữ liệu
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch02

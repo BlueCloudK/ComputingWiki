@@ -67,6 +67,19 @@ The Nature of Systems giúp debug lỗi environment-specific, performance thấp
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- The Nature of Systems
+- nature of systems
+- bản chất hệ thống
+- nature systems
+- nature
+- systems
+- Tooling
+- Implementation Detail
+- hệ thống
+- mạng máy tính
+
 ## Source trace
 
 - SEBoK Map / Part 2 KA

@@ -68,6 +68,13 @@ Risk ảnh hưởng tới quyết định release, ưu tiên technical debt, inc
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Risk
+- rủi ro
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / risk chapter

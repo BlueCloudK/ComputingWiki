@@ -67,6 +67,16 @@ Virtual Machine giúp debug lỗi environment-specific, performance thấp tần
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Virtual Machine
+- VM
+- máy ảo
+- virtual
+- machine
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch01.7

@@ -67,6 +67,19 @@ Architectural Structure Pattern giúp team review dependency, data flow, state t
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Architectural Structure Pattern
+- architecture structure pattern
+- mẫu cấu trúc kiến trúc
+- architectural
+- structure
+- pattern
+- Artifact
+- Diagram
+- cấu trúc
+- mẫu thiết kế
+
 ## Source trace
 
 - Software Modeling and Design Map / Appendix A.1

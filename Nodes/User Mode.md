@@ -62,6 +62,16 @@ Node này giúp hiểu vì sao app không được truy cập device/memory tùy
 
 - Process isolation
 
+## Keywords / Từ khóa tìm kiếm
+
+- User Mode
+- user space
+- chế độ người dùng
+- user
+- mode
+- Operating System
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map

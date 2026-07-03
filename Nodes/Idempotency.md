@@ -1,6 +1,6 @@
 # Idempotency
 
-Aliases: idempotent operation, tính lặp an toàn
+Aliases: idempotent operation, tính lặp an toàn, safe retry, tính lũy đẳng
 
 Type: API / Integration
 
@@ -67,6 +67,16 @@ Idempotency bảo vệ payment, order, webhook, job processing và API retry kh�
 - Retry safety
 - Payment systems
 - Job processing
+
+## Keywords / Từ khóa tìm kiếm
+
+- Idempotency
+- idempotent operation
+- tính lặp an toàn
+- safe retry
+- tính lũy đẳng
+- API
+- Integration
 
 ## Source trace
 

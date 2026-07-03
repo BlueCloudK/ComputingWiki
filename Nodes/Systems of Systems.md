@@ -67,6 +67,18 @@ Systems of Systems giúp debug lỗi environment-specific, performance thấp t�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems of Systems
+- system of systems
+- hệ thống của nhiều hệ thống
+- systems systems
+- systems
+- Tooling
+- Implementation Detail
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 4

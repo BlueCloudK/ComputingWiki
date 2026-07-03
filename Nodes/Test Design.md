@@ -69,6 +69,18 @@ Test Design gắn code change với bằng chứng kiểm tra, giúp team quyế
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Design
+- thiết kế test
+- test
+- design
+- Testing
+- Verification
+- kiểm thử
+- thiết kế
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch04

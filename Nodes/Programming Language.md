@@ -74,6 +74,16 @@ Language choice ảnh hưởng onboarding, bug class, toolchain, deploy target, 
 - Toolchain choice
 - Developer ergonomics
 
+## Keywords / Từ khóa tìm kiếm
+
+- Programming Language
+- ngôn ngữ lập trình
+- programming
+- language
+- Computer Foundation
+- lập trình
+- ngôn ngữ
+
 ## Source trace
 
 - Computer Foundations Map Ch09

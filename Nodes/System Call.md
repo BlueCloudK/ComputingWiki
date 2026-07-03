@@ -67,6 +67,17 @@ System Call giúp debug lỗi environment-specific, performance thấp tầng, c
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- System Call
+- lời gọi hệ thống
+- system
+- call
+- Tooling
+- Implementation Detail
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map / Ch01.6

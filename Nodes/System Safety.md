@@ -67,6 +67,17 @@ System Safety ảnh hưởng tới cách chia module/service, deploy, debug inci
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- System Safety
+- an toàn hệ thống
+- system
+- safety
+- Architecture
+- System Design
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 6 quality attributes

@@ -68,6 +68,19 @@ Data Transfer Object gom dữ liệu đi qua API hoặc layer boundary để tr�
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Transfer Object
+- DTO
+- đối tượng truyền dữ liệu
+- data
+- transfer
+- object
+- Code Design
+- Pattern
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Fowler Pattern Map / Distribution Pattern

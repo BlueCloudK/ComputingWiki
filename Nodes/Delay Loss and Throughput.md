@@ -67,6 +67,19 @@ Delay Loss and Throughput ảnh hưởng tới việc chọn index/cache/queue/s
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Delay Loss and Throughput
+- network delay/loss/throughput
+- độ trễ mất gói thông lượng
+- delay loss throughput
+- delay
+- loss
+- throughput
+- Performance
+- Scalability
+- thông lượng
+
 ## Source trace
 
 - Computer Networks Map / Ch01.4

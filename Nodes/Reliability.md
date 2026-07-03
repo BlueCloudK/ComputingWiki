@@ -70,6 +70,12 @@ Reliability ảnh hưởng tới quyết định release, ưu tiên technical de
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Reliability
+- độ tin cậy
+- SRE
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch01

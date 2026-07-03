@@ -72,6 +72,19 @@ Software Modeling giúp team review dependency, data flow, state transition, act
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Modeling
+- software model
+- mô hình hóa phần mềm
+- software
+- modeling
+- Artifact
+- Diagram
+- phần mềm
+- mô hình hóa
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Part II

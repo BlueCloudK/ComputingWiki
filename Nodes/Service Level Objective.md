@@ -68,6 +68,17 @@ Service Level Objective ảnh hưởng tới quyết định release, ưu tiên 
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Service Level Objective
+- SLO
+- mục tiêu mức dịch vụ
+- service
+- level
+- objective
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / SLO chapters

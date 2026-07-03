@@ -68,6 +68,15 @@ Error Budget ảnh hưởng tới quyết định release, ưu tiên technical d
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Error Budget
+- ngân sách lỗi
+- error
+- budget
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / SLO chapters

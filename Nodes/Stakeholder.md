@@ -68,6 +68,14 @@ Stakeholder giúp requirement có nguồn rõ ràng và giúp team xử lý conf
 - Governance
 - Product ownership
 
+## Keywords / Từ khóa tìm kiếm
+
+- Stakeholder
+- interested party
+- bên liên quan
+- Requirement
+- Planning
+
 ## Source trace
 
 - Requirements Engineering - A Good Practice Guide Ch04.3

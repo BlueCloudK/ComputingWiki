@@ -69,6 +69,18 @@ Type System giúp encode domain constraint và API contract ngay trong code. Nó
 - Refactoring safety
 - Data validation
 
+## Keywords / Từ khóa tìm kiếm
+
+- Type System
+- typing system
+- hệ thống kiểu
+- type
+- system
+- Computer Foundation
+- hệ thống
+- kiến trúc hệ thống
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Types and Programming Languages

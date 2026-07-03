@@ -68,6 +68,13 @@ Deadlock giúp debug lỗi environment-specific, performance thấp tầng, conc
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Deadlock
+- bế tắc
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / later chapter

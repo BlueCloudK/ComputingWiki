@@ -62,6 +62,16 @@ Hiểu kernel mode giúp lý giải crash/driver/security boundary.
 
 - Privilege separation
 
+## Keywords / Từ khóa tìm kiếm
+
+- Kernel Mode
+- supervisor mode
+- chế độ kernel
+- kernel
+- mode
+- Operating System
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map

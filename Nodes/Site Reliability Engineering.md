@@ -75,6 +75,16 @@ Site Reliability Engineering ảnh hưởng tới quyết định release, ưu t
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Site Reliability Engineering
+- SRE
+- site
+- reliability
+- engineering
+- độ tin cậy
+- kỹ thuật
+
 ## Source trace
 
 - SRE Map / Google SRE books

@@ -62,6 +62,16 @@ Node này giúp hiểu server listen, client connect, timeout và connection err
 
 - Network programming
 
+## Keywords / Từ khóa tìm kiếm
+
+- Socket
+- network socket
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map

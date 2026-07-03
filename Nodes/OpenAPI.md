@@ -1,6 +1,6 @@
 # OpenAPI
 
-Aliases: OpenAPI Specification, Swagger
+Aliases: OpenAPI Specification, Swagger, đặc tả OpenAPI
 
 Type: API / Integration
 
@@ -67,6 +67,15 @@ OpenAPI giúp client/server thống nhất contract và giảm mismatch. Nó đ�
 - API documentation
 - Client generation
 - Contract testing
+
+## Keywords / Từ khóa tìm kiếm
+
+- OpenAPI
+- OpenAPI Specification
+- Swagger
+- đặc tả OpenAPI
+- API
+- Integration
 
 ## Source trace
 

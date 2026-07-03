@@ -68,6 +68,17 @@ Test Case gắn code change với bằng chứng kiểm tra, giúp team quyết 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Case
+- ca kiểm thử
+- test
+- case
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch04

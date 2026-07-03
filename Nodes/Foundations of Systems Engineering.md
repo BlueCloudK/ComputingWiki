@@ -72,6 +72,19 @@ Foundations of Systems Engineering ảnh hưởng tới cách chia module/servic
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Foundations of Systems Engineering
+- SE foundations
+- nền tảng systems engineering
+- foundations systems engineering
+- foundations
+- systems
+- engineering
+- Architecture
+- System Design
+- nền tảng
+
 ## Source trace
 
 - SEBoK Map / Part 2

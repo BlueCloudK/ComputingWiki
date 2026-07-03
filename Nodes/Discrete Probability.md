@@ -67,6 +67,15 @@ Discrete Probability ảnh hưởng tới lựa chọn thuật toán, cấu trú
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Discrete Probability
+- xác suất rời rạc
+- discrete
+- probability
+- Computer Foundation
+- rời rạc
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch07

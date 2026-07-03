@@ -68,6 +68,17 @@ Test Execution gắn code change với bằng chứng kiểm tra, giúp team quy
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Execution
+- chạy test
+- test
+- execution
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01 / Ch05

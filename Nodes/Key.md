@@ -68,6 +68,15 @@ Key ảnh hưởng tới database design, query performance, migration, audit/hi
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Key
+- khóa
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch02.3

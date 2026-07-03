@@ -67,6 +67,18 @@ Active Record đặt persistence logic cạnh entity, hợp với CRUD đơn gi�
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Active Record
+- active record pattern
+- mẫu active record
+- active
+- record
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

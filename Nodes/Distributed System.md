@@ -66,6 +66,19 @@ Node này giúp reasoning về retry, consistency, latency, fault tolerance và 
 - Partial failure
 - Coordination
 
+## Keywords / Từ khóa tìm kiếm
+
+- Distributed System
+- distributed systems
+- hệ phân tán
+- distributed
+- system
+- Architecture
+- System Design
+- phân tán
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Designing Data-Intensive Applications Part II

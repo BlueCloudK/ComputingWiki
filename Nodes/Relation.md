@@ -67,6 +67,15 @@ Relation ảnh hưởng tới database design, query performance, migration, aud
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Relation
+- quan hệ bảng
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch02.1

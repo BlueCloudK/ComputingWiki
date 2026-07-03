@@ -63,6 +63,17 @@ Node này giúp đọc API payload, domain model và tránh nhầm shape dữ li
 - Primitive type
 - Composite type
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Type
+- type of data
+- kiểu dữ liệu
+- data
+- type
+- Computer Foundation
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Computer Foundations Map Ch03

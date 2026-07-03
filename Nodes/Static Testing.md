@@ -67,6 +67,17 @@ Static Testing gắn code change với bằng chứng kiểm tra, giúp team quy
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Static Testing
+- static test
+- kiểm thử tĩnh
+- static
+- testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01.2 / Ch03

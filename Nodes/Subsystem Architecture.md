@@ -67,6 +67,17 @@ Subsystem Architecture giúp team review dependency, data flow, state transition
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Subsystem Architecture
+- kiến trúc subsystem
+- subsystem
+- architecture
+- Artifact
+- Diagram
+- kiến trúc
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch13

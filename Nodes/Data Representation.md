@@ -64,6 +64,17 @@ Node này giúp debug serialization, file format, protocol payload và mismatch 
 - Serialization
 - Encoding
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Representation
+- data encoding
+- biểu diễn dữ liệu
+- data
+- representation
+- Computer Foundation
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Computer Foundations Map Ch03

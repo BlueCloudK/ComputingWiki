@@ -69,6 +69,13 @@ Paradigm giúp đọc codebase đúng idiom và tránh thiết kế trái dòng 
 - Declarative programming
 - Event-driven design
 
+## Keywords / Từ khóa tìm kiếm
+
+- Paradigm
+- programming paradigm
+- mô thức lập trình
+- Computer Foundation
+
 ## Source trace
 
 - ACM/IEEE Computing Curricula 2020

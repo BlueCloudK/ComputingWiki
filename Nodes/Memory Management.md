@@ -68,6 +68,16 @@ Memory Management giúp debug lỗi environment-specific, performance thấp t�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Memory Management
+- quản lý bộ nhớ
+- memory
+- management
+- Tooling
+- Implementation Detail
+- bộ nhớ
+
 ## Source trace
 
 - Operating Systems Map / Ch03

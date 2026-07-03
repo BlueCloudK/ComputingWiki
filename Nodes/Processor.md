@@ -67,6 +67,13 @@ Processor giúp debug lỗi environment-specific, performance thấp tầng, con
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Processor
+- bộ xử lý
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Computer Organization Map / later chapters

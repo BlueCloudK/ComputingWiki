@@ -67,6 +67,15 @@ Assertion gắn code change với bằng chứng kiểm tra, giúp team quyết 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Assertion
+- test assertion
+- câu kiểm tra
+- Testing
+- Verification
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map

@@ -67,6 +67,14 @@ Skills giúp debug lỗi environment-specific, performance thấp tầng, concur
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Skills
+- know-how
+- kỹ năng
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - CC2020 Map / Executive Summary

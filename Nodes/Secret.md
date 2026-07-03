@@ -67,6 +67,16 @@ Secret ảnh hưởng tới API design, frontend/backend handoff, integration te
 - Third-party integration
 - Contract testing
 
+## Keywords / Từ khóa tìm kiếm
+
+- Secret
+- API key
+- token
+- password
+- bí mật
+- API
+- Integration
+
 ## Source trace
 
 - OWASP Secrets Management Cheat Sheet

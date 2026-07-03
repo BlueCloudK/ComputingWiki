@@ -1,6 +1,6 @@
 ﻿# Priority Queue
 
-Aliases: priority queue, hàng đợi ưu tiên
+Aliases: priority queue, hàng đợi ưu tiên, heap queue
 
 Type: Computer Foundation
 
@@ -62,6 +62,17 @@ Node này giúp scheduling, graph algorithms, job processing và top-k queries.
 
 - Scheduling
 - Top-k
+
+## Keywords / Từ khóa tìm kiếm
+
+- Priority Queue
+- hàng đợi ưu tiên
+- heap queue
+- priority
+- queue
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
 
 ## Source trace
 

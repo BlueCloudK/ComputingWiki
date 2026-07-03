@@ -68,6 +68,19 @@ B Tree ảnh hưởng tới database design, query performance, migration, audit
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- B Tree
+- B-tree
+- cây B
+- b
+- tree
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+- thuật toán
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch03

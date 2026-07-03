@@ -1,6 +1,6 @@
 # Authorization
 
-Aliases: access control, permission, phân quyền
+Aliases: access control, permission, phân quyền, authz, access permission, phân quyền truy cập
 
 Type: Security
 
@@ -67,6 +67,16 @@ Authorization ảnh hưởng tới auth flow, permission, validation, secret han
 - Backend
 - Audit
 - Risk management
+
+## Keywords / Từ khóa tìm kiếm
+
+- Authorization
+- access control
+- permission
+- phân quyền
+- authz
+- Security
+- bảo mật phần mềm
 
 ## Source trace
 

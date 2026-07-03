@@ -70,6 +70,18 @@ Capacity Planning giúp team biết khi nào cần scale, giới hạn hiện t�
 - Incident prevention
 - Launch readiness
 
+## Keywords / Từ khóa tìm kiếm
+
+- Capacity Planning
+- capacity management
+- lập kế hoạch năng lực
+- capacity
+- planning
+- Requirement
+- dung lượng
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - SRE Map / capacity planning

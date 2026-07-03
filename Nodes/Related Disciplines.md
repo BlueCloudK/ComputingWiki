@@ -71,6 +71,19 @@ Related Disciplines ảnh hưởng tới API payload, message, config, log, netw
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Related Disciplines
+- ngành liên quan
+- related
+- disciplines
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - SEBoK Map / Part 6

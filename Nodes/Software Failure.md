@@ -67,6 +67,17 @@ Software Failure gắn code change với bằng chứng kiểm tra, giúp team q
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Failure
+- failure
+- lỗi biểu hiện khi chạy
+- software
+- Testing
+- Verification
+- phần mềm
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01.1

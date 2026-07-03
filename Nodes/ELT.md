@@ -1,6 +1,6 @@
 ﻿# ELT
 
-Aliases: Extract Load Transform, ELT
+Aliases: Extract Load Transform, ELT, nạp rồi biến đổi dữ liệu
 
 Type: Data / Database
 
@@ -62,6 +62,16 @@ Node này giúp phân biệt nơi transform logic sống và cách kiểm soát 
 
 - Analytics engineering
 - SQL transforms
+
+## Keywords / Từ khóa tìm kiếm
+
+- ELT
+- Extract Load Transform
+- nạp rồi biến đổi dữ liệu
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
 
 ## Source trace
 

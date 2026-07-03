@@ -68,6 +68,17 @@ Primary Key ảnh hưởng tới database design, query performance, migration, 
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Primary Key
+- khóa chính
+- primary
+- key
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch06.5

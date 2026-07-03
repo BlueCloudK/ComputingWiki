@@ -73,6 +73,18 @@ Requirements là MOC điều hướng cho vùng requirement. Nó giúp đi từ 
 - Testing strategy
 - Release scope
 
+## Keywords / Từ khóa tìm kiếm
+
+- Requirements
+- software requirements
+- requirements engineering
+- yêu cầu phần mềm
+- Requirement
+- Planning
+- yêu cầu
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - SWEBOK Map

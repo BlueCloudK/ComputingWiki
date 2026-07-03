@@ -67,6 +67,16 @@ BGP ảnh hưởng tới API payload, message, config, log, network call hoặc 
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- BGP
+- Border Gateway Protocol
+- giao thức BGP
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Computer Networks Map / Ch05

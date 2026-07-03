@@ -64,6 +64,17 @@ Node này giúp debug dependency graph, routing, workflow và tree/graph algorit
 - Reachability
 - Dependency traversal
 
+## Keywords / Từ khóa tìm kiếm
+
+- Graph Traversal
+- graph search
+- duyệt đồ thị
+- graph
+- traversal
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Algorithms Map

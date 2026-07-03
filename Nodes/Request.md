@@ -68,6 +68,14 @@ Request ảnh hưởng tới API design, frontend/backend handoff, integration t
 - Third-party integration
 - Contract testing
 
+## Keywords / Từ khóa tìm kiếm
+
+- Request
+- API request
+- yêu cầu API
+- API
+- Integration
+
 ## Source trace
 
 - API and Integration

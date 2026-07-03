@@ -69,6 +69,17 @@ Database Schema ảnh hưởng tới database design, query performance, migrati
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Database Schema
+- schema
+- lược đồ database
+- database
+- Data
+- cơ sở dữ liệu
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database System Concepts Ch02.2

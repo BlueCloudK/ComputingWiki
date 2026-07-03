@@ -67,6 +67,14 @@ Class Diagram giúp team review dependency, data flow, state transition, actor/s
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Class Diagram
+- sơ đồ lớp
+- class
+- diagram
+- Artifact
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch07

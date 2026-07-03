@@ -68,6 +68,16 @@ SQL Injection ảnh hưởng tới auth flow, permission, validation, secret han
 - Audit
 - Risk management
 
+## Keywords / Từ khóa tìm kiếm
+
+- SQL Injection
+- SQLi
+- lỗi SQL injection
+- sql
+- injection
+- Security
+- bảo mật phần mềm
+
 ## Source trace
 
 - OWASP SQL Injection Prevention Cheat Sheet

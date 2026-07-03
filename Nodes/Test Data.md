@@ -67,6 +67,19 @@ Test Data gắn code change với bằng chứng kiểm tra, giúp team quyết 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Data
+- dữ liệu test
+- test
+- data
+- Testing
+- Verification
+- kiểm thử
+- dữ liệu
+- kiểm thử phần mềm
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch04

@@ -70,6 +70,16 @@ Processes and Threads giúp debug lỗi environment-specific, performance thấp
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Processes and Threads
+- tiến trình và luồng
+- processes threads
+- processes
+- threads
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Operating Systems Map / Ch02

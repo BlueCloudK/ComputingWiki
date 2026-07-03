@@ -62,6 +62,14 @@ Hiểu kernel giúp debug permission, performance, driver và system-call level 
 
 - OS internals
 
+## Keywords / Từ khóa tìm kiếm
+
+- Kernel
+- operating system kernel
+- nhân hệ điều hành
+- Operating System
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Operating Systems Map

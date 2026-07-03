@@ -68,6 +68,19 @@ Pipeline giúp dữ liệu production/analytics/ML có đường đi lặp lại
 - Orchestration
 - Data quality
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Pipeline
+- data workflow
+- pipeline dữ liệu
+- data
+- pipeline
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Fundamentals of Data Engineering

@@ -62,6 +62,17 @@ Node này giúp đọc binary/hex, bit flag, protocol field và low-level data r
 - Hexadecimal
 - Integer representation
 
+## Keywords / Từ khóa tìm kiếm
+
+- Number System
+- numeric representation
+- hệ đếm
+- number
+- system
+- Computer Foundation
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Computer Foundations Map Ch02

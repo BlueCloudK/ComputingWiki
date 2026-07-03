@@ -69,6 +69,15 @@ Computing Education ảnh hưởng tới lựa chọn thuật toán, cấu trúc
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computing Education
+- giáo dục computing
+- computing
+- education
+- Computer Foundation
+- điện toán
+
 ## Source trace
 
 - CC2020 Map / Chapter 3-5

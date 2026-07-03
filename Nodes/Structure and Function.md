@@ -67,6 +67,16 @@ Structure and Function ảnh hưởng tới lựa chọn thuật toán, cấu tr
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Structure and Function
+- cấu trúc và chức năng
+- structure function
+- structure
+- function
+- Computer Foundation
+- cấu trúc
+
 ## Source trace
 
 - Computer Organization Map / Ch01.2

@@ -67,6 +67,16 @@ Backup ảnh hưởng tới release safety, incident response, troubleshooting v
 - Release management
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Backup
+- data backup
+- sao lưu
+- Deployment
+- Operations
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Deployment and Operations

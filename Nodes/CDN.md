@@ -63,6 +63,18 @@ Node này giúp cải thiện latency/bandwidth cho asset và bảo vệ origin 
 - Edge delivery
 - Static assets
 
+## Keywords / Từ khóa tìm kiếm
+
+- CDN
+- Content Delivery Network
+- mạng phân phối nội dung
+- Architecture
+- System Design
+- mạng máy tính
+- kiến trúc hệ thống
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Computer Networks Map

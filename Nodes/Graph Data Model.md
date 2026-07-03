@@ -68,6 +68,19 @@ Graph Data Model ảnh hưởng tới database design, query performance, migrat
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Graph Data Model
+- mô hình dữ liệu graph
+- graph
+- data
+- model
+- Database
+- dữ liệu
+- mô hình
+- hệ thống dữ liệu
+- thuật toán
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch02

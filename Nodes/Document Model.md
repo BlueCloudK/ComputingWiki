@@ -67,6 +67,19 @@ Document Model ảnh hưởng tới database design, query performance, migratio
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Document Model
+- mô hình document
+- document
+- model
+- Data
+- Database
+- mô hình
+- dữ liệu
+- hệ thống dữ liệu
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch02

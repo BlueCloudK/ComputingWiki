@@ -68,6 +68,16 @@ Distribution Pattern xử lý ranh giới process/network như remote call, seri
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Distribution Pattern
+- mẫu phân tán
+- distribution
+- pattern
+- Code Design
+- mẫu thiết kế
+- design pattern
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA catalog

@@ -69,6 +69,19 @@ Cloud Computing giúp deploy nhanh và dùng managed service, nhưng cũng tạo
 - IAM
 - Cloud cost
 
+## Keywords / Từ khóa tìm kiếm
+
+- Cloud Computing
+- cloud
+- điện toán đám mây
+- computing
+- Deployment
+- Operations
+- điện toán
+- cloud infrastructure
+- hạ tầng cloud
+- devops
+
 ## Source trace
 
 - AWS Well-Architected Framework

@@ -67,6 +67,16 @@ SMTP ảnh hưởng tới API payload, message, config, log, network call hoặc
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- SMTP
+- Simple Mail Transfer Protocol
+- giao thức SMTP
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Computer Networks Map / Ch02.3

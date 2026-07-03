@@ -76,6 +76,19 @@ Data Structures là MOC điều hướng: dùng để đi từ vùng lớn xuố
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Structures
+- data structure
+- cấu trúc dữ liệu
+- data
+- structures
+- Database
+- dữ liệu
+- mục lục kiến thức
+- nhánh kiến thức
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Algorithms Map

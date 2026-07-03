@@ -67,6 +67,14 @@ Linked List ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ li
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Linked List
+- danh sách liên kết
+- linked
+- list
+- Computer Foundation
+
 ## Source trace
 
 - Algorithms Map / Ch02

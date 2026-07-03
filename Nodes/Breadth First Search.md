@@ -67,6 +67,18 @@ Breadth First Search ảnh hưởng tới lựa chọn thuật toán, cấu trú
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Breadth First Search
+- BFS
+- tìm kiếm theo chiều rộng
+- breadth
+- first
+- search
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Algorithms Map / Ch06

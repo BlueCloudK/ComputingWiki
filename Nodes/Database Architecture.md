@@ -67,6 +67,19 @@ Database Architecture ảnh hưởng tới cách chia module/service, deploy, de
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Database Architecture
+- kiến trúc database
+- database
+- architecture
+- System Design
+- cơ sở dữ liệu
+- kiến trúc
+- dữ liệu
+- hệ thống dữ liệu
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Database Systems Map / Ch01.7

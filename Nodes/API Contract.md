@@ -1,6 +1,6 @@
 # API Contract
 
-Aliases: request/response contract, hợp đồng API
+Aliases: request/response contract, hợp đồng API, interface contract, service contract, hợp đồng giao tiếp API
 
 Type: API / Integration
 
@@ -68,6 +68,17 @@ API Contract ảnh hưởng tới API design, frontend/backend handoff, integrat
 - Frontend
 - Third-party integration
 - Contract testing
+
+## Keywords / Từ khóa tìm kiếm
+
+- API Contract
+- request/response contract
+- hợp đồng API
+- interface contract
+- service contract
+- api
+- contract
+- Integration
 
 ## Source trace
 

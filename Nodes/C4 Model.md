@@ -75,6 +75,18 @@ C4 Model ảnh hưởng tới cách chia module/service, deploy, debug incident,
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- C4 Model
+- C4 architecture model
+- mô hình C4
+- c4
+- model
+- Architecture
+- System Design
+- mô hình
+- kiến trúc hệ thống
+
 ## Source trace
 
 - C4 Model Map / c4model.com

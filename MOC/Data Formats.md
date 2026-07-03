@@ -72,6 +72,19 @@ Data Formats là MOC điều hướng: dùng để đi từ vùng lớn xuống 
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Formats
+- serialization formats
+- định dạng dữ liệu
+- data
+- formats
+- Protocol
+- Data Format
+- dữ liệu
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - Data Intensive Applications Map

@@ -70,6 +70,18 @@ Memory Model giúp debug bug state khó lặp lại và chọn pattern phù hợ
 - Immutability
 - Resource lifecycle
 
+## Keywords / Từ khóa tìm kiếm
+
+- Memory Model
+- program memory model
+- mô hình bộ nhớ
+- memory
+- model
+- Computer Foundation
+- bộ nhớ
+- mô hình
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Computer Foundations Map Ch09

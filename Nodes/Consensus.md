@@ -67,6 +67,15 @@ Consensus ảnh hưởng tới database design, query performance, migration, au
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Consensus
+- đồng thuận
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch09

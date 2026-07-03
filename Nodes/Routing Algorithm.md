@@ -67,6 +67,16 @@ Routing Algorithm ảnh hưởng tới lựa chọn thuật toán, cấu trúc d
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Routing Algorithm
+- thuật toán định tuyến
+- routing
+- algorithm
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Computer Networks Map / Ch05

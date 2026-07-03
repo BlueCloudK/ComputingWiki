@@ -67,6 +67,19 @@ Architectural Communication Pattern giúp team review dependency, data flow, sta
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Architectural Communication Pattern
+- architecture communication pattern
+- mẫu giao tiếp kiến trúc
+- architectural
+- communication
+- pattern
+- Artifact
+- Diagram
+- mẫu thiết kế
+- design pattern
+
 ## Source trace
 
 - Software Modeling and Design Map / Appendix A.2

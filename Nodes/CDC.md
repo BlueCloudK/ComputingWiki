@@ -63,6 +63,18 @@ Node này giúp sync search index, warehouse, cache hoặc microservice data pro
 - Replication logs
 - Data sync
 
+## Keywords / Từ khóa tìm kiếm
+
+- CDC
+- Change Data Capture
+- bắt thay đổi dữ liệu
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - DDIA

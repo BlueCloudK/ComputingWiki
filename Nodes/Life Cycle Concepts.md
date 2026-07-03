@@ -68,6 +68,18 @@ Life Cycle Concepts ảnh hưởng tới cách chia module/service, deploy, debu
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Life Cycle Concepts
+- lifecycle concepts
+- khái niệm vòng đời
+- life
+- cycle
+- concepts
+- Architecture
+- System Design
+- kiến trúc hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 3a

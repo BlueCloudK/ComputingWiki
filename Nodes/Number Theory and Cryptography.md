@@ -67,6 +67,19 @@ Number Theory and Cryptography ảnh hưởng tới lựa chọn thuật toán, 
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Number Theory and Cryptography
+- number theory
+- cryptography
+- số học và mật mã
+- number theory cryptography
+- number
+- theory
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch04

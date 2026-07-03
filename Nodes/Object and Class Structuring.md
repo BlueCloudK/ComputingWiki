@@ -68,6 +68,19 @@ Object and Class Structuring giúp team review dependency, data flow, state tran
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Object and Class Structuring
+- object structuring
+- class structuring
+- tổ chức object và class
+- object class structuring
+- object
+- class
+- structuring
+- Artifact
+- Diagram
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch08

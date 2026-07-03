@@ -69,6 +69,16 @@ Computer Performance ảnh hưởng tới việc chọn index/cache/queue/scale/
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computer Performance
+- hiệu năng máy tính
+- computer
+- performance
+- Scalability
+- máy tính
+- hiệu năng
+
 ## Source trace
 
 - Computer Organization Map / Ch02

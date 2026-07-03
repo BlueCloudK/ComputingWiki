@@ -1,6 +1,6 @@
 # E2E Test
 
-Aliases: end-to-end test, kiểm thử đầu cuối
+Aliases: end-to-end test, kiểm thử đầu cuối, end to end testing
 
 Type: Testing / Verification
 
@@ -67,6 +67,19 @@ E2E Test gắn code change với bằng chứng kiểm tra, giúp team quyết �
 - CI/CD
 - Regression safety
 - Release confidence
+
+## Keywords / Từ khóa tìm kiếm
+
+- E2E Test
+- end-to-end test
+- kiểm thử đầu cuối
+- end to end testing
+- e2e
+- test
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
 
 ## Source trace
 

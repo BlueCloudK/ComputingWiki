@@ -67,6 +67,14 @@ CSRF ảnh hưởng tới API design, frontend/backend handoff, integration test
 - Third-party integration
 - Contract testing
 
+## Keywords / Từ khóa tìm kiếm
+
+- CSRF
+- cross-site request forgery
+- lỗi CSRF
+- API
+- Integration
+
 ## Source trace
 
 - OWASP CSRF Prevention Cheat Sheet

@@ -1,6 +1,6 @@
 # API Security
 
-Aliases: secure API, bảo mật API
+Aliases: secure API, bảo mật API, application programming interface security
 
 Type: Security
 
@@ -70,6 +70,17 @@ API Security giúp integration không trở thành cửa mở vào dữ liệu h
 - OWASP API Security
 - Threat modeling
 - Audit logging
+
+## Keywords / Từ khóa tìm kiếm
+
+- API Security
+- secure API
+- bảo mật API
+- application programming interface security
+- api
+- security
+- bảo mật
+- bảo mật phần mềm
 
 ## Source trace
 

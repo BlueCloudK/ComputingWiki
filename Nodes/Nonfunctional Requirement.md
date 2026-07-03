@@ -1,6 +1,6 @@
 # Nonfunctional Requirement
 
-Aliases: quality requirement, yêu cầu phi chức năng
+Aliases: quality requirement, yêu cầu phi chức năng, NFR, quality attribute requirement
 
 Type: Requirement / Planning
 
@@ -68,6 +68,18 @@ NFR ép kiến trúc, testing và vận hành nhìn vào rủi ro chất lượn
 - Observability
 - Release criteria
 - Cost management
+
+## Keywords / Từ khóa tìm kiếm
+
+- Nonfunctional Requirement
+- quality requirement
+- yêu cầu phi chức năng
+- NFR
+- quality attribute requirement
+- nonfunctional
+- requirement
+- Planning
+- yêu cầu
 
 ## Source trace
 

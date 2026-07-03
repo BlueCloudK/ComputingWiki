@@ -67,6 +67,18 @@ Component Testing gắn code change với bằng chứng kiểm tra, giúp team 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Component Testing
+- component test
+- kiểm thử component
+- component
+- testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch02

@@ -75,6 +75,17 @@ Architectural Design giúp team review dependency, data flow, state transition, 
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Architectural Design
+- architecture design
+- thiết kế kiến trúc
+- architectural
+- design
+- Artifact
+- Diagram
+- thiết kế
+
 ## Source trace
 
 - Software Modeling and Design Map / Part III

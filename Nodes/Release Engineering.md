@@ -69,6 +69,18 @@ Release Engineering ảnh hưởng tới quyết định release, ưu tiên tech
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Release Engineering
+- kỹ nghệ phát hành
+- release
+- engineering
+- Reliability
+- SRE
+- kỹ thuật
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - SRE Map / release engineering

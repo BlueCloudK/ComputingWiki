@@ -62,6 +62,17 @@ Node này giúp hiểu failover, primary replica, scheduler và distributed coor
 
 - Cluster coordination
 
+## Keywords / Từ khóa tìm kiếm
+
+- Leader Election
+- bầu leader
+- leader
+- election
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - DDIA Ch09

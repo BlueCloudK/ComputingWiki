@@ -1,6 +1,6 @@
 # XML
 
-Aliases: Extensible Markup Language, định dạng XML
+Aliases: Extensible Markup Language, định dạng XML, ngôn ngữ đánh dấu mở rộng
 
 Type: Protocol / Data Format
 
@@ -66,6 +66,17 @@ XML ảnh hưởng tới API payload, message, config, log, network call hoặc 
 - Network communication
 - Data exchange
 - Backward compatibility
+
+## Keywords / Từ khóa tìm kiếm
+
+- XML
+- Extensible Markup Language
+- định dạng XML
+- ngôn ngữ đánh dấu mở rộng
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
 
 ## Source trace
 

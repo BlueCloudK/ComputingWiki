@@ -67,6 +67,19 @@ State Dependent Interaction Modeling giúp team review dependency, data flow, st
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- State Dependent Interaction Modeling
+- state-dependent modeling
+- mô hình tương tác phụ thuộc trạng thái
+- state
+- dependent
+- interaction
+- Artifact
+- Diagram
+- mô hình hóa
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch11

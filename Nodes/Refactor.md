@@ -68,6 +68,16 @@ Refactor ảnh hưởng tới API payload, message, config, log, network call ho
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Refactor
+- restructuring code
+- tái cấu trúc code
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - SWEBOK Map / Code Design

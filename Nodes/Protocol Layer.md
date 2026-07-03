@@ -69,6 +69,18 @@ Protocol Layer ảnh hưởng tới API payload, message, config, log, network c
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Protocol Layer
+- protocol layers
+- tầng giao thức
+- protocol
+- layer
+- Data Format
+- giao thức
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Computer Networks Map / Ch01.5

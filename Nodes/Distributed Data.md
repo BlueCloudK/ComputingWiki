@@ -71,6 +71,17 @@ Distributed Data ảnh hưởng tới database design, query performance, migrat
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Distributed Data
+- dữ liệu phân tán
+- distributed
+- data
+- Database
+- phân tán
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Part II

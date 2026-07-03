@@ -68,6 +68,14 @@ Logging ảnh hưởng tới quyết định release, ưu tiên technical debt, 
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Logging
+- logs
+- ghi log
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / SWEBOK Operations

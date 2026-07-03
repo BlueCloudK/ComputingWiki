@@ -68,6 +68,13 @@ Profiling ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v�
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Profiling
+- locate bottleneck
+- Performance
+- Scalability
+
 ## Source trace
 
 - Performance maps

@@ -63,6 +63,16 @@ Node này giúp thiết kế service, data system và operation có failure plan
 - Redundancy
 - Failover
 
+## Keywords / Từ khóa tìm kiếm
+
+- Fault Tolerance
+- fault-tolerant system
+- chịu lỗi
+- fault
+- tolerance
+- Reliability
+- SRE
+
 ## Source trace
 
 - DDIA

@@ -68,6 +68,17 @@ Relational Algebra ảnh hưởng tới database design, query performance, migr
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Relational Algebra
+- đại số quan hệ
+- relational
+- algebra
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch02.6

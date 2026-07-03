@@ -68,6 +68,14 @@ Postmortem ảnh hưởng tới quyết định release, ưu tiên technical deb
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Postmortem
+- post-incident review
+- báo cáo sau sự cố
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / postmortem guidance

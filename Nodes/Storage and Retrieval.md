@@ -69,6 +69,19 @@ Storage and Retrieval ảnh hưởng tới database design, query performance, m
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Storage and Retrieval
+- lưu trữ và truy xuất
+- storage retrieval
+- storage
+- retrieval
+- Data
+- Database
+- lưu trữ
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch03

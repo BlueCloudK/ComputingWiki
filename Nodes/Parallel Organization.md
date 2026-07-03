@@ -67,6 +67,18 @@ Parallel Organization ảnh hưởng tới cách chia module/service, deploy, de
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Parallel Organization
+- parallel architecture
+- tổ chức song song
+- parallel
+- organization
+- Architecture
+- System Design
+- tổ chức máy tính
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Computer Organization Map / later chapters

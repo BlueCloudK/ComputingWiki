@@ -67,6 +67,18 @@ Factory Method để subclass hoặc hook quyết định class cụ thể đư�
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Factory Method
+- factory method pattern
+- mẫu factory method
+- factory
+- method
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

@@ -69,6 +69,15 @@ Monitoring ảnh hưởng tới quyết định release, ưu tiên technical deb
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Monitoring
+- metrics
+- dashboard
+- giám sát
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / monitoring chapter

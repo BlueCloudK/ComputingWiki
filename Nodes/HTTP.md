@@ -67,6 +67,17 @@ HTTP ảnh hưởng tới API payload, message, config, log, network call hoặc
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- HTTP
+- Hypertext Transfer Protocol
+- giao thức HTTP
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map / Ch02.2

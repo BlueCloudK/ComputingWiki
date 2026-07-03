@@ -64,6 +64,19 @@ Node này giúp chọn cách deploy phù hợp với risk, downtime và observab
 - Rolling deployment
 - Progressive delivery
 
+## Keywords / Từ khóa tìm kiếm
+
+- Deployment Strategy
+- chiến lược triển khai
+- deployment
+- strategy
+- Operations
+- triển khai
+- design pattern
+- mẫu thiết kế
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Continuous Delivery

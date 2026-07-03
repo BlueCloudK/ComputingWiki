@@ -67,6 +67,19 @@ Software Product Line Architecture giúp team review dependency, data flow, stat
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Product Line Architecture
+- product-line architecture
+- kiến trúc dòng sản phẩm
+- software
+- product
+- line
+- Artifact
+- Diagram
+- phần mềm
+- kiến trúc
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch19

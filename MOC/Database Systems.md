@@ -1,6 +1,6 @@
 # Database Systems
 
-Aliases: database system, hệ quản trị dữ liệu
+Aliases: database system, hệ quản trị dữ liệu, DBMS, database management system, hệ quản trị cơ sở dữ liệu
 
 Type: Data / Database
 
@@ -77,6 +77,19 @@ Database Systems là MOC điều hướng: dùng để đi từ vùng lớn xu�
 - Backend
 - Data migration
 - Observability
+
+## Keywords / Từ khóa tìm kiếm
+
+- Database Systems
+- database system
+- hệ quản trị dữ liệu
+- DBMS
+- database management system
+- database
+- systems
+- Data
+- cơ sở dữ liệu
+- hệ thống
 
 ## Source trace
 

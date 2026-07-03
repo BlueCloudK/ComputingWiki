@@ -67,6 +67,15 @@ Consistency ảnh hưởng tới database design, query performance, migration, 
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Consistency
+- tính nhất quán
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch09

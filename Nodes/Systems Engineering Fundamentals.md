@@ -68,6 +68,19 @@ Systems Engineering Fundamentals ảnh hưởng tới cách chia module/service,
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Engineering Fundamentals
+- SE fundamentals
+- nền tảng kỹ nghệ hệ thống
+- systems
+- engineering
+- fundamentals
+- Architecture
+- System Design
+- hệ thống
+- kỹ thuật
+
 ## Source trace
 
 - SEBoK Map / Part 2 KA

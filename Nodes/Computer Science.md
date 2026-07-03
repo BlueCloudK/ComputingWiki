@@ -67,6 +67,19 @@ Computer Science ảnh hưởng tới API payload, message, config, log, network
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computer Science
+- CS
+- khoa học máy tính
+- computer
+- science
+- Protocol
+- Data Format
+- máy tính
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - CC2020 Map / CC2020 disciplines

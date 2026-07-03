@@ -1,6 +1,6 @@
 ﻿# CAP Theorem
 
-Aliases: CAP, định lý CAP
+Aliases: CAP, định lý CAP, Brewer theorem, CAP tradeoff
 
 Type: Data / Database
 
@@ -62,6 +62,19 @@ Node này giúp tránh tuyên bố mơ hồ kiểu database vừa CP vừa AP tr
 
 - Network partition
 - Availability trade-off
+
+## Keywords / Từ khóa tìm kiếm
+
+- CAP Theorem
+- CAP
+- định lý CAP
+- Brewer theorem
+- CAP tradeoff
+- theorem
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
 
 ## Source trace
 

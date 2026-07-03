@@ -63,6 +63,17 @@ Node này giúp trả lời hệ thống chịu được bao nhiêu user/request
 - Headroom
 - Load limits
 
+## Keywords / Từ khóa tìm kiếm
+
+- Capacity
+- system capacity
+- năng lực hệ thống
+- Performance
+- Scalability
+- dung lượng
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Google SRE Books

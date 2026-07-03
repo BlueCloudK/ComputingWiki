@@ -68,6 +68,18 @@ Information Technology ảnh hưởng tới API payload, message, config, log, n
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Information Technology
+- IT
+- công nghệ thông tin
+- information
+- technology
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - CC2020 Map / CC2020 disciplines

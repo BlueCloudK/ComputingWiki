@@ -62,6 +62,18 @@ Node này giúp thiết kế payment, event processing và stream job không dup
 
 - Stream processing guarantees
 
+## Keywords / Từ khóa tìm kiếm
+
+- Exactly Once
+- exactly-once processing
+- xử lý đúng một lần
+- exactly
+- once
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - DDIA Ch11

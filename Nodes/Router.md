@@ -67,6 +67,13 @@ Router giúp debug lỗi environment-specific, performance thấp tầng, concur
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Router
+- bộ định tuyến
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - Computer Networks Map / Ch04.2

@@ -67,6 +67,18 @@ Embedded Systems giúp debug lỗi environment-specific, performance thấp tầ
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Embedded Systems
+- embedded system
+- hệ thống nhúng
+- embedded
+- systems
+- Tooling
+- Implementation Detail
+- hệ thống
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Computer Organization Map / Ch01.5

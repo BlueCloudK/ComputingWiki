@@ -68,6 +68,17 @@ Test Result gắn code change với bằng chứng kiểm tra, giúp team quyế
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Result
+- kết quả test
+- test
+- result
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01 / Ch05

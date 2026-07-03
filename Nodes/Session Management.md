@@ -63,6 +63,16 @@ Node này giúp tránh session hijacking, fixation và logout không hiệu lự
 - Cookies
 - Token lifecycle
 
+## Keywords / Từ khóa tìm kiếm
+
+- Session Management
+- session security
+- quản lý phiên
+- session
+- management
+- Security
+- bảo mật phần mềm
+
 ## Source trace
 
 - OWASP Session Management Cheat Sheet

@@ -1,6 +1,6 @@
 # IP
 
-Aliases: Internet Protocol, giao thức IP
+Aliases: Internet Protocol, giao thức IP, giao thức internet
 
 Type: Protocol / Data Format
 
@@ -66,6 +66,17 @@ IP ảnh hưởng tới API payload, message, config, log, network call hoặc s
 - Network communication
 - Data exchange
 - Backward compatibility
+
+## Keywords / Từ khóa tìm kiếm
+
+- IP
+- Internet Protocol
+- giao thức IP
+- giao thức internet
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
 
 ## Source trace
 

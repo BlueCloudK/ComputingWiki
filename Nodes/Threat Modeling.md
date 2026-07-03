@@ -64,6 +64,18 @@ Node này giúp security control đặt đúng chỗ thay vì thêm ngẫu nhiê
 - STRIDE
 - Abuse cases
 
+## Keywords / Từ khóa tìm kiếm
+
+- Threat Modeling
+- threat model
+- mô hình đe dọa
+- threat
+- modeling
+- Security
+- mô hình hóa
+- bảo mật phần mềm
+- kiến trúc hệ thống
+
 ## Source trace
 
 - OWASP Threat Modeling

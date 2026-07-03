@@ -68,6 +68,17 @@ Integration Testing ảnh hưởng tới API design, frontend/backend handoff, i
 - Third-party integration
 - Contract testing
 
+## Keywords / Từ khóa tìm kiếm
+
+- Integration Testing
+- kiểm thử tích hợp
+- integration
+- testing
+- API
+- tích hợp
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch02

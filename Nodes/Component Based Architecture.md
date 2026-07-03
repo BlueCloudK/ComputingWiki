@@ -68,6 +68,19 @@ Component Based Architecture giúp team review dependency, data flow, state tran
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Component Based Architecture
+- component-based architecture
+- kiến trúc component
+- component
+- based
+- architecture
+- Artifact
+- Diagram
+- kiến trúc
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch17

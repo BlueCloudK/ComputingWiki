@@ -1,6 +1,6 @@
 # Infrastructure as Code
 
-Aliases: IaC, hạ tầng dưới dạng code
+Aliases: IaC, hạ tầng dưới dạng code, infrastructure automation, hạ tầng bằng mã
 
 Type: Deployment / Operations
 
@@ -68,6 +68,19 @@ IaC làm environment reproducible hơn, giảm manual drift và giúp rollback/r
 - CloudFormation
 - Pulumi
 - Drift detection
+
+## Keywords / Từ khóa tìm kiếm
+
+- Infrastructure as Code
+- IaC
+- hạ tầng dưới dạng code
+- infrastructure automation
+- hạ tầng bằng mã
+- infrastructure
+- as
+- code
+- Deployment
+- Operations
 
 ## Source trace
 

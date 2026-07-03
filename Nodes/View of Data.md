@@ -67,6 +67,19 @@ View of Data giúp team review dependency, data flow, state transition, actor/sy
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- View of Data
+- data abstraction
+- cách nhìn dữ liệu
+- view data
+- view
+- data
+- Artifact
+- Diagram
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch01.3

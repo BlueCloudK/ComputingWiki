@@ -67,6 +67,14 @@ Tree ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, t
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Tree
+- cây
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch11

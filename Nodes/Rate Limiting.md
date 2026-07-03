@@ -68,6 +68,16 @@ Rate Limiting giúp API sống sót trước spike, bot, retry loop hoặc consu
 - Abuse prevention
 - Fairness policy
 
+## Keywords / Từ khóa tìm kiếm
+
+- Rate Limiting
+- request throttling
+- giới hạn tốc độ request
+- rate
+- limiting
+- API
+- Integration
+
 ## Source trace
 
 - OWASP API Security Top 10

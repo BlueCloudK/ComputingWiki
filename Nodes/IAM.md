@@ -1,6 +1,6 @@
 ﻿# IAM
 
-Aliases: Identity and Access Management, quản lý định danh và quyền
+Aliases: Identity and Access Management, quản lý định danh và quyền, quản lý danh tính và truy cập
 
 Type: Security
 
@@ -62,6 +62,17 @@ Node này là trung tâm bảo vệ cloud resource, CI/CD secret và service-to-
 
 - Cloud security
 - Service accounts
+
+## Keywords / Từ khóa tìm kiếm
+
+- IAM
+- Identity and Access Management
+- quản lý định danh và quyền
+- quản lý danh tính và truy cập
+- Security
+- bảo mật phần mềm
+- cloud infrastructure
+- hạ tầng cloud
 
 ## Source trace
 

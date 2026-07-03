@@ -69,6 +69,19 @@ Object Relational Behavioral Pattern xử lý behavior quanh object-relational m
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Object Relational Behavioral Pattern
+- object-relational behavioral pattern
+- mẫu hành vi object-relational
+- object
+- relational
+- behavioral
+- Code Design
+- Pattern
+- mẫu thiết kế
+- design pattern
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA catalog

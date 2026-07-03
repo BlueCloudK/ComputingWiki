@@ -67,6 +67,14 @@ Knowledge giúp debug lỗi environment-specific, performance thấp tầng, con
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Knowledge
+- know-what
+- kiến thức
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - CC2020 Map / Executive Summary

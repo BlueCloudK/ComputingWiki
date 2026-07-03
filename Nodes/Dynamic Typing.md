@@ -69,6 +69,16 @@ Dynamic Typing hữu ích cho scripting, prototyping và domain có shape dữ l
 - Runtime errors
 - Schema validation
 
+## Keywords / Từ khóa tìm kiếm
+
+- Dynamic Typing
+- dynamically typed
+- kiểu động
+- dynamic
+- typing
+- Computer Foundation
+- ngôn ngữ lập trình
+
 ## Source trace
 
 - Types and Programming Languages

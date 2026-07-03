@@ -72,6 +72,19 @@ Computer Organization and Architecture ảnh hưởng tới cách chia module/se
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computer Organization and Architecture
+- computer architecture
+- tổ chức và kiến trúc máy tính
+- computer organization architecture
+- computer
+- organization
+- architecture
+- System Design
+- máy tính
+- tổ chức máy tính
+
 ## Source trace
 
 - Computer Organization Map / contents

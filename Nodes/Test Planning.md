@@ -69,6 +69,17 @@ Test Planning giúp testing không bị dồn vào cuối dự án. Nó nối re
 - QA strategy
 - Test environment management
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Planning
+- test plan
+- lập kế hoạch kiểm thử
+- test
+- planning
+- Requirement
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch05

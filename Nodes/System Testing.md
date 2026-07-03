@@ -67,6 +67,19 @@ System Testing gắn code change với bằng chứng kiểm tra, giúp team quy
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- System Testing
+- system test
+- kiểm thử hệ thống
+- system
+- testing
+- Verification
+- hệ thống
+- kiểm thử
+- kiểm thử phần mềm
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch02

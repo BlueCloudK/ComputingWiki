@@ -67,6 +67,16 @@ JSON ảnh hưởng tới API payload, message, config, log, network call hoặc
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- JSON
+- JavaScript Object Notation
+- định dạng JSON
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch04

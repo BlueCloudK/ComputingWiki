@@ -67,6 +67,16 @@ View ảnh hưởng tới database design, query performance, migration, audit/h
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- View
+- database view
+- view database
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database Systems Map / Ch04.2

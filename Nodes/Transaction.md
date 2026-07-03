@@ -67,6 +67,16 @@ Transaction ảnh hưởng tới database design, query performance, migration, 
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Transaction
+- database transaction
+- giao dịch database
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Database System Concepts Ch04.3 / Part Seven

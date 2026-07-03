@@ -68,6 +68,18 @@ Load Test gắn code change với bằng chứng kiểm tra, giúp team quyết 
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Load Test
+- test under load
+- kiểm thử tải
+- load
+- test
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - SRE Map / Performance maps

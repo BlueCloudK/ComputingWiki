@@ -67,6 +67,19 @@ Software Life Cycle Model giúp team review dependency, data flow, state transit
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Software Life Cycle Model
+- software development life cycle model
+- mô hình vòng đời phần mềm
+- software
+- life
+- cycle
+- Artifact
+- Diagram
+- phần mềm
+- mô hình
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch03

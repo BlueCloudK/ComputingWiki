@@ -76,6 +76,19 @@ Testing Techniques là MOC điều hướng: dùng để đi từ vùng lớn xu
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Testing Techniques
+- test design techniques
+- kỹ thuật thiết kế test
+- testing
+- techniques
+- Verification
+- kiểm thử
+- mục lục kiến thức
+- nhánh kiến thức
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map

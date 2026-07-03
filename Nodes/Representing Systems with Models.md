@@ -68,6 +68,19 @@ Representing Systems with Models giúp team review dependency, data flow, state 
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Representing Systems with Models
+- system modeling
+- biểu diễn hệ thống bằng mô hình
+- representing systems models
+- representing
+- systems
+- models
+- Artifact
+- Diagram
+- hệ thống
+
 ## Source trace
 
 - SEBoK Map / Part 2 KA

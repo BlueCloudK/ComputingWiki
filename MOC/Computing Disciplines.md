@@ -76,6 +76,19 @@ Computing Disciplines là MOC điều hướng: dùng để đi từ vùng lớn
 - Data exchange
 - Backward compatibility
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computing Disciplines
+- computing fields
+- ngành computing
+- computing
+- disciplines
+- Protocol
+- Data Format
+- điện toán
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - CC2020 Map

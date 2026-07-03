@@ -69,6 +69,17 @@ CD giảm release fear và làm deployment thành routine. Nó giúp team releas
 - Progressive delivery
 - Environment promotion
 
+## Keywords / Từ khóa tìm kiếm
+
+- CD
+- Continuous Delivery
+- Continuous Deployment
+- triển khai liên tục
+- Deployment
+- Operations
+- devops
+- triển khai phần mềm
+
 ## Source trace
 
 - Continuous Delivery

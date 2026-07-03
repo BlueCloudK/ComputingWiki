@@ -1,6 +1,6 @@
 ﻿# Depth First Search
 
-Aliases: DFS, tìm kiếm theo chiều sâu
+Aliases: DFS, tìm kiếm theo chiều sâu, depth-first traversal, duyệt sâu
 
 Type: Computer Foundation
 
@@ -62,6 +62,19 @@ Node này hữu ích cho cycle detection, topological reasoning, connected compo
 
 - Backtracking
 - Cycle detection
+
+## Keywords / Từ khóa tìm kiếm
+
+- Depth First Search
+- DFS
+- tìm kiếm theo chiều sâu
+- depth-first traversal
+- duyệt sâu
+- depth
+- first
+- search
+- Computer Foundation
+- thuật toán
 
 ## Source trace
 

@@ -67,6 +67,18 @@ Use Case Modeling giúp team review dependency, data flow, state transition, act
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Use Case Modeling
+- mô hình use case
+- use
+- case
+- modeling
+- Artifact
+- Diagram
+- mô hình hóa
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Ch06

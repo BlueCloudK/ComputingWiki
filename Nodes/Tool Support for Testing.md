@@ -67,6 +67,19 @@ Tool Support for Testing gắn code change với bằng chứng kiểm tra, giú
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Tool Support for Testing
+- test tool support
+- công cụ hỗ trợ testing
+- tool support testing
+- tool
+- support
+- testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch06

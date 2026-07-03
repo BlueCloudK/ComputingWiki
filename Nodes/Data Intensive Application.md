@@ -72,6 +72,19 @@ Data Intensive Application ảnh hưởng tới database design, query performan
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Intensive Application
+- data-intensive application
+- ứng dụng dữ liệu chuyên sâu
+- data
+- intensive
+- application
+- Database
+- dữ liệu
+- dữ liệu lớn
+- ứng dụng
+
 ## Source trace
 
 - Data Intensive Applications Map / book outline

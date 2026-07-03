@@ -67,6 +67,18 @@ Remote Facade gom nhiều thao tác nhỏ thành coarse-grained remote API để
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Remote Facade
+- remote facade pattern
+- mẫu remote facade
+- remote
+- facade
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

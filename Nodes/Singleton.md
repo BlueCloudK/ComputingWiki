@@ -67,6 +67,16 @@ Singleton kiểm soát một instance toàn cục, nhưng dễ tạo hidden stat
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Singleton
+- singleton pattern
+- mẫu singleton
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Design Pattern Map / catalog

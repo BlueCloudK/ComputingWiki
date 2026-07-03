@@ -63,6 +63,15 @@ Node này giúp debug connectivity, inbound service, Docker/cloud networking và
 - Private networks
 - Port forwarding
 
+## Keywords / Từ khóa tìm kiếm
+
+- NAT
+- Network Address Translation
+- dịch địa chỉ mạng
+- Tooling
+- Implementation Detail
+- mạng máy tính
+
 ## Source trace
 
 - Computer Networks Map

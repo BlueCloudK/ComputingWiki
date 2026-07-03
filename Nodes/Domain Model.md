@@ -67,6 +67,19 @@ Domain Model đặt behavior và rule nghiệp vụ vào object/domain structure
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Domain Model
+- domain model pattern
+- mô hình domain
+- domain
+- model
+- Code Design
+- Pattern
+- mô hình
+- kiến trúc hệ thống
+- design pattern
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA Domain Model

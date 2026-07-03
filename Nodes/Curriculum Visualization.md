@@ -67,6 +67,15 @@ Curriculum Visualization giúp debug lỗi environment-specific, performance th�
 - Operating system
 - Troubleshooting
 
+## Keywords / Từ khóa tìm kiếm
+
+- Curriculum Visualization
+- visual hóa curriculum
+- curriculum
+- visualization
+- Tooling
+- Implementation Detail
+
 ## Source trace
 
 - CC2020 Map / Chapter 5

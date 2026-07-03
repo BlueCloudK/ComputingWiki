@@ -70,6 +70,19 @@ Fundamental Test Process gắn code change với bằng chứng kiểm tra, giú
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Fundamental Test Process
+- fundamental testing process
+- quy trình test nền tảng
+- fundamental
+- test
+- process
+- Testing
+- Verification
+- kiểm thử
+- tiến trình
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch01 / Ch05

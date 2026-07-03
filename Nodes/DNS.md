@@ -1,6 +1,6 @@
 # DNS
 
-Aliases: Domain Name System, hệ thống tên miền
+Aliases: Domain Name System, hệ thống tên miền, phân giải tên miền
 
 Type: Protocol / Data Format
 
@@ -66,6 +66,18 @@ DNS ảnh hưởng tới API payload, message, config, log, network call hoặc 
 - Network communication
 - Data exchange
 - Backward compatibility
+
+## Keywords / Từ khóa tìm kiếm
+
+- DNS
+- Domain Name System
+- hệ thống tên miền
+- phân giải tên miền
+- Protocol
+- Data Format
+- dữ liệu
+- hệ thống dữ liệu
+- mạng máy tính
 
 ## Source trace
 

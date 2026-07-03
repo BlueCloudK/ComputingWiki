@@ -63,6 +63,15 @@ Node này giúp hiểu replication, consensus và availability trade-off.
 - Majority
 - Read/write quorum
 
+## Keywords / Từ khóa tìm kiếm
+
+- Quorum
+- số phiếu tối thiểu
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - DDIA Ch05-Ch09

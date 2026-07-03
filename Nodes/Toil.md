@@ -67,6 +67,13 @@ Toil ảnh hưởng tới quyết định release, ưu tiên technical debt, inc
 - Monitoring
 - Release governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Toil
+- việc vận hành thủ công lặp lại
+- Reliability
+- SRE
+
 ## Source trace
 
 - SRE Map / toil chapter

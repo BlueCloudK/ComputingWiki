@@ -67,6 +67,12 @@ Set ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, te
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Set
+- tập hợp
+- Computer Foundation
+
 ## Source trace
 
 - Discrete Mathematics Map / Ch02.1

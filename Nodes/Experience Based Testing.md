@@ -67,6 +67,18 @@ Experience Based Testing gắn code change với bằng chứng kiểm tra, giú
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Experience Based Testing
+- experience-based testing
+- kiểm thử dựa trên kinh nghiệm
+- experience
+- based
+- testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch04

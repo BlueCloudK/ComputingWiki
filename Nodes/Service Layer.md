@@ -67,6 +67,18 @@ Service Layer đặt use-case/application operation ở boundary giữa UI/API v
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Service Layer
+- service layer pattern
+- mẫu service layer
+- service
+- layer
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA Service Layer

@@ -92,6 +92,19 @@ Systems Engineering là MOC điều hướng: dùng để đi từ vùng lớn x
 - Operations
 - Technical decision
 
+## Keywords / Từ khóa tìm kiếm
+
+- Systems Engineering
+- kỹ nghệ hệ thống
+- systems
+- engineering
+- Architecture
+- System Design
+- hệ thống
+- kỹ thuật
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - SEBoK Map

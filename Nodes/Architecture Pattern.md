@@ -68,6 +68,19 @@ Architecture Pattern giúp team review dependency, data flow, state transition, 
 - Onboarding
 - System communication
 
+## Keywords / Từ khóa tìm kiếm
+
+- Architecture Pattern
+- architectural pattern
+- mẫu kiến trúc
+- architecture
+- pattern
+- Artifact
+- Diagram
+- kiến trúc
+- mẫu thiết kế
+- kiến trúc hệ thống
+
 ## Source trace
 
 - Software Modeling and Design Map / Appendix A

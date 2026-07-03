@@ -67,6 +67,17 @@ Stream Processing ảnh hưởng tới database design, query performance, migra
 - Data migration
 - Observability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Stream Processing
+- xử lý stream
+- stream
+- processing
+- Data
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Data Intensive Applications Map / Ch11

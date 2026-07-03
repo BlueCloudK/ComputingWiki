@@ -67,6 +67,16 @@ Lazy Load ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v�
 - Database tuning
 - Cost control
 
+## Keywords / Từ khóa tìm kiếm
+
+- Lazy Load
+- lazy load pattern
+- mẫu lazy load
+- lazy
+- load
+- Performance
+- Scalability
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA

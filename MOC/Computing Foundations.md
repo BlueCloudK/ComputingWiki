@@ -77,6 +77,19 @@ Computing Foundations là MOC điều hướng: dùng để đi từ vùng lớn
 - Debugging
 - Performance reasoning
 
+## Keywords / Từ khóa tìm kiếm
+
+- Computing Foundations
+- computer science foundations
+- nền tảng computing
+- computing
+- foundations
+- Computer Foundation
+- điện toán
+- nền tảng
+- mục lục kiến thức
+- nhánh kiến thức
+
 ## Source trace
 
 - CC2020 Map

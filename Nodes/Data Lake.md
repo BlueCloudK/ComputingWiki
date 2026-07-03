@@ -69,6 +69,17 @@ Data Lake giúp giữ dữ liệu raw cho replay, exploration và ML, nhưng c�
 - Lakehouse
 - Data governance
 
+## Keywords / Từ khóa tìm kiếm
+
+- Data Lake
+- raw data lake
+- hồ dữ liệu
+- data
+- lake
+- Database
+- dữ liệu
+- hệ thống dữ liệu
+
 ## Source trace
 
 - Fundamentals of Data Engineering

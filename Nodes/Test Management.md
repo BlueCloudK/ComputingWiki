@@ -69,6 +69,17 @@ Test Management gắn code change với bằng chứng kiểm tra, giúp team qu
 - Regression safety
 - Release confidence
 
+## Keywords / Từ khóa tìm kiếm
+
+- Test Management
+- quản lý testing
+- test
+- management
+- Testing
+- Verification
+- kiểm thử
+- kiểm thử phần mềm
+
 ## Source trace
 
 - Software Testing ISTQB Map / Ch05

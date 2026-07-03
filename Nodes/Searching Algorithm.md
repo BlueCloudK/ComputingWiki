@@ -64,6 +64,17 @@ Node này giúp chọn giữa linear scan, binary search, hash lookup hoặc gra
 - Lookup
 - Path finding
 
+## Keywords / Từ khóa tìm kiếm
+
+- Searching Algorithm
+- search algorithm
+- thuật toán tìm kiếm
+- searching
+- algorithm
+- Computer Foundation
+- thuật toán
+- cấu trúc dữ liệu
+
 ## Source trace
 
 - Algorithms Map

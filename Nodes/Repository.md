@@ -67,6 +67,16 @@ Repository che chi tiết query/persistence sau collection-like interface cho ag
 - Unit testing
 - Maintainability
 
+## Keywords / Từ khóa tìm kiếm
+
+- Repository
+- repository pattern
+- mẫu repository
+- Code Design
+- Pattern
+- design pattern
+- mẫu thiết kế
+
 ## Source trace
 
 - Fowler Pattern Map / PEAA adjacent/common
