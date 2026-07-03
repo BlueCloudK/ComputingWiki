@@ -19,6 +19,7 @@ Khác với MOC, path không cố gom toàn bộ node trong một vùng. Path ch
 - [[Cloud DevOps Tooling Path]]
 - [[Linux Server Admin Path]]
 - [[AI Application Engineering Path]]
+- [[AI RAG and Agent Engineering Path]]
 
 ## Cách dùng
 

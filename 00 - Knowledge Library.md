@@ -49,6 +49,7 @@
 - [[SRE and Reliability]]
 - [[Debugging and Failure Patterns]]
 - [[AI and ML Engineering]]
+- [[AI RAG and Agent Engineering]]
 - [[Systems Engineering]]
 
 ## Project Docs

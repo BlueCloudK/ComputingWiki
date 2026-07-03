@@ -125,6 +125,8 @@ Priority: Done in initial pack
 
 ## AI / RAG / Agent Engineering Pack
 
+Status: Initial pack added.
+
 Purpose: deepen LLM app architecture, retrieval, evaluation, guardrails, agents, and AI operations.
 
 Example missing nodes:
