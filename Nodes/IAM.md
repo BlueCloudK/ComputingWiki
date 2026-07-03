@@ -1,4 +1,4 @@
-# IAM
+﻿# IAM
 
 Aliases: Identity and Access Management, quản lý định danh và quyền
 
@@ -28,25 +28,26 @@ Node này là trung tâm bảo vệ cloud resource, CI/CD secret và service-to-
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Principal/action/resource policy table
+- Role assumption/rotation rule
+- Access review evidence
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Principal này cần action cụ thể nào?
+- Policy có wildcard nguy hiểm không?
+- Credential ngắn hạn hay long-lived key?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Admin role dùng cho CI/service
+- Key leak trong log/repo
+- Policy chồng chéo không audit được
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần IAM phức tạp cho local-only prototype
+- Dễ over-engineer nếu permission quá nhỏ làm delivery nghẹt mà không giảm blast radius
 
 ## Gồm những gì
 

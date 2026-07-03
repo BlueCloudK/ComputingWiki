@@ -1,4 +1,4 @@
-# Capacity
+﻿# Capacity
 
 Aliases: system capacity, năng lực hệ thống
 
@@ -28,25 +28,26 @@ Node này giúp trả lời hệ thống chịu được bao nhiêu user/request
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Capacity baseline under load
+- Peak workload và headroom target
+- Dependency/quota limit note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Capacity được đo với latency/error target nào?
+- Bottleneck hiện tại là gì?
+- Peak load có khác average bao nhiêu?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Nói capacity theo RPS nhưng bỏ latency/error
+- Không tính third-party quota
+- Scale app nhưng DB đã là limit
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần model sâu khi chưa có traffic thật
+- Dễ over-engineer nếu forecast xa hơn dữ liệu sử dụng hiện có
 
 ## Gồm những gì
 

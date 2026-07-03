@@ -1,4 +1,4 @@
-# Quorum
+﻿# Quorum
 
 Aliases: quorum, số phiếu tối thiểu
 
@@ -28,25 +28,26 @@ Node này giúp hiểu replication, consensus và availability trade-off.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Read/write quorum formula
+- Replica count và failure tolerance note
+- Behavior khi thiếu quorum
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Quorum cần majority hay threshold khác?
+- Read/write quorum có giao nhau không?
+- Khi không đủ quorum thì reject hay stale read?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Quorum config không giao nhau làm mất consistency
+- Chờ quá nhiều replica làm latency cao
+- Không tính failure domain nên quorum sống trên cùng AZ
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu không có replicated data/consensus
+- Dễ over-engineer nếu consistency requirement thấp hơn cost quorum
 
 ## Gồm những gì
 

@@ -1,4 +1,4 @@
-# Sorting Algorithm
+﻿# Sorting Algorithm
 
 Aliases: sorting, thuật toán sắp xếp
 
@@ -28,25 +28,26 @@ Node này giúp chọn library/API sort hoặc thuật toán phù hợp khi inpu
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Sort key/comparator note
+- Stability requirement nếu output cần giữ thứ tự tương đương
+- Complexity note cho input size lớn
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Có cần stable sort không?
+- Comparator có total order và deterministic không?
+- Input size có làm O(n^2) nguy hiểm không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Comparator không transitive làm sort sai/ngẫu nhiên
+- Dùng sort đắt trên hot path trong khi cần index
+- Mất thứ tự cũ vì không để ý stability
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần tự chọn thuật toán nếu library sort đã đủ
+- Dễ over-engineer nếu tối ưu sorting không nằm critical path
 
 ## Gồm những gì
 

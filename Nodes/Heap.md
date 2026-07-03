@@ -1,4 +1,4 @@
-# Heap
+﻿# Heap
 
 Aliases: binary heap, heap
 
@@ -28,25 +28,26 @@ Node này giúp dùng priority queue, scheduling và graph algorithms như Dijks
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Heap invariant: min-heap/max-heap và comparator
+- Operation note cho push, pop, peek, heapify
+- Test cho priority ordering và duplicate priority
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Cần lấy min/max lặp lại hay cần toàn bộ list sorted?
+- Comparator có ổn định khi priority bằng nhau không?
+- Có cần update/delete arbitrary element không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Nhầm heap với sorted array nên iterate ra thứ tự sai
+- Comparator sai làm pop priority sai
+- Update priority mà không re-heapify
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần heap nếu chỉ sort một lần
+- Dễ over-engineer nếu collection nhỏ hoặc priority không có ý nghĩa thật
 
 ## Gồm những gì
 

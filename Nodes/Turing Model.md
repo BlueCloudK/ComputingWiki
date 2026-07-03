@@ -1,4 +1,4 @@
-# Turing Model
+﻿# Turing Model
 
 Aliases: Turing machine, mô hình Turing
 
@@ -28,25 +28,26 @@ Node này đặt nền cho programming language, compiler và thuật toán bằ
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Turing machine sketch: state set, alphabet, tape convention, transition rule
+- Computability note: problem is decidable, semi-decidable, or outside this model
+- Short warning when a claim about 'can compute' is theoretical rather than practical
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Bài toán đang hỏi khả năng tính được hay chỉ hỏi performance/implementation?
+- Có mô tả input, state transition và halt condition đủ rõ không?
+- Có đang nhầm Turing-complete với usable hoặc efficient không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Dùng Turing-complete như bằng chứng hệ thống đủ tốt
+- Bàn computability cho bug app-level không liên quan
+- Bỏ qua halting/non-termination khi nói về chương trình tổng quát
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần khi chỉ debug feature, API hoặc database bình thường
+- Dễ over-engineer nếu kéo theory of computation vào mọi quyết định design
 
 ## Gồm những gì
 

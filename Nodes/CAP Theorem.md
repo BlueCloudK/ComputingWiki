@@ -1,4 +1,4 @@
-# CAP Theorem
+﻿# CAP Theorem
 
 Aliases: CAP, định lý CAP
 
@@ -28,25 +28,26 @@ Node này giúp tránh tuyên bố mơ hồ kiểu database vừa CP vừa AP tr
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Partition behavior decision note
+- Consistency vs availability trade-off record
+- Database guarantee note trong tình huống partition
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Khi network partition, hệ thống reject/wait hay trả dữ liệu có thể stale?
+- Consistency đang nói linearizability hay consistency kiểu khác?
+- Availability cần cho operation nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Hiểu sai thành 'chọn 2 trong 3' mọi lúc
+- Dùng CAP thay cho phân tích latency/consistency cụ thể
+- Gọi database CP/AP nhưng không nói operation và partition behavior
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần bàn sâu nếu app dùng một DB đơn giản không phân tán
+- Dễ over-engineer nếu dùng CAP để quyết định khi requirement thật chỉ là backup/latency
 
 ## Gồm những gì
 

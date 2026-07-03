@@ -1,4 +1,4 @@
-# Binary Representation
+﻿# Binary Representation
 
 Aliases: binary encoding, biểu diễn nhị phân
 
@@ -28,25 +28,26 @@ Node này giúp debug protocol/file corruption, bit flag, numeric overflow hoặ
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Bit/byte layout cho field hoặc file/protocol
+- Endian, signedness và width note
+- Boundary test cho overflow, flag và byte order
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Field này dùng bao nhiêu bit/byte?
+- Byte order là little-endian hay big-endian?
+- Bit pattern này là numeric value, flag set hay encoded data?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Đọc sai endian làm value đảo nghĩa
+- Signed/unsigned mismatch gây overflow
+- Mask bit sai làm bật/tắt nhầm flag
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu không làm protocol/file/low-level code
+- Dễ over-engineer nếu dùng binary format khi text/schema format đủ rõ
 
 ## Gồm những gì
 

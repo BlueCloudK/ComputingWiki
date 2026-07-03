@@ -1,4 +1,4 @@
-# Distributed Systems
+﻿# Distributed Systems
 
 Aliases: distributed computing, hệ phân tán
 
@@ -28,25 +28,26 @@ MOC này giúp đọc graph backend/data/SRE khi vấn đề vượt khỏi mộ
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Distributed-system map: nodes, links, failure domains
+- Consistency/failure assumptions
+- Coordination or messaging decision note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Có thật sự cần nhiều node/process không?
+- Partial failure nào phải chịu được?
+- Consistency/availability trade-off nằm ở dữ liệu nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Thiết kế như local call nên không chịu timeout/retry
+- Không ghi failure domain nên redundancy giả
+- Bỏ qua network partition rồi debug production rất muộn
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu một process/database đủ giải quyết vấn đề
+- Dễ over-engineer nếu tách service chỉ để graph nhìn hiện đại
 
 ## Gồm những gì
 

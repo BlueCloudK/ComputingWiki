@@ -1,4 +1,4 @@
-# User Mode
+﻿# User Mode
 
 Aliases: user space, chế độ người dùng
 
@@ -28,25 +28,26 @@ Node này giúp hiểu vì sao app không được truy cập device/memory tùy
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- User-space process boundary
+- System call needed for privileged action
+- Permission/isolation note khi app bị denied
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Code này đang chạy user-space hay privileged context?
+- Action bị chặn vì OS mode hay app authorization?
+- Có syscall hoặc capability nào cần cấp rõ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Nhầm user account với CPU user mode
+- Cố truy cập device/memory trực tiếp từ app
+- Escalate privilege thay vì sửa boundary đúng
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu không gặp OS/runtime permission issue
+- Dễ over-engineer nếu mọi lỗi permission đều kéo về CPU mode
 
 ## Gồm những gì
 

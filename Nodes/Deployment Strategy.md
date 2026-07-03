@@ -1,4 +1,4 @@
-# Deployment Strategy
+﻿# Deployment Strategy
 
 Aliases: deployment strategy, chiến lược triển khai
 
@@ -28,25 +28,26 @@ Node này giúp chọn cách deploy phù hợp với risk, downtime và observab
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Rollout plan: rolling, blue-green, canary
+- Verification và rollback rule
+- Traffic/exposure schedule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Downtime có chấp nhận không?
+- Metric nào quyết định continue/rollback?
+- Database/config change có backward compatible không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Deploy all-at-once không rollback được
+- Rollout tiếp dù error tăng
+- Strategy đẹp nhưng migration phá rollback
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần strategy phức tạp cho service không critical
+- Dễ over-engineer nếu traffic thấp và manual deploy an toàn đủ
 
 ## Gồm những gì
 

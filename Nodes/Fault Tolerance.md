@@ -1,4 +1,4 @@
-# Fault Tolerance
+﻿# Fault Tolerance
 
 Aliases: fault-tolerant system, chịu lỗi
 
@@ -28,25 +28,26 @@ Node này giúp thiết kế service, data system và operation có failure plan
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Fault model: crash, timeout, data loss, dependency down
+- Failover/degradation plan
+- Recovery test hoặc game-day checklist
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Fault nào được chấp nhận và fault nào không?
+- Failover có tự động hay thủ công?
+- Recovery có giữ data consistency không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Redundancy cùng failure domain
+- Failover chưa test nên chỉ là giả định
+- Retry/fallback làm lỗi lan rộng hơn
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần HA phức tạp cho prototype không user thật
+- Dễ over-engineer nếu target reliability thấp nhưng architecture quá nhiều moving parts
 
 ## Gồm những gì
 

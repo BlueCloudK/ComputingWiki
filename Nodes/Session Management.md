@@ -1,4 +1,4 @@
-# Session Management
+﻿# Session Management
 
 Aliases: session security, quản lý phiên
 
@@ -28,25 +28,26 @@ Node này giúp tránh session hijacking, fixation và logout không hiệu lự
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Session/token lifecycle policy
+- Cookie flags hoặc token storage rule
+- Logout/revoke/expiry behavior
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Session id/token được tạo và rotate thế nào?
+- Cookie có HttpOnly/Secure/SameSite không?
+- Logout/password change có revoke session cũ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Session fixation/hijacking
+- Token lưu local/log không an toàn
+- Session không expire hoặc không revoke được
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu app không có login/session
+- Dễ over-engineer nếu script nội bộ ít rủi ro bị ép session framework nặng
 
 ## Gồm những gì
 

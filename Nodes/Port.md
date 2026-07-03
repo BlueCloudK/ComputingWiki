@@ -1,4 +1,4 @@
-# Port
+﻿# Port
 
 Aliases: network port, cổng mạng
 
@@ -28,25 +28,26 @@ Node này giúp debug service binding, firewall, Docker port mapping và API end
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Listen/bind/expose port table
+- Firewall/security-group rule
+- Docker/load-balancer port mapping
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Service listen ở port nào?
+- Port đó bind localhost hay all interfaces?
+- External mapping có trỏ đúng internal port không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- App chạy nhưng bind localhost nên ngoài không vào
+- Port conflict làm service không start
+- Expose nhầm port admin ra public
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu platform quản lý endpoint hoàn toàn
+- Dễ over-engineer nếu lỗi nằm ở DNS/API path chứ không ở port
 
 ## Gồm những gì
 

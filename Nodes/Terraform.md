@@ -1,4 +1,4 @@
-# Terraform
+﻿# Terraform
 
 Aliases: Terraform, Terraform IaC
 
@@ -28,25 +28,27 @@ Node này giúp quản lý cloud resource có review, history và drift awarenes
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Terraform module/config
+- Plan output review
+- State backend/locking policy
+- Workspace/environment mapping
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- State lưu ở đâu và có lock không?
+- Plan có destroy/replace bất ngờ không?
+- Provider/module version có pin không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Apply nhầm workspace phá production
+- State file leak secret
+- Drift do sửa console ngoài Terraform
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần Terraform cho resource tạm rất ít
+- Dễ over-engineer nếu module abstraction phức tạp hơn hạ tầng thật
 
 ## Gồm những gì
 

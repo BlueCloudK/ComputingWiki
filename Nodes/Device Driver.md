@@ -1,4 +1,4 @@
-# Device Driver
+﻿# Device Driver
 
 Aliases: driver, trình điều khiển thiết bị
 
@@ -28,25 +28,26 @@ Node này giúp debug IO, GPU, network adapter, storage và hardware-dependent b
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Driver/device/version note
+- IO path và OS/hardware boundary
+- Rollback/update plan nếu driver gây lỗi
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Lỗi có phụ thuộc device model hoặc driver version không?
+- Driver log/event viewer có signal gì?
+- Update driver có thay đổi behavior không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- App bị blamed trong khi driver crash
+- Driver mismatch làm device/network/storage chập chờn
+- Update driver không có rollback plan
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu app không chạm hardware/device-specific path
+- Dễ over-engineer nếu mọi IO bug đều đổ cho driver trước khi có evidence
 
 ## Gồm những gì
 

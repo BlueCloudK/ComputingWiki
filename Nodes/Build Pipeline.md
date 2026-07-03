@@ -1,4 +1,4 @@
-# Build Pipeline
+﻿# Build Pipeline
 
 Aliases: build pipeline, pipeline build
 
@@ -28,25 +28,26 @@ Node này giúp build reproducible và CI/CD đáng tin hơn.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Pipeline stages: install, build, test, package, publish
+- Artifact name/version/checksum
+- Cache/dependency policy
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Artifact có reproducible không?
+- Stage nào tạo artifact deployable?
+- Cache có thể làm build stale không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Build local khác CI
+- Artifact không trace về commit
+- Cache/dependency drift làm build lúc được lúc không
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần pipeline phức tạp cho repo thử nghiệm nhỏ
+- Dễ over-engineer nếu nhiều stage nhưng không tăng confidence
 
 ## Gồm những gì
 

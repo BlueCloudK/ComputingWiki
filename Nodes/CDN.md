@@ -1,4 +1,4 @@
-# CDN
+﻿# CDN
 
 Aliases: Content Delivery Network, mạng phân phối nội dung
 
@@ -28,25 +28,26 @@ Node này giúp cải thiện latency/bandwidth cho asset và bảo vệ origin 
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Cache policy: TTL, key, headers
+- Invalidation/purge plan
+- Origin fallback và HTTPS config
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Content này public/cacheable không?
+- Cache key có phân biệt auth/language/device đúng không?
+- Invalidation khi deploy content mới thế nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Cache private response cho user khác
+- Stale asset sau deploy
+- CDN che lỗi origin vì cache hit
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu traffic nhỏ hoặc content không cache được
+- Dễ over-engineer nếu API dynamic bị ép qua CDN không có cache strategy
 
 ## Gồm những gì
 

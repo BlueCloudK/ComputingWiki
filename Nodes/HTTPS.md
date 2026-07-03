@@ -1,4 +1,4 @@
-# HTTPS
+﻿# HTTPS
 
 Aliases: HTTP over TLS, HTTPS
 
@@ -28,25 +28,26 @@ Node này giúp đọc browser/API errors, mixed content, redirect và cert prob
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- HTTPS endpoint và redirect policy
+- HSTS/mixed-content note nếu là web
+- Certificate ownership/renewal note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Endpoint có enforce HTTPS không?
+- Redirect HTTP sang HTTPS có đúng không?
+- Secret có bị đặt trong URL/query log không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Mixed content làm browser block
+- HTTP endpoint còn mở làm leak token
+- Redirect loop vì proxy/TLS config sai
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần phức tạp cho local-only prototype
+- Dễ over-engineer nếu mọi internal call đều cần public TLS stack riêng
 
 ## Gồm những gì
 

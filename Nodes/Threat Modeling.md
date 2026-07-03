@@ -1,4 +1,4 @@
-# Threat Modeling
+﻿# Threat Modeling
 
 Aliases: threat model, mô hình đe dọa
 
@@ -28,25 +28,27 @@ Node này giúp security control đặt đúng chỗ thay vì thêm ngẫu nhiê
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Threat model diagram hoặc table
+- Asset list, trust boundary, entry point
+- Abuse case và mitigation list
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Asset nào cần bảo vệ?
+- Trust boundary nằm ở đâu?
+- Attacker có capability và goal gì?
+- Mitigation nào được test hoặc monitor?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Thiếu asset/trust boundary nên bỏ sót attack path
+- Chỉ liệt kê control mà không map threat
+- Không update threat model khi architecture/API đổi
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần ceremony lớn cho script nội bộ ít rủi ro
+- Dễ over-engineer nếu workshop dài nhưng không tạo mitigation cụ thể
 
 ## Gồm những gì
 

@@ -1,4 +1,4 @@
-# Data Type
+﻿# Data Type
 
 Aliases: type of data, kiểu dữ liệu
 
@@ -28,25 +28,26 @@ Node này giúp đọc API payload, domain model và tránh nhầm shape dữ li
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Type list cho model/API quan trọng
+- Conversion rule giữa primitive, object và serialized form
+- Validation note cho dữ liệu ngoài đi vào type nội bộ
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Type này bảo vệ meaning domain nào?
+- Có đang dùng string/number quá rộng thay vì domain type không?
+- Runtime input có được validate trước khi tin vào type không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Primitive obsession làm mất invariant
+- Implicit conversion đổi nghĩa dữ liệu
+- Type trong code không khớp shape từ API/database
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần tách type riêng cho field nhỏ ít rủi ro
+- Dễ over-engineer nếu mọi field đều thành abstraction riêng không bảo vệ invariant
 
 ## Gồm những gì
 

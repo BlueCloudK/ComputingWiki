@@ -1,4 +1,4 @@
-# Orchestration
+﻿# Orchestration
 
 Aliases: workflow orchestration, điều phối workflow
 
@@ -28,25 +28,26 @@ Node này giúp data pipeline/release workflow rõ ràng và dễ retry/backfill
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Workflow DAG
+- Dependency, retry và backfill policy
+- Task state/alerting config
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Task nào phụ thuộc dữ liệu của task nào?
+- Retry có idempotent không?
+- Backfill có làm duplicate hoặc overwrite sai không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Dependency sai làm job chạy trên dữ liệu thiếu
+- Retry không idempotent tạo duplicate
+- Alert noise vì task không phân loại severity
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần orchestrator cho một job đơn giản
+- Dễ over-engineer nếu DAG platform nặng hơn data flow thật
 
 ## Gồm những gì
 

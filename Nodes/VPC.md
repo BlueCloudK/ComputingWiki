@@ -1,4 +1,4 @@
-# VPC
+﻿# VPC
 
 Aliases: Virtual Private Cloud, mạng riêng ảo cloud
 
@@ -28,25 +28,26 @@ Node này giúp debug connectivity, exposure và blast radius của cloud worklo
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- VPC/subnet/route diagram
+- Security group/firewall policy
+- Public/private boundary note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Resource nào cần public subnet?
+- Route table/gateway có đúng outbound/inbound không?
+- CIDR có overlap với peering/VPN không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- DB nằm public subnet
+- CIDR overlap làm peering lỗi
+- Security group mở rộng quá mức
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần VPC design sâu nếu dùng managed platform đơn giản
+- Dễ over-engineer nếu network segmentation vượt nhu cầu bảo mật/vận hành
 
 ## Gồm những gì
 

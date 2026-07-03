@@ -1,4 +1,4 @@
-# Packet
+﻿# Packet
 
 Aliases: network packet, gói tin
 
@@ -28,25 +28,26 @@ Node này giúp debug latency, loss, MTU và protocol behavior.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Packet capture filter hoặc trace
+- Header/path note: source, dest, protocol, size
+- Loss/reorder/fragment evidence
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Packet có rời host nguồn không?
+- MTU/fragmentation có liên quan không?
+- Drop xảy ra ở firewall/router hay app?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Nhầm API error với packet loss
+- MTU black hole làm request lớn fail
+- Capture sai interface nên kết luận nhầm
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần packet-level debug khi app logs đủ
+- Dễ over-engineer nếu đọc packet trước khi hiểu request flow
 
 ## Gồm những gì
 

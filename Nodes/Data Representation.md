@@ -1,4 +1,4 @@
-# Data Representation
+﻿# Data Representation
 
 Aliases: data encoding, biểu diễn dữ liệu
 
@@ -28,25 +28,26 @@ Node này giúp debug serialization, file format, protocol payload và mismatch 
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Encoding/schema note cho dữ liệu qua file, memory, API hoặc network
+- Compatibility note khi producer/consumer đọc cùng data
+- Decode/round-trip test cho format quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Dữ liệu này là value, text, bytes hay object serialized?
+- Encoding/charset/schema có thống nhất giữa hai bên không?
+- Có mất thông tin khi convert qua format khác không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Decode sai charset/endian/schema làm data rác
+- Producer đổi representation nhưng consumer không biết
+- Round-trip làm mất precision hoặc field optional
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu data chỉ sống trong cùng process/runtime
+- Dễ over-engineer nếu tự thiết kế format khi JSON/protobuf/SQL schema đã đủ
 
 ## Gồm những gì
 

@@ -1,4 +1,4 @@
-# Process State
+﻿# Process State
 
 Aliases: process lifecycle state, trạng thái tiến trình
 
@@ -28,25 +28,26 @@ Node này giúp debug hang, blocked process, resource wait và scheduling behavi
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Observed process state: running, ready, blocked, sleeping, zombie
+- Wait reason: CPU, IO, lock, child process
+- Command/log evidence khi process hang
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Process đang chờ CPU, IO, lock hay signal?
+- State thay đổi theo thời gian hay stuck?
+- Có child/zombie process cần reap không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Gọi app 'crash' khi process chỉ blocked
+- Không phân biệt CPU-bound với IO-wait
+- Zombie process tích tụ vì parent không reap
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu app không có symptom runtime/process
+- Dễ over-engineer nếu dùng process-state analysis cho bug logic thuần
 
 ## Gồm những gì
 

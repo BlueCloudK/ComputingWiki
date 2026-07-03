@@ -1,4 +1,4 @@
-# Password Storage
+﻿# Password Storage
 
 Aliases: password hashing, lưu mật khẩu
 
@@ -28,25 +28,26 @@ Node này giúp bảo vệ user khi credential store bị lộ.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Password hashing policy: algorithm, salt, cost
+- Migration plan cho hash cũ
+- Pepper/secret handling nếu dùng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Có dùng Argon2/bcrypt/scrypt thay vì hash nhanh không?
+- Cost factor có phù hợp server và threat không?
+- Password reset/change có invalidate session cần thiết không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Lưu plaintext hoặc SHA trực tiếp
+- Salt/pepper xử lý sai làm giảm bảo vệ
+- Không nâng cấp hash cost theo thời gian
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu dùng identity provider không tự lưu password
+- Dễ over-engineer nếu tự xây auth khi provider chuẩn đủ
 
 ## Gồm những gì
 

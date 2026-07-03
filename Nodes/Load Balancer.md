@@ -1,4 +1,4 @@
-# Load Balancer
+﻿# Load Balancer
 
 Aliases: LB, cân bằng tải
 
@@ -28,25 +28,26 @@ Node này giúp scale, HA và deploy nhiều instance an toàn hơn.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Listener/routing rule
+- Health check/readiness config
+- TLS termination và backend pool note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Health check có phản ánh readiness thật không?
+- Traffic routing theo host/path/header nào?
+- Backend unhealthy xử lý ra sao?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Health check xanh giả làm LB gửi traffic vào instance lỗi
+- Sticky session gây lệch tải
+- TLS/proxy header sai làm app redirect loop
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần LB nếu một instance nội bộ là đủ
+- Dễ over-engineer nếu LB che bug readiness/deploy thay vì sửa app
 
 ## Gồm những gì
 

@@ -1,4 +1,4 @@
-# TLS
+﻿# TLS
 
 Aliases: Transport Layer Security, bảo mật tầng vận chuyển
 
@@ -28,25 +28,26 @@ Node này giúp debug HTTPS, certificate, API security và transport protection.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Certificate chain/config
+- Protocol/cipher policy
+- Renewal/expiry monitoring plan
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Certificate có đúng hostname và chain không?
+- TLS version/cipher có bị deprecated không?
+- Client có verify certificate thay vì bỏ qua không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Cert hết hạn làm service down
+- Tắt verification gây MITM risk
+- Sai SNI/chain làm client fail
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần custom TLS policy nếu provider managed chuẩn
+- Dễ over-engineer nếu chỉnh cipher khi không có compliance/threat requirement
 
 ## Gồm những gì
 

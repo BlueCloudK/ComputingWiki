@@ -1,4 +1,4 @@
-# Distributed System
+﻿# Distributed System
 
 Aliases: distributed systems, hệ phân tán
 
@@ -28,25 +28,26 @@ Node này giúp reasoning về retry, consistency, latency, fault tolerance và 
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- System boundary diagram gồm node, network, datastore
+- Failure-mode matrix cho timeout, retry, partition
+- Consistency/coordination decision note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Node nào có thể fail độc lập?
+- Message có thể duplicate, delay hoặc lost không?
+- Data nào cần consistency guarantee nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Assume network reliable
+- Retry không kiểm soát gây duplicate/overload
+- Service split làm transaction/debug khó hơn mà không có lợi ích
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu monolith/single DB đáp ứng tải và team
+- Dễ over-engineer nếu phân tán trước khi có bottleneck/team boundary thật
 
 ## Gồm những gì
 

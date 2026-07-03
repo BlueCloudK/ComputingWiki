@@ -1,4 +1,4 @@
-# Kernel Mode
+﻿# Kernel Mode
 
 Aliases: supervisor mode, chế độ kernel
 
@@ -28,25 +28,26 @@ Hiểu kernel mode giúp lý giải crash/driver/security boundary.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Privileged execution boundary
+- Driver/kernel module risk note
+- Crash/blast-radius note cho code privileged
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Code nào thật sự chạy kernel mode?
+- Có cần privileged access hay user-mode API đủ?
+- Failure kernel mode có làm sập toàn host không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Driver bug làm crash toàn hệ thống
+- Chạy code privileged để xử lý vấn đề có thể làm ở user mode
+- Nhầm admin permission với kernel mode
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu không làm driver/OS/security thấp tầng
+- Dễ over-engineer nếu app-level issue bị giải thích bằng kernel mode
 
 ## Gồm những gì
 

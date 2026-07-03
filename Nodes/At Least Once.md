@@ -1,4 +1,4 @@
-# At Least Once
+﻿# At Least Once
 
 Aliases: at-least-once delivery, ít nhất một lần
 
@@ -28,25 +28,26 @@ Node này giúp thiết kế consumer phải chịu duplicate an toàn.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Delivery guarantee note
+- Consumer idempotency/dedup plan
+- Ack/commit timing rule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Consumer chịu duplicate bằng cách nào?
+- Ack xảy ra trước hay sau side effect?
+- Retry/backoff có làm overload không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Duplicate tạo order/payment/job hai lần
+- Ack trước xử lý làm mất message
+- Retry vô hạn đè downstream
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu message loss chấp nhận được hoặc flow read-only
+- Dễ over-engineer nếu đòi exactly-once khi duplicate có thể xử lý đơn giản
 
 ## Gồm những gì
 

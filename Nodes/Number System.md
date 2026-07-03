@@ -1,4 +1,4 @@
-# Number System
+﻿# Number System
 
 Aliases: numeric representation, hệ đếm
 
@@ -28,25 +28,26 @@ Node này giúp đọc binary/hex, bit flag, protocol field và low-level data r
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Base conversion note cho binary/decimal/hex quan trọng
+- Range/sign note cho field numeric trong protocol/file
+- Boundary test cho parsing hoặc conversion số
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Giá trị này đang ở base nào khi đọc/ghi/log?
+- Có signed/unsigned hoặc width constraint không?
+- Conversion qua string/JSON/binary có làm đổi nghĩa không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Nhầm hex/binary/decimal khi đọc payload
+- Overflow hoặc truncation vì không ghi range
+- Log hiển thị decimal nhưng protocol dùng bit field
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu chỉ xử lý số business ở tầng app
+- Dễ over-engineer nếu đào bit-level khi lỗi nằm ở validation/domain rule
 
 ## Gồm những gì
 

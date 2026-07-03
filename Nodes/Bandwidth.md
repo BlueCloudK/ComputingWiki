@@ -1,4 +1,4 @@
-# Bandwidth
+﻿# Bandwidth
 
 Aliases: network bandwidth, băng thông
 
@@ -28,25 +28,26 @@ Node này giúp debug upload/download chậm, replication lag hoặc media deliv
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Bandwidth baseline theo path
+- Payload-size và transfer-rate metric
+- Network capacity note cho replication/media
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Giới hạn là bandwidth hay latency?
+- Payload nào đang chiếm băng thông?
+- Path có shared link hoặc egress cap không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Link saturated làm latency tăng
+- Replication lag do bandwidth chứ không phải DB
+- Tối ưu CPU trong khi payload quá lớn
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu payload nhỏ và traffic thấp
+- Dễ over-engineer nếu compression/CDN không tác động user rõ
 
 ## Gồm những gì
 

@@ -1,4 +1,4 @@
-# Blue-Green Deployment
+﻿# Blue-Green Deployment
 
 Aliases: blue green release, triển khai blue-green
 
@@ -28,25 +28,26 @@ Node này giúp release an toàn hơn khi cần cutover rõ ràng.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Blue/green environment inventory
+- Traffic switch plan
+- Database compatibility/rollback note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Blue và green có thật sự tương đương không?
+- Switch traffic có atomic/observable không?
+- Schema migration có cho phép quay lại blue không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Green khác config nên chỉ lỗi sau cutover
+- Switch traffic nhưng session/cache không tương thích
+- DB migration phá rollback
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu một rolling deploy đơn giản đủ
+- Dễ over-engineer nếu cost chạy đôi lớn hơn risk release
 
 ## Gồm những gì
 

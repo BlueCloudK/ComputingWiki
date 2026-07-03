@@ -1,4 +1,4 @@
-# Context Switch
+﻿# Context Switch
 
 Aliases: task switch, chuyển ngữ cảnh
 
@@ -28,25 +28,26 @@ Node này giúp hiểu overhead concurrency, scheduling và performance khi quá
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Context-switch metric hoặc trace
+- Thread/process count note
+- Concurrency design note khi overhead đáng kể
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Có quá nhiều thread/process active không?
+- Switch rate có tăng cùng latency không?
+- Workload CPU-bound hay IO-bound?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Tăng concurrency làm context switch overhead cao hơn throughput
+- Lock contention khiến switch nhiều nhưng work ít
+- Nhầm context switch với application context
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu concurrency thấp hoặc không có performance symptom
+- Dễ over-engineer nếu giảm thread trước khi đo switch/CPU evidence
 
 ## Gồm những gì
 

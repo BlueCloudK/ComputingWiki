@@ -1,4 +1,4 @@
-# Space Complexity
+﻿# Space Complexity
 
 Aliases: memory cost, độ phức tạp bộ nhớ
 
@@ -28,25 +28,26 @@ Node này giúp chọn giữa memory-heavy speedup và low-memory algorithm.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Extra-memory estimate cho structure/intermediate result
+- Recursion stack hoặc cache-size note
+- Memory pressure test nếu input lớn
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Algorithm cần extra storage theo n là gì?
+- Recursion depth có tạo stack risk không?
+- Cache/intermediate có lifecycle và eviction không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Tối ưu time bằng cache không bound
+- Bỏ qua recursion stack trong input sâu
+- Copy collection lớn nhiều lần trong pipeline
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu memory dư và input nhỏ
+- Dễ over-engineer nếu giảm memory làm code phức tạp trong khi bottleneck là IO
 
 ## Gồm những gì
 

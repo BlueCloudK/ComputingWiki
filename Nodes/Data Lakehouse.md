@@ -1,4 +1,4 @@
-# Data Lakehouse
+﻿# Data Lakehouse
 
 Aliases: lakehouse, kiến trúc lakehouse
 
@@ -28,25 +28,26 @@ Node này hữu ích khi cần vừa raw/flexible vừa query/model có governan
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Lakehouse architecture note
+- Table format/catalog choice
+- Schema evolution và transaction policy
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Có cần lakehouse hay warehouse/lake riêng đủ?
+- Table format xử lý schema evolution thế nào?
+- Query engine và governance đã rõ chưa?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Gọi data lake là lakehouse nhưng thiếu catalog/table metadata
+- Transaction/schema evolution bị hiểu sai làm data corrupt
+- Dựng lakehouse theo trend không có workload
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần nếu data volume/use case nhỏ
+- Dễ over-engineer nếu warehouse hiện tại đã đáp ứng tốt
 
 ## Gồm những gì
 

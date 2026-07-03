@@ -1,4 +1,4 @@
-# Depth First Search
+﻿# Depth First Search
 
 Aliases: DFS, tìm kiếm theo chiều sâu
 
@@ -28,25 +28,26 @@ Node này hữu ích cho cycle detection, topological reasoning, connected compo
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- DFS traversal rule và neighbor ordering
+- Recursion/stack depth note
+- Cycle detection hoặc backtracking test
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Graph/tree có độ sâu tối đa bao nhiêu?
+- Visited được đánh dấu trước hay sau khi explore?
+- Có cần path reconstruction hoặc chỉ cần visit?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Stack overflow với graph sâu
+- Đánh dấu visited sai làm bỏ sót node hoặc lặp vô hạn
+- Dùng DFS rồi tưởng có shortest path
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần DFS nếu BFS/library traversal đã rõ
+- Dễ over-engineer nếu viết DFS custom cho structure nhỏ không có cycle
 
 ## Gồm những gì
 

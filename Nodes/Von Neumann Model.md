@@ -1,4 +1,4 @@
-# Von Neumann Model
+﻿# Von Neumann Model
 
 Aliases: stored-program model, mô hình Von Neumann
 
@@ -28,25 +28,26 @@ Node này giúp nối instruction, CPU, memory, runtime và OS khi debug behavio
 
 ## Output / Artifact nên có
 
-- Decision note hoặc checklist ngắn khi concept này ảnh hưởng thiết kế/debug.
-- Test, metric, diagram hoặc config liên quan nếu concept nằm trên critical path.
+- Stored-program diagram: CPU, memory, instruction stream, IO
+- Fetch-decode-execute note khi giải thích runtime thấp tầng
+- Boundary note giữa architecture model và CPU hiện đại có cache/pipeline
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Concept này đang giải quyết constraint cụ thể nào?
-- Boundary của nó nằm ở code, runtime, network, data hay operations?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Chương trình và data có đang được hiểu là cùng nằm trong memory không?
+- Vấn đề này cần model CPU-memory hay chỉ cần OS/runtime abstraction?
+- Cache/pipeline/concurrency có làm model đơn giản này không đủ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng concept đúng tên nhưng sai boundary nên debug lệch hướng.
-- Thiếu metric/test làm lỗi chỉ lộ khi scale hoặc deploy thật.
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau.
+- Giải thích performance hiện đại chỉ bằng fetch-decode-execute
+- Bỏ qua memory hierarchy khi nói về tốc độ
+- Nhầm model nền với layout phần cứng cụ thể
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu hệ thống nhỏ và chưa chạm constraint liên quan.
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật.
+- Chưa cần cho phần lớn logic backend/frontend
+- Dễ over-engineer nếu dùng mô hình này thay cho profiling hoặc OS/runtime metric
 
 ## Gồm những gì
 
