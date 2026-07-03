@@ -72,12 +72,10 @@ Chain of Responsibility cho request đi qua chuỗi handler, phù hợp khi rule
 - Chain of Responsibility
 - chain of responsibility pattern
 - mẫu chuỗi trách nhiệm
-- chain responsibility
-- chain
-- responsibility
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

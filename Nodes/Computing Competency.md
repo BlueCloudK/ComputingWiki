@@ -75,9 +75,9 @@ Computing Competency ảnh hưởng tới lựa chọn thuật toán, cấu trú
 - Computing Competency
 - competency
 - năng lực computing
-- computing
-- Computer Foundation
-- điện toán
+- Knowledge
+- Skills
+- Dispositions
 
 ## Source trace
 

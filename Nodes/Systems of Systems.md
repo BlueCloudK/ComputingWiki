@@ -72,12 +72,9 @@ Systems of Systems giúp debug lỗi environment-specific, performance thấp t�
 - Systems of Systems
 - system of systems
 - hệ thống của nhiều hệ thống
-- systems systems
-- systems
-- Tooling
-- Implementation Detail
-- hệ thống
-- kiến trúc hệ thống
+- Enterprise Systems Engineering
+- Systems of Systems learning keyword
+- Systems of Systems debug keyword
 
 ## Source trace
 

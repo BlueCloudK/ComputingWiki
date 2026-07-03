@@ -75,13 +75,9 @@ Software Design Concept giúp team review dependency, data flow, state transitio
 - Software Design Concept
 - design concept
 - khái niệm thiết kế phần mềm
-- software
-- design
-- concept
-- Artifact
-- Diagram
-- phần mềm
-- thiết kế
+- Abstraction Level
+- Component
+- Relationship
 
 ## Source trace
 

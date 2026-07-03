@@ -72,11 +72,13 @@ Idempotency bảo vệ payment, order, webhook, job processing và API retry kh�
 
 - Idempotency
 - idempotent operation
-- tính lặp an toàn
 - safe retry
+- idempotency key
+- duplicate request
+- payment retry
+- retry safety
 - tính lũy đẳng
-- API
-- Integration
+- chống xử lý trùng
 
 ## Source trace
 

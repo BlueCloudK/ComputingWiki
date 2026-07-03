@@ -66,13 +66,14 @@ Node này giúp SLO/performance nhìn đúng user bị chậm nhất thay vì tr
 ## Keywords / Từ khóa tìm kiếm
 
 - Tail Latency
-- p95/p99 latency
+- p95 latency
+- p99 latency
+- long tail latency
+- slow request
+- percentile latency
+- latency outlier
 - độ trễ đuôi
-- tail
-- latency
-- Performance
-- Scalability
-- độ trễ
+- request chậm
 
 ## Source trace
 

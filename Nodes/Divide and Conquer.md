@@ -71,10 +71,10 @@ Divide and Conquer ảnh hưởng tới lựa chọn thuật toán, cấu trúc 
 
 - Divide and Conquer
 - chia để trị
-- divide conquer
-- divide
-- conquer
-- Computer Foundation
+- Quicksort
+- Divide and Conquer learning keyword
+- Divide and Conquer debug keyword
+- Divide and Conquer design keyword
 
 ## Source trace
 

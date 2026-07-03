@@ -73,9 +73,11 @@ Syntax ảnh hưởng readability, formatter, linting và lỗi build rất sớ
 
 - Syntax
 - grammar
+- language syntax
+- parse error
+- valid program form
+- code structure
 - cú pháp
-- Computer Foundation
-- ngôn ngữ lập trình
 
 ## Source trace
 

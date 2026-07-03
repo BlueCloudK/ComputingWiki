@@ -66,11 +66,12 @@ Node này giúp performance trở thành constraint thiết kế thay vì xử l
 ## Keywords / Từ khóa tìm kiếm
 
 - Performance Budget
+- latency budget
+- resource budget
+- frontend performance budget
+- service performance target
+- budget violation
 - ngân sách hiệu năng
-- performance
-- budget
-- Scalability
-- hiệu năng
 
 ## Source trace
 

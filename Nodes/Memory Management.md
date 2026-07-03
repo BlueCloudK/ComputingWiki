@@ -71,12 +71,11 @@ Memory Management giúp debug lỗi environment-specific, performance thấp t�
 ## Keywords / Từ khóa tìm kiếm
 
 - Memory Management
-- quản lý bộ nhớ
-- memory
-- management
-- Tooling
-- Implementation Detail
 - bộ nhớ
+- quản lý bộ nhớ
+- Virtual Memory
+- Page Replacement
+- Memory Management learning keyword
 
 ## Source trace
 

@@ -71,14 +71,13 @@ Distributed Transaction ảnh hưởng tới database design, query performance,
 ## Keywords / Từ khóa tìm kiếm
 
 - Distributed Transaction
+- giao dịch
 - giao dịch phân tán
-- distributed
-- transaction
-- Data
-- Database
-- phân tán
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

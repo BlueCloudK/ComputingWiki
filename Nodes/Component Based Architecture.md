@@ -71,15 +71,17 @@ Component Based Architecture giúp team review dependency, data flow, state tran
 ## Keywords / Từ khóa tìm kiếm
 
 - Component Based Architecture
+- component based architecture decision
+- component based architecture boundary
+- quyết định kiến trúc
 - component-based architecture
 - kiến trúc component
-- component
-- based
-- architecture
-- Artifact
-- Diagram
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- Component
 
 ## Source trace
 

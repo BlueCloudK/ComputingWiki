@@ -76,9 +76,9 @@ UML Notation giúp team review dependency, data flow, state transition, actor/sy
 - UML
 - Unified Modeling Language
 - ký pháp UML
-- notation
-- Artifact
-- Diagram
+- Class Diagram
+- Sequence Diagram
+- State Machine
 
 ## Source trace
 

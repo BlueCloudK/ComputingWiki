@@ -71,10 +71,10 @@ Rules of Inference ảnh hưởng tới lựa chọn thuật toán, cấu trúc 
 
 - Rules of Inference
 - quy tắc suy luận
-- rules inference
-- rules
-- inference
-- Computer Foundation
+- Rules of Inference learning keyword
+- Rules of Inference debug keyword
+- Rules of Inference design keyword
+- Rules of Inference khái niệm cần tra cứu
 
 ## Source trace
 

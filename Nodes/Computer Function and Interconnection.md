@@ -72,12 +72,9 @@ Computer Function and Interconnection ảnh hưởng tới lựa chọn thuật 
 - Computer Function and Interconnection
 - function and interconnection
 - chức năng và kết nối máy tính
-- computer function interconnection
-- computer
-- function
-- interconnection
-- Computer Foundation
-- máy tính
+- Computer Components
+- Computer Function and Interconnection learning keyword
+- Computer Function and Interconnection debug keyword
 
 ## Source trace
 

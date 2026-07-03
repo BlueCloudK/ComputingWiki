@@ -72,12 +72,9 @@ Breadth First Search ảnh hưởng tới lựa chọn thuật toán, cấu trú
 - Breadth First Search
 - BFS
 - tìm kiếm theo chiều rộng
-- breadth
-- first
-- search
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
+- Breadth First Search learning keyword
+- Breadth First Search debug keyword
+- Breadth First Search design keyword
 
 ## Source trace
 

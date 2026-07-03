@@ -72,12 +72,17 @@ Design Pattern giúp đặt tên cho một trade-off thiết kế lặp lại; g
 ## Keywords / Từ khóa tìm kiếm
 
 - Design Pattern
+- design pattern trade-off
+- design pattern refactoring
+- design pattern catalog
 - GoF pattern
 - mẫu thiết kế
-- design
-- pattern
-- Code Design
-- thiết kế
+- refactoring
+- module boundary
+- testability
+- Creational Pattern
+- Structural Pattern
+- Behavioral Pattern
 
 ## Source trace
 

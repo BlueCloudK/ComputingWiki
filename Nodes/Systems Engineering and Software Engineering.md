@@ -72,13 +72,11 @@ Systems Engineering and Software Engineering ảnh hưởng tới cách chia mod
 - Systems Engineering and Software Engineering
 - SE and software engineering
 - systems engineering và software engineering
-- systems engineering software engineering
-- systems
-- engineering
-- software
-- Architecture
-- System Design
-- hệ thống
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

@@ -72,12 +72,15 @@ Incident ảnh hưởng tới quyết định release, ưu tiên technical debt,
 ## Keywords / Từ khóa tìm kiếm
 
 - Incident
-- production issue
 - sự cố
-- Reliability
-- SRE
-- devops
+- production issue
+- release pipeline
+- operational readiness
+- incident response
 - triển khai phần mềm
+- vận hành hệ thống
+- Postmortem
+- Rollback
 
 ## Source trace
 

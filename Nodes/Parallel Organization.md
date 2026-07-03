@@ -72,12 +72,11 @@ Parallel Organization ảnh hưởng tới cách chia module/service, deploy, de
 - Parallel Organization
 - parallel architecture
 - tổ chức song song
-- parallel
-- organization
-- Architecture
-- System Design
-- tổ chức máy tính
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

@@ -72,13 +72,17 @@ Concurrent Architecture giúp team review dependency, data flow, state transitio
 ## Keywords / Từ khóa tìm kiếm
 
 - Concurrent Architecture
+- concurrent architecture decision
+- concurrent architecture boundary
+- quyết định kiến trúc
 - kiến trúc đồng thời
-- concurrent
-- architecture
-- Artifact
-- Diagram
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- Concurrency
+- Thread
 
 ## Source trace
 

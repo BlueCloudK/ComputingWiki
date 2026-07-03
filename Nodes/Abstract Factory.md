@@ -72,11 +72,10 @@ Abstract Factory gom việc tạo các family object tương thích để client
 - Abstract Factory
 - abstract factory pattern
 - mẫu abstract factory
-- abstract
-- factory
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

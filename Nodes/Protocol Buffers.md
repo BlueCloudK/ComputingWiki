@@ -70,15 +70,17 @@ Protocol Buffers ảnh hưởng tới API payload, message, config, log, network
 ## Keywords / Từ khóa tìm kiếm
 
 - Protocol Buffers
+- giao thức
 - protobuf
 - Google Protocol Buffers
 - định dạng protobuf
-- protocol
-- buffers
-- Data Format
-- giao thức
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
 
 ## Source trace
 

@@ -68,8 +68,9 @@ Node này giúp phát hiện bottleneck thật trong performance/capacity planni
 - Saturation
 - resource saturation
 - bão hòa tài nguyên
-- Performance
-- Scalability
+- Saturation learning keyword
+- Saturation debug keyword
+- Saturation design keyword
 
 ## Source trace
 

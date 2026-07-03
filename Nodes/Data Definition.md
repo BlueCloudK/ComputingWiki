@@ -71,13 +71,16 @@ Data Definition ảnh hưởng tới database design, query performance, migrati
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Definition
+- data definition design
+- data definition validation
+- xử lý dữ liệu
 - DDL
 - định nghĩa dữ liệu
-- data
-- definition
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

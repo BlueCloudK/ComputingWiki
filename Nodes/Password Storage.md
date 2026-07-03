@@ -66,12 +66,11 @@ Node này giúp bảo vệ user khi credential store bị lộ.
 
 - Password Storage
 - password hashing
-- lưu mật khẩu
-- password
-- storage
-- Security
-- lưu trữ
-- bảo mật phần mềm
+- salt
+- bcrypt
+- argon2
+- password database
+- lưu mật khẩu an toàn
 
 ## Source trace
 

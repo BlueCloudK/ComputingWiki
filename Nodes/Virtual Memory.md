@@ -70,12 +70,11 @@ Virtual Memory giúp debug lỗi environment-specific, performance thấp tầng
 ## Keywords / Từ khóa tìm kiếm
 
 - Virtual Memory
-- bộ nhớ ảo
-- virtual
-- memory
-- Tooling
-- Implementation Detail
 - bộ nhớ
+- bộ nhớ ảo
+- Page Replacement
+- Virtual Memory learning keyword
+- Virtual Memory debug keyword
 
 ## Source trace
 

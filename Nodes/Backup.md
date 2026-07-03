@@ -72,10 +72,12 @@ Backup ảnh hưởng tới release safety, incident response, troubleshooting v
 - Backup
 - data backup
 - sao lưu
-- Deployment
-- Operations
-- devops
+- release pipeline
+- operational readiness
+- incident response
 - triển khai phần mềm
+- vận hành hệ thống
+- Rollback
 
 ## Source trace
 

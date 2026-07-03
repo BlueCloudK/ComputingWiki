@@ -72,13 +72,11 @@ Systems Engineering Introduction ảnh hưởng tới cách chia module/service,
 - Systems Engineering Introduction
 - SE introduction
 - giới thiệu systems engineering
-- systems
-- engineering
-- introduction
-- Architecture
-- System Design
-- hệ thống
-- kỹ thuật
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

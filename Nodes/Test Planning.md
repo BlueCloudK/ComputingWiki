@@ -72,13 +72,13 @@ Test Planning giúp testing không bị dồn vào cuối dự án. Nó nối re
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Planning
+- test planning checklist
+- test planning strategy
+- kiểm thử Planning
 - test plan
 - lập kế hoạch kiểm thử
-- test
-- planning
-- Requirement
-- kiểm thử
-- kiểm thử phần mềm
+- Test Objective
+- Risk and Testing
 
 ## Source trace
 

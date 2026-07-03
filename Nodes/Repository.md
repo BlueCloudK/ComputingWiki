@@ -72,9 +72,10 @@ Repository che chi tiết query/persistence sau collection-like interface cho ag
 - Repository
 - repository pattern
 - mẫu repository
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

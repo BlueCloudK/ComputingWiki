@@ -72,11 +72,11 @@ Abstraction Level ảnh hưởng tới cách chia module/service, deploy, debug 
 - Abstraction Level
 - level of abstraction
 - mức trừu tượng
-- abstraction
-- level
-- Architecture
-- System Design
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

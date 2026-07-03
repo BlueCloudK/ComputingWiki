@@ -73,11 +73,9 @@ Quality Attribute giúp kiến trúc không chỉ xoay quanh feature. Nó buộc
 - Quality Attribute
 - quality characteristic
 - thuộc tính chất lượng
-- quality
-- attribute
-- Requirement
-- Planning
-- chất lượng
+- Quality Attribute learning keyword
+- Quality Attribute debug keyword
+- Quality Attribute design keyword
 
 ## Source trace
 

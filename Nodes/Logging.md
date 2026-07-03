@@ -71,10 +71,15 @@ Logging ảnh hưởng tới quyết định release, ưu tiên technical debt, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Logging
-- logs
 - ghi log
-- Reliability
-- SRE
+- logs
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Monitoring
+- Incident
 
 ## Source trace
 

@@ -72,10 +72,9 @@ Growth of Functions ảnh hưởng tới lựa chọn thuật toán, cấu trúc
 - Growth of Functions
 - asymptotic growth
 - độ tăng của hàm
-- growth functions
-- growth
-- functions
-- Computer Foundation
+- Growth of Functions learning keyword
+- Growth of Functions debug keyword
+- Growth of Functions design keyword
 
 ## Source trace
 

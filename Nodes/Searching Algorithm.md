@@ -68,12 +68,11 @@ Node này giúp chọn giữa linear scan, binary search, hash lookup hoặc gra
 
 - Searching Algorithm
 - search algorithm
+- lookup algorithm
+- linear search
+- binary search
+- search complexity
 - thuật toán tìm kiếm
-- searching
-- algorithm
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
 
 ## Source trace
 

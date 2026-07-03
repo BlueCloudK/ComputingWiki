@@ -70,13 +70,15 @@ Database Engine ảnh hưởng tới database design, query performance, migrati
 ## Keywords / Từ khóa tìm kiếm
 
 - Database Engine
+- database engine design
+- database engine validation
+- xử lý dữ liệu
 - engine database
-- database
-- engine
-- Data
-- cơ sở dữ liệu
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

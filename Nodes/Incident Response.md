@@ -73,13 +73,16 @@ Incident Response ảnh hưởng tới API design, frontend/backend handoff, int
 ## Keywords / Từ khóa tìm kiếm
 
 - Incident Response
+- sự cố
 - ứng phó sự cố
-- incident
-- response
-- API
-- Integration
-- devops
-- triển khai phần mềm
+- API schema
+- request response
+- integration boundary
+- contract testing
+- tích hợp API
+- Incident
+- Alert
+- Postmortem
 
 ## Source trace
 

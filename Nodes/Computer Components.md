@@ -74,12 +74,14 @@ Computer Components ảnh hưởng tới cách chia module/service, deploy, debu
 - Computer Components
 - computer parts
 - thành phần máy tính
-- computer
-- components
-- Architecture
-- System Design
-- máy tính
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- CPU
+- Memory System
+- Input Output
 
 ## Source trace
 

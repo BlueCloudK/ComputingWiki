@@ -70,13 +70,17 @@ HTTP ảnh hưởng tới API payload, message, config, log, network call hoặc
 ## Keywords / Từ khóa tìm kiếm
 
 - HTTP
+- http troubleshooting
+- http configuration
+- debug mạng
 - Hypertext Transfer Protocol
 - giao thức HTTP
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
 
 ## Source trace
 

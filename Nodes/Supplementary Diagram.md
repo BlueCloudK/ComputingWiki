@@ -72,11 +72,14 @@ Supplementary Diagram giúp team review dependency, data flow, state transition,
 ## Keywords / Từ khóa tìm kiếm
 
 - Supplementary Diagram
+- supplementary diagram notation
+- supplementary diagram review
+- mô hình hóa hệ thống
 - supplementary architecture diagram
 - sơ đồ bổ sung
-- supplementary
-- diagram
-- Artifact
+- System Landscape Diagram
+- Dynamic Diagram
+- Deployment Diagram
 
 ## Source trace
 

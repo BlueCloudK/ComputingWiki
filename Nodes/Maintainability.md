@@ -73,10 +73,14 @@ Maintainability ảnh hưởng tới database design, query performance, migrati
 
 - Maintainability
 - khả năng bảo trì
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Operability
+- Simplicity
+- Evolvability
 
 ## Source trace
 

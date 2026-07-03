@@ -72,8 +72,9 @@ Knowledge giúp debug lỗi environment-specific, performance thấp tầng, con
 - Knowledge
 - know-what
 - kiến thức
-- Tooling
-- Implementation Detail
+- Knowledge learning keyword
+- Knowledge debug keyword
+- Knowledge design keyword
 
 ## Source trace
 

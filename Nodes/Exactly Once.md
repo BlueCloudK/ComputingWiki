@@ -65,14 +65,11 @@ Node này giúp thiết kế payment, event processing và stream job không dup
 ## Keywords / Từ khóa tìm kiếm
 
 - Exactly Once
-- exactly-once processing
+- exactly once delivery
+- duplicate processing
+- message semantics
+- transactional messaging
 - xử lý đúng một lần
-- exactly
-- once
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
 
 ## Source trace
 

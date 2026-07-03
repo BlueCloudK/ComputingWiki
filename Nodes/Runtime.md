@@ -74,9 +74,11 @@ Runtime ảnh hưởng deploy, performance, memory usage, startup time và bug c
 
 - Runtime
 - runtime environment
+- program execution
+- runtime library
+- runtime error
+- execution model
 - môi trường chạy
-- Computer Foundation
-- ngôn ngữ lập trình
 
 ## Source trace
 

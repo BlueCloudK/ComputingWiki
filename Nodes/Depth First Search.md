@@ -67,14 +67,11 @@ Node này hữu ích cho cycle detection, topological reasoning, connected compo
 
 - Depth First Search
 - DFS
-- tìm kiếm theo chiều sâu
-- depth-first traversal
+- recursive graph search
+- stack traversal
+- visited set
+- tree traversal
 - duyệt sâu
-- depth
-- first
-- search
-- Computer Foundation
-- thuật toán
 
 ## Source trace
 

@@ -72,9 +72,10 @@ Proxy đứng thay object thật để kiểm soát access, lazy load, remote ca
 - Proxy
 - proxy pattern
 - mẫu proxy
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

@@ -70,15 +70,12 @@ Model View Controller giúp team review dependency, data flow, state transition,
 ## Keywords / Từ khóa tìm kiếm
 
 - Model View Controller
+- model view controller notation
+- model view controller review
+- mô hình hóa hệ thống
 - MVC
 - model-view-controller
 - mẫu MVC
-- model
-- view
-- controller
-- Artifact
-- Diagram
-- mô hình
 
 ## Source trace
 

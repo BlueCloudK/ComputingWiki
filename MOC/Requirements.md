@@ -76,14 +76,20 @@ Requirements là MOC điều hướng cho vùng requirement. Nó giúp đi từ 
 ## Keywords / Từ khóa tìm kiếm
 
 - Requirements
+- requirements acceptance
+- requirements traceability
+- phân tích yêu cầu
+- Requirements MOC
+- requirements map
+- mục lục kiến thức
+- nhánh kiến thức
 - software requirements
 - requirements engineering
 - yêu cầu phần mềm
 - Requirement
-- Planning
-- yêu cầu
-- mục lục kiến thức
-- nhánh kiến thức
+- Use Case
+- User Story
+- Scope
 
 ## Source trace
 

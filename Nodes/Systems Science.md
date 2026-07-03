@@ -71,14 +71,10 @@ Systems Science giúp debug lỗi environment-specific, performance thấp tần
 
 - Systems Science
 - khoa học hệ thống
-- systems
-- science
-- Tooling
-- Implementation Detail
-- hệ thống
-- kiến trúc hệ thống
-- devops
-- triển khai phần mềm
+- Systems Thinking
+- Systems Science learning keyword
+- Systems Science debug keyword
+- Systems Science design keyword
 
 ## Source trace
 

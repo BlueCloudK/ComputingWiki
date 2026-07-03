@@ -72,8 +72,10 @@ Load ảnh hưởng tới việc chọn index/cache/queue/scale/refactor và quy
 
 - Load
 - tải
-- Performance
-- Scalability
+- Load learning keyword
+- Load debug keyword
+- Load design keyword
+- Load khái niệm cần tra cứu
 
 ## Source trace
 

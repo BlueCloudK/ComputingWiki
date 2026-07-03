@@ -71,14 +71,11 @@ Service Systems Engineering ảnh hưởng tới cách chia module/service, depl
 
 - Service Systems Engineering
 - systems engineering cho dịch vụ
-- service
-- systems
-- engineering
-- Architecture
-- System Design
-- hệ thống
-- kỹ thuật
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

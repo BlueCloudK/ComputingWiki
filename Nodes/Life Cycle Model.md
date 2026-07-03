@@ -70,15 +70,17 @@ Life Cycle Model ảnh hưởng tới cách chia module/service, deploy, debug i
 ## Keywords / Từ khóa tìm kiếm
 
 - Life Cycle Model
+- life cycle model notation
+- life cycle model review
+- mô hình hóa hệ thống
 - lifecycle model
 - mô hình vòng đời
-- life
-- cycle
-- model
-- Architecture
-- System Design
-- mô hình
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- Software Life Cycle Model
 
 ## Source trace
 

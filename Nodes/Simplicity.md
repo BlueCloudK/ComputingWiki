@@ -71,12 +71,11 @@ Simplicity ảnh hưởng tới database design, query performance, migration, a
 
 - Simplicity
 - sự đơn giản
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
-- devops
-- triển khai phần mềm
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

@@ -72,11 +72,10 @@ Page Controller gắn controller với từng page/action, đơn giản cho web 
 - Page Controller
 - page controller pattern
 - mẫu page controller
-- page
-- controller
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

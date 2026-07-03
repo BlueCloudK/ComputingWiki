@@ -70,13 +70,14 @@ System Reliability ảnh hưởng tới quyết định release, ưu tiên techn
 ## Keywords / Từ khóa tìm kiếm
 
 - System Reliability
-- độ tin cậy hệ thống
-- system
-- reliability
-- SRE
-- hệ thống
 - độ tin cậy
-- kiến trúc hệ thống
+- độ tin cậy hệ thống
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Reliability
 
 ## Source trace
 

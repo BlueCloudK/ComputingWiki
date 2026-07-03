@@ -67,13 +67,11 @@ Node này giảm blast radius cho thay đổi rủi ro cao.
 
 - Canary Release
 - canary deployment
-- phát hành canary
-- canary
-- release
-- Deployment
-- Operations
-- devops
-- triển khai phần mềm
+- progressive rollout
+- small user rollout
+- traffic percentage
+- release monitoring
+- triển khai canary
 
 ## Source trace
 

@@ -74,15 +74,20 @@ Vùng này giúp đọc lỗi build/runtime có ngữ cảnh hơn: lỗi đến 
 ## Keywords / Từ khóa tìm kiếm
 
 - Compiler and Interpreter
+- biên dịch
+- thông dịch
+- Compiler and Interpreter MOC
+- compiler and interpreter map
+- mục lục kiến thức
+- nhánh kiến thức
 - compilers and interpreters
 - trình biên dịch và trình thông dịch
-- compiler interpreter
-- compiler
-- interpreter
-- Computer Foundation
-- trình biên dịch
-- trình thông dịch
-- mục lục kiến thức
+- language design
+- runtime behavior
+- type checking
+- ngôn ngữ lập trình
+- debug runtime
+- Compiler
 
 ## Source trace
 

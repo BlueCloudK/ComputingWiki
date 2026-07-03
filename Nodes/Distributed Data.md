@@ -74,13 +74,17 @@ Distributed Data ảnh hưởng tới database design, query performance, migrat
 ## Keywords / Từ khóa tìm kiếm
 
 - Distributed Data
+- distributed data design
+- distributed data validation
+- xử lý dữ liệu
 - dữ liệu phân tán
-- distributed
-- data
-- Database
-- phân tán
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Replication
+- Partitioning
 
 ## Source trace
 

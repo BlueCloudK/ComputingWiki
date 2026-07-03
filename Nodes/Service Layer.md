@@ -72,11 +72,10 @@ Service Layer đặt use-case/application operation ở boundary giữa UI/API v
 - Service Layer
 - service layer pattern
 - mẫu service layer
-- service
-- layer
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

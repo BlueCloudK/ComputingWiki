@@ -74,13 +74,17 @@ Creational Pattern kiểm soát cách object được tạo khi constructor tr�
 ## Keywords / Từ khóa tìm kiếm
 
 - Creational Pattern
+- creational pattern trade-off
+- creational pattern refactoring
+- design pattern catalog
 - creational design pattern
 - mẫu khởi tạo
-- creational
-- pattern
-- Code Design
-- mẫu thiết kế
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
+- Factory Method
 
 ## Source trace
 

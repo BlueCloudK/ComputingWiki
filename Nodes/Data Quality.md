@@ -66,13 +66,13 @@ Node này giúp tránh report sai hoặc model học từ dữ liệu hỏng.
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Quality
+- data validation
+- freshness check
+- completeness check
+- accuracy check
+- data contract
+- bad data detection
 - chất lượng dữ liệu
-- data
-- quality
-- Database
-- dữ liệu
-- chất lượng
-- hệ thống dữ liệu
 
 ## Source trace
 

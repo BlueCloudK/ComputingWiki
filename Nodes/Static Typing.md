@@ -71,12 +71,12 @@ Static Typing giúp refactor an toàn hơn và làm contract module rõ hơn. N�
 ## Keywords / Từ khóa tìm kiếm
 
 - Static Typing
-- statically typed
+- compile time type checking
+- type annotation
+- type inference
+- type safety
+- static type error
 - kiểu tĩnh
-- static
-- typing
-- Computer Foundation
-- ngôn ngữ lập trình
 
 ## Source trace
 

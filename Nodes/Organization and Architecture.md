@@ -70,15 +70,16 @@ Organization and Architecture ảnh hưởng tới cách chia module/service, de
 ## Keywords / Từ khóa tìm kiếm
 
 - Organization and Architecture
+- organization and architecture decision
+- organization and architecture boundary
+- quyết định kiến trúc
 - organization vs architecture
 - tổ chức và kiến trúc
-- organization architecture
-- organization
-- architecture
-- System Design
-- tổ chức máy tính
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

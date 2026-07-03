@@ -72,10 +72,12 @@ Quality gắn code change với bằng chứng kiểm tra, giúp team quyết đ
 - Quality
 - software quality
 - chất lượng phần mềm
-- Testing
-- Verification
-- chất lượng
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Quality Attribute
 
 ## Source trace
 

@@ -70,10 +70,11 @@ Dynamic Diagram giúp team review dependency, data flow, state transition, actor
 ## Keywords / Từ khóa tìm kiếm
 
 - Dynamic Diagram
+- dynamic diagram notation
+- dynamic diagram review
+- mô hình hóa hệ thống
 - sơ đồ động
-- dynamic
-- diagram
-- Artifact
+- Sequence Diagram
 
 ## Source trace
 

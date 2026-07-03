@@ -72,10 +72,11 @@ Entity ảnh hưởng tới database design, query performance, migration, audit
 
 - Entity
 - thực thể
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

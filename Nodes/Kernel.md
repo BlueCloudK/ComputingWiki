@@ -65,10 +65,12 @@ Hiểu kernel giúp debug permission, performance, driver và system-call level 
 ## Keywords / Từ khóa tìm kiếm
 
 - Kernel
-- operating system kernel
+- OS kernel
+- privileged mode
+- system call handler
+- device driver interface
+- kernel space
 - nhân hệ điều hành
-- Operating System
-- kiến trúc hệ thống
 
 ## Source trace
 

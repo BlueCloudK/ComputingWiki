@@ -71,15 +71,17 @@ Socket Programming ảnh hưởng tới API payload, message, config, log, netwo
 ## Keywords / Từ khóa tìm kiếm
 
 - Socket Programming
-- lập trình socket
+- socket programming troubleshooting
+- socket programming configuration
+- debug mạng
 - socket
-- programming
-- Protocol
-- Data Format
-- lập trình
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
+- lập trình socket
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
 
 ## Source trace
 

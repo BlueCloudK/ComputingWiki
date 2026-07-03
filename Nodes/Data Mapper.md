@@ -70,14 +70,16 @@ Data Mapper tách domain object khỏi database schema bằng mapper riêng, gi�
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Mapper
+- data mapper design
+- data mapper validation
+- xử lý dữ liệu
 - data mapper pattern
 - mẫu data mapper
-- data
-- mapper
-- Code Design
-- Pattern
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 - design pattern
 
 ## Source trace

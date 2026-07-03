@@ -72,9 +72,10 @@ Builder gom quá trình dựng object phức tạp thành từng bước rõ rà
 - Builder
 - builder pattern
 - mẫu builder
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

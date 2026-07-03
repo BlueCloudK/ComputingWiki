@@ -70,10 +70,11 @@ Sequence Diagram giúp team review dependency, data flow, state transition, acto
 ## Keywords / Từ khóa tìm kiếm
 
 - Sequence Diagram
+- sequence diagram notation
+- sequence diagram review
+- mô hình hóa hệ thống
 - sơ đồ tuần tự
-- sequence
-- diagram
-- Artifact
+- Dynamic Interaction Modeling
 
 ## Source trace
 

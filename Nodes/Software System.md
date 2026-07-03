@@ -72,13 +72,13 @@ Software System ảnh hưởng tới cách chia module/service, deploy, debug in
 
 - Software System
 - hệ thống phần mềm
-- software
-- system
-- Architecture
-- System Design
-- phần mềm
-- hệ thống
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- Container
+- Relationship
 
 ## Source trace
 

@@ -66,14 +66,11 @@ Node này giúp release an toàn hơn khi cần cutover rõ ràng.
 
 - Blue-Green Deployment
 - blue green release
-- triển khai blue-green
-- blue/green deployment
-- triển khai xanh lam xanh lá
-- blue green deployment
-- blue
-- green
-- deployment
-- Operations
+- traffic switch
+- zero downtime deployment
+- rollback by switch
+- parallel environment
+- triển khai blue green
 
 ## Source trace
 

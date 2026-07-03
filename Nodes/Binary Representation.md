@@ -66,11 +66,11 @@ Node này giúp debug protocol/file corruption, bit flag, numeric overflow hoặ
 ## Keywords / Từ khóa tìm kiếm
 
 - Binary Representation
+- bits and bytes
 - binary encoding
+- two complement
+- machine representation
 - biểu diễn nhị phân
-- binary
-- representation
-- Computer Foundation
 
 ## Source trace
 

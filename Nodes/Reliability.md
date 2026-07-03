@@ -74,7 +74,14 @@ Reliability ảnh hưởng tới quyết định release, ưu tiên technical de
 
 - Reliability
 - độ tin cậy
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Service Level Objective
+- Error Budget
+- Monitoring
 
 ## Source trace
 

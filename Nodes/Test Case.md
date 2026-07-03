@@ -71,13 +71,17 @@ Test Case gắn code change với bằng chứng kiểm tra, giúp team quyết 
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Case
+- test case checklist
+- test case strategy
+- kiểm thử Case
 - ca kiểm thử
-- test
-- case
-- Testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Assertion
+- Test Data
 
 ## Source trace
 

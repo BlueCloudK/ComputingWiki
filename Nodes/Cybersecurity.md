@@ -70,13 +70,17 @@ Cybersecurity ảnh hưởng tới API payload, message, config, log, network ca
 ## Keywords / Từ khóa tìm kiếm
 
 - Cybersecurity
+- cybersecurity control
+- cybersecurity review
+- bảo mật ứng dụng
 - cyber security
 - an ninh mạng
-- Protocol
-- Data Format
-- bảo mật phần mềm
-- dữ liệu
-- hệ thống dữ liệu
+- security review
+- attack surface
+- permission check
+- kiểm tra bảo mật
+- data model
+- query design
 
 ## Source trace
 

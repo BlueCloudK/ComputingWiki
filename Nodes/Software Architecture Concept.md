@@ -71,15 +71,17 @@ Software Architecture Concept giúp team review dependency, data flow, state tra
 ## Keywords / Từ khóa tìm kiếm
 
 - Software Architecture Concept
+- software architecture concept decision
+- software architecture concept boundary
+- quyết định kiến trúc
 - architecture concept
 - khái niệm kiến trúc phần mềm
-- software
-- architecture
-- concept
-- Artifact
-- Diagram
-- phần mềm
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Architecture Pattern
 
 ## Source trace
 

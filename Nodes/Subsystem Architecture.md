@@ -70,13 +70,15 @@ Subsystem Architecture giúp team review dependency, data flow, state transition
 ## Keywords / Từ khóa tìm kiếm
 
 - Subsystem Architecture
+- subsystem architecture decision
+- subsystem architecture boundary
+- quyết định kiến trúc
 - kiến trúc subsystem
-- subsystem
-- architecture
-- Artifact
-- Diagram
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

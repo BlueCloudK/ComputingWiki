@@ -74,13 +74,15 @@ API Security giúp integration không trở thành cửa mở vào dữ liệu h
 ## Keywords / Từ khóa tìm kiếm
 
 - API Security
-- secure API
+- API authentication
+- API authorization
+- token validation
+- rate limit security
+- input validation
+- OWASP API
+- broken object level authorization
 - bảo mật API
-- application programming interface security
-- api
-- security
-- bảo mật
-- bảo mật phần mềm
+- kiểm tra quyền API
 
 ## Source trace
 

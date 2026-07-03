@@ -72,8 +72,13 @@ Automation ảnh hưởng tới quyết định release, ưu tiên technical deb
 
 - Automation
 - tự động hóa
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Toil
+- Release Engineering
 
 ## Source trace
 

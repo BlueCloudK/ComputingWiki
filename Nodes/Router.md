@@ -71,8 +71,10 @@ Router giúp debug lỗi environment-specific, performance thấp tầng, concur
 
 - Router
 - bộ định tuyến
-- Tooling
-- Implementation Detail
+- Router learning keyword
+- Router debug keyword
+- Router design keyword
+- Router khái niệm cần tra cứu
 
 ## Source trace
 

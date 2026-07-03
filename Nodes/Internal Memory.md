@@ -70,13 +70,11 @@ Internal Memory giúp debug lỗi environment-specific, performance thấp tần
 ## Keywords / Từ khóa tìm kiếm
 
 - Internal Memory
+- bộ nhớ
 - main memory
 - bộ nhớ trong
-- internal
-- memory
-- Tooling
-- Implementation Detail
-- bộ nhớ
+- Internal Memory learning keyword
+- Internal Memory debug keyword
 
 ## Source trace
 

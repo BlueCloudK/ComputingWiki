@@ -71,13 +71,17 @@ Test Result gắn code change với bằng chứng kiểm tra, giúp team quyế
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Result
+- test result checklist
+- test result strategy
+- kiểm thử Result
 - kết quả test
-- test
-- result
-- Testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Assertion
+- Defect
 
 ## Source trace
 

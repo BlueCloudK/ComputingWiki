@@ -67,14 +67,12 @@ Node này giúp thiết kế HA cho compute, load balancer và database.
 
 - Availability Zone
 - AZ
+- failure domain
+- multi AZ
+- zone outage
+- zone redundancy
 - vùng sẵn sàng
-- cloud availability zone
-- availability
-- zone
-- Deployment
-- Operations
-- cloud infrastructure
-- hạ tầng cloud
+- miền lỗi cloud
 
 ## Source trace
 

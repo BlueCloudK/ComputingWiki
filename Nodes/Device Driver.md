@@ -65,11 +65,11 @@ Node này giúp debug IO, GPU, network adapter, storage và hardware-dependent b
 ## Keywords / Từ khóa tìm kiếm
 
 - Device Driver
-- driver
+- hardware driver
+- kernel driver
+- device interface
+- I/O driver
 - trình điều khiển thiết bị
-- device
-- Operating System
-- kiến trúc hệ thống
 
 ## Source trace
 

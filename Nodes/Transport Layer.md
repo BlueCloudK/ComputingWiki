@@ -74,12 +74,13 @@ Transport Layer giúp debug lỗi environment-specific, performance thấp tần
 ## Keywords / Từ khóa tìm kiếm
 
 - Transport Layer
+- transport layer troubleshooting
+- transport layer configuration
+- debug mạng
 - tầng vận chuyển
-- transport
-- layer
-- Tooling
-- Implementation Detail
-- mạng máy tính
+- TCP
+- UDP
+- Reliable Data Transfer
 
 ## Source trace
 

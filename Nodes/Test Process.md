@@ -74,15 +74,17 @@ Test Process gắn code change với bằng chứng kiểm tra, giúp team quy�
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Process
+- test process checklist
+- test process strategy
+- kiểm thử Process
 - testing process
 - quy trình test
-- test
-- process
-- Testing
-- Verification
-- kiểm thử
-- tiến trình
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Fundamental Test Process
 
 ## Source trace
 

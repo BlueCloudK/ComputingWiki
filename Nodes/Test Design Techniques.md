@@ -72,15 +72,17 @@ Test Design Techniques gắn code change với bằng chứng kiểm tra, giúp 
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Design Techniques
+- test design techniques checklist
+- test design techniques strategy
+- kiểm thử Design Techniques
 - test design technique
 - kỹ thuật thiết kế test
-- test
-- design
-- techniques
-- Testing
-- Verification
-- kiểm thử
-- thiết kế
+- test design
+- test execution
+- regression testing
+- kiểm thử phần mềm
+- xác minh chất lượng
+- Black Box Testing
 
 ## Source trace
 

@@ -72,8 +72,9 @@ Mutex giúp debug lỗi environment-specific, performance thấp tầng, concurr
 - Mutex
 - mutual exclusion
 - khóa mutex
-- Tooling
-- Implementation Detail
+- Mutex learning keyword
+- Mutex debug keyword
+- Mutex design keyword
 
 ## Source trace
 

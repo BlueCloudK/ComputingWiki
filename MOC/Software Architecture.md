@@ -80,15 +80,20 @@ Software Architecture là MOC điều hướng: dùng để đi từ vùng lớn
 ## Keywords / Từ khóa tìm kiếm
 
 - Software Architecture
-- architecture
+- software architecture decision
+- software architecture boundary
+- quyết định kiến trúc
+- Software Architecture MOC
+- software architecture map
+- mục lục kiến thức
+- nhánh kiến thức
 - architectural design
 - kiến trúc phần mềm
-- software
-- Artifact
-- Diagram
-- phần mềm
-- kiến trúc
-- mục lục kiến thức
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

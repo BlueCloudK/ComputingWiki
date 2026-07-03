@@ -72,14 +72,17 @@ Protocol Layer ảnh hưởng tới API payload, message, config, log, network c
 ## Keywords / Từ khóa tìm kiếm
 
 - Protocol Layer
+- giao thức
 - protocol layers
 - tầng giao thức
-- protocol
-- layer
-- Data Format
-- giao thức
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
 
 ## Source trace
 

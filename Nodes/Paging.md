@@ -65,10 +65,12 @@ Node này giúp hiểu virtual memory, memory pressure và page replacement.
 ## Keywords / Từ khóa tìm kiếm
 
 - Paging
-- memory paging
-- phân trang
-- Operating System
-- kiến trúc hệ thống
+- virtual memory paging
+- page table
+- page fault
+- memory page
+- address translation
+- phân trang bộ nhớ
 
 ## Source trace
 

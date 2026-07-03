@@ -73,12 +73,13 @@ Life Cycle Concepts ảnh hưởng tới cách chia module/service, deploy, debu
 - Life Cycle Concepts
 - lifecycle concepts
 - khái niệm vòng đời
-- life
-- cycle
-- concepts
-- Architecture
-- System Design
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- Life Cycle Model
+- Technical Review
 
 ## Source trace
 

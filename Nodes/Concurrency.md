@@ -73,8 +73,10 @@ Concurrency giúp debug lỗi environment-specific, performance thấp tầng, c
 
 - Concurrency
 - đồng thời
-- Tooling
-- Implementation Detail
+- Race Condition
+- Mutex
+- Thread
+- Concurrency learning keyword
 
 ## Source trace
 

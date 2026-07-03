@@ -72,14 +72,13 @@ Type System giúp encode domain constraint và API contract ngay trong code. Nó
 ## Keywords / Từ khóa tìm kiếm
 
 - Type System
-- typing system
+- static typing
+- dynamic typing
+- type checking
+- type inference
+- type safety
+- compile time error
 - hệ thống kiểu
-- type
-- system
-- Computer Foundation
-- hệ thống
-- kiến trúc hệ thống
-- ngôn ngữ lập trình
 
 ## Source trace
 

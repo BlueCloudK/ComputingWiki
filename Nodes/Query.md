@@ -70,11 +70,15 @@ Query ảnh hưởng tới database design, query performance, migration, audit/
 ## Keywords / Từ khóa tìm kiếm
 
 - Query
+- query design
+- query validation
+- xử lý dữ liệu
 - truy vấn
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Join
 
 ## Source trace
 

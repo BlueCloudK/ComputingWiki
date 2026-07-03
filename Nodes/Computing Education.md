@@ -73,10 +73,10 @@ Computing Education ảnh hưởng tới lựa chọn thuật toán, cấu trúc
 
 - Computing Education
 - giáo dục computing
-- computing
-- education
-- Computer Foundation
-- điện toán
+- Knowledge-Based Learning
+- Competency-Based Learning
+- Curriculum Visualization
+- Computing Education learning keyword
 
 ## Source trace
 

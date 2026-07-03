@@ -66,12 +66,11 @@ Node này giúp debug latency, loss, MTU và protocol behavior.
 
 - Packet
 - network packet
-- gói tin
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
+- packet header
+- payload
+- packet forwarding
+- packet loss
+- gói tin mạng
 
 ## Source trace
 

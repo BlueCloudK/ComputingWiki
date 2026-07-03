@@ -74,12 +74,8 @@ Object and Class Structuring giúp team review dependency, data flow, state tran
 - object structuring
 - class structuring
 - tổ chức object và class
-- object class structuring
-- object
-- class
-- structuring
-- Artifact
-- Diagram
+- Class Diagram
+- Relationship
 
 ## Source trace
 

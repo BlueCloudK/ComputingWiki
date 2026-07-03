@@ -70,15 +70,17 @@ Tool Support for Testing gắn code change với bằng chứng kiểm tra, giú
 ## Keywords / Từ khóa tìm kiếm
 
 - Tool Support for Testing
+- tool support for testing checklist
+- tool support for testing strategy
+- kiểm thử Tool Support for
+- tool support for testing troubleshooting
+- tool support for testing configuration
+- debug mạng
 - test tool support
 - công cụ hỗ trợ testing
-- tool support testing
-- tool
-- support
-- testing
-- Verification
-- kiểm thử
-- kiểm thử phần mềm
+- test design
+- test execution
+- regression testing
 
 ## Source trace
 

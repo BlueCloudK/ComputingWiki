@@ -72,9 +72,10 @@ Mediator gom giao tiếp nhiều object vào trung tâm phối hợp để giả
 - Mediator
 - mediator pattern
 - mẫu mediator
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

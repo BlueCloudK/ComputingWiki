@@ -78,14 +78,20 @@ API and Integration là MOC điều hướng: dùng để đi từ vùng lớn x
 ## Keywords / Từ khóa tìm kiếm
 
 - API and Integration
-- API
-- integration
-- API và tích hợp
-- systems integration
-- api integration
-- tích hợp
+- API and Integration MOC
+- api and integration map
 - mục lục kiến thức
 - nhánh kiến thức
+- API và tích hợp
+- systems integration
+- service integration
+- API schema
+- request response
+- integration boundary
+- contract testing
+- tích hợp API
+- API Contract
+- Validation
 
 ## Source trace
 

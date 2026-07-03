@@ -72,10 +72,11 @@ Partitioning ảnh hưởng tới database design, query performance, migration,
 
 - Partitioning
 - phân vùng dữ liệu
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

@@ -72,9 +72,10 @@ Facade tạo interface đơn giản trước subsystem phức tạp để client
 - Facade
 - facade pattern
 - mẫu facade
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

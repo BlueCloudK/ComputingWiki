@@ -70,13 +70,17 @@ UDP ảnh hưởng tới API payload, message, config, log, network call hoặc 
 ## Keywords / Từ khóa tìm kiếm
 
 - UDP
+- udp troubleshooting
+- udp configuration
+- debug mạng
 - User Datagram Protocol
 - giao thức UDP
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
 
 ## Source trace
 

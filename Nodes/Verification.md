@@ -72,9 +72,13 @@ Verification gắn code change với bằng chứng kiểm tra, giúp team quy�
 
 - Verification
 - kiểm chứng
-- Testing
-- xác minh
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Static Testing
+- Test Process
 
 ## Source trace
 

@@ -72,8 +72,9 @@ Dispositions giúp debug lỗi environment-specific, performance thấp tầng, 
 - Dispositions
 - know-why
 - thái độ nghề nghiệp
-- Tooling
-- Implementation Detail
+- Dispositions learning keyword
+- Dispositions debug keyword
+- Dispositions design keyword
 
 ## Source trace
 

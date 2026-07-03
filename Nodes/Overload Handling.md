@@ -73,10 +73,14 @@ Overload Handling ảnh hưởng tới quyết định release, ưu tiên techni
 
 - Overload Handling
 - xử lý quá tải
-- overload
-- handling
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Load
+- Scalability
+- Capacity Planning
 
 ## Source trace
 

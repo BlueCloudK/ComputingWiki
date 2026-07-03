@@ -70,13 +70,15 @@ Network Management giúp debug lỗi environment-specific, performance thấp t�
 ## Keywords / Từ khóa tìm kiếm
 
 - Network Management
+- network management troubleshooting
+- network management configuration
+- debug mạng
 - quản lý mạng
-- network
-- management
-- Tooling
-- Implementation Detail
-- mạng
+- network protocol
+- packet flow
+- connection troubleshooting
 - mạng máy tính
+- debug kết nối
 
 ## Source trace
 

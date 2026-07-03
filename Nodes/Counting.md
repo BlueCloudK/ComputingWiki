@@ -72,7 +72,9 @@ Counting ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệ
 - Counting
 - combinatorics
 - đếm
-- Computer Foundation
+- Counting learning keyword
+- Counting debug keyword
+- Counting design keyword
 
 ## Source trace
 

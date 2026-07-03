@@ -75,15 +75,17 @@ Computer Organization and Architecture ảnh hưởng tới cách chia module/se
 ## Keywords / Từ khóa tìm kiếm
 
 - Computer Organization and Architecture
+- computer organization and architecture decision
+- computer organization and architecture boundary
+- quyết định kiến trúc
 - computer architecture
 - tổ chức và kiến trúc máy tính
-- computer organization architecture
-- computer
-- organization
-- architecture
-- System Design
-- máy tính
-- tổ chức máy tính
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Organization and Architecture
 
 ## Source trace
 

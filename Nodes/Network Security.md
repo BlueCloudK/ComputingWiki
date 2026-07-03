@@ -70,13 +70,17 @@ Network Security ảnh hưởng tới auth flow, permission, validation, secret 
 ## Keywords / Từ khóa tìm kiếm
 
 - Network Security
+- network security control
+- network security review
+- bảo mật ứng dụng
+- network security troubleshooting
+- network security configuration
+- debug mạng
 - bảo mật mạng
-- network
-- security
-- mạng
-- bảo mật
-- bảo mật phần mềm
-- mạng máy tính
+- security review
+- attack surface
+- permission check
+- kiểm tra bảo mật
 
 ## Source trace
 

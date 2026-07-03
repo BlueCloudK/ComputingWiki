@@ -73,13 +73,13 @@ Systems Engineering Fundamentals ảnh hưởng tới cách chia module/service,
 - Systems Engineering Fundamentals
 - SE fundamentals
 - nền tảng kỹ nghệ hệ thống
-- systems
-- engineering
-- fundamentals
-- Architecture
-- System Design
-- hệ thống
-- kỹ thuật
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Systems Thinking
+- Systems Approach
 
 ## Source trace
 

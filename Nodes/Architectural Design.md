@@ -80,11 +80,9 @@ Architectural Design giúp team review dependency, data flow, state transition, 
 - Architectural Design
 - architecture design
 - thiết kế kiến trúc
-- architectural
-- design
-- Artifact
-- Diagram
-- thiết kế
+- Subsystem Architecture
+- Object-Oriented Architecture
+- Client Server Architecture
 
 ## Source trace
 

@@ -75,14 +75,16 @@ Related Disciplines ảnh hưởng tới API payload, message, config, log, netw
 
 - Related Disciplines
 - ngành liên quan
-- related
-- disciplines
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- devops
-- triển khai phần mềm
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
+- mạng máy tính
+- debug kết nối
 
 ## Source trace
 

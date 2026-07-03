@@ -71,15 +71,17 @@ Architecture Pattern giúp team review dependency, data flow, state transition, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Architecture Pattern
+- architecture pattern trade-off
+- architecture pattern refactoring
+- design pattern catalog
+- architecture pattern decision
+- architecture pattern boundary
+- quyết định kiến trúc
 - architectural pattern
 - mẫu kiến trúc
-- architecture
-- pattern
-- Artifact
-- Diagram
-- kiến trúc
-- mẫu thiết kế
-- kiến trúc hệ thống
+- architecture decision
+- system boundary
+- component responsibility
 
 ## Source trace
 

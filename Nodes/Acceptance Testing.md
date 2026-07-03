@@ -71,13 +71,17 @@ Acceptance Testing gắn code change với bằng chứng kiểm tra, giúp team
 ## Keywords / Từ khóa tìm kiếm
 
 - Acceptance Testing
+- acceptance testing checklist
+- acceptance testing strategy
+- kiểm thử Acceptance
 - acceptance test
 - kiểm thử chấp nhận
-- acceptance
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Acceptance Criteria
 
 ## Source trace
 

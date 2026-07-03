@@ -71,15 +71,13 @@ Warehouse giúp team tránh mỗi dashboard tự join dữ liệu khác nhau. N�
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Warehouse
-- analytical warehouse
-- kho dữ liệu
 - DWH
-- enterprise data warehouse
-- data
-- warehouse
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- analytics database
+- fact table
+- dimension table
+- BI reporting
+- historical analytics
+- kho dữ liệu
 
 ## Source trace
 

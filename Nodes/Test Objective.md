@@ -70,13 +70,16 @@ Test Objective gắn code change với bằng chứng kiểm tra, giúp team quy
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Objective
+- test objective checklist
+- test objective strategy
+- kiểm thử Objective
 - mục tiêu test
-- test
-- objective
-- Testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Test Case
 
 ## Source trace
 

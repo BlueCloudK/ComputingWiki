@@ -79,15 +79,20 @@ Computing Disciplines là MOC điều hướng: dùng để đi từ vùng lớn
 ## Keywords / Từ khóa tìm kiếm
 
 - Computing Disciplines
-- computing fields
-- ngành computing
-- computing
-- disciplines
-- Protocol
-- Data Format
-- điện toán
+- Computing Disciplines MOC
+- computing disciplines map
 - mục lục kiến thức
 - nhánh kiến thức
+- computing fields
+- ngành computing
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
 
 ## Source trace
 

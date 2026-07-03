@@ -67,13 +67,12 @@ Node này ảnh hưởng latency, disaster recovery, data residency và cost.
 
 - Region
 - cloud region
+- geographic region
+- data residency
+- regional latency
+- multi region
 - vùng cloud
-- Deployment
-- Operations
-- cloud infrastructure
-- hạ tầng cloud
-- devops
-- triển khai phần mềm
+- khu vực triển khai
 
 ## Source trace
 

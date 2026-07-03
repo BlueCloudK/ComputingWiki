@@ -70,10 +70,11 @@ Class Diagram giúp team review dependency, data flow, state transition, actor/s
 ## Keywords / Từ khóa tìm kiếm
 
 - Class Diagram
+- class diagram notation
+- class diagram review
+- mô hình hóa hệ thống
 - sơ đồ lớp
-- class
-- diagram
-- Artifact
+- Relationship
 
 ## Source trace
 

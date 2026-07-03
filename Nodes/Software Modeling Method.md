@@ -73,15 +73,14 @@ Software Modeling Method giúp team review dependency, data flow, state transiti
 ## Keywords / Từ khóa tìm kiếm
 
 - Software Modeling Method
+- software modeling method notation
+- software modeling method review
+- mô hình hóa hệ thống
 - modeling method
 - phương pháp mô hình hóa phần mềm
-- software
-- modeling
-- method
-- Artifact
-- Diagram
-- phần mềm
-- mô hình hóa
+- Use Case Modeling
+- Static Modeling
+- Dynamic Interaction Modeling
 
 ## Source trace
 

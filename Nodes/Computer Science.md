@@ -72,13 +72,15 @@ Computer Science ảnh hưởng tới API payload, message, config, log, network
 - Computer Science
 - CS
 - khoa học máy tính
-- computer
-- science
-- Protocol
-- Data Format
-- máy tính
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
+- mạng máy tính
 
 ## Source trace
 

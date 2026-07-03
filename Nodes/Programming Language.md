@@ -77,12 +77,12 @@ Language choice ảnh hưởng onboarding, bug class, toolchain, deploy target, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Programming Language
+- programming paradigm
+- syntax semantics
+- type system
+- runtime model
+- language design
 - ngôn ngữ lập trình
-- programming
-- language
-- Computer Foundation
-- lập trình
-- ngôn ngữ
 
 ## Source trace
 

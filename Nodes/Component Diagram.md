@@ -71,12 +71,13 @@ Component Diagram giúp team review dependency, data flow, state transition, act
 ## Keywords / Từ khóa tìm kiếm
 
 - Component Diagram
+- component diagram notation
+- component diagram review
+- mô hình hóa hệ thống
 - C4 component diagram
 - sơ đồ component
-- component
-- diagram
-- Artifact
-- kiến trúc hệ thống
+- Component
+- Container
 
 ## Source trace
 

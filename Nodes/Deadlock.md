@@ -72,8 +72,10 @@ Deadlock giúp debug lỗi environment-specific, performance thấp tầng, conc
 
 - Deadlock
 - bế tắc
-- Tooling
-- Implementation Detail
+- Deadlock learning keyword
+- Deadlock debug keyword
+- Deadlock design keyword
+- Deadlock khái niệm cần tra cứu
 
 ## Source trace
 

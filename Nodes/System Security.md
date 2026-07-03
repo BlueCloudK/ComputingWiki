@@ -70,13 +70,14 @@ System Security ảnh hưởng tới auth flow, permission, validation, secret h
 ## Keywords / Từ khóa tìm kiếm
 
 - System Security
+- system security control
+- system security review
+- bảo mật ứng dụng
 - bảo mật hệ thống
-- system
-- security
-- hệ thống
-- bảo mật
-- bảo mật phần mềm
-- kiến trúc hệ thống
+- security review
+- attack surface
+- permission check
+- kiểm tra bảo mật
 
 ## Source trace
 

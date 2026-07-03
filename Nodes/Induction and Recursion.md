@@ -73,8 +73,8 @@ Induction and Recursion ảnh hưởng tới lựa chọn thuật toán, cấu t
 - induction
 - recursion
 - quy nạp và đệ quy
-- induction recursion
-- Computer Foundation
+- Induction and Recursion learning keyword
+- Induction and Recursion debug keyword
 
 ## Source trace
 

@@ -71,7 +71,10 @@ Function ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệ
 
 - Function
 - hàm
-- Computer Foundation
+- Function learning keyword
+- Function debug keyword
+- Function design keyword
+- Function khái niệm cần tra cứu
 
 ## Source trace
 

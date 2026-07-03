@@ -72,9 +72,10 @@ Prototype tạo object mới bằng clone object mẫu, hữu ích khi chi phí 
 - Prototype
 - prototype pattern
 - mẫu prototype
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

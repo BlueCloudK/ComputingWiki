@@ -72,13 +72,11 @@ Systems Engineering and Project Management ảnh hưởng tới cách chia modul
 - Systems Engineering and Project Management
 - SE and project management
 - systems engineering và quản lý dự án
-- systems engineering project management
-- systems
-- engineering
-- project
-- Architecture
-- System Design
-- hệ thống
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

@@ -73,10 +73,14 @@ XML ảnh hưởng tới API payload, message, config, log, network call hoặc 
 - Extensible Markup Language
 - định dạng XML
 - ngôn ngữ đánh dấu mở rộng
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
 
 ## Source trace
 

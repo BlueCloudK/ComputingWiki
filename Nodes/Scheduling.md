@@ -72,8 +72,10 @@ Scheduling giúp debug lỗi environment-specific, performance thấp tầng, co
 
 - Scheduling
 - lập lịch
-- Tooling
-- Implementation Detail
+- Scheduling learning keyword
+- Scheduling debug keyword
+- Scheduling design keyword
+- Scheduling khái niệm cần tra cứu
 
 ## Source trace
 

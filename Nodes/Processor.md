@@ -71,8 +71,10 @@ Processor giúp debug lỗi environment-specific, performance thấp tầng, con
 
 - Processor
 - bộ xử lý
-- Tooling
-- Implementation Detail
+- Instruction Set
+- Processor learning keyword
+- Processor debug keyword
+- Processor design keyword
 
 ## Source trace
 

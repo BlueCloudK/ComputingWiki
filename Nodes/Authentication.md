@@ -71,13 +71,13 @@ Authentication ảnh hưởng tới auth flow, permission, validation, secret ha
 ## Keywords / Từ khóa tìm kiếm
 
 - Authentication
-- identity verification
-- xác thực
 - authn
 - login verification
-- Security
-- xác thực đăng nhập
-- bảo mật phần mềm
+- identity proof
+- password login
+- token authentication
+- xác thực người dùng
+- đăng nhập
 
 ## Source trace
 

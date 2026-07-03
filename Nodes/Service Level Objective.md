@@ -73,11 +73,13 @@ Service Level Objective ảnh hưởng tới quyết định release, ưu tiên 
 - Service Level Objective
 - SLO
 - mục tiêu mức dịch vụ
-- service
-- level
-- objective
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Error Budget
+- Monitoring
 
 ## Source trace
 

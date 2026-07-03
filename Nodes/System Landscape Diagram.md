@@ -70,14 +70,11 @@ System Landscape Diagram giúp team review dependency, data flow, state transiti
 ## Keywords / Từ khóa tìm kiếm
 
 - System Landscape Diagram
+- system landscape diagram notation
+- system landscape diagram review
+- mô hình hóa hệ thống
 - landscape diagram
 - sơ đồ landscape hệ thống
-- system
-- landscape
-- diagram
-- Artifact
-- hệ thống
-- kiến trúc hệ thống
 
 ## Source trace
 

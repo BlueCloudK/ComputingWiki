@@ -70,14 +70,16 @@ Experience Based Testing gắn code change với bằng chứng kiểm tra, giú
 ## Keywords / Từ khóa tìm kiếm
 
 - Experience Based Testing
+- experience based testing checklist
+- experience based testing strategy
+- kiểm thử Experience Based
 - experience-based testing
 - kiểm thử dựa trên kinh nghiệm
-- experience
-- based
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
 
 ## Source trace
 

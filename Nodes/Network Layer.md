@@ -73,13 +73,17 @@ Network Layer giúp debug lỗi environment-specific, performance thấp tầng,
 ## Keywords / Từ khóa tìm kiếm
 
 - Network Layer
+- network layer troubleshooting
+- network layer configuration
+- debug mạng
 - tầng mạng
-- network
-- layer
-- Tooling
-- Implementation Detail
-- mạng
+- network protocol
+- packet flow
+- connection troubleshooting
 - mạng máy tính
+- debug kết nối
+- Router
+- IP
 
 ## Source trace
 

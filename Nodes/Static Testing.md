@@ -70,13 +70,16 @@ Static Testing gắn code change với bằng chứng kiểm tra, giúp team quy
 ## Keywords / Từ khóa tìm kiếm
 
 - Static Testing
+- static testing checklist
+- static testing strategy
+- kiểm thử Static
 - static test
 - kiểm thử tĩnh
-- static
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
 
 ## Source trace
 

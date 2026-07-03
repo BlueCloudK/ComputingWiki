@@ -72,8 +72,12 @@ Response ảnh hưởng tới API design, frontend/backend handoff, integration 
 - Response
 - API response
 - phản hồi API
-- API
-- Integration
+- API schema
+- request response
+- integration boundary
+- contract testing
+- tích hợp API
+- Error Handling
 
 ## Source trace
 

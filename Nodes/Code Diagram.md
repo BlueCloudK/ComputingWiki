@@ -70,12 +70,12 @@ Code Diagram giúp team review dependency, data flow, state transition, actor/sy
 ## Keywords / Từ khóa tìm kiếm
 
 - Code Diagram
+- code diagram notation
+- code diagram review
+- mô hình hóa hệ thống
 - C4 code diagram
 - sơ đồ code
-- code
-- diagram
-- Artifact
-- thiết kế code
+- Class Diagram
 
 ## Source trace
 

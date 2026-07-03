@@ -71,13 +71,17 @@ Integration Testing ảnh hưởng tới API design, frontend/backend handoff, i
 ## Keywords / Từ khóa tìm kiếm
 
 - Integration Testing
+- integration testing checklist
+- integration testing strategy
+- kiểm thử Integration
 - kiểm thử tích hợp
-- integration
-- testing
-- API
-- tích hợp
-- kiểm thử
-- kiểm thử phần mềm
+- API schema
+- request response
+- integration boundary
+- contract testing
+- tích hợp API
+- test design
+- test execution
 
 ## Source trace
 

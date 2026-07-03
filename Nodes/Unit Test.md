@@ -72,14 +72,17 @@ Unit Test gắn code change với bằng chứng kiểm tra, giúp team quyết 
 ## Keywords / Từ khóa tìm kiếm
 
 - Unit Test
+- unit test checklist
+- unit test strategy
+- kiểm thử Unit
 - unit testing
 - kiểm thử đơn vị
-- unit
-- test
-- Testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Assertion
 
 ## Source trace
 

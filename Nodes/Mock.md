@@ -73,9 +73,12 @@ Mock gắn code change với bằng chứng kiểm tra, giúp team quyết đị
 - mock object
 - mock function
 - đối tượng giả
-- Testing
-- Verification
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Assertion
 
 ## Source trace
 

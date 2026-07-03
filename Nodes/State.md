@@ -72,9 +72,10 @@ State chuyển behavior theo trạng thái object, tránh if/switch lớn khi st
 - State
 - state pattern
 - mẫu state
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

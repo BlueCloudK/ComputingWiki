@@ -71,15 +71,17 @@ Object-Oriented Architecture giúp team review dependency, data flow, state tran
 ## Keywords / Từ khóa tìm kiếm
 
 - Object-Oriented Architecture
+- object-oriented architecture decision
+- object-oriented architecture boundary
+- quyết định kiến trúc
 - OO architecture
 - kiến trúc hướng đối tượng
-- object oriented architecture
-- object
-- oriented
-- architecture
-- Artifact
-- Diagram
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Object and Class Structuring
 
 ## Source trace
 

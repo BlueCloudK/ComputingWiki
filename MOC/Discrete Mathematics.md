@@ -79,14 +79,19 @@ Discrete Mathematics là MOC điều hướng: dùng để đi từ vùng lớn 
 ## Keywords / Từ khóa tìm kiếm
 
 - Discrete Mathematics
-- discrete math
-- toán rời rạc
-- discrete
-- mathematics
-- Computer Foundation
-- rời rạc
+- Discrete Mathematics MOC
+- discrete mathematics map
 - mục lục kiến thức
 - nhánh kiến thức
+- discrete math
+- toán rời rạc
+- Logic and Proofs
+- Sets Functions Sequences and Matrices
+- Counting
+- Discrete Probability
+- Relations
+- Graph
+- Tree
 
 ## Source trace
 

@@ -70,10 +70,14 @@ Schema Diagram giúp team review dependency, data flow, state transition, actor/
 ## Keywords / Từ khóa tìm kiếm
 
 - Schema Diagram
+- schema diagram notation
+- schema diagram review
+- mô hình hóa hệ thống
+- schema diagram design
+- schema diagram validation
+- xử lý dữ liệu
+- lược đồ
 - sơ đồ schema
-- schema
-- diagram
-- Artifact
 
 ## Source trace
 

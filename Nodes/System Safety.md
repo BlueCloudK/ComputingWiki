@@ -71,12 +71,12 @@ System Safety ảnh hưởng tới cách chia module/service, deploy, debug inci
 
 - System Safety
 - an toàn hệ thống
-- system
-- safety
-- Architecture
-- System Design
-- hệ thống
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- Risk
 
 ## Source trace
 

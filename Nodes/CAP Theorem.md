@@ -66,15 +66,14 @@ Node này giúp tránh tuyên bố mơ hồ kiểu database vừa CP vừa AP tr
 ## Keywords / Từ khóa tìm kiếm
 
 - CAP Theorem
-- CAP
+- consistency availability partition tolerance
+- network partition
+- CP AP trade-off
+- distributed database trade-off
+- stale read
+- consistency trade-off
 - định lý CAP
-- Brewer theorem
-- CAP tradeoff
-- theorem
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- đánh đổi nhất quán sẵn sàng
 
 ## Source trace
 

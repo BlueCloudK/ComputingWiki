@@ -71,10 +71,10 @@ Development Approaches giúp debug lỗi environment-specific, performance thấ
 
 - Development Approaches
 - cách tiếp cận phát triển
-- development
-- approaches
-- Tooling
-- Implementation Detail
+- Development Approaches learning keyword
+- Development Approaches debug keyword
+- Development Approaches design keyword
+- Development Approaches khái niệm cần tra cứu
 
 ## Source trace
 

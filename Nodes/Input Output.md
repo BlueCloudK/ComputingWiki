@@ -73,10 +73,8 @@ Input Output giúp debug lỗi environment-specific, performance thấp tầng, 
 - I/O
 - IO
 - nhập xuất
-- input
-- output
-- Tooling
-- Implementation Detail
+- Input Output learning keyword
+- Input Output debug keyword
 
 ## Source trace
 

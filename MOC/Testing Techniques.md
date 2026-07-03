@@ -79,15 +79,20 @@ Testing Techniques là MOC điều hướng: dùng để đi từ vùng lớn xu
 ## Keywords / Từ khóa tìm kiếm
 
 - Testing Techniques
-- test design techniques
-- kỹ thuật thiết kế test
-- testing
-- techniques
-- Verification
-- kiểm thử
+- testing techniques checklist
+- testing techniques strategy
+- kiểm thử Techniques
+- Testing Techniques MOC
+- testing techniques map
 - mục lục kiến thức
 - nhánh kiến thức
+- test design techniques
+- kỹ thuật thiết kế test
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
 
 ## Source trace
 

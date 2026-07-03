@@ -67,12 +67,12 @@ Node này giúp chọn library/API sort hoặc thuật toán phù hợp khi inpu
 ## Keywords / Từ khóa tìm kiếm
 
 - Sorting Algorithm
-- sorting
+- sort algorithm
+- comparison sort
+- stable sort
+- in place sort
+- sort complexity
 - thuật toán sắp xếp
-- algorithm
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
 
 ## Source trace
 

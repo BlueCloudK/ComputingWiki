@@ -73,11 +73,9 @@ Finite State Machine giúp team review dependency, data flow, state transition, 
 - Finite State Machine
 - FSM
 - máy trạng thái hữu hạn
-- finite
-- state
-- machine
-- Artifact
-- Diagram
+- State Machine
+- State Dependent Interaction Modeling
+- Finite State Machine learning keyword
 
 ## Source trace
 

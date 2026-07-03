@@ -71,12 +71,14 @@ API Versioning giúp release server không phá client/mobile/third-party đang 
 ## Keywords / Từ khóa tìm kiếm
 
 - API Versioning
-- API compatibility
-- phiên bản API
 - versioned API
-- api
-- versioning
-- Integration
+- backward compatibility
+- breaking change
+- deprecation policy
+- consumer compatibility
+- API migration
+- phiên bản API
+- tương thích API
 
 ## Source trace
 

@@ -71,12 +71,10 @@ Systems Approach giúp debug lỗi environment-specific, performance thấp tầ
 
 - Systems Approach
 - cách tiếp cận hệ thống
-- systems
-- approach
-- Tooling
-- Implementation Detail
-- hệ thống
-- kiến trúc hệ thống
+- Systems Approach learning keyword
+- Systems Approach debug keyword
+- Systems Approach design keyword
+- Systems Approach khái niệm cần tra cứu
 
 ## Source trace
 

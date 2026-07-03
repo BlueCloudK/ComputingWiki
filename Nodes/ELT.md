@@ -67,11 +67,11 @@ Node này giúp phân biệt nơi transform logic sống và cách kiểm soát 
 
 - ELT
 - Extract Load Transform
+- warehouse transformation
+- load then transform
+- analytics pipeline
+- modern data stack
 - nạp rồi biến đổi dữ liệu
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
 
 ## Source trace
 

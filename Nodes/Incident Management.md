@@ -71,14 +71,15 @@ Incident Management gắn code change với bằng chứng kiểm tra, giúp tea
 ## Keywords / Từ khóa tìm kiếm
 
 - Incident Management
+- sự cố
 - quản lý incident trong testing
-- incident
-- management
-- Testing
-- Verification
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
-- devops
-- triển khai phần mềm
+- xác minh chất lượng
+- Defect
+- Incident
 
 ## Source trace
 

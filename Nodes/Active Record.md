@@ -72,11 +72,10 @@ Active Record đặt persistence logic cạnh entity, hợp với CRUD đơn gi�
 - Active Record
 - active record pattern
 - mẫu active record
-- active
-- record
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

@@ -72,14 +72,17 @@ Database Design ảnh hưởng tới database design, query performance, migrati
 ## Keywords / Từ khóa tìm kiếm
 
 - Database Design
+- database design design
+- database design validation
+- xử lý dữ liệu
 - thiết kế database
-- database
-- design
-- Data
-- cơ sở dữ liệu
-- thiết kế
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- ERD
+- Normalization
 
 ## Source trace
 

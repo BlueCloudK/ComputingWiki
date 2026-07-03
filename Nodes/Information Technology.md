@@ -73,12 +73,15 @@ Information Technology ảnh hưởng tới API payload, message, config, log, n
 - Information Technology
 - IT
 - công nghệ thông tin
-- information
-- technology
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
+- mạng máy tính
 
 ## Source trace
 

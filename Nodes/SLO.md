@@ -73,8 +73,13 @@ SLO ảnh hưởng tới quyết định release, ưu tiên technical debt, inci
 - SLO
 - service level objective
 - mục tiêu mức dịch vụ
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Monitoring
+- Incident
 
 ## Source trace
 

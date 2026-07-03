@@ -67,13 +67,11 @@ Node này giúp cải thiện latency/bandwidth cho asset và bảo vệ origin 
 
 - CDN
 - Content Delivery Network
+- edge cache
+- static asset delivery
+- cache hit
+- origin shield
 - mạng phân phối nội dung
-- Architecture
-- System Design
-- mạng máy tính
-- kiến trúc hệ thống
-- devops
-- triển khai phần mềm
 
 ## Source trace
 

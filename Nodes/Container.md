@@ -73,9 +73,12 @@ Container ảnh hưởng tới cách chia module/service, deploy, debug incident
 - C4 container
 - runtime container
 - container kiến trúc
-- Architecture
-- System Design
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- Component
 
 ## Source trace
 

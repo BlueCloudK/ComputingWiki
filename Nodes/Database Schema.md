@@ -72,13 +72,17 @@ Database Schema ảnh hưởng tới database design, query performance, migrati
 ## Keywords / Từ khóa tìm kiếm
 
 - Database Schema
+- database schema design
+- database schema validation
+- xử lý dữ liệu
+- lược đồ
 - schema
 - lược đồ database
-- database
-- Data
-- cơ sở dữ liệu
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

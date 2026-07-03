@@ -71,12 +71,11 @@ Queue ảnh hưởng tới việc chọn index/cache/queue/scale/refactor và qu
 ## Keywords / Từ khóa tìm kiếm
 
 - Queue
-- async queue
 - hàng đợi
-- Performance
-- Scalability
-- thuật toán
-- cấu trúc dữ liệu
+- async queue
+- Load Test
+- Incident
+- Queue learning keyword
 
 ## Source trace
 

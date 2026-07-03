@@ -72,9 +72,10 @@ Strategy đóng gói thuật toán có thể thay thế để caller chọn beha
 - Strategy
 - strategy pattern
 - mẫu strategy
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

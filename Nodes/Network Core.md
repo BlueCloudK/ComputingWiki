@@ -70,13 +70,15 @@ Network Core giúp debug lỗi environment-specific, performance thấp tầng, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Network Core
+- network core troubleshooting
+- network core configuration
+- debug mạng
 - lõi mạng
-- network
-- core
-- Tooling
-- Implementation Detail
-- mạng
+- network protocol
+- packet flow
+- connection troubleshooting
 - mạng máy tính
+- debug kết nối
 
 ## Source trace
 

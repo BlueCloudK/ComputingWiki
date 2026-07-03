@@ -72,11 +72,11 @@ Mapping Cardinality ảnh hưởng tới database design, query performance, mig
 - Mapping Cardinality
 - cardinality
 - lực lượng quan hệ
-- mapping
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

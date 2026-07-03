@@ -70,13 +70,16 @@ Dynamic Testing gắn code change với bằng chứng kiểm tra, giúp team qu
 ## Keywords / Từ khóa tìm kiếm
 
 - Dynamic Testing
+- dynamic testing checklist
+- dynamic testing strategy
+- kiểm thử Dynamic
 - dynamic test
 - kiểm thử động
-- dynamic
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
 
 ## Source trace
 

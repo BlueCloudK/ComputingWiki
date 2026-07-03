@@ -72,13 +72,15 @@ Computer Engineering ảnh hưởng tới API payload, message, config, log, net
 - Computer Engineering
 - CE
 - kỹ thuật máy tính
-- computer
-- engineering
-- Protocol
-- Data Format
-- máy tính
-- kỹ thuật
-- dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
+- mạng máy tính
 
 ## Source trace
 

@@ -72,10 +72,9 @@ Virtual Machine giúp debug lỗi environment-specific, performance thấp tần
 - Virtual Machine
 - VM
 - máy ảo
-- virtual
-- machine
-- Tooling
-- Implementation Detail
+- Virtual Machine learning keyword
+- Virtual Machine debug keyword
+- Virtual Machine design keyword
 
 ## Source trace
 

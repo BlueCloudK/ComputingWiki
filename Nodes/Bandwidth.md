@@ -66,9 +66,11 @@ Node này giúp debug upload/download chậm, replication lag hoặc media deliv
 
 - Bandwidth
 - network bandwidth
-- băng thông
-- Performance
-- Scalability
+- link capacity
+- Mbps
+- Gbps
+- throughput limit
+- băng thông mạng
 
 ## Source trace
 

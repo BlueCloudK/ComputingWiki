@@ -73,8 +73,9 @@ Stakeholder giúp requirement có nguồn rõ ràng và giúp team xử lý conf
 - Stakeholder
 - interested party
 - bên liên quan
-- Requirement
-- Planning
+- Stakeholder learning keyword
+- Stakeholder debug keyword
+- Stakeholder design keyword
 
 ## Source trace
 

@@ -72,8 +72,10 @@ Profiling ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v�
 
 - Profiling
 - locate bottleneck
-- Performance
-- Scalability
+- Bottleneck
+- Benchmark
+- Profiling learning keyword
+- Profiling debug keyword
 
 ## Source trace
 

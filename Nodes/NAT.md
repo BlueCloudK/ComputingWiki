@@ -67,10 +67,11 @@ Node này giúp debug connectivity, inbound service, Docker/cloud networking và
 
 - NAT
 - Network Address Translation
+- private IP translation
+- public IP sharing
+- port forwarding
+- NAT gateway
 - dịch địa chỉ mạng
-- Tooling
-- Implementation Detail
-- mạng máy tính
 
 ## Source trace
 

@@ -84,15 +84,20 @@ Deployment and Operations là MOC điều hướng: dùng để đi từ vùng l
 ## Keywords / Từ khóa tìm kiếm
 
 - Deployment and Operations
-- operations
+- triển khai
+- Deployment and Operations MOC
+- deployment and operations map
+- mục lục kiến thức
+- nhánh kiến thức
 - SRE
 - production
 - deploy và vận hành
-- deployment operations
-- deployment
-- Reliability
-- triển khai
-- vận hành
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Deployment
 
 ## Source trace
 

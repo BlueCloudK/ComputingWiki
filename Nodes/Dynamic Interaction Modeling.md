@@ -71,15 +71,13 @@ Dynamic Interaction Modeling giúp team review dependency, data flow, state tran
 ## Keywords / Từ khóa tìm kiếm
 
 - Dynamic Interaction Modeling
+- dynamic interaction modeling notation
+- dynamic interaction modeling review
+- mô hình hóa hệ thống
 - interaction modeling
 - mô hình tương tác động
-- dynamic
-- interaction
-- modeling
-- Artifact
-- Diagram
-- mô hình hóa
-- kiến trúc hệ thống
+- Sequence Diagram
+- Dynamic Diagram
 
 ## Source trace
 

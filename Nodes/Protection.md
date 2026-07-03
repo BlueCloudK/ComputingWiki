@@ -71,8 +71,11 @@ Protection ảnh hưởng tới auth flow, permission, validation, secret handli
 
 - Protection
 - bảo vệ tài nguyên
-- Security
-- bảo mật phần mềm
+- security review
+- attack surface
+- permission check
+- bảo mật ứng dụng
+- kiểm tra bảo mật
 
 ## Source trace
 

@@ -67,15 +67,14 @@ Node này giúp reproducible dev/deploy và giảm lệch dependency giữa môi
 ## Keywords / Từ khóa tìm kiếm
 
 - Docker
-- container runtime/tooling
+- container image
+- Dockerfile
 - container runtime
-- docker container
-- Deployment
-- Operations
-- cloud infrastructure
-- hạ tầng cloud
-- devops
-- triển khai phần mềm
+- image build
+- container registry
+- Docker Compose
+- container hóa
+- đóng gói ứng dụng
 
 ## Source trace
 

@@ -72,9 +72,12 @@ Component ảnh hưởng tới cách chia module/service, deploy, debug incident
 - Component
 - software component
 - thành phần phần mềm
-- Architecture
-- System Design
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- Relationship
 
 ## Source trace
 

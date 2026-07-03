@@ -71,13 +71,15 @@ Transaction Management ảnh hưởng tới database design, query performance, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Transaction Management
+- giao dịch
 - quản lý giao dịch
-- transaction
-- management
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Concurrency Control
+- Recovery System
 
 ## Source trace
 

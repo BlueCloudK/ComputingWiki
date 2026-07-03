@@ -72,12 +72,9 @@ Embedded Systems giúp debug lỗi environment-specific, performance thấp tầ
 - Embedded Systems
 - embedded system
 - hệ thống nhúng
-- embedded
-- systems
-- Tooling
-- Implementation Detail
-- hệ thống
-- kiến trúc hệ thống
+- Embedded Systems learning keyword
+- Embedded Systems debug keyword
+- Embedded Systems design keyword
 
 ## Source trace
 

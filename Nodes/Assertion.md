@@ -72,9 +72,11 @@ Assertion gắn code change với bằng chứng kiểm tra, giúp team quyết 
 - Assertion
 - test assertion
 - câu kiểm tra
-- Testing
-- Verification
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
 
 ## Source trace
 

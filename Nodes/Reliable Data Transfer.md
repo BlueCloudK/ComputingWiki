@@ -70,14 +70,16 @@ Reliable Data Transfer ảnh hưởng tới database design, query performance, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Reliable Data Transfer
+- reliable data transfer design
+- reliable data transfer validation
+- xử lý dữ liệu
 - reliable transport
 - truyền dữ liệu tin cậy
-- reliable
-- data
-- transfer
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

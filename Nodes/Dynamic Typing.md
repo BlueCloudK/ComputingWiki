@@ -72,12 +72,11 @@ Dynamic Typing hữu ích cho scripting, prototyping và domain có shape dữ l
 ## Keywords / Từ khóa tìm kiếm
 
 - Dynamic Typing
-- dynamically typed
+- runtime type checking
+- duck typing
+- dynamic language
+- type error at runtime
 - kiểu động
-- dynamic
-- typing
-- Computer Foundation
-- ngôn ngữ lập trình
 
 ## Source trace
 

@@ -66,12 +66,12 @@ Node này giúp thiết kế service, data system và operation có failure plan
 ## Keywords / Từ khóa tìm kiếm
 
 - Fault Tolerance
-- fault-tolerant system
+- failure handling
+- redundancy
+- graceful degradation
+- failover
+- resilience
 - chịu lỗi
-- fault
-- tolerance
-- Reliability
-- SRE
 
 ## Source trace
 

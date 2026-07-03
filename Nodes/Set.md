@@ -71,7 +71,10 @@ Set ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, te
 
 - Set
 - tập hợp
-- Computer Foundation
+- Set learning keyword
+- Set debug keyword
+- Set design keyword
+- Set khái niệm cần tra cứu
 
 ## Source trace
 

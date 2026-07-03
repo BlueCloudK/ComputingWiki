@@ -73,15 +73,17 @@ Testing Throughout Software Life Cycle gắn code change với bằng chứng ki
 ## Keywords / Từ khóa tìm kiếm
 
 - Testing Throughout Software Life Cycle
+- testing throughout software life cycle checklist
+- testing throughout software life cycle strategy
+- kiểm thử Throughout Software Life Cycle
 - testing through SDLC
 - testing trong vòng đời phần mềm
-- testing
-- throughout
-- software
-- Verification
-- kiểm thử
-- phần mềm
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Component Testing
 
 ## Source trace
 

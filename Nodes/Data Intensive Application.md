@@ -75,15 +75,17 @@ Data Intensive Application ảnh hưởng tới database design, query performan
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Intensive Application
+- data intensive application design
+- data intensive application validation
+- xử lý dữ liệu
 - data-intensive application
 - ứng dụng dữ liệu chuyên sâu
-- data
-- intensive
-- application
-- Database
-- dữ liệu
-- dữ liệu lớn
-- ứng dụng
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Reliability
 
 ## Source trace
 

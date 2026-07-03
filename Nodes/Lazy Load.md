@@ -72,10 +72,9 @@ Lazy Load ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v�
 - Lazy Load
 - lazy load pattern
 - mẫu lazy load
-- lazy
-- load
-- Performance
-- Scalability
+- Lazy Load learning keyword
+- Lazy Load debug keyword
+- Lazy Load design keyword
 
 ## Source trace
 

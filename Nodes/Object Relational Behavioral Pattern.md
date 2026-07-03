@@ -72,15 +72,17 @@ Object Relational Behavioral Pattern xử lý behavior quanh object-relational m
 ## Keywords / Từ khóa tìm kiếm
 
 - Object Relational Behavioral Pattern
+- object relational behavioral pattern trade-off
+- object relational behavioral pattern refactoring
+- design pattern catalog
 - object-relational behavioral pattern
 - mẫu hành vi object-relational
-- object
-- relational
-- behavioral
-- Code Design
-- Pattern
-- mẫu thiết kế
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
+- Unit of Work
 
 ## Source trace
 

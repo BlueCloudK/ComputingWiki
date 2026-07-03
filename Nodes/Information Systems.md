@@ -72,13 +72,15 @@ Information Systems ảnh hưởng tới API payload, message, config, log, netw
 - Information Systems
 - IS
 - hệ thống thông tin
-- information
-- systems
-- Protocol
-- Data Format
-- hệ thống
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
+- mạng máy tính
 
 ## Source trace
 

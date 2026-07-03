@@ -72,9 +72,10 @@ Composite cho client xử lý object đơn và cây object qua cùng interface, 
 - Composite
 - composite pattern
 - mẫu composite
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

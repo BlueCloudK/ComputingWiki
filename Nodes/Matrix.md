@@ -71,7 +71,10 @@ Matrix ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu,
 
 - Matrix
 - ma trận
-- Computer Foundation
+- Matrix learning keyword
+- Matrix debug keyword
+- Matrix design keyword
+- Matrix khái niệm cần tra cứu
 
 ## Source trace
 

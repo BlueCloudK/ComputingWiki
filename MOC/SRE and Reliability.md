@@ -84,15 +84,20 @@ SRE and Reliability là MOC điều hướng: dùng để đi từ vùng lớn x
 ## Keywords / Từ khóa tìm kiếm
 
 - SRE and Reliability
+- SRE
+- độ tin cậy
+- SRE and Reliability MOC
+- sre and reliability map
+- mục lục kiến thức
+- nhánh kiến thức
 - site reliability engineering
 - reliability engineering
 - SRE và độ tin cậy
 - kỹ thuật độ tin cậy
-- sre reliability
-- sre
-- reliability
-- độ tin cậy
-- mục lục kiến thức
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
 
 ## Source trace
 

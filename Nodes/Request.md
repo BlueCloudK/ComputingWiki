@@ -73,8 +73,13 @@ Request ảnh hưởng tới API design, frontend/backend handoff, integration t
 - Request
 - API request
 - yêu cầu API
-- API
-- Integration
+- API schema
+- request response
+- integration boundary
+- contract testing
+- tích hợp API
+- Validation
+- Response
 
 ## Source trace
 

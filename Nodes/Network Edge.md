@@ -70,13 +70,15 @@ Network Edge giúp debug lỗi environment-specific, performance thấp tầng, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Network Edge
+- network edge troubleshooting
+- network edge configuration
+- debug mạng
 - biên mạng
-- network
-- edge
-- Tooling
-- Implementation Detail
-- mạng
+- network protocol
+- packet flow
+- connection troubleshooting
 - mạng máy tính
+- debug kết nối
 
 ## Source trace
 

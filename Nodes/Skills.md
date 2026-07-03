@@ -72,8 +72,9 @@ Skills giúp debug lỗi environment-specific, performance thấp tầng, concur
 - Skills
 - know-how
 - kỹ năng
-- Tooling
-- Implementation Detail
+- Skills learning keyword
+- Skills debug keyword
+- Skills design keyword
 
 ## Source trace
 

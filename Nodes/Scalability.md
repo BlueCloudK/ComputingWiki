@@ -71,7 +71,10 @@ Scalability ảnh hưởng tới việc chọn index/cache/queue/scale/refactor 
 
 - Scalability
 - khả năng mở rộng
-- Performance
+- Load
+- Scalability learning keyword
+- Scalability debug keyword
+- Scalability design keyword
 
 ## Source trace
 

@@ -65,13 +65,11 @@ Node này giúp debug hang, blocked process, resource wait và scheduling behavi
 ## Keywords / Từ khóa tìm kiếm
 
 - Process State
-- process lifecycle state
+- running ready blocked
+- process lifecycle
+- scheduler state
+- waiting state
 - trạng thái tiến trình
-- process
-- state
-- Operating System
-- tiến trình
-- kiến trúc hệ thống
 
 ## Source trace
 

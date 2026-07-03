@@ -77,13 +77,14 @@ Foundations of Systems Engineering ảnh hưởng tới cách chia module/servic
 - Foundations of Systems Engineering
 - SE foundations
 - nền tảng systems engineering
-- foundations systems engineering
-- foundations
-- systems
-- engineering
-- Architecture
-- System Design
-- nền tảng
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Systems Engineering Fundamentals
+- The Nature of Systems
+- Systems Science
 
 ## Source trace
 

@@ -73,10 +73,9 @@ Change Control giúp team không âm thầm đổi scope rồi làm lệch timel
 - Change Control
 - change management
 - kiểm soát thay đổi
-- change
-- control
-- Requirement
-- Planning
+- Scope
+- Traceability
+- Change Control learning keyword
 
 ## Source trace
 

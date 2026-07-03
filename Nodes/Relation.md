@@ -70,11 +70,13 @@ Relation ảnh hưởng tới database design, query performance, migration, aud
 ## Keywords / Từ khóa tìm kiếm
 
 - Relation
+- quan hệ
 - quan hệ bảng
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

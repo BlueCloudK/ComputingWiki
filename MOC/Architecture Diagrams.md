@@ -79,15 +79,20 @@ Architecture Diagrams là MOC điều hướng: dùng để đi từ vùng lớn
 ## Keywords / Từ khóa tìm kiếm
 
 - Architecture Diagrams
-- architecture views
-- sơ đồ kiến trúc
-- architecture
-- diagrams
-- Artifact
-- Diagram
-- kiến trúc
+- architecture diagrams notation
+- architecture diagrams review
+- mô hình hóa hệ thống
+- architecture diagrams decision
+- architecture diagrams boundary
+- quyết định kiến trúc
+- Architecture Diagrams MOC
+- architecture diagrams map
 - mục lục kiến thức
 - nhánh kiến thức
+- architecture views
+- sơ đồ kiến trúc
+- architecture decision
+- system boundary
 
 ## Source trace
 

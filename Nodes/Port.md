@@ -68,10 +68,11 @@ Node này giúp debug service binding, firewall, Docker port mapping và API end
 
 - Port
 - network port
+- TCP port
+- UDP port
+- listening port
+- service endpoint
 - cổng mạng
-- Tooling
-- Implementation Detail
-- mạng máy tính
 
 ## Source trace
 

@@ -80,15 +80,20 @@ Software Modeling and Design là MOC điều hướng: dùng để đi từ vùn
 ## Keywords / Từ khóa tìm kiếm
 
 - Software Modeling and Design
+- software modeling and design notation
+- software modeling and design review
+- mô hình hóa hệ thống
+- Software Modeling and Design MOC
+- software modeling and design map
+- mục lục kiến thức
+- nhánh kiến thức
 - software modeling
 - modeling and design
 - mô hình hóa và thiết kế phần mềm
-- software modeling design
-- software
-- modeling
-- design
-- Artifact
-- Diagram
+- UML Notation
+- Software Life Cycle Model
+- Software Design Concept
+- Software Architecture Concept
 
 ## Source trace
 

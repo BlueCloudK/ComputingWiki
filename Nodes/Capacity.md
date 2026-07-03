@@ -67,12 +67,13 @@ Node này giúp trả lời hệ thống chịu được bao nhiêu user/request
 
 - Capacity
 - system capacity
-- năng lực hệ thống
-- Performance
-- Scalability
-- dung lượng
-- devops
-- triển khai phần mềm
+- resource capacity
+- traffic capacity
+- capacity limit
+- capacity planning
+- headroom
+- sức chứa hệ thống
+- dung lượng xử lý
 
 ## Source trace
 

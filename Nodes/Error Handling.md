@@ -74,10 +74,13 @@ Error Handling ảnh hưởng tới API design, frontend/backend handoff, integr
 - exception handling
 - error response
 - xử lý lỗi
-- error
-- handling
-- API
-- Integration
+- API schema
+- request response
+- integration boundary
+- contract testing
+- tích hợp API
+- Logging
+- Response
 
 ## Source trace
 

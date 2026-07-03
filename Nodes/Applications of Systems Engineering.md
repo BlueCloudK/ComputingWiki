@@ -75,13 +75,14 @@ Applications of Systems Engineering ảnh hưởng tới cách chia module/servi
 - Applications of Systems Engineering
 - SE applications
 - ứng dụng systems engineering
-- applications systems engineering
-- applications
-- systems
-- engineering
-- Architecture
-- System Design
-- hệ thống
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Product Systems Engineering
+- Service Systems Engineering
+- Enterprise Systems Engineering
 
 ## Source trace
 

@@ -72,10 +72,12 @@ Semantics giúp debug bug tinh vi như scope nhầm, mutation ngoài ý muốn, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Semantics
-- meaning of programs
+- program meaning
+- language semantics
+- runtime behavior
+- operational semantics
+- meaning of code
 - ngữ nghĩa chương trình
-- Computer Foundation
-- ngôn ngữ lập trình
 
 ## Source trace
 

@@ -71,9 +71,10 @@ Tree ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, t
 
 - Tree
 - cây
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
+- Tree learning keyword
+- Tree debug keyword
+- Tree design keyword
+- Tree khái niệm cần tra cứu
 
 ## Source trace
 

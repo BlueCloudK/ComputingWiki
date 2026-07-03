@@ -72,13 +72,17 @@ API Contract ảnh hưởng tới API design, frontend/backend handoff, integrat
 ## Keywords / Từ khóa tìm kiếm
 
 - API Contract
-- request/response contract
-- hợp đồng API
+- request response contract
 - interface contract
 - service contract
-- api
-- contract
-- Integration
+- API schema
+- error format
+- contract test
+- backward compatibility
+- frontend backend handoff
+- hợp đồng API
+- schema API
+- đặc tả request response
 
 ## Source trace
 

@@ -67,11 +67,11 @@ Node này giúp data pipeline/release workflow rõ ràng và dễ retry/backfill
 
 - Orchestration
 - workflow orchestration
+- DAG scheduling
+- task dependency
+- pipeline scheduler
+- retry policy
 - điều phối workflow
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
 
 ## Source trace
 

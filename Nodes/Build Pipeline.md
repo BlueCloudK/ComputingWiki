@@ -66,13 +66,13 @@ Node này giúp build reproducible và CI/CD đáng tin hơn.
 ## Keywords / Từ khóa tìm kiếm
 
 - Build Pipeline
+- build workflow
+- compile package test
+- artifact build
+- CI pipeline
+- build stage
 - pipeline build
-- build
-- pipeline
-- Deployment
-- Operations
-- devops
-- triển khai phần mềm
+- quy trình build
 
 ## Source trace
 

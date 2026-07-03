@@ -73,10 +73,9 @@ Use Case giúp team nhìn hành vi theo luồng nghiệp vụ thay vì chỉ the
 - Use Case
 - usage scenario
 - ca sử dụng
-- use
-- case
-- Requirement
-- Planning
+- Acceptance Criteria
+- Use Case learning keyword
+- Use Case debug keyword
 
 ## Source trace
 

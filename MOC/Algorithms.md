@@ -85,12 +85,20 @@ Algorithms là MOC điều hướng: dùng để đi từ vùng lớn xuống no
 ## Keywords / Từ khóa tìm kiếm
 
 - Algorithms
-- algorithm
-- thuật toán
-- Computer Foundation
+- algorithms complexity
+- algorithms edge case
+- Algorithms MOC
+- algorithms map
 - mục lục kiến thức
 - nhánh kiến thức
+- algorithm
+- thuật toán
+- algorithm complexity
+- edge case
+- input size
 - cấu trúc dữ liệu
+- Big O Notation
+- Binary Search
 
 ## Source trace
 

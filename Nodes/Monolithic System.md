@@ -72,12 +72,9 @@ Monolithic System giúp debug lỗi environment-specific, performance thấp t�
 - Monolithic System
 - monolithic kernel
 - hệ nguyên khối
-- monolithic
-- system
-- Tooling
-- Implementation Detail
-- hệ thống
-- kiến trúc hệ thống
+- Monolithic System learning keyword
+- Monolithic System debug keyword
+- Monolithic System design keyword
 
 ## Source trace
 

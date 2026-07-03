@@ -71,15 +71,13 @@ Representing Systems with Models giúp team review dependency, data flow, state 
 ## Keywords / Từ khóa tìm kiếm
 
 - Representing Systems with Models
+- representing systems with models notation
+- representing systems with models review
+- mô hình hóa hệ thống
 - system modeling
 - biểu diễn hệ thống bằng mô hình
-- representing systems models
-- representing
-- systems
-- models
-- Artifact
-- Diagram
-- hệ thống
+- Software Modeling
+- System Landscape Diagram
 
 ## Source trace
 

@@ -80,15 +80,19 @@ Computing Foundations là MOC điều hướng: dùng để đi từ vùng lớn
 ## Keywords / Từ khóa tìm kiếm
 
 - Computing Foundations
-- computer science foundations
-- nền tảng computing
-- computing
-- foundations
-- Computer Foundation
-- điện toán
-- nền tảng
+- Computing Foundations MOC
+- computing foundations map
 - mục lục kiến thức
 - nhánh kiến thức
+- computer science foundations
+- nền tảng computing
+- Algorithms
+- Programming Languages
+- Compiler and Interpreter
+- Operating System
+- Computer Networks
+- Data and Database
+- Software Engineering
 
 ## Source trace
 

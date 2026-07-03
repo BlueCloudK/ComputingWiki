@@ -74,15 +74,20 @@ MOC này giúp đọc graph backend/data/SRE khi vấn đề vượt khỏi mộ
 ## Keywords / Từ khóa tìm kiếm
 
 - Distributed Systems
+- Distributed Systems MOC
+- distributed systems map
+- mục lục kiến thức
+- nhánh kiến thức
 - distributed computing
 - hệ phân tán
-- distributed
-- systems
-- Architecture
-- System Design
-- phân tán
-- hệ thống
-- mục lục kiến thức
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Distributed System
+- Fault Tolerance
+- Leader Election
 
 ## Source trace
 

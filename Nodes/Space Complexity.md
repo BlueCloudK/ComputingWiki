@@ -66,13 +66,11 @@ Node này giúp chọn giữa memory-heavy speedup và low-memory algorithm.
 ## Keywords / Từ khóa tìm kiếm
 
 - Space Complexity
-- memory cost
+- memory complexity
+- auxiliary space
+- Big O space
+- memory usage
 - độ phức tạp bộ nhớ
-- space
-- complexity
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
 
 ## Source trace
 

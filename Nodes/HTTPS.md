@@ -67,12 +67,10 @@ Node này giúp đọc browser/API errors, mixed content, redirect và cert prob
 - HTTPS
 - HTTP over TLS
 - secure HTTP
+- TLS certificate
+- browser padlock
+- encrypted web traffic
 - HTTP bảo mật
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
 
 ## Source trace
 

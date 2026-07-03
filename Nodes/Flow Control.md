@@ -71,10 +71,10 @@ Flow Control giúp debug lỗi environment-specific, performance thấp tầng, 
 
 - Flow Control
 - điều khiển luồng
-- flow
-- control
-- Tooling
-- Implementation Detail
+- Flow Control learning keyword
+- Flow Control debug keyword
+- Flow Control design keyword
+- Flow Control khái niệm cần tra cứu
 
 ## Source trace
 

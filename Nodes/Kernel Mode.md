@@ -65,12 +65,11 @@ Hiểu kernel mode giúp lý giải crash/driver/security boundary.
 ## Keywords / Từ khóa tìm kiếm
 
 - Kernel Mode
-- supervisor mode
+- privileged mode
+- kernel space
+- hardware access
+- interrupt handling
 - chế độ kernel
-- kernel
-- mode
-- Operating System
-- kiến trúc hệ thống
 
 ## Source trace
 

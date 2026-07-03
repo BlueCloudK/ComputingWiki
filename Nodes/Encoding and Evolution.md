@@ -73,14 +73,17 @@ Encoding and Evolution ảnh hưởng tới API payload, message, config, log, n
 ## Keywords / Từ khóa tìm kiếm
 
 - Encoding and Evolution
+- encoding and evolution control
+- encoding and evolution review
+- bảo mật ứng dụng
 - mã hóa và tiến hóa dữ liệu
-- encoding evolution
-- encoding
-- evolution
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
 
 ## Source trace
 

@@ -71,12 +71,17 @@ Derived Data ảnh hưởng tới database design, query performance, migration,
 ## Keywords / Từ khóa tìm kiếm
 
 - Derived Data
+- derived data design
+- derived data validation
+- xử lý dữ liệu
 - dữ liệu dẫn xuất
-- derived
-- data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Batch Processing
+- Stream Processing
 
 ## Source trace
 

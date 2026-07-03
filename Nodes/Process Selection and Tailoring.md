@@ -72,13 +72,9 @@ Process Selection and Tailoring giúp debug lỗi environment-specific, performa
 - Process Selection and Tailoring
 - process tailoring
 - tùy biến process
-- process selection tailoring
-- process
-- selection
-- tailoring
-- Tooling
-- Implementation Detail
-- tiến trình
+- Process Selection and Tailoring learning keyword
+- Process Selection and Tailoring debug keyword
+- Process Selection and Tailoring design keyword
 
 ## Source trace
 

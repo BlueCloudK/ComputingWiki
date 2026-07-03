@@ -74,15 +74,17 @@ Database System ảnh hưởng tới database design, query performance, migrati
 ## Keywords / Từ khóa tìm kiếm
 
 - Database System
+- database system design
+- database system validation
+- xử lý dữ liệu
 - hệ thống database
-- database
-- system
-- Data
-- cơ sở dữ liệu
-- hệ thống
-- dữ liệu
-- hệ thống dữ liệu
-- kiến trúc hệ thống
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- View of Data
+- Database Language
 
 ## Source trace
 

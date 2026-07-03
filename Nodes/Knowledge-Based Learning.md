@@ -71,12 +71,10 @@ Knowledge-Based Learning giúp debug lỗi environment-specific, performance th�
 
 - Knowledge-Based Learning
 - học theo vùng kiến thức
-- knowledge based learning
-- knowledge
-- based
-- learning
-- Tooling
-- Implementation Detail
+- Knowledge-Based Learning learning keyword
+- Knowledge-Based Learning debug keyword
+- Knowledge-Based Learning design keyword
+- Knowledge-Based Learning khái niệm cần tra cứu
 
 ## Source trace
 

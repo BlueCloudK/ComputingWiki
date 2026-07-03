@@ -71,12 +71,14 @@ Functional Requirement định hình backlog, API contract, domain logic và tes
 ## Keywords / Từ khóa tìm kiếm
 
 - Functional Requirement
+- functional requirement acceptance
+- functional requirement traceability
+- phân tích yêu cầu
+- yêu cầu
 - function requirement
 - yêu cầu chức năng
-- functional
-- requirement
-- Planning
-- yêu cầu
+- Use Case
+- Acceptance Criteria
 
 ## Source trace
 

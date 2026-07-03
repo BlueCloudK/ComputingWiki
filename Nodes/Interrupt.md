@@ -66,9 +66,10 @@ Node này giúp hiểu IO, scheduling, latency thấp tầng và device interact
 
 - Interrupt
 - hardware interrupt
-- ngắt
-- Operating System
-- kiến trúc hệ thống
+- interrupt handler
+- asynchronous event
+- I/O interrupt
+- ngắt hệ thống
 
 ## Source trace
 

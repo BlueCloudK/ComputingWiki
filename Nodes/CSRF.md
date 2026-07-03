@@ -70,10 +70,17 @@ CSRF ảnh hưởng tới API design, frontend/backend handoff, integration test
 ## Keywords / Từ khóa tìm kiếm
 
 - CSRF
+- csrf control
+- csrf review
+- bảo mật ứng dụng
 - cross-site request forgery
 - lỗi CSRF
-- API
-- Integration
+- API schema
+- request response
+- integration boundary
+- contract testing
+- tích hợp API
+- Authentication
 
 ## Source trace
 

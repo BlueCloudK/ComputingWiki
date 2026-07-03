@@ -82,15 +82,20 @@ Vùng này giúp tránh lỗi môi trường: dev chạy được nhưng product
 ## Keywords / Từ khóa tìm kiếm
 
 - Cloud and Infrastructure
+- Cloud and Infrastructure MOC
+- cloud and infrastructure map
+- mục lục kiến thức
+- nhánh kiến thức
 - cloud infrastructure
 - hạ tầng cloud
-- cloud
-- infrastructure
-- Deployment
-- Operations
-- điện toán đám mây
-- hạ tầng
-- mục lục kiến thức
+- deployment environment
+- resource provisioning
+- vận hành cloud
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
 
 ## Source trace
 

@@ -72,11 +72,10 @@ Identity Map đảm bảo cùng một record trong một unit of work chỉ có 
 - Identity Map
 - identity map pattern
 - mẫu identity map
-- identity
-- map
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

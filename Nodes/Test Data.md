@@ -70,15 +70,17 @@ Test Data gắn code change với bằng chứng kiểm tra, giúp team quyết 
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Data
+- test data checklist
+- test data strategy
+- kiểm thử Data
+- test data design
+- test data validation
+- xử lý dữ liệu
 - dữ liệu test
-- test
-- data
-- Testing
-- Verification
-- kiểm thử
-- dữ liệu
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
-- hệ thống dữ liệu
 
 ## Source trace
 

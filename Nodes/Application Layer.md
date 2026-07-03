@@ -73,11 +73,10 @@ Application Layer giúp debug lỗi environment-specific, performance thấp t�
 
 - Application Layer
 - tầng ứng dụng
-- application
-- layer
-- Tooling
-- Implementation Detail
-- ứng dụng
+- HTTP
+- SMTP
+- DNS
+- Application Layer learning keyword
 
 ## Source trace
 

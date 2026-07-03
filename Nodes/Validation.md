@@ -74,9 +74,9 @@ Validation bảo vệ API, database và business logic khỏi dữ liệu rác h
 - Validation
 - validate input
 - xác thực dữ liệu
-- Requirement
-- Planning
-- xác thực
+- Input Validation
+- API Contract
+- Validation learning keyword
 
 ## Source trace
 

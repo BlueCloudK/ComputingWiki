@@ -72,15 +72,15 @@ Cloud Computing giúp deploy nhanh và dùng managed service, nhưng cũng tạo
 ## Keywords / Từ khóa tìm kiếm
 
 - Cloud Computing
-- cloud
+- cloud service
+- managed service
+- IaaS
+- PaaS
+- SaaS
+- elastic infrastructure
+- cloud cost
 - điện toán đám mây
-- computing
-- Deployment
-- Operations
-- điện toán
-- cloud infrastructure
-- hạ tầng cloud
-- devops
+- dịch vụ cloud
 
 ## Source trace
 

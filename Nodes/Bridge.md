@@ -72,9 +72,10 @@ Bridge tách abstraction khỏi implementation để hai chiều thay đổi đ�
 - Bridge
 - bridge pattern
 - mẫu bridge
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

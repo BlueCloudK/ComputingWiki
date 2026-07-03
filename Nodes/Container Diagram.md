@@ -71,11 +71,13 @@ Container Diagram giúp team review dependency, data flow, state transition, act
 ## Keywords / Từ khóa tìm kiếm
 
 - Container Diagram
+- container diagram notation
+- container diagram review
+- mô hình hóa hệ thống
+- container
 - C4 container diagram
 - sơ đồ container
-- container
-- diagram
-- Artifact
+- Software System
 
 ## Source trace
 

@@ -73,15 +73,20 @@ Code Design là MOC điều hướng: dùng để đi từ vùng lớn xuống n
 ## Keywords / Từ khóa tìm kiếm
 
 - Code Design
+- Code Design MOC
+- code design map
+- mục lục kiến thức
+- nhánh kiến thức
 - software design
 - detailed design
 - thiết kế code
-- code
-- design
-- Artifact
-- Diagram
-- thiết kế
-- mục lục kiến thức
+- design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
+- State Machine
+- Refactor
 
 ## Source trace
 

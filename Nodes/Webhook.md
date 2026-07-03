@@ -71,12 +71,14 @@ Webhook giúp integration gần realtime với third-party như payment, auth, r
 ## Keywords / Từ khóa tìm kiếm
 
 - Webhook
-- callback webhook
-- webhook callback
 - HTTP callback
 - event callback
-- API
-- Integration
+- webhook endpoint
+- delivery retry
+- signature verification
+- event payload
+- callback sự kiện
+- endpoint webhook
 
 ## Source trace
 

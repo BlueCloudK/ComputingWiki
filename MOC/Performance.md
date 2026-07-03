@@ -82,12 +82,20 @@ Performance là MOC điều hướng: dùng để đi từ vùng lớn xuống n
 ## Keywords / Từ khóa tìm kiếm
 
 - Performance
-- scalability
-- hiệu năng
-- Reliability
-- SRE
+- Performance MOC
+- performance map
 - mục lục kiến thức
 - nhánh kiến thức
+- scalability
+- hiệu năng
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Benchmark
+- Profiling
+- Bottleneck
 
 ## Source trace
 

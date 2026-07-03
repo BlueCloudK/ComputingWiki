@@ -71,12 +71,10 @@ Competency-Based Learning giúp debug lỗi environment-specific, performance th
 
 - Competency-Based Learning
 - học theo năng lực
-- competency based learning
-- competency
-- based
-- learning
-- Tooling
-- Implementation Detail
+- Competency-Based Learning learning keyword
+- Competency-Based Learning debug keyword
+- Competency-Based Learning design keyword
+- Competency-Based Learning khái niệm cần tra cứu
 
 ## Source trace
 

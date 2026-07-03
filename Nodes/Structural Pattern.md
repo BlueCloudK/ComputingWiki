@@ -75,13 +75,17 @@ Structural Pattern tập trung vào cách ghép class/object để giảm coupli
 ## Keywords / Từ khóa tìm kiếm
 
 - Structural Pattern
+- structural pattern trade-off
+- structural pattern refactoring
+- design pattern catalog
 - structural design pattern
 - mẫu cấu trúc
-- structural
-- pattern
-- Code Design
-- mẫu thiết kế
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
+- Adapter
 
 ## Source trace
 

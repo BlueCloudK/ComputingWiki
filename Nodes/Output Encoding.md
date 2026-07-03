@@ -66,12 +66,12 @@ Node này giúp phòng XSS và injection ở output boundary.
 ## Keywords / Từ khóa tìm kiếm
 
 - Output Encoding
-- output escaping
-- mã hóa output
-- output
-- encoding
-- Security
-- bảo mật phần mềm
+- HTML encoding
+- contextual encoding
+- XSS prevention
+- escape output
+- encode user input
+- mã hóa output chống XSS
 
 ## Source trace
 

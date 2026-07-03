@@ -80,14 +80,20 @@ Vùng này giúp dev hiểu vì sao cùng một ý tưởng nhưng behavior khá
 ## Keywords / Từ khóa tìm kiếm
 
 - Programming Languages
-- programming language theory
-- ngôn ngữ lập trình
-- programming
-- languages
-- Computer Foundation
-- lập trình
+- Programming Languages MOC
+- programming languages map
 - mục lục kiến thức
 - nhánh kiến thức
+- programming language theory
+- ngôn ngữ lập trình
+- language design
+- runtime behavior
+- type checking
+- debug runtime
+- Programming Language
+- Type System
+- Syntax
+- Semantics
 
 ## Source trace
 

@@ -70,11 +70,14 @@ Dijkstra Algorithm ảnh hưởng tới lựa chọn thuật toán, cấu trúc 
 ## Keywords / Từ khóa tìm kiếm
 
 - Dijkstra Algorithm
+- dijkstra algorithm complexity
+- dijkstra algorithm edge case
+- thuật toán
 - Dijkstra
 - thuật toán Dijkstra
-- algorithm
-- Computer Foundation
-- thuật toán
+- algorithm complexity
+- edge case
+- input size
 - cấu trúc dữ liệu
 
 ## Source trace

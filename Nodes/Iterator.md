@@ -72,9 +72,10 @@ Iterator chuẩn hóa cách duyệt collection để client không cần biết 
 - Iterator
 - iterator pattern
 - mẫu iterator
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

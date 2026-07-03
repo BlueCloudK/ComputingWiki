@@ -66,11 +66,12 @@ Node này giúp hiểu replication, consensus và availability trade-off.
 ## Keywords / Từ khóa tìm kiếm
 
 - Quorum
+- read quorum
+- write quorum
+- majority vote
+- replication quorum
+- consensus quorum
 - số phiếu tối thiểu
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
 
 ## Source trace
 

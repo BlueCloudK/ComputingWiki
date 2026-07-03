@@ -71,10 +71,14 @@ Throughput giúp capacity planning, load test và scaling decision. Nó trả l�
 ## Keywords / Từ khóa tìm kiếm
 
 - Throughput
+- requests per second
+- RPS
+- transactions per second
+- TPS
 - processing rate
+- system capacity
 - thông lượng
-- Performance
-- Scalability
+- số request mỗi giây
 
 ## Source trace
 

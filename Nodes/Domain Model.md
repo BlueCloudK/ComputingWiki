@@ -70,15 +70,16 @@ Domain Model đặt behavior và rule nghiệp vụ vào object/domain structure
 ## Keywords / Từ khóa tìm kiếm
 
 - Domain Model
+- domain model notation
+- domain model review
+- mô hình hóa hệ thống
 - domain model pattern
 - mô hình domain
-- domain
-- model
-- Code Design
-- Pattern
-- mô hình
-- kiến trúc hệ thống
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
 
 ## Source trace
 

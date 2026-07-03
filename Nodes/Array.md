@@ -71,7 +71,10 @@ Array ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, 
 
 - Array
 - mảng
-- Computer Foundation
+- Array learning keyword
+- Array debug keyword
+- Array design keyword
+- Array khái niệm cần tra cứu
 
 ## Source trace
 

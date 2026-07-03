@@ -87,15 +87,20 @@ Design Patterns là MOC điều hướng: dùng để đi từ vùng lớn xuố
 ## Keywords / Từ khóa tìm kiếm
 
 - Design Patterns
-- GoF patterns
-- mẫu thiết kế
-- design
-- patterns
-- Code Design
-- Pattern
-- thiết kế
+- design patterns trade-off
+- design patterns refactoring
+- design pattern catalog
+- Design Patterns MOC
+- design patterns map
 - mục lục kiến thức
 - nhánh kiến thức
+- GoF patterns
+- mẫu thiết kế
+- design pattern
+- refactoring
+- module boundary
+- testability
+- Creational Pattern
 
 ## Source trace
 

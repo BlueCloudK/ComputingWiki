@@ -73,10 +73,8 @@ State Machine giúp team review dependency, data flow, state transition, actor/s
 - finite state machine
 - state-transition model
 - máy trạng thái
-- state
-- machine
-- Artifact
-- Diagram
+- State Machine learning keyword
+- State Machine debug keyword
 
 ## Source trace
 

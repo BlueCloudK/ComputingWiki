@@ -74,13 +74,14 @@ Systems Engineering Processes ảnh hưởng tới cách chia module/service, de
 - Systems Engineering Processes
 - SE processes
 - process systems engineering
-- systems
-- engineering
-- processes
-- Architecture
-- System Design
-- hệ thống
-- kỹ thuật
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Verification
+- Validation
+- Technical Review
 
 ## Source trace
 

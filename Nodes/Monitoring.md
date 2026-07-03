@@ -72,11 +72,17 @@ Monitoring ảnh hưởng tới quyết định release, ưu tiên technical deb
 ## Keywords / Từ khóa tìm kiếm
 
 - Monitoring
+- giám sát
 - metrics
 - dashboard
-- giám sát
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Alert
+- Service Level Objective
+- Incident
 
 ## Source trace
 

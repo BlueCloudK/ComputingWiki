@@ -73,12 +73,17 @@ Layering Pattern chia hệ thống thành tầng trách nhiệm để dependency
 ## Keywords / Từ khóa tìm kiếm
 
 - Layering Pattern
+- layering pattern trade-off
+- layering pattern refactoring
+- design pattern catalog
 - mẫu phân lớp
-- layering
-- pattern
-- Code Design
-- mẫu thiết kế
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
+- Service Layer
+- Domain Model
 
 ## Source trace
 

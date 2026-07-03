@@ -67,12 +67,13 @@ Node này là trung tâm bảo vệ cloud resource, CI/CD secret và service-to-
 
 - IAM
 - Identity and Access Management
-- quản lý định danh và quyền
+- role
+- policy
+- permission
+- service account
+- least privilege
 - quản lý danh tính và truy cập
-- Security
-- bảo mật phần mềm
-- cloud infrastructure
-- hạ tầng cloud
+- phân quyền cloud
 
 ## Source trace
 

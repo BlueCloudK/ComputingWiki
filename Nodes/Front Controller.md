@@ -72,11 +72,10 @@ Front Controller gom request entrypoint của web app vào một nơi để xử
 - Front Controller
 - front controller pattern
 - mẫu front controller
-- front
-- controller
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

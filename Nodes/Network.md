@@ -70,10 +70,15 @@ Network giúp debug lỗi environment-specific, performance thấp tầng, concu
 ## Keywords / Từ khóa tìm kiếm
 
 - Network
+- network troubleshooting
+- network configuration
+- debug mạng
 - mạng
-- Tooling
-- Implementation Detail
+- network protocol
+- packet flow
+- connection troubleshooting
 - mạng máy tính
+- debug kết nối
 
 ## Source trace
 

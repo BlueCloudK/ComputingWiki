@@ -72,11 +72,10 @@ Table Module đặt business logic quanh một table hoặc record set, hợp v�
 - Table Module
 - table module pattern
 - mẫu table module
-- table
-- module
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

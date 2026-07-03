@@ -71,12 +71,10 @@ Systems Thinking giúp debug lỗi environment-specific, performance thấp tầ
 
 - Systems Thinking
 - tư duy hệ thống
-- systems
-- thinking
-- Tooling
-- Implementation Detail
-- hệ thống
-- kiến trúc hệ thống
+- Relationship
+- Systems Thinking learning keyword
+- Systems Thinking debug keyword
+- Systems Thinking design keyword
 
 ## Source trace
 

@@ -70,12 +70,15 @@ Index ảnh hưởng tới database design, query performance, migration, audit/
 ## Keywords / Từ khóa tìm kiếm
 
 - Index
+- chỉ mục
 - database index
 - chỉ mục database
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Benchmark
 
 ## Source trace
 

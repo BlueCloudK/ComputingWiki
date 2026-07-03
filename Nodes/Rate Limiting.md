@@ -71,12 +71,14 @@ Rate Limiting giúp API sống sót trước spike, bot, retry loop hoặc consu
 ## Keywords / Từ khóa tìm kiếm
 
 - Rate Limiting
-- request throttling
-- giới hạn tốc độ request
-- rate
-- limiting
-- API
-- Integration
+- request quota
+- throttling
+- burst limit
+- per user limit
+- 429 Too Many Requests
+- abuse protection
+- giới hạn request
+- chống lạm dụng API
 
 ## Source trace
 

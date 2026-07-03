@@ -66,12 +66,11 @@ Node này giúp debug máy không vào mạng, IP conflict hoặc network lab.
 
 - DHCP
 - Dynamic Host Configuration Protocol
+- IP address lease
+- network configuration
+- DHCP server
+- DHCP client
 - cấp phát IP động
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
 
 ## Source trace
 

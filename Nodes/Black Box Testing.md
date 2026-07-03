@@ -71,14 +71,17 @@ Black Box Testing gắn code change với bằng chứng kiểm tra, giúp team 
 ## Keywords / Từ khóa tìm kiếm
 
 - Black Box Testing
+- black box testing checklist
+- black box testing strategy
+- kiểm thử Black Box
 - black-box testing
 - kiểm thử hộp đen
-- black
-- box
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Acceptance Testing
 
 ## Source trace
 

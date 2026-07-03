@@ -72,9 +72,9 @@ Proof Methods ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ 
 - Proof Methods
 - proof techniques
 - phương pháp chứng minh
-- proof
-- methods
-- Computer Foundation
+- Proof Methods learning keyword
+- Proof Methods debug keyword
+- Proof Methods design keyword
 
 ## Source trace
 

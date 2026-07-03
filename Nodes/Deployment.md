@@ -71,13 +71,16 @@ Deployment ảnh hưởng tới quyết định release, ưu tiên technical deb
 ## Keywords / Từ khóa tìm kiếm
 
 - Deployment
+- triển khai
 - release
 - rollout
-- triển khai
-- Reliability
-- SRE
-- devops
+- release pipeline
+- operational readiness
+- incident response
 - triển khai phần mềm
+- vận hành hệ thống
+- Rollback
+- Environment Variable
 
 ## Source trace
 

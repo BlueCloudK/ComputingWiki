@@ -71,7 +71,10 @@ Stack ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, 
 
 - Stack
 - ngăn xếp
-- Computer Foundation
+- Stack learning keyword
+- Stack debug keyword
+- Stack design keyword
+- Stack khái niệm cần tra cứu
 
 ## Source trace
 

@@ -66,11 +66,12 @@ Node này giúp hiểu server listen, client connect, timeout và connection err
 
 - Socket
 - network socket
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
+- TCP socket
+- UDP socket
+- client socket
+- server socket
+- socket connection
+- kết nối socket
 
 ## Source trace
 

@@ -74,15 +74,17 @@ Enterprise Application Architecture Pattern ảnh hưởng tới cách chia modu
 ## Keywords / Từ khóa tìm kiếm
 
 - Enterprise Application Architecture Pattern
+- enterprise application architecture pattern trade-off
+- enterprise application architecture pattern refactoring
+- design pattern catalog
+- enterprise application architecture pattern decision
+- enterprise application architecture pattern boundary
+- quyết định kiến trúc
 - PEAA pattern
 - mẫu kiến trúc ứng dụng doanh nghiệp
-- enterprise
-- application
-- architecture
-- System Design
-- ứng dụng
-- kiến trúc
-- mẫu thiết kế
+- architecture decision
+- system boundary
+- component responsibility
 
 ## Source trace
 

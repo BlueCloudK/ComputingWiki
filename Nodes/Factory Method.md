@@ -72,11 +72,10 @@ Factory Method để subclass hoặc hook quyết định class cụ thể đư�
 - Factory Method
 - factory method pattern
 - mẫu factory method
-- factory
-- method
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

@@ -72,9 +72,10 @@ Command biến hành động thành object để queue, undo, log hoặc dispatc
 - Command
 - command pattern
 - mẫu command
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

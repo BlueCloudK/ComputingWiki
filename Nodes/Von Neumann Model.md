@@ -66,14 +66,10 @@ Node này giúp nối instruction, CPU, memory, runtime và OS khi debug behavio
 ## Keywords / Từ khóa tìm kiếm
 
 - Von Neumann Model
-- stored-program model
-- mô hình Von Neumann
-- von
-- neumann
-- model
-- Computer Foundation
-- mô hình
-- kiến trúc hệ thống
+- stored program computer
+- CPU memory I/O
+- instruction cycle
+- kiến trúc Von Neumann
 
 ## Source trace
 

@@ -73,12 +73,13 @@ Environment Variable ảnh hưởng tới release safety, incident response, tro
 - Environment Variable
 - env var
 - biến môi trường
-- environment
-- variable
-- Deployment
-- Operations
-- devops
+- release pipeline
+- operational readiness
+- incident response
 - triển khai phần mềm
+- vận hành hệ thống
+- Secret
+- Deployment
 
 ## Source trace
 

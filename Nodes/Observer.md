@@ -72,9 +72,10 @@ Observer tách publisher khỏi subscriber để nhiều bên phản ứng với
 - Observer
 - observer pattern
 - mẫu observer
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

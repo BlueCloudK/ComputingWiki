@@ -72,13 +72,11 @@ Systems Engineering Users and Uses ảnh hưởng tới cách chia module/servic
 - Systems Engineering Users and Uses
 - SE users and uses
 - người dùng systems engineering
-- systems engineering users uses
-- systems
-- engineering
-- users
-- Architecture
-- System Design
-- hệ thống
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

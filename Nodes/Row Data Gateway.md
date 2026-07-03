@@ -70,15 +70,17 @@ Row Data Gateway đại diện một row database và gom SQL cho row đó vào 
 ## Keywords / Từ khóa tìm kiếm
 
 - Row Data Gateway
+- row data gateway design
+- row data gateway validation
+- xử lý dữ liệu
 - row data gateway pattern
 - mẫu row data gateway
-- row
-- data
-- gateway
-- Code Design
-- Pattern
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- design pattern
 
 ## Source trace
 

@@ -71,11 +71,10 @@ Structure and Function ảnh hưởng tới lựa chọn thuật toán, cấu tr
 
 - Structure and Function
 - cấu trúc và chức năng
-- structure function
-- structure
-- function
-- Computer Foundation
-- cấu trúc
+- Computer Components
+- Structure and Function learning keyword
+- Structure and Function debug keyword
+- Structure and Function design keyword
 
 ## Source trace
 

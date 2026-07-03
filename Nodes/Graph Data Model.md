@@ -71,15 +71,17 @@ Graph Data Model ảnh hưởng tới database design, query performance, migrat
 ## Keywords / Từ khóa tìm kiếm
 
 - Graph Data Model
+- graph data model notation
+- graph data model review
+- mô hình hóa hệ thống
+- graph data model design
+- graph data model validation
+- xử lý dữ liệu
+- đồ thị
 - mô hình dữ liệu graph
-- graph
-- data
-- model
-- Database
-- dữ liệu
-- mô hình
-- hệ thống dữ liệu
-- thuật toán
+- data model
+- query design
+- data consistency
 
 ## Source trace
 

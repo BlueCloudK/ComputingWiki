@@ -72,13 +72,17 @@ Test Management gắn code change với bằng chứng kiểm tra, giúp team qu
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Management
+- test management checklist
+- test management strategy
+- kiểm thử Management
 - quản lý testing
-- test
-- management
-- Testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Test Planning
+- Risk and Testing
 
 ## Source trace
 

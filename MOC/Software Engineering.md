@@ -75,15 +75,20 @@ Software Engineering là MOC điều hướng: dùng để đi từ vùng lớn 
 ## Keywords / Từ khóa tìm kiếm
 
 - Software Engineering
+- Software Engineering MOC
+- software engineering map
+- mục lục kiến thức
+- nhánh kiến thức
 - software engineering body of knowledge
 - kỹ nghệ phần mềm
-- software
-- engineering
-- Architecture
-- System Design
-- phần mềm
-- kỹ thuật
-- mục lục kiến thức
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Requirements
+- Software Architecture
+- Code Design
 
 ## Source trace
 

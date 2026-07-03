@@ -72,10 +72,16 @@ REST ảnh hưởng tới API payload, message, config, log, network call hoặc
 
 - REST
 - Representational State Transfer
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
+- mạng máy tính
+- debug kết nối
 
 ## Source trace
 

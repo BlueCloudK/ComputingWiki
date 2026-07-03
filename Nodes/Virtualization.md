@@ -71,8 +71,10 @@ Virtualization giúp debug lỗi environment-specific, performance thấp tầng
 
 - Virtualization
 - ảo hóa
-- Tooling
-- Implementation Detail
+- Virtual Machine
+- Virtualization learning keyword
+- Virtualization debug keyword
+- Virtualization design keyword
 
 ## Source trace
 

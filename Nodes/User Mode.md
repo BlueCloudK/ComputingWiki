@@ -66,11 +66,10 @@ Node này giúp hiểu vì sao app không được truy cập device/memory tùy
 
 - User Mode
 - user space
+- unprivileged mode
+- application process
+- system call boundary
 - chế độ người dùng
-- user
-- mode
-- Operating System
-- kiến trúc hệ thống
 
 ## Source trace
 

@@ -70,14 +70,15 @@ Architectural Structure Pattern giúp team review dependency, data flow, state t
 ## Keywords / Từ khóa tìm kiếm
 
 - Architectural Structure Pattern
+- architectural structure pattern trade-off
+- architectural structure pattern refactoring
+- design pattern catalog
 - architecture structure pattern
 - mẫu cấu trúc kiến trúc
-- architectural
-- structure
-- pattern
-- Artifact
-- Diagram
-- cấu trúc
+- design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

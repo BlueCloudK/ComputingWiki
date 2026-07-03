@@ -70,15 +70,16 @@ Client Server Architecture giúp team review dependency, data flow, state transi
 ## Keywords / Từ khóa tìm kiếm
 
 - Client Server Architecture
+- client server architecture decision
+- client server architecture boundary
+- quyết định kiến trúc
 - client-server architecture
 - kiến trúc client-server
-- client
-- server
-- architecture
-- Artifact
-- Diagram
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

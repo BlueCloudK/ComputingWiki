@@ -71,14 +71,13 @@ Static Modeling giúp team review dependency, data flow, state transition, actor
 ## Keywords / Từ khóa tìm kiếm
 
 - Static Modeling
+- static modeling notation
+- static modeling review
+- mô hình hóa hệ thống
 - static model
 - mô hình tĩnh
-- static
-- modeling
-- Artifact
-- Diagram
-- mô hình hóa
-- kiến trúc hệ thống
+- Class Diagram
+- Object and Class Structuring
 
 ## Source trace
 

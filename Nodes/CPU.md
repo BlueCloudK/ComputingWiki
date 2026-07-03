@@ -74,8 +74,8 @@ CPU giúp debug lỗi environment-specific, performance thấp tầng, concurren
 - central processing unit
 - bộ xử lý trung tâm
 - processor
-- Tooling
-- Implementation Detail
+- Instruction Set
+- CPU learning keyword
 
 ## Source trace
 

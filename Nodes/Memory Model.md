@@ -73,14 +73,12 @@ Memory Model giúp debug bug state khó lặp lại và chọn pattern phù hợ
 ## Keywords / Từ khóa tìm kiếm
 
 - Memory Model
-- program memory model
+- memory visibility
+- happens before
+- concurrent memory
+- shared memory behavior
+- compiler reordering
 - mô hình bộ nhớ
-- memory
-- model
-- Computer Foundation
-- bộ nhớ
-- mô hình
-- kiến trúc hệ thống
 
 ## Source trace
 

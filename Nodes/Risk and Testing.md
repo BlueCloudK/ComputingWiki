@@ -71,14 +71,17 @@ Risk and Testing gắn code change với bằng chứng kiểm tra, giúp team q
 ## Keywords / Từ khóa tìm kiếm
 
 - Risk and Testing
+- risk and testing checklist
+- risk and testing strategy
+- kiểm thử Risk and
 - risk-based testing
 - risk và testing
-- risk testing
-- risk
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Risk
 
 ## Source trace
 

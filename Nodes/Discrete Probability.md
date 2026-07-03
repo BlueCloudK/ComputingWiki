@@ -71,10 +71,10 @@ Discrete Probability ảnh hưởng tới lựa chọn thuật toán, cấu trú
 
 - Discrete Probability
 - xác suất rời rạc
-- discrete
-- probability
-- Computer Foundation
-- rời rạc
+- Discrete Probability learning keyword
+- Discrete Probability debug keyword
+- Discrete Probability design keyword
+- Discrete Probability khái niệm cần tra cứu
 
 ## Source trace
 

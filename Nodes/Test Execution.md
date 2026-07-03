@@ -71,13 +71,16 @@ Test Execution gắn code change với bằng chứng kiểm tra, giúp team quy
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Execution
+- test execution checklist
+- test execution strategy
+- kiểm thử Execution
 - chạy test
-- test
-- execution
-- Testing
-- Verification
-- kiểm thử
+- test design
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Test Result
+- Defect
 
 ## Source trace
 

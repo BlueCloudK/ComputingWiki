@@ -73,14 +73,17 @@ What Is Testing gắn code change với bằng chứng kiểm tra, giúp team qu
 ## Keywords / Từ khóa tìm kiếm
 
 - What Is Testing
+- what is testing checklist
+- what is testing strategy
+- kiểm thử What Is
 - testing definition
 - testing là gì
-- what
-- is
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Test Process
 
 ## Source trace
 

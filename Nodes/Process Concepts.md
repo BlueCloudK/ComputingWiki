@@ -72,11 +72,10 @@ Process Concepts giúp debug lỗi environment-specific, performance thấp tầ
 
 - Process Concepts
 - khái niệm process
-- process
-- concepts
-- Tooling
-- Implementation Detail
-- tiến trình
+- Process Selection and Tailoring
+- Systems Engineering Processes
+- Process Concepts learning keyword
+- Process Concepts debug keyword
 
 ## Source trace
 

@@ -74,11 +74,14 @@ Input Validation ảnh hưởng tới auth flow, permission, validation, secret 
 - Input Validation
 - validate untrusted input
 - kiểm tra input
-- input
-- validation
-- Security
-- xác thực
-- bảo mật phần mềm
+- security review
+- attack surface
+- permission check
+- bảo mật ứng dụng
+- kiểm tra bảo mật
+- Validation
+- XSS
+- SQL Injection
 
 ## Source trace
 

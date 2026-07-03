@@ -72,13 +72,17 @@ Web Presentation Pattern tổ chức request, controller, view và presentation 
 ## Keywords / Từ khóa tìm kiếm
 
 - Web Presentation Pattern
+- web presentation pattern trade-off
+- web presentation pattern refactoring
+- design pattern catalog
 - mẫu presentation web
-- web
-- presentation
-- pattern
-- Code Design
-- mẫu thiết kế
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
+- Model View Controller
+- Page Controller
 
 ## Source trace
 

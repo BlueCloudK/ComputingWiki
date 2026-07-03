@@ -92,15 +92,20 @@ Enterprise Patterns là MOC điều hướng: dùng để đi từ vùng lớn x
 ## Keywords / Từ khóa tìm kiếm
 
 - Enterprise Patterns
+- enterprise patterns trade-off
+- enterprise patterns refactoring
+- design pattern catalog
+- Enterprise Patterns MOC
+- enterprise patterns map
+- mục lục kiến thức
+- nhánh kiến thức
 - PEAA patterns
 - enterprise application patterns
 - mẫu enterprise
-- enterprise
-- patterns
-- Code Design
-- Pattern
-- mẫu thiết kế
-- mục lục kiến thức
+- design pattern
+- refactoring
+- module boundary
+- testability
 
 ## Source trace
 

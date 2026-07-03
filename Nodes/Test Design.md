@@ -72,14 +72,17 @@ Test Design gắn code change với bằng chứng kiểm tra, giúp team quyế
 ## Keywords / Từ khóa tìm kiếm
 
 - Test Design
+- test design checklist
+- test design strategy
+- kiểm thử Design
 - thiết kế test
-- test
-- design
-- Testing
-- Verification
-- kiểm thử
-- thiết kế
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Test Case
+- Test Data
+- Test Design Techniques
 
 ## Source trace
 

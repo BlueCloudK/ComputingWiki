@@ -73,8 +73,13 @@ Rollback ảnh hưởng tới quyết định release, ưu tiên technical debt,
 - Rollback
 - revert deployment
 - quay lại phiên bản trước
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Deployment
+- Backup
 
 ## Source trace
 

@@ -72,11 +72,11 @@ Dynamic Programming ảnh hưởng tới lựa chọn thuật toán, cấu trúc
 - Dynamic Programming
 - DP
 - quy hoạch động
-- dynamic
-- programming
-- Computer Foundation
-- lập trình
+- language design
+- runtime behavior
+- type checking
 - ngôn ngữ lập trình
+- debug runtime
 
 ## Source trace
 

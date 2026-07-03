@@ -70,14 +70,12 @@ System Context Diagram giúp team review dependency, data flow, state transition
 ## Keywords / Từ khóa tìm kiếm
 
 - System Context Diagram
+- system context diagram notation
+- system context diagram review
+- mô hình hóa hệ thống
 - C4 context diagram
 - sơ đồ context hệ thống
-- system
-- context
-- diagram
-- Artifact
-- hệ thống
-- kiến trúc hệ thống
+- Software System
 
 ## Source trace
 

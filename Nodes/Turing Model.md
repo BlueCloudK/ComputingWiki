@@ -67,12 +67,10 @@ Node này đặt nền cho programming language, compiler và thuật toán bằ
 
 - Turing Model
 - Turing machine
+- computation model
+- tape machine
+- computability
 - mô hình Turing
-- turing
-- model
-- Computer Foundation
-- mô hình
-- kiến trúc hệ thống
 
 ## Source trace
 

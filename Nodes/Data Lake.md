@@ -72,13 +72,12 @@ Data Lake giúp giữ dữ liệu raw cho replay, exploration và ML, nhưng c�
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Lake
-- raw data lake
+- raw data storage
+- object storage analytics
+- schema on read
+- bronze silver gold
+- lake storage
 - hồ dữ liệu
-- data
-- lake
-- Database
-- dữ liệu
-- hệ thống dữ liệu
 
 ## Source trace
 

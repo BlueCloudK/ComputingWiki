@@ -78,12 +78,16 @@ Site Reliability Engineering ảnh hưởng tới quyết định release, ưu t
 ## Keywords / Từ khóa tìm kiếm
 
 - Site Reliability Engineering
-- SRE
-- site
-- reliability
-- engineering
 - độ tin cậy
-- kỹ thuật
+- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Reliability
+- Risk
+- Service Level Objective
 
 ## Source trace
 

@@ -73,8 +73,10 @@ Internet giúp debug lỗi environment-specific, performance thấp tầng, conc
 
 - Internet
 - mạng Internet
-- Tooling
-- Implementation Detail
+- Network Edge
+- Network Core
+- Protocol Layer
+- Internet learning keyword
 
 ## Source trace
 

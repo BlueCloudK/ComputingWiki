@@ -71,11 +71,15 @@ OpenAPI giúp client/server thống nhất contract và giảm mismatch. Nó đ�
 ## Keywords / Từ khóa tìm kiếm
 
 - OpenAPI
-- OpenAPI Specification
 - Swagger
+- OpenAPI Specification
+- API documentation
+- API schema
+- request schema
+- response schema
+- contract first API
 - đặc tả OpenAPI
-- API
-- Integration
+- tài liệu API
 
 ## Source trace
 

@@ -70,15 +70,17 @@ Service Oriented Architecture giúp team review dependency, data flow, state tra
 ## Keywords / Từ khóa tìm kiếm
 
 - Service Oriented Architecture
+- service oriented architecture decision
+- service oriented architecture boundary
+- quyết định kiến trúc
 - SOA
 - kiến trúc hướng dịch vụ
-- service
-- oriented
-- architecture
-- Artifact
-- Diagram
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
+- API Contract
 
 ## Source trace
 

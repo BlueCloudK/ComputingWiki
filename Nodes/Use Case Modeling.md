@@ -70,14 +70,11 @@ Use Case Modeling giúp team review dependency, data flow, state transition, act
 ## Keywords / Từ khóa tìm kiếm
 
 - Use Case Modeling
+- use case modeling notation
+- use case modeling review
+- mô hình hóa hệ thống
 - mô hình use case
-- use
-- case
-- modeling
-- Artifact
-- Diagram
-- mô hình hóa
-- kiến trúc hệ thống
+- Use Case
 
 ## Source trace
 

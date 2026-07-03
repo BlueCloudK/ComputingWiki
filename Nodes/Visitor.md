@@ -72,9 +72,10 @@ Visitor thêm operation mới trên object structure mà không sửa từng cla
 - Visitor
 - visitor pattern
 - mẫu visitor
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

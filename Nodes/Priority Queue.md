@@ -66,13 +66,11 @@ Node này giúp scheduling, graph algorithms, job processing và top-k queries.
 ## Keywords / Từ khóa tìm kiếm
 
 - Priority Queue
-- hàng đợi ưu tiên
 - heap queue
-- priority
-- queue
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
+- priority scheduling
+- min priority queue
+- max priority queue
+- hàng đợi ưu tiên
 
 ## Source trace
 

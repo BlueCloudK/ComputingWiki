@@ -73,10 +73,15 @@ Requirement là đơn vị neo cho scope, design decision, test coverage và cha
 ## Keywords / Từ khóa tìm kiếm
 
 - Requirement
+- requirement acceptance
+- requirement traceability
+- phân tích yêu cầu
+- yêu cầu
 - software requirement
 - yêu cầu phần mềm
-- Planning
-- yêu cầu
+- Functional Requirement
+- Nonfunctional Requirement
+- Acceptance Criteria
 
 ## Source trace
 

@@ -78,14 +78,20 @@ Protocols là MOC điều hướng: dùng để đi từ vùng lớn xuống nod
 ## Keywords / Từ khóa tìm kiếm
 
 - Protocols
-- network protocols
-- giao thức
-- Protocol
-- Data Format
+- Protocols MOC
+- protocols map
 - mục lục kiến thức
 - nhánh kiến thức
-- dữ liệu
-- hệ thống dữ liệu
+- network protocols
+- giao thức
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
 
 ## Source trace
 

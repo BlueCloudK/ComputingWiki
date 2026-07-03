@@ -74,11 +74,11 @@ CD giảm release fear và làm deployment thành routine. Nó giúp team releas
 - CD
 - Continuous Delivery
 - Continuous Deployment
+- release pipeline
+- deployment automation
+- promotion pipeline
 - triển khai liên tục
-- Deployment
-- Operations
-- devops
-- triển khai phần mềm
+- phát hành tự động
 
 ## Source trace
 

@@ -75,15 +75,20 @@ Data Formats là MOC điều hướng: dùng để đi từ vùng lớn xuống 
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Formats
-- serialization formats
-- định dạng dữ liệu
-- data
-- formats
-- Protocol
-- Data Format
-- dữ liệu
+- data formats design
+- data formats validation
+- xử lý dữ liệu
+- Data Formats MOC
+- data formats map
 - mục lục kiến thức
 - nhánh kiến thức
+- serialization formats
+- định dạng dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

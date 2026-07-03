@@ -70,14 +70,16 @@ Component Testing gắn code change với bằng chứng kiểm tra, giúp team 
 ## Keywords / Từ khóa tìm kiếm
 
 - Component Testing
+- component testing checklist
+- component testing strategy
+- kiểm thử Component
 - component test
-- kiểm thử component
-- component
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
-- kiến trúc hệ thống
+- xác minh chất lượng
+- Unit Test
 
 ## Source trace
 

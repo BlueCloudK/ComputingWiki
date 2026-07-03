@@ -71,10 +71,12 @@ Cache ảnh hưởng tới database design, query performance, migration, audit/
 
 - Cache
 - caching
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Index
 
 ## Source trace
 

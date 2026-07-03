@@ -72,12 +72,12 @@ Remote Facade gom nhiều thao tác nhỏ thành coarse-grained remote API để
 - Remote Facade
 - remote facade pattern
 - mẫu remote facade
-- remote
-- facade
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
+- Data Transfer Object
 
 ## Source trace
 

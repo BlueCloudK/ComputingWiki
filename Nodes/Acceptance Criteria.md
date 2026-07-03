@@ -73,10 +73,9 @@ Acceptance Criteria khóa lại nghĩa thực tế của "done". Nó giúp dev b
 - Acceptance Criteria
 - acceptance condition
 - tiêu chí chấp nhận
-- acceptance
-- criteria
-- Requirement
-- Planning
+- Acceptance Criteria learning keyword
+- Acceptance Criteria debug keyword
+- Acceptance Criteria design keyword
 
 ## Source trace
 

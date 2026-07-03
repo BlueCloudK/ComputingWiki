@@ -72,10 +72,9 @@ Competency Context giúp debug lỗi environment-specific, performance thấp t�
 - Competency Context
 - context of competency
 - bối cảnh năng lực
-- competency
-- context
-- Tooling
-- Implementation Detail
+- Competency Context learning keyword
+- Competency Context debug keyword
+- Competency Context design keyword
 
 ## Source trace
 

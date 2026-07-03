@@ -75,13 +75,14 @@ Systems Engineering and Management ảnh hưởng tới cách chia module/servic
 - Systems Engineering and Management
 - SE management
 - quản lý systems engineering
-- systems engineering management
-- systems
-- engineering
-- management
-- Architecture
-- System Design
-- hệ thống
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Life Cycle Concepts
+- Development Approaches
+- Process Concepts
 
 ## Source trace
 

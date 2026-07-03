@@ -72,8 +72,9 @@ Benchmark ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v�
 - Benchmark
 - performance measurement
 - đo hiệu năng
-- Performance
-- Scalability
+- Load Test
+- Benchmark learning keyword
+- Benchmark debug keyword
 
 ## Source trace
 

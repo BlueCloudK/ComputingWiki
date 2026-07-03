@@ -71,14 +71,17 @@ White Box Testing gắn code change với bằng chứng kiểm tra, giúp team 
 ## Keywords / Từ khóa tìm kiếm
 
 - White Box Testing
+- white box testing checklist
+- white box testing strategy
+- kiểm thử White Box
 - white-box testing
 - kiểm thử hộp trắng
-- white
-- box
-- testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Test Coverage
 
 ## Source trace
 

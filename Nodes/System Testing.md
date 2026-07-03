@@ -70,15 +70,17 @@ System Testing gắn code change với bằng chứng kiểm tra, giúp team quy
 ## Keywords / Từ khóa tìm kiếm
 
 - System Testing
+- system testing checklist
+- system testing strategy
+- kiểm thử System
 - system test
 - kiểm thử hệ thống
-- system
-- testing
-- Verification
-- hệ thống
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
-- kiến trúc hệ thống
+- xác minh chất lượng
+- E2E Test
 
 ## Source trace
 

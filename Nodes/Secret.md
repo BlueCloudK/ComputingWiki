@@ -74,8 +74,12 @@ Secret ảnh hưởng tới API design, frontend/backend handoff, integration te
 - token
 - password
 - bí mật
-- API
-- Integration
+- API schema
+- request response
+- integration boundary
+- contract testing
+- tích hợp API
+- Environment Variable
 
 ## Source trace
 

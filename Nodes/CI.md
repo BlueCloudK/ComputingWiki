@@ -72,11 +72,12 @@ CI giúp phát hiện regression sớm và tạo baseline tin cậy trước khi
 
 - CI
 - Continuous Integration
+- build verification
+- automated test pipeline
+- merge check
+- integration build
 - tích hợp liên tục
-- Deployment
-- Operations
-- devops
-- triển khai phần mềm
+- kiểm tra khi merge
 
 ## Source trace
 

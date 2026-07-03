@@ -73,8 +73,9 @@ Bottleneck ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v
 - Bottleneck
 - limiting part
 - điểm nghẽn
-- Performance
-- Scalability
+- Profiling
+- Benchmark
+- Bottleneck learning keyword
 
 ## Source trace
 

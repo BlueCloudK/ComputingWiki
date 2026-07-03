@@ -73,9 +73,12 @@ Interpreter ảnh hưởng startup behavior, runtime error timing, debugging, sc
 ## Keywords / Từ khóa tìm kiếm
 
 - Interpreter
+- program interpreter
+- runtime execution
+- eval loop
+- bytecode interpreter
+- scripting runtime
 - trình thông dịch
-- Computer Foundation
-- ngôn ngữ lập trình
 
 ## Source trace
 

@@ -74,13 +74,17 @@ Architecture Diagram giúp team review dependency, data flow, state transition, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Architecture Diagram
+- architecture diagram notation
+- architecture diagram review
+- mô hình hóa hệ thống
+- architecture diagram decision
+- architecture diagram boundary
+- quyết định kiến trúc
 - architecture view
 - sơ đồ kiến trúc
-- architecture
-- diagram
-- Artifact
-- kiến trúc
-- kiến trúc hệ thống
+- architecture decision
+- system boundary
+- component responsibility
 
 ## Source trace
 

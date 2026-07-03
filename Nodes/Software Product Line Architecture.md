@@ -70,15 +70,16 @@ Software Product Line Architecture giúp team review dependency, data flow, stat
 ## Keywords / Từ khóa tìm kiếm
 
 - Software Product Line Architecture
+- software product line architecture decision
+- software product line architecture boundary
+- quyết định kiến trúc
 - product-line architecture
 - kiến trúc dòng sản phẩm
-- software
-- product
-- line
-- Artifact
-- Diagram
-- phần mềm
-- kiến trúc
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

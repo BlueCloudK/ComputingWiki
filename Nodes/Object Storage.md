@@ -66,15 +66,13 @@ Node này giúp lưu asset, backup, export và data lake với cost/durability t
 ## Keywords / Từ khóa tìm kiếm
 
 - Object Storage
-- object store
-- lưu trữ object
 - blob storage
-- cloud object storage
-- object
-- storage
-- Data
-- Database
-- lưu trữ
+- bucket
+- S3
+- object key
+- durable storage
+- static asset storage
+- lưu trữ đối tượng
 
 ## Source trace
 

@@ -75,15 +75,14 @@ Software Modeling giúp team review dependency, data flow, state transition, act
 ## Keywords / Từ khóa tìm kiếm
 
 - Software Modeling
+- software modeling notation
+- software modeling review
+- mô hình hóa hệ thống
 - software model
 - mô hình hóa phần mềm
-- software
-- modeling
-- Artifact
-- Diagram
-- phần mềm
-- mô hình hóa
-- kiến trúc hệ thống
+- Use Case Modeling
+- Static Modeling
+- Object and Class Structuring
 
 ## Source trace
 

@@ -68,12 +68,11 @@ Node này giúp debug dependency graph, routing, workflow và tree/graph algorit
 
 - Graph Traversal
 - graph search
+- DFS
+- BFS
+- visited set
+- traverse graph
 - duyệt đồ thị
-- graph
-- traversal
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
 
 ## Source trace
 

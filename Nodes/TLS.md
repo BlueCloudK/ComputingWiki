@@ -67,14 +67,15 @@ Node này giúp debug HTTPS, certificate, API security và transport protection.
 
 - TLS
 - Transport Layer Security
-- bảo mật tầng vận chuyển
-- SSL successor
-- bảo mật tầng truyền tải
-- Protocol
-- Data Format
-- bảo mật phần mềm
-- dữ liệu
-- hệ thống dữ liệu
+- HTTPS certificate
+- certificate chain
+- certificate validation
+- TLS handshake
+- encryption in transit
+- cipher suite
+- cert expired
+- bảo mật kết nối
+- chứng chỉ TLS
 
 ## Source trace
 

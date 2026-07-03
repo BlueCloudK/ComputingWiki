@@ -72,11 +72,10 @@ Template Method định nghĩa skeleton algorithm trong base class và để sub
 - Template Method
 - template method pattern
 - mẫu template method
-- template
-- method
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

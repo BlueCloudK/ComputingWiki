@@ -80,15 +80,20 @@ Vùng này giúp dữ liệu không bị biến thành file rời rạc hoặc q
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Engineering
-- data pipelines
-- kỹ thuật dữ liệu
-- data
-- engineering
-- Database
-- dữ liệu
-- kỹ thuật
+- data engineering design
+- data engineering validation
+- xử lý dữ liệu
+- Data Engineering MOC
+- data engineering map
 - mục lục kiến thức
 - nhánh kiến thức
+- data pipelines
+- kỹ thuật dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

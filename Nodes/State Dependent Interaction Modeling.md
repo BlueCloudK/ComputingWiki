@@ -70,15 +70,12 @@ State Dependent Interaction Modeling giúp team review dependency, data flow, st
 ## Keywords / Từ khóa tìm kiếm
 
 - State Dependent Interaction Modeling
+- state dependent interaction modeling notation
+- state dependent interaction modeling review
+- mô hình hóa hệ thống
 - state-dependent modeling
 - mô hình tương tác phụ thuộc trạng thái
-- state
-- dependent
-- interaction
-- Artifact
-- Diagram
-- mô hình hóa
-- kiến trúc hệ thống
+- State Machine
 
 ## Source trace
 

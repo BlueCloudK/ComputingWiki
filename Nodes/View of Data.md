@@ -70,15 +70,16 @@ View of Data giúp team review dependency, data flow, state transition, actor/sy
 ## Keywords / Từ khóa tìm kiếm
 
 - View of Data
+- view of data design
+- view of data validation
+- xử lý dữ liệu
 - data abstraction
 - cách nhìn dữ liệu
-- view data
-- view
-- data
-- Artifact
-- Diagram
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

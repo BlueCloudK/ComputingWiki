@@ -72,8 +72,10 @@ Process giúp debug lỗi environment-specific, performance thấp tầng, concu
 
 - Process
 - tiến trình
-- Tooling
-- Implementation Detail
+- Thread
+- Address Space
+- Process learning keyword
+- Process debug keyword
 
 ## Source trace
 

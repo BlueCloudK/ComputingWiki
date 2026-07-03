@@ -72,14 +72,17 @@ Data Model ảnh hưởng tới database design, query performance, migration, a
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Model
+- data model notation
+- data model review
+- mô hình hóa hệ thống
+- data model design
+- data model validation
+- xử lý dữ liệu
 - mô hình dữ liệu
-- data
-- model
-- Database
-- dữ liệu
-- mô hình
-- hệ thống dữ liệu
-- kiến trúc hệ thống
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

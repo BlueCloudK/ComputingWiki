@@ -66,13 +66,11 @@ Node này giúp đọc API payload, domain model và tránh nhầm shape dữ li
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Type
-- type of data
+- primitive type
+- composite type
+- type checking
+- value domain
 - kiểu dữ liệu
-- data
-- type
-- Computer Foundation
-- dữ liệu
-- hệ thống dữ liệu
 
 ## Source trace
 

@@ -66,14 +66,12 @@ Node này giúp API, webhook và service communication không gửi secret/plain
 ## Keywords / Từ khóa tìm kiếm
 
 - Transport Layer Protection
-- transport security
-- bảo vệ dữ liệu truyền tải
-- transport
-- layer
-- protection
-- Security
-- bảo mật phần mềm
-- mạng máy tính
+- TLS configuration
+- HTTPS enforcement
+- certificate validation
+- secure transport
+- encryption in transit
+- bảo vệ tầng truyền tải
 
 ## Source trace
 

@@ -73,13 +73,11 @@ Recovery System ảnh hưởng tới database design, query performance, migrati
 - Recovery System
 - recovery
 - khôi phục database
-- system
-- Data
-- Database
-- hệ thống
-- dữ liệu
-- hệ thống dữ liệu
-- kiến trúc hệ thống
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

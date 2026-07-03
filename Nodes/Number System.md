@@ -65,13 +65,10 @@ Node này giúp đọc binary/hex, bit flag, protocol field và low-level data r
 ## Keywords / Từ khóa tìm kiếm
 
 - Number System
-- numeric representation
+- binary decimal hexadecimal
+- base conversion
+- positional notation
 - hệ đếm
-- number
-- system
-- Computer Foundation
-- hệ thống
-- kiến trúc hệ thống
 
 ## Source trace
 

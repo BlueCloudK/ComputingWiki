@@ -71,10 +71,10 @@ Race Condition giúp debug lỗi environment-specific, performance thấp tầng
 
 - Race Condition
 - lỗi tranh chấp thời gian
-- race
-- condition
-- Tooling
-- Implementation Detail
+- Mutex
+- Race Condition learning keyword
+- Race Condition debug keyword
+- Race Condition design keyword
 
 ## Source trace
 

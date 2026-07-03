@@ -71,9 +71,10 @@ Propositional Logic ảnh hưởng tới lựa chọn thuật toán, cấu trúc
 
 - Propositional Logic
 - logic mệnh đề
-- propositional
-- logic
-- Computer Foundation
+- Propositional Logic learning keyword
+- Propositional Logic debug keyword
+- Propositional Logic design keyword
+- Propositional Logic khái niệm cần tra cứu
 
 ## Source trace
 

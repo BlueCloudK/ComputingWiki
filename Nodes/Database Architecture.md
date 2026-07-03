@@ -70,15 +70,17 @@ Database Architecture ảnh hưởng tới cách chia module/service, deploy, de
 ## Keywords / Từ khóa tìm kiếm
 
 - Database Architecture
+- database architecture decision
+- database architecture boundary
+- quyết định kiến trúc
+- database architecture design
+- database architecture validation
+- xử lý dữ liệu
 - kiến trúc database
-- database
-- architecture
-- System Design
-- cơ sở dữ liệu
-- kiến trúc
-- dữ liệu
-- hệ thống dữ liệu
-- kiến trúc hệ thống
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
 
 ## Source trace
 

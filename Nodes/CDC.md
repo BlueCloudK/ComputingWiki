@@ -67,13 +67,11 @@ Node này giúp sync search index, warehouse, cache hoặc microservice data pro
 
 - CDC
 - Change Data Capture
+- database change log
+- incremental sync
+- change stream
+- replication feed
 - bắt thay đổi dữ liệu
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
-- devops
-- triển khai phần mềm
 
 ## Source trace
 

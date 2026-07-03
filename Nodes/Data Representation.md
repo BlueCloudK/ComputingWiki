@@ -67,13 +67,11 @@ Node này giúp debug serialization, file format, protocol payload và mismatch 
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Representation
-- data encoding
+- binary representation
+- encoding
+- bits bytes
+- numeric representation
 - biểu diễn dữ liệu
-- data
-- representation
-- Computer Foundation
-- dữ liệu
-- hệ thống dữ liệu
 
 ## Source trace
 

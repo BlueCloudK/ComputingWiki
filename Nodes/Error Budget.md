@@ -72,10 +72,13 @@ Error Budget ảnh hưởng tới quyết định release, ưu tiên technical d
 
 - Error Budget
 - ngân sách lỗi
-- error
-- budget
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Service Level Objective
+- Risk
 
 ## Source trace
 

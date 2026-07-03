@@ -72,8 +72,12 @@ Alert ảnh hưởng tới quyết định release, ưu tiên technical debt, in
 
 - Alert
 - cảnh báo
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Monitoring
 
 ## Source trace
 

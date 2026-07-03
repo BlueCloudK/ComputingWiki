@@ -66,12 +66,12 @@ Node này giúp tránh session hijacking, fixation và logout không hiệu lự
 ## Keywords / Từ khóa tìm kiếm
 
 - Session Management
-- session security
-- quản lý phiên
-- session
-- management
-- Security
-- bảo mật phần mềm
+- user session
+- session cookie
+- session timeout
+- session fixation
+- logout invalidation
+- quản lý phiên đăng nhập
 
 ## Source trace
 

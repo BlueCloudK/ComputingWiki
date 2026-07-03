@@ -66,15 +66,11 @@ Node này giúp thiết kế consumer phải chịu duplicate an toàn.
 ## Keywords / Từ khóa tìm kiếm
 
 - At Least Once
-- at-least-once delivery
-- ít nhất một lần
-- at
-- least
-- once
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- at least once delivery
+- message retry
+- duplicate message
+- idempotent consumer
+- giao ít nhất một lần
 
 ## Source trace
 

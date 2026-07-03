@@ -71,12 +71,12 @@ Authorization ảnh hưởng tới auth flow, permission, validation, secret han
 ## Keywords / Từ khóa tìm kiếm
 
 - Authorization
-- access control
-- permission
-- phân quyền
 - authz
-- Security
-- bảo mật phần mềm
+- access control
+- permission check
+- role based access
+- policy enforcement
+- phân quyền truy cập
 
 ## Source trace
 

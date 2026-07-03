@@ -67,14 +67,13 @@ Node này giúp scale, HA và deploy nhiều instance an toàn hơn.
 
 - Load Balancer
 - LB
+- traffic distribution
+- reverse proxy
+- health check
+- load balancing algorithm
+- target group
 - cân bằng tải
-- traffic load balancing
-- load
-- balancer
-- Deployment
-- Operations
-- cloud infrastructure
-- hạ tầng cloud
+- phân phối traffic
 
 ## Source trace
 

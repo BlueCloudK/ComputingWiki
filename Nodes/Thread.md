@@ -71,8 +71,10 @@ Thread giúp debug lỗi environment-specific, performance thấp tầng, concur
 
 - Thread
 - luồng
-- Tooling
-- Implementation Detail
+- Thread learning keyword
+- Thread debug keyword
+- Thread design keyword
+- Thread khái niệm cần tra cứu
 
 ## Source trace
 

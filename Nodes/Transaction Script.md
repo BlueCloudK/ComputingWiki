@@ -70,14 +70,17 @@ Transaction Script ảnh hưởng tới API payload, message, config, log, netwo
 ## Keywords / Từ khóa tìm kiếm
 
 - Transaction Script
+- giao dịch
 - transaction script pattern
 - mẫu transaction script
-- transaction
-- script
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
 
 ## Source trace
 

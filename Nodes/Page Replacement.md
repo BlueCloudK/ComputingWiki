@@ -71,10 +71,10 @@ Page Replacement giúp debug lỗi environment-specific, performance thấp tầ
 
 - Page Replacement
 - thay trang
-- page
-- replacement
-- Tooling
-- Implementation Detail
+- Page Replacement learning keyword
+- Page Replacement debug keyword
+- Page Replacement design keyword
+- Page Replacement khái niệm cần tra cứu
 
 ## Source trace
 

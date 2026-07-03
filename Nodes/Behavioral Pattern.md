@@ -78,13 +78,17 @@ Behavioral Pattern giúp đọc cách object phân phối trách nhiệm, gửi 
 ## Keywords / Từ khóa tìm kiếm
 
 - Behavioral Pattern
+- behavioral pattern trade-off
+- behavioral pattern refactoring
+- design pattern catalog
 - behavioral design pattern
 - mẫu hành vi
-- behavioral
-- pattern
-- Code Design
-- mẫu thiết kế
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
+- Chain of Responsibility
 
 ## Source trace
 

@@ -72,9 +72,10 @@ Adapter dịch interface của dependency cũ hoặc third-party sang interface 
 - Adapter
 - adapter pattern
 - mẫu adapter
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

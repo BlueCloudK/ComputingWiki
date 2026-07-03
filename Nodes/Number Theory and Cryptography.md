@@ -73,12 +73,8 @@ Number Theory and Cryptography ảnh hưởng tới lựa chọn thuật toán, 
 - number theory
 - cryptography
 - số học và mật mã
-- number theory cryptography
-- number
-- theory
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
+- Number Theory and Cryptography learning keyword
+- Number Theory and Cryptography debug keyword
 
 ## Source trace
 

@@ -73,15 +73,17 @@ Fundamental Test Process gắn code change với bằng chứng kiểm tra, giú
 ## Keywords / Từ khóa tìm kiếm
 
 - Fundamental Test Process
+- fundamental test process checklist
+- fundamental test process strategy
+- kiểm thử Fundamental Process
 - fundamental testing process
 - quy trình test nền tảng
-- fundamental
-- test
-- process
-- Testing
-- Verification
-- kiểm thử
-- tiến trình
+- test design
+- test execution
+- regression testing
+- kiểm thử phần mềm
+- xác minh chất lượng
+- Test Planning
 
 ## Source trace
 

@@ -80,13 +80,20 @@ Security là MOC điều hướng: dùng để đi từ vùng lớn xuống node
 ## Keywords / Từ khóa tìm kiếm
 
 - Security
+- security control
+- security review
+- bảo mật ứng dụng
+- bảo mật
+- Security MOC
+- security map
+- mục lục kiến thức
+- nhánh kiến thức
 - application security
 - software security
 - cybersecurity
-- bảo mật
-- mục lục kiến thức
-- nhánh kiến thức
-- bảo mật phần mềm
+- attack surface
+- permission check
+- kiểm tra bảo mật
 
 ## Source trace
 

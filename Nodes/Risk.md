@@ -72,8 +72,13 @@ Risk ảnh hưởng tới quyết định release, ưu tiên technical debt, inc
 
 - Risk
 - rủi ro
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Error Budget
+- System Safety
 
 ## Source trace
 

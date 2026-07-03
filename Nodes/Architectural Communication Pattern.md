@@ -70,15 +70,16 @@ Architectural Communication Pattern giúp team review dependency, data flow, sta
 ## Keywords / Từ khóa tìm kiếm
 
 - Architectural Communication Pattern
+- architectural communication pattern trade-off
+- architectural communication pattern refactoring
+- design pattern catalog
 - architecture communication pattern
 - mẫu giao tiếp kiến trúc
-- architectural
-- communication
-- pattern
-- Artifact
-- Diagram
-- mẫu thiết kế
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
 
 ## Source trace
 

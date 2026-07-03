@@ -72,15 +72,12 @@ Memory System giúp debug lỗi environment-specific, performance thấp tầng,
 ## Keywords / Từ khóa tìm kiếm
 
 - Memory System
+- bộ nhớ
 - memory hierarchy
 - hệ thống bộ nhớ
-- memory
-- system
-- Tooling
-- Implementation Detail
-- bộ nhớ
-- hệ thống
-- kiến trúc hệ thống
+- Cache Memory
+- Internal Memory
+- External Memory
 
 ## Source trace
 

@@ -67,13 +67,12 @@ Node này giúp debug connectivity, exposure và blast radius của cloud worklo
 
 - VPC
 - Virtual Private Cloud
+- private subnet
+- public subnet
+- route table
+- security group
+- cloud network
 - mạng riêng ảo cloud
-- Deployment
-- Operations
-- cloud infrastructure
-- hạ tầng cloud
-- devops
-- triển khai phần mềm
 
 ## Source trace
 

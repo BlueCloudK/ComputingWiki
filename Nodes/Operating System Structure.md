@@ -74,13 +74,14 @@ Operating System Structure giúp debug lỗi environment-specific, performance t
 - Operating System Structure
 - OS structure
 - cấu trúc hệ điều hành
-- operating
-- system
-- structure
-- Tooling
-- Implementation Detail
+- OS concept
+- kernel boundary
+- process memory
 - hệ điều hành
-- hệ thống
+- debug hệ thống
+- Monolithic System
+- Microkernel
+- Virtual Machine
 
 ## Source trace
 

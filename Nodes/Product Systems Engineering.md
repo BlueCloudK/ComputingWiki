@@ -71,14 +71,11 @@ Product Systems Engineering ảnh hưởng tới cách chia module/service, depl
 
 - Product Systems Engineering
 - systems engineering cho sản phẩm
-- product
-- systems
-- engineering
-- Architecture
-- System Design
-- hệ thống
-- kỹ thuật
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

@@ -73,8 +73,12 @@ Postmortem ảnh hưởng tới quyết định release, ưu tiên technical deb
 - Postmortem
 - post-incident review
 - báo cáo sau sự cố
-- Reliability
-- SRE
+- release pipeline
+- operational readiness
+- incident response
+- triển khai phần mềm
+- vận hành hệ thống
+- Incident
 
 ## Source trace
 

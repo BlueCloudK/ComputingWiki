@@ -67,15 +67,12 @@ Node này giúp chọn cách deploy phù hợp với risk, downtime và observab
 ## Keywords / Từ khóa tìm kiếm
 
 - Deployment Strategy
+- release strategy
+- rollout plan
+- rollback plan
+- deployment risk
+- progressive delivery
 - chiến lược triển khai
-- deployment
-- strategy
-- Operations
-- triển khai
-- design pattern
-- mẫu thiết kế
-- devops
-- triển khai phần mềm
 
 ## Source trace
 

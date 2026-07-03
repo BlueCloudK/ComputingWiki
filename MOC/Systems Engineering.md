@@ -95,15 +95,20 @@ Systems Engineering là MOC điều hướng: dùng để đi từ vùng lớn x
 ## Keywords / Từ khóa tìm kiếm
 
 - Systems Engineering
-- kỹ nghệ hệ thống
-- systems
-- engineering
-- Architecture
-- System Design
-- hệ thống
-- kỹ thuật
+- Systems Engineering MOC
+- systems engineering map
 - mục lục kiến thức
 - nhánh kiến thức
+- kỹ nghệ hệ thống
+- architecture decision
+- system boundary
+- component responsibility
+- kiến trúc hệ thống
+- ranh giới hệ thống
+- Systems Engineering Introduction
+- Systems Engineering Users and Uses
+- Foundations of Systems Engineering
+- Systems Engineering Fundamentals
 
 ## Source trace
 

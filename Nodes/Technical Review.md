@@ -71,10 +71,10 @@ Technical Review giúp debug lỗi environment-specific, performance thấp tầ
 
 - Technical Review
 - đánh giá kỹ thuật
-- technical
-- review
-- Tooling
-- Implementation Detail
+- Technical Review learning keyword
+- Technical Review debug keyword
+- Technical Review design keyword
+- Technical Review khái niệm cần tra cứu
 
 ## Source trace
 

@@ -72,13 +72,17 @@ TCP ảnh hưởng tới API payload, message, config, log, network call hoặc 
 ## Keywords / Từ khóa tìm kiếm
 
 - TCP
+- tcp troubleshooting
+- tcp configuration
+- debug mạng
 - Transmission Control Protocol
 - giao thức TCP
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
 
 ## Source trace
 

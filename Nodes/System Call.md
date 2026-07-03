@@ -71,12 +71,10 @@ System Call giúp debug lỗi environment-specific, performance thấp tầng, c
 
 - System Call
 - lời gọi hệ thống
-- system
-- call
-- Tooling
-- Implementation Detail
-- hệ thống
-- kiến trúc hệ thống
+- System Call learning keyword
+- System Call debug keyword
+- System Call design keyword
+- System Call khái niệm cần tra cứu
 
 ## Source trace
 

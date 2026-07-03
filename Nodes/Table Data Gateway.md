@@ -70,15 +70,17 @@ Table Data Gateway gom SQL cho một table vào gateway riêng, hợp với data
 ## Keywords / Từ khóa tìm kiếm
 
 - Table Data Gateway
+- table data gateway design
+- table data gateway validation
+- xử lý dữ liệu
 - table data gateway pattern
 - mẫu table data gateway
-- table
-- data
-- gateway
-- Code Design
-- Pattern
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- design pattern
 
 ## Source trace
 

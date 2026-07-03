@@ -72,12 +72,15 @@ Interprocess Communication ảnh hưởng tới API payload, message, config, lo
 - Interprocess Communication
 - IPC
 - giao tiếp liên tiến trình
-- interprocess
-- communication
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
+- mạng máy tính
 
 ## Source trace
 

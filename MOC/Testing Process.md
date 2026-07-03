@@ -80,15 +80,20 @@ Testing Process là MOC điều hướng: dùng để đi từ vùng lớn xuố
 ## Keywords / Từ khóa tìm kiếm
 
 - Testing Process
-- test process
-- quy trình kiểm thử
-- testing
-- process
-- Verification
-- kiểm thử
-- tiến trình
+- testing process checklist
+- testing process strategy
+- kiểm thử Process
+- Testing Process MOC
+- testing process map
 - mục lục kiến thức
 - nhánh kiến thức
+- test process
+- quy trình kiểm thử
+- test design
+- test execution
+- regression testing
+- kiểm thử phần mềm
+- xác minh chất lượng
 
 ## Source trace
 

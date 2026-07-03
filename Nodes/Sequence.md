@@ -71,7 +71,10 @@ Sequence ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệ
 
 - Sequence
 - dãy
-- Computer Foundation
+- Sequence learning keyword
+- Sequence debug keyword
+- Sequence design keyword
+- Sequence khái niệm cần tra cứu
 
 ## Source trace
 

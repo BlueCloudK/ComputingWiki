@@ -71,12 +71,17 @@ Distribution Pattern xử lý ranh giới process/network như remote call, seri
 ## Keywords / Từ khóa tìm kiếm
 
 - Distribution Pattern
+- distribution pattern trade-off
+- distribution pattern refactoring
+- design pattern catalog
 - mẫu phân tán
-- distribution
-- pattern
-- Code Design
-- mẫu thiết kế
 - design pattern
+- refactoring
+- module boundary
+- testability
+- mẫu thiết kế
+- Remote Facade
+- Data Transfer Object
 
 ## Source trace
 

@@ -72,14 +72,17 @@ NFR ép kiến trúc, testing và vận hành nhìn vào rủi ro chất lượn
 ## Keywords / Từ khóa tìm kiếm
 
 - Nonfunctional Requirement
-- quality requirement
-- yêu cầu phi chức năng
 - NFR
-- quality attribute requirement
-- nonfunctional
-- requirement
-- Planning
-- yêu cầu
+- quality requirement
+- quality attribute
+- latency target
+- throughput target
+- availability target
+- reliability target
+- security requirement
+- performance requirement
+- yêu cầu phi chức năng
+- yêu cầu hiệu năng
 
 ## Source trace
 

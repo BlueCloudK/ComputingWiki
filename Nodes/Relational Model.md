@@ -73,15 +73,17 @@ Relational Model ảnh hưởng tới database design, query performance, migrat
 ## Keywords / Từ khóa tìm kiếm
 
 - Relational Model
+- relational model notation
+- relational model review
+- mô hình hóa hệ thống
 - mô hình quan hệ
-- relational
-- model
-- Data
-- Database
-- mô hình
-- dữ liệu
-- hệ thống dữ liệu
-- kiến trúc hệ thống
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Relation
+- Database Schema
 
 ## Source trace
 

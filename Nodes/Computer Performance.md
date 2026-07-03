@@ -73,11 +73,10 @@ Computer Performance ảnh hưởng tới việc chọn index/cache/queue/scale/
 
 - Computer Performance
 - hiệu năng máy tính
-- computer
-- performance
-- Scalability
-- máy tính
-- hiệu năng
+- Amdahl Law
+- Little Law
+- Benchmark
+- Computer Performance learning keyword
 
 ## Source trace
 

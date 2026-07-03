@@ -72,11 +72,12 @@ Software Failure gắn code change với bằng chứng kiểm tra, giúp team q
 - Software Failure
 - failure
 - lỗi biểu hiện khi chạy
-- software
-- Testing
-- Verification
-- phần mềm
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Defect
 
 ## Source trace
 

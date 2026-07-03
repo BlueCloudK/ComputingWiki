@@ -71,8 +71,10 @@ File giúp debug lỗi environment-specific, performance thấp tầng, concurre
 
 - File
 - tập tin
-- Tooling
-- Implementation Detail
+- File learning keyword
+- File debug keyword
+- File design keyword
+- File khái niệm cần tra cứu
 
 ## Source trace
 

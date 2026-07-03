@@ -72,9 +72,14 @@ Latency giúp đặt NFR, SLO và performance budget. Nó chỉ ra user journey 
 
 - Latency
 - response time
+- request latency
+- p95 latency
+- p99 latency
+- service latency
+- network delay
+- user perceived delay
 - độ trễ
-- Performance
-- Scalability
+- thời gian phản hồi
 
 ## Source trace
 

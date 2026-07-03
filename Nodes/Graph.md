@@ -72,9 +72,10 @@ Graph ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ liệu, 
 
 - Graph
 - đồ thị
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
+- Breadth First Search
+- Dijkstra Algorithm
+- Graph learning keyword
+- Graph debug keyword
 
 ## Source trace
 

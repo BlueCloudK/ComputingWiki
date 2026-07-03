@@ -73,10 +73,9 @@ Little Law ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v
 - Little Law
 - Little's law
 - định luật Little
-- little
-- law
-- Performance
-- Scalability
+- Little Law learning keyword
+- Little Law debug keyword
+- Little Law design keyword
 
 ## Source trace
 

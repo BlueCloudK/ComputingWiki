@@ -70,12 +70,17 @@ XSS ảnh hưởng tới API payload, message, config, log, network call hoặc 
 ## Keywords / Từ khóa tìm kiếm
 
 - XSS
+- xss control
+- xss review
+- bảo mật ứng dụng
 - cross-site scripting
 - lỗi XSS
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
 
 ## Source trace
 

@@ -71,10 +71,10 @@ Curriculum Visualization giúp debug lỗi environment-specific, performance th�
 
 - Curriculum Visualization
 - visual hóa curriculum
-- curriculum
-- visualization
-- Tooling
-- Implementation Detail
+- Curriculum Visualization learning keyword
+- Curriculum Visualization debug keyword
+- Curriculum Visualization design keyword
+- Curriculum Visualization khái niệm cần tra cứu
 
 ## Source trace
 

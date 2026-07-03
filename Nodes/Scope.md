@@ -74,7 +74,8 @@ Scope giữ cho planning, estimation, design và acceptance cùng nhìn về m�
 - project scope
 - phạm vi
 - Requirement
-- Planning
+- Change Control
+- Scope learning keyword
 
 ## Source trace
 

@@ -71,8 +71,10 @@ Microkernel giúp debug lỗi environment-specific, performance thấp tầng, c
 
 - Microkernel
 - vi nhân
-- Tooling
-- Implementation Detail
+- Microkernel learning keyword
+- Microkernel debug keyword
+- Microkernel design keyword
+- Microkernel khái niệm cần tra cứu
 
 ## Source trace
 

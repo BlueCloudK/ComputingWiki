@@ -93,15 +93,20 @@ Data Intensive Systems là MOC điều hướng: dùng để đi từ vùng lớ
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Intensive Systems
+- data intensive systems design
+- data intensive systems validation
+- xử lý dữ liệu
+- Data Intensive Systems MOC
+- data intensive systems map
+- mục lục kiến thức
+- nhánh kiến thức
 - data-intensive applications
 - hệ thống dữ liệu lớn
-- data
-- intensive
-- systems
-- Database
-- dữ liệu
-- dữ liệu lớn
-- hệ thống
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

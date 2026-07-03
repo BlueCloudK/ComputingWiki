@@ -72,15 +72,16 @@ Storage and Retrieval ảnh hưởng tới database design, query performance, m
 ## Keywords / Từ khóa tìm kiếm
 
 - Storage and Retrieval
-- lưu trữ và truy xuất
-- storage retrieval
-- storage
-- retrieval
-- Data
-- Database
 - lưu trữ
-- dữ liệu
-- hệ thống dữ liệu
+- lưu trữ và truy xuất
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Hash Index
+- LSM Tree
+- B Tree
 
 ## Source trace
 

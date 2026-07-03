@@ -65,13 +65,11 @@ Node này giúp hiểu failover, primary replica, scheduler và distributed coor
 ## Keywords / Từ khóa tìm kiếm
 
 - Leader Election
-- bầu leader
-- leader
-- election
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- distributed leader
+- consensus leader
+- primary node election
+- split brain prevention
+- bầu chọn leader
 
 ## Source trace
 

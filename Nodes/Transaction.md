@@ -70,12 +70,15 @@ Transaction ảnh hưởng tới database design, query performance, migration, 
 ## Keywords / Từ khóa tìm kiếm
 
 - Transaction
+- giao dịch
 - database transaction
 - giao dịch database
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Rollback
 
 ## Source trace
 

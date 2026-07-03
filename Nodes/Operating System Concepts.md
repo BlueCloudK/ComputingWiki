@@ -76,13 +76,13 @@ Operating System Concepts giúp debug lỗi environment-specific, performance th
 - Operating System Concepts
 - OS concepts
 - khái niệm hệ điều hành
-- operating
-- system
-- concepts
-- Tooling
-- Implementation Detail
+- OS concept
+- kernel boundary
+- process memory
 - hệ điều hành
-- hệ thống
+- debug hệ thống
+- Address Space
+- File
 
 ## Source trace
 

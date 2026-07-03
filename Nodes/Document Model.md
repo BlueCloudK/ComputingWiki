@@ -70,15 +70,15 @@ Document Model ảnh hưởng tới database design, query performance, migratio
 ## Keywords / Từ khóa tìm kiếm
 
 - Document Model
+- document model notation
+- document model review
+- mô hình hóa hệ thống
 - mô hình document
-- document
-- model
-- Data
-- Database
-- mô hình
-- dữ liệu
-- hệ thống dữ liệu
-- kiến trúc hệ thống
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

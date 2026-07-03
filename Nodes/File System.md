@@ -71,12 +71,10 @@ File System giúp debug lỗi environment-specific, performance thấp tầng, c
 
 - File System
 - hệ thống tập tin
-- file
-- system
-- Tooling
-- Implementation Detail
-- hệ thống
-- kiến trúc hệ thống
+- File
+- File System learning keyword
+- File System debug keyword
+- File System design keyword
 
 ## Source trace
 

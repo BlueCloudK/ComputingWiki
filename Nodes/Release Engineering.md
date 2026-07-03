@@ -73,13 +73,14 @@ Release Engineering ảnh hưởng tới quyết định release, ưu tiên tech
 
 - Release Engineering
 - kỹ nghệ phát hành
-- release
-- engineering
-- Reliability
-- SRE
-- kỹ thuật
-- devops
+- release pipeline
+- operational readiness
+- incident response
 - triển khai phần mềm
+- vận hành hệ thống
+- Deployment
+- Rollback
+- Automation
 
 ## Source trace
 

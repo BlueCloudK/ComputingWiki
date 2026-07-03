@@ -71,10 +71,10 @@ Predicates and Quantifiers ảnh hưởng tới lựa chọn thuật toán, cấ
 
 - Predicates and Quantifiers
 - vị từ và lượng từ
-- predicates quantifiers
-- predicates
-- quantifiers
-- Computer Foundation
+- Predicates and Quantifiers learning keyword
+- Predicates and Quantifiers debug keyword
+- Predicates and Quantifiers design keyword
+- Predicates and Quantifiers khái niệm cần tra cứu
 
 ## Source trace
 

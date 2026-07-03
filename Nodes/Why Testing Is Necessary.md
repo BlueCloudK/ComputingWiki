@@ -73,14 +73,17 @@ Why Testing Is Necessary gắn code change với bằng chứng kiểm tra, giú
 ## Keywords / Từ khóa tìm kiếm
 
 - Why Testing Is Necessary
+- why testing is necessary checklist
+- why testing is necessary strategy
+- kiểm thử Why Is Necessary
 - why testing matters
 - vì sao cần testing
-- why
-- testing
-- is
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Software Failure
 
 ## Source trace
 

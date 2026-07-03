@@ -72,12 +72,11 @@ Relational Algebra ảnh hưởng tới database design, query performance, migr
 
 - Relational Algebra
 - đại số quan hệ
-- relational
-- algebra
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

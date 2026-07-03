@@ -72,10 +72,13 @@ Key ảnh hưởng tới database design, query performance, migration, audit/hi
 
 - Key
 - khóa
-- Data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- Primary Key
+- Foreign Key
 
 ## Source trace
 

@@ -71,11 +71,10 @@ Selection Sort ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ
 
 - Selection Sort
 - sắp xếp chọn
-- selection
-- sort
-- Computer Foundation
-- thuật toán
-- cấu trúc dữ liệu
+- Selection Sort learning keyword
+- Selection Sort debug keyword
+- Selection Sort design keyword
+- Selection Sort khái niệm cần tra cứu
 
 ## Source trace
 

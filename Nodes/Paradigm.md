@@ -74,7 +74,9 @@ Paradigm giúp đọc codebase đúng idiom và tránh thiết kế trái dòng 
 - Paradigm
 - programming paradigm
 - mô thức lập trình
-- Computer Foundation
+- Paradigm learning keyword
+- Paradigm debug keyword
+- Paradigm design keyword
 
 ## Source trace
 

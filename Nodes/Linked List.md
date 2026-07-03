@@ -71,9 +71,10 @@ Linked List ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ li
 
 - Linked List
 - danh sách liên kết
-- linked
-- list
-- Computer Foundation
+- Linked List learning keyword
+- Linked List debug keyword
+- Linked List design keyword
+- Linked List khái niệm cần tra cứu
 
 ## Source trace
 

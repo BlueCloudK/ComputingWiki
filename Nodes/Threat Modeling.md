@@ -68,13 +68,15 @@ Node này giúp security control đặt đúng chỗ thay vì thêm ngẫu nhiê
 
 - Threat Modeling
 - threat model
-- mô hình đe dọa
-- threat
-- modeling
-- Security
-- mô hình hóa
-- bảo mật phần mềm
-- kiến trúc hệ thống
+- attack surface
+- asset
+- trust boundary
+- entry point
+- abuse case
+- mitigation
+- security design review
+- mô hình hóa mối đe dọa
+- bề mặt tấn công
 
 ## Source trace
 

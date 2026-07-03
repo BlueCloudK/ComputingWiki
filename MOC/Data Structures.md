@@ -79,15 +79,20 @@ Data Structures là MOC điều hướng: dùng để đi từ vùng lớn xuố
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Structures
-- data structure
-- cấu trúc dữ liệu
-- data
-- structures
-- Database
-- dữ liệu
+- data structures design
+- data structures validation
+- xử lý dữ liệu
+- Data Structures MOC
+- data structures map
 - mục lục kiến thức
 - nhánh kiến thức
-- hệ thống dữ liệu
+- data structure
+- cấu trúc dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

@@ -75,11 +75,9 @@ Sets Functions Sequences and Matrices ảnh hưởng tới lựa chọn thuật 
 - Sets Functions Sequences and Matrices
 - sets/functions/sequences/matrices
 - cấu trúc rời rạc cơ bản
-- sets functions sequences matrices
-- sets
-- functions
-- sequences
-- Computer Foundation
+- Set
+- Function
+- Sequence
 
 ## Source trace
 

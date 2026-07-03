@@ -78,14 +78,17 @@ C4 Model ảnh hưởng tới cách chia module/service, deploy, debug incident,
 ## Keywords / Từ khóa tìm kiếm
 
 - C4 Model
+- C4
+- c4 model notation
+- c4 model review
+- mô hình hóa hệ thống
 - C4 architecture model
 - mô hình C4
-- c4
-- model
-- Architecture
-- System Design
-- mô hình
+- architecture decision
+- system boundary
+- component responsibility
 - kiến trúc hệ thống
+- ranh giới hệ thống
 
 ## Source trace
 

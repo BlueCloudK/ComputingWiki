@@ -70,12 +70,15 @@ Routing Algorithm ảnh hưởng tới lựa chọn thuật toán, cấu trúc d
 ## Keywords / Từ khóa tìm kiếm
 
 - Routing Algorithm
-- thuật toán định tuyến
-- routing
-- algorithm
-- Computer Foundation
+- routing algorithm complexity
+- routing algorithm edge case
 - thuật toán
+- thuật toán định tuyến
+- algorithm complexity
+- edge case
+- input size
 - cấu trúc dữ liệu
+- BGP
 
 ## Source trace
 

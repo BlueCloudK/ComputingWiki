@@ -70,12 +70,12 @@ Complexity of Algorithms ảnh hưởng tới lựa chọn thuật toán, cấu 
 ## Keywords / Từ khóa tìm kiếm
 
 - Complexity of Algorithms
+- complexity of algorithms complexity
+- complexity of algorithms edge case
 - algorithm complexity
 - độ phức tạp thuật toán
-- complexity algorithms
-- complexity
-- algorithms
-- Computer Foundation
+- edge case
+- input size
 - thuật toán
 - cấu trúc dữ liệu
 

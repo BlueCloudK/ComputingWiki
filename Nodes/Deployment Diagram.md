@@ -70,13 +70,16 @@ Deployment Diagram ảnh hưởng tới release safety, incident response, troub
 ## Keywords / Từ khóa tìm kiếm
 
 - Deployment Diagram
-- sơ đồ triển khai
-- deployment
-- diagram
-- Operations
+- deployment diagram notation
+- deployment diagram review
+- mô hình hóa hệ thống
 - triển khai
-- devops
+- sơ đồ triển khai
+- release pipeline
+- operational readiness
+- incident response
 - triển khai phần mềm
+- vận hành hệ thống
 
 ## Source trace
 

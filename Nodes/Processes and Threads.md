@@ -74,11 +74,10 @@ Processes and Threads giúp debug lỗi environment-specific, performance thấp
 
 - Processes and Threads
 - tiến trình và luồng
-- processes threads
-- processes
-- threads
-- Tooling
-- Implementation Detail
+- Thread
+- Interprocess Communication
+- Processes and Threads learning keyword
+- Processes and Threads debug keyword
 
 ## Source trace
 

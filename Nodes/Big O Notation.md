@@ -75,10 +75,8 @@ Big O Notation ảnh hưởng tới lựa chọn thuật toán, cấu trúc dữ
 - ký hiệu Big O
 - asymptotic notation
 - độ phức tạp tiệm cận
-- big
-- o
-- notation
-- Computer Foundation
+- Growth of Functions
+- Complexity of Algorithms
 
 ## Source trace
 

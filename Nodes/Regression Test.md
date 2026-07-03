@@ -71,14 +71,17 @@ Regression Test gắn code change với bằng chứng kiểm tra, giúp team qu
 ## Keywords / Từ khóa tìm kiếm
 
 - Regression Test
+- regression test checklist
+- regression test strategy
+- kiểm thử Regression
 - regression testing
 - kiểm thử hồi quy
-- regression
-- test
-- Testing
-- Verification
-- kiểm thử
+- test design
+- test execution
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Unit Test
+- E2E Test
 
 ## Source trace
 

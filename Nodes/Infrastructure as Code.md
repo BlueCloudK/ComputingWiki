@@ -73,14 +73,13 @@ IaC làm environment reproducible hơn, giảm manual drift và giúp rollback/r
 
 - Infrastructure as Code
 - IaC
-- hạ tầng dưới dạng code
 - infrastructure automation
+- declarative infrastructure
+- provisioning
+- Terraform plan
+- environment drift
 - hạ tầng bằng mã
-- infrastructure
-- as
-- code
-- Deployment
-- Operations
+- tự động hóa hạ tầng
 
 ## Source trace
 

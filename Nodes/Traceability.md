@@ -73,8 +73,9 @@ Traceability giúp trả lời "nếu đổi requirement này thì vỡ gì" và
 - Traceability
 - requirements traceability
 - truy vết yêu cầu
-- Requirement
-- Planning
+- Traceability learning keyword
+- Traceability debug keyword
+- Traceability design keyword
 
 ## Source trace
 

@@ -70,14 +70,17 @@ DNS ảnh hưởng tới API payload, message, config, log, network call hoặc 
 ## Keywords / Từ khóa tìm kiếm
 
 - DNS
+- dns troubleshooting
+- dns configuration
+- debug mạng
 - Domain Name System
 - hệ thống tên miền
 - phân giải tên miền
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
-- mạng máy tính
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
 
 ## Source trace
 

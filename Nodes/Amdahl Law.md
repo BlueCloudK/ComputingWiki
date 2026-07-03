@@ -72,10 +72,9 @@ Amdahl Law ảnh hưởng tới việc chọn index/cache/queue/scale/refactor v
 - Amdahl Law
 - Amdahl's law
 - định luật Amdahl
-- amdahl
-- law
-- Performance
-- Scalability
+- Amdahl Law learning keyword
+- Amdahl Law debug keyword
+- Amdahl Law design keyword
 
 ## Source trace
 

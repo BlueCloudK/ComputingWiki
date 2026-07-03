@@ -66,12 +66,12 @@ Node này hữu ích khi cần vừa raw/flexible vừa query/model có governan
 ## Keywords / Từ khóa tìm kiếm
 
 - Data Lakehouse
-- lakehouse
+- lakehouse architecture
+- Delta Lake
+- Apache Iceberg
+- table format
+- warehouse lake hybrid
 - kiến trúc lakehouse
-- data
-- Database
-- dữ liệu
-- hệ thống dữ liệu
 
 ## Source trace
 

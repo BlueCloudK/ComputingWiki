@@ -72,14 +72,13 @@ Pipeline giúp dữ liệu production/analytics/ML có đường đi lặp lại
 
 - Data Pipeline
 - data workflow
+- batch pipeline
+- stream pipeline
+- data ingestion
+- data transformation
+- pipeline orchestration
 - pipeline dữ liệu
-- data
-- pipeline
-- Database
-- dữ liệu
-- hệ thống dữ liệu
-- devops
-- triển khai phần mềm
+- luồng xử lý dữ liệu
 
 ## Source trace
 

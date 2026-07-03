@@ -72,9 +72,10 @@ Singleton kiểm soát một instance toàn cục, nhưng dễ tạo hidden stat
 - Singleton
 - singleton pattern
 - mẫu singleton
-- Code Design
-- Pattern
 - design pattern
+- refactoring
+- module boundary
+- testability
 - mẫu thiết kế
 
 ## Source trace

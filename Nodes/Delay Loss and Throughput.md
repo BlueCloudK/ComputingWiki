@@ -70,15 +70,11 @@ Delay Loss and Throughput ảnh hưởng tới việc chọn index/cache/queue/s
 ## Keywords / Từ khóa tìm kiếm
 
 - Delay Loss and Throughput
+- thông lượng
 - network delay/loss/throughput
 - độ trễ mất gói thông lượng
-- delay loss throughput
-- delay
-- loss
-- throughput
-- Performance
-- Scalability
-- thông lượng
+- Delay Loss and Throughput learning keyword
+- Delay Loss and Throughput debug keyword
 
 ## Source trace
 

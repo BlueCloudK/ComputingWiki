@@ -73,10 +73,14 @@ IP ảnh hưởng tới API payload, message, config, log, network call hoặc s
 - Internet Protocol
 - giao thức IP
 - giao thức internet
-- Protocol
-- Data Format
-- dữ liệu
-- hệ thống dữ liệu
+- data model
+- query design
+- data consistency
+- pipeline dữ liệu
+- chất lượng dữ liệu
+- network protocol
+- packet flow
+- connection troubleshooting
 
 ## Source trace
 

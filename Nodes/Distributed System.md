@@ -69,15 +69,13 @@ Node này giúp reasoning về retry, consistency, latency, fault tolerance và 
 ## Keywords / Từ khóa tìm kiếm
 
 - Distributed System
-- distributed systems
+- distributed computing
+- multiple nodes
+- network failure
+- partial failure
+- replication
+- distributed coordination
 - hệ phân tán
-- distributed
-- system
-- Architecture
-- System Design
-- phân tán
-- hệ thống
-- kiến trúc hệ thống
 
 ## Source trace
 

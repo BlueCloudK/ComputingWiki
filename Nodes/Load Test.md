@@ -71,14 +71,17 @@ Load Test gắn code change với bằng chứng kiểm tra, giúp team quyết 
 ## Keywords / Từ khóa tìm kiếm
 
 - Load Test
+- load test checklist
+- load test strategy
+- kiểm thử Load
 - test under load
 - kiểm thử tải
-- load
-- test
-- Testing
-- Verification
-- kiểm thử
+- test design
+- test execution
+- regression testing
 - kiểm thử phần mềm
+- xác minh chất lượng
+- Benchmark
 
 ## Source trace
 
