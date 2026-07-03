@@ -67,6 +67,10 @@ Data Intensive Systems là MOC điều hướng: dùng để đi từ vùng lớ
 - [[Consensus]]
 - [[Batch Processing]]
 - [[Stream Processing]]
+- [[Data Pipeline]]
+- [[ETL]]
+- [[Data Warehouse]]
+- [[Data Lake]]
 
 ## Nối mạnh
 

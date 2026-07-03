@@ -57,6 +57,12 @@ API and Integration là MOC điều hướng: dùng để đi từ vùng lớn x
 - [[API Contract]]
 - [[Validation]]
 - [[Error Handling]]
+- [[API Security]]
+- [[Webhook]]
+- [[Rate Limiting]]
+- [[API Versioning]]
+- [[OpenAPI]]
+- [[Idempotency]]
 
 ## Nối mạnh
 

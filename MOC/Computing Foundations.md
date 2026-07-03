@@ -55,6 +55,8 @@ Computing Foundations là MOC điều hướng: dùng để đi từ vùng lớn
 ## Gồm những gì
 
 - [[Algorithms]]
+- [[Programming Languages]]
+- [[Compiler and Interpreter]]
 - [[Operating System]]
 - [[Computer Networks]]
 - [[Data and Database]]

@@ -60,6 +60,9 @@ Performance là MOC điều hướng: dùng để đi từ vùng lớn xuống n
 - [[Cache]]
 - [[Queue]]
 - [[Load Test]]
+- [[Latency]]
+- [[Throughput]]
+- [[Backpressure]]
 
 ## Nối mạnh
 

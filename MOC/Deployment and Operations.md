@@ -61,6 +61,10 @@ Deployment and Operations là MOC điều hướng: dùng để đi từ vùng l
 - [[Incident]]
 - [[Rollback]]
 - [[Backup]]
+- [[CI]]
+- [[CD]]
+- [[Infrastructure as Code]]
+- [[Cloud Computing]]
 
 ## Nối mạnh
 

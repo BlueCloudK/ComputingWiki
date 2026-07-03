@@ -58,6 +58,7 @@ Security là MOC điều hướng: dùng để đi từ vùng lớn xuống node
 - [[Authorization]]
 - [[Secret]]
 - [[Input Validation]]
+- [[API Security]]
 
 ## Nối mạnh
 
