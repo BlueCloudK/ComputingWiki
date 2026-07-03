@@ -177,6 +177,8 @@ Priority: Medium
 
 ## Frontend Framework Pack
 
+Status: Initial pack added.
+
 Purpose: add framework-specific concepts after the web foundation is stable.
 
 Example missing nodes:
