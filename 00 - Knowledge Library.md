@@ -41,6 +41,7 @@
 - [[Performance]]
 - [[Deployment and Operations]]
 - [[Cloud and Infrastructure]]
+- [[Linux and Server Admin]]
 - [[Data Engineering]]
 - [[SRE and Reliability]]
 - [[Debugging and Failure Patterns]]

@@ -115,7 +115,7 @@ Example missing nodes:
 - firewall
 - cron
 
-Priority: High
+Priority: Done in initial pack
 
 ## AI / RAG / Agent Engineering Pack
 
