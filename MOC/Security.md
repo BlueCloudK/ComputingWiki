@@ -54,6 +54,7 @@ Security là MOC điều hướng: dùng để đi từ vùng lớn xuống node
 
 ## Gồm những gì
 
+- [[Security Attack Patterns]]
 - [[Authentication]]
 - [[Authorization]]
 - [[Secret]]

@@ -10,6 +10,7 @@ Khác với MOC, path không cố gom toàn bộ node trong một vùng. Path ch
 - [[Web Application Path]]
 - [[API Design Path]]
 - [[Security Engineering Path]]
+- [[Security Attack Patterns Path]]
 - [[Debugging and Failure Patterns Path]]
 - [[DevOps Deployment Path]]
 - [[Database Engineering Path]]

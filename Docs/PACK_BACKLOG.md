@@ -61,6 +61,8 @@ Priority: High
 
 ## Security Attack Patterns Pack
 
+Status: Initial pack added.
+
 Purpose: deepen application security attacks, controls, and secure delivery.
 
 Example missing nodes:

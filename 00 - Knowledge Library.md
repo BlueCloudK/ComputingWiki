@@ -38,6 +38,7 @@
 - [[Testing Process]]
 - [[Testing Techniques]]
 - [[Security]]
+- [[Security Attack Patterns]]
 - [[Performance]]
 - [[Deployment and Operations]]
 - [[Cloud and Infrastructure]]
