@@ -12,6 +12,7 @@
 - [[Algorithms]]
 - [[Data Structures]]
 - [[Programming Languages]]
+- [[Game Development]]
 - [[Programming Languages Deep]]
 - [[Web Development]]
 - [[Mobile Development]]

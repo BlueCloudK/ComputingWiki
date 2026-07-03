@@ -211,6 +211,8 @@ Priority: Later
 
 ## Game Development Pack
 
+Status: Initial pack added.
+
 Purpose: add game loop, rendering, physics, input, asset pipeline, and engine concepts.
 
 Example missing nodes:

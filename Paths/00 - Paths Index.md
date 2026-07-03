@@ -10,6 +10,7 @@ Khác với MOC, path không cố gom toàn bộ node trong một vùng. Path ch
 - [[Web Application Path]]
 - [[Frontend Frameworks Path]]
 - [[Mobile Development Path]]
+- [[Game Development Path]]
 - [[API Design Path]]
 - [[Security Engineering Path]]
 - [[Security Attack Patterns Path]]
