@@ -194,6 +194,8 @@ Priority: Medium
 
 ## Mobile Development Pack
 
+Status: Initial pack added.
+
 Purpose: add mobile app platform concepts and production concerns.
 
 Example missing nodes:

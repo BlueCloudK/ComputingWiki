@@ -14,6 +14,7 @@
 - [[Programming Languages]]
 - [[Programming Languages Deep]]
 - [[Web Development]]
+- [[Mobile Development]]
 - [[Frontend Frameworks]]
 - [[Backend Engineering]]
 - [[Application Engineering]]
