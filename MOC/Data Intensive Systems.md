@@ -78,6 +78,12 @@ Data Intensive Systems là MOC điều hướng: dùng để đi từ vùng lớ
 - [[CAP Theorem]]
 - [[Exactly Once]]
 - [[At Least Once]]
+- [[ACID]]
+- [[Isolation Level]]
+- [[MVCC]]
+- [[Write Ahead Log]]
+- [[Vector Database]]
+- [[RAG]]
 
 ## Nối mạnh
 

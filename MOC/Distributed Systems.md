@@ -58,6 +58,10 @@ MOC này giúp đọc graph backend/data/SRE khi vấn đề vượt khỏi mộ
 - [[CAP Theorem]]
 - [[Exactly Once]]
 - [[At Least Once]]
+- [[Split Brain]]
+- [[Circuit Breaker]]
+- [[Retry]]
+- [[Exponential Backoff]]
 
 ## Nối mạnh
 

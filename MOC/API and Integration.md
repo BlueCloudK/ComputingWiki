@@ -63,6 +63,15 @@ API and Integration là MOC điều hướng: dùng để đi từ vùng lớn x
 - [[API Versioning]]
 - [[OpenAPI]]
 - [[Idempotency]]
+- [[HTTP Client]]
+- [[API Gateway]]
+- [[JWT]]
+- [[Cookie]]
+- [[CORS]]
+- [[Request Lifecycle]]
+- [[SSRF]]
+- [[IDOR]]
+- [[JWT Attack]]
 
 ## Nối mạnh
 

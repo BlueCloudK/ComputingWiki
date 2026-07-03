@@ -63,6 +63,15 @@ Vùng này giúp dev hiểu vì sao cùng một ý tưởng nhưng behavior khá
 - [[Paradigm]]
 - [[Static Typing]]
 - [[Dynamic Typing]]
+- [[JavaScript]]
+- [[TypeScript]]
+- [[Python]]
+- [[Java]]
+- [[C Sharp]]
+- [[Go]]
+- [[Rust]]
+- [[C Programming Language]]
+- [[C Plus Plus]]
 
 ## Nối mạnh
 

@@ -63,6 +63,12 @@ Vùng này giúp dữ liệu không bị biến thành file rời rạc hoặc q
 - [[CDC]]
 - [[Data Quality]]
 - [[Orchestration]]
+- [[Dataset]]
+- [[Vector Database]]
+- [[RAG]]
+- [[AI Evaluation]]
+- [[MLOps]]
+- [[Model Drift]]
 
 ## Nối mạnh
 

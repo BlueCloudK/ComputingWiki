@@ -69,6 +69,15 @@ SRE and Reliability là MOC điều hướng: dùng để đi từ vùng lớn x
 - [[Release Engineering]]
 - [[Capacity Planning]]
 - [[Overload Handling]]
+- [[Timeout]]
+- [[Retry]]
+- [[Exponential Backoff]]
+- [[Circuit Breaker]]
+- [[Resource Exhaustion]]
+- [[Config Drift]]
+- [[Split Brain]]
+- [[Model Drift]]
+- [[AI Evaluation]]
 
 ## Nối mạnh
 

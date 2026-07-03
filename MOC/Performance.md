@@ -67,6 +67,15 @@ Performance là MOC điều hướng: dùng để đi từ vùng lớn xuống n
 - [[Saturation]]
 - [[Performance Budget]]
 - [[Capacity]]
+- [[Timeout]]
+- [[Retry Storm]]
+- [[Memory Leak]]
+- [[Thread Starvation]]
+- [[Resource Exhaustion]]
+- [[Queue Backlog]]
+- [[N Plus One Query]]
+- [[Cache Stampede]]
+- [[Stale Cache]]
 
 ## Nối mạnh
 

@@ -1,4 +1,4 @@
-﻿# Graph Traversal
+# Graph Traversal
 
 Aliases: graph search, duyệt đồ thị
 

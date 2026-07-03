@@ -69,6 +69,19 @@ Deployment and Operations là MOC điều hướng: dùng để đi từ vùng l
 - [[Deployment Strategy]]
 - [[Blue-Green Deployment]]
 - [[Canary Release]]
+- [[Web Server]]
+- [[Reverse Proxy]]
+- [[Config Drift]]
+- [[Backup Strategy]]
+- [[Database Migration]]
+- [[Docker Compose]]
+- [[Helm]]
+- [[Nginx]]
+- [[Kubernetes Deployment]]
+- [[Kubernetes Service]]
+- [[Kubernetes Ingress]]
+- [[ConfigMap]]
+- [[Kubernetes Secret]]
 
 ## Nối mạnh
 
