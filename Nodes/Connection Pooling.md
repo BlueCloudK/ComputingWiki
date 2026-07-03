@@ -1,53 +1,63 @@
 # Connection Pooling
 
-Aliases: database connection pool, pool kết nối
+Aliases: database connection pool, pool kết nối, connection pool
 
 Type: Backend / Database
 
 ## Context / Ngữ cảnh
 
-Connection Pooling xuất hiện khi app cần tái sử dụng connection và kiểm soát concurrency tới database.
+Connection Pooling xuất hiện khi application cần nói chuyện với database hoặc service ngoài nhiều lần mà không muốn mở connection mới cho mỗi request. Trong backend production, connection pool là lớp kiểm soát concurrency giữa app và database, ảnh hưởng trực tiếp tới latency, throughput và khả năng chịu tải.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Connection Pooling là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Connection Pooling là cơ chế giữ sẵn một số connection để tái sử dụng. App checkout connection từ pool, dùng để query/transaction, rồi trả lại pool. Pool thường có cấu hình như max pool size, min idle, checkout timeout, idle timeout, max lifetime và leak detection.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Connection Pooling không làm database nhanh vô hạn. Tăng pool size không đồng nghĩa tăng throughput nếu database đã bão hòa CPU/IO/lock. Nó cũng không thay thế query optimization, index, transaction design hoặc caching; pool chỉ điều tiết số connection đang được dùng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Connection Pooling là pool size, checkout timeout, idle connection, max lifetime và leak detection.
+Pool giới hạn số connection đồng thời và hàng đợi request chờ connection rảnh. Nếu pool quá nhỏ, request bị chờ hoặc timeout dù database còn khỏe. Nếu pool quá lớn, database bị quá tải, context switching tăng, lock contention nặng hơn. Nếu code không trả connection về pool, pool bị leak và cuối cùng mọi request chờ connection.
 
 ## Project Role / Vai trò trong dự án
 
-Connection Pooling giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Connection Pooling là node cần mở khi debug backend chậm, request timeout, database connection spike, thread bị block hoặc lỗi “too many connections”. Nó giúp team quyết định pool size, timeout, transaction scope, monitoring metric và cách tách nguyên nhân giữa app bottleneck và database bottleneck.
 
 ## Output / Artifact nên có
 
-- Connection Pooling decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Connection Pooling
-- Failure note ghi rõ Connection Pooling ảnh hưởng user, runtime hay data thế nào
+- Pool configuration: max pool size, min idle, checkout timeout, idle timeout, max lifetime
+- Metric dashboard: active connections, idle connections, pending waiters, checkout time, timeout count
+- Load test note cho pool size tương ứng với app instance count và database limit
+- Leak detection setting hoặc test cho path không đóng/return connection
+- Runbook cho lỗi pool exhausted, too many connections và database saturation
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Connection Pooling đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Connection Pooling không?
-- Khi Connection Pooling fail, user hoặc service nào bị ảnh hưởng trước?
+- Tổng connection tối đa = pool size x số app instances có vượt database max connections không?
+- Checkout timeout có ngắn hơn request timeout tổng không?
+- Transaction có giữ connection quá lâu vì gọi API ngoài hoặc xử lý business logic trong transaction không?
+- Có metric active/idle/pending/checkout time để phân biệt pool thiếu hay query chậm không?
+- Có connection leak detection không?
+- Pool size được kiểm chứng bằng load test hay chỉ đoán?
+- Khi scale horizontally, pool config có tự nhân lên làm database quá tải không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Connection Pooling làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Connection Pooling nhưng không ghi rõ owner, constraint hoặc rollback path
+- Pool quá nhỏ làm request xếp hàng chờ connection và timeout dù database chưa quá tải.
+- Pool quá lớn làm database vượt max connection hoặc giảm performance vì quá nhiều session đồng thời.
+- Connection leak khiến active connection tăng dần rồi app treo ở checkout.
+- Transaction giữ connection lâu làm pool cạn dưới tải cao.
+- Health check hoặc background job dùng chung pool với request chính làm user traffic bị nghẽn.
+- Retry khi pool đang cạn tạo thêm áp lực và làm timeout lan rộng.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Connection Pooling nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Connection Pooling trước khi có nhu cầu vận hành hoặc học tập rõ
+- Script nhỏ hoặc job chạy một lần có thể mở/đóng connection đơn giản nếu không có concurrency cao.
+- App nhỏ một instance có thể dùng default pool config ban đầu, nhưng vẫn cần biết database max connections.
+- Không nên tuning pool liên tục khi nguyên nhân thật là query thiếu index, lock contention hoặc external call trong transaction.
 
 ## Gồm những gì
 
@@ -55,25 +65,36 @@ Connection Pooling giúp team đọc code, thiết kế, debug hoặc vận hàn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Connection Pool Saturation]] vì pool bị cạn là failure mode trực tiếp của connection pooling.
+- [[Database Transaction]] vì transaction giữ connection càng lâu thì pool càng dễ cạn.
+- [[Timeout]] vì checkout timeout và request timeout quyết định user thấy lỗi nhanh hay bị treo.
+- [[Load Test]] vì pool size cần được kiểm chứng dưới concurrency thật.
 
 ## Liên quan rộng
 
 - Database reliability
 - Backend performance
-- Data correctness
+- Capacity planning
+- Query optimization
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Connection Pooling
 - database connection pool
+- connection pool
 - pool kết nối
-- connection pooling debugging
-- connection pooling design
-- database design
-- debug database
-- cơ sở dữ liệu
+- max pool size
+- checkout timeout
+- active connections
+- idle connections
+- connection leak
+- too many connections
+- pool exhausted
+- HikariCP
+- database concurrency
+- connection wait time
 
 ## Source trace
 
-- HikariCP docs; PostgreSQL connection docs
+- HikariCP documentation
+- PostgreSQL connection documentation
