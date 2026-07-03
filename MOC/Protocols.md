@@ -2,21 +2,48 @@
 
 Aliases: network protocols, giao thức
 
+Type: Protocol / Data Format
+
+## Bản chất
+
+Protocols là quy ước để hệ thống encode, parse, truyền hoặc hiểu dữ liệu/giao tiếp. Vấn đề chính là compatibility: producer và consumer phải thống nhất schema, version, error và behavior khi dữ liệu lệch. Nó nối với các phần liên quan như [[HTTP]], [[DNS]], [[SMTP]].
+
 ## Dùng trong dự án để làm gì
 
-Protocols là trang điều hướng cho nhóm kiến thức này trong Knowledge Library. Khi làm dự án, mở trang này để đi nhanh tới các node con liên quan, chọn hướng đọc đúng bối cảnh và tránh lạc vào từng khái niệm rời rạc.
+Protocols là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
 
 ## Khi nào cần quan tâm
 
-- Cần tìm nhanh các khái niệm chính trong nhóm này
-- Đang đọc graph và muốn đi từ vùng lớn xuống node cụ thể
-- Muốn kiểm tra node nào liên quan trực tiếp trước khi đào sâu
+- Thiết kế payload, message, config, log hoặc protocol call
+- Consumer cũ cần đọc dữ liệu producer mới
+- Parse/serialize lỗi hoặc dữ liệu mất kiểu
+- Cần versioning/schema để nhiều service cùng hiểu
+
+## Output / artifact nên có
+
+- Schema/contract hoặc format decision ghi rõ field, type và version
+- Parser/serializer validation rule và error handling
+- Compatibility test cho consumer/producer quan trọng
+
+## Checklist kiểm tra
+
+- Producer và consumer có hiểu cùng schema/type không?
+- Versioning/backward compatibility được xử lý thế nào?
+- Parse error, missing field và extra field trả lỗi ra sao?
+- Date/time/number/binary encoding có rủi ro mất dữ liệu không?
+- Payload size hoặc protocol behavior có ảnh hưởng performance không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Nhầm MOC với node giải thích chi tiết
-- Danh sách con quá rộng làm graph khó đọc
-- Link tới node chưa thật sự liên quan làm mất hướng điều hướng
+- Client/server hiểu khác type hoặc optional field
+- Breaking schema làm consumer cũ lỗi
+- Date/time/number precision bị serialize sai
+- Payload lớn hoặc parsing đắt làm API/log chậm
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần schema/versioning phức tạp khi dữ liệu nội bộ nhỏ và consumer ít
+- Dễ over-engineer nếu chọn format/protocol nặng hơn nhu cầu tích hợp thật
 
 ## Gồm những gì
 

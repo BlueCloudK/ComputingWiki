@@ -2,21 +2,48 @@
 
 Aliases: deployment diagram, sơ đồ triển khai
 
+Type: Artifact / Diagram
+
+## Bản chất
+
+Deployment Diagram là artifact dùng để nhìn thấy cấu trúc, luồng hoặc quan hệ mà đọc code/tài liệu chữ khó thấy. Giá trị của nó nằm ở việc làm rõ boundary, actor, component, data flow hoặc state chứ không phải vẽ cho đẹp. Nó nối với nhóm quyết định quanh deployment diagram.
+
 ## Dùng trong dự án để làm gì
 
-Deployment Diagram dùng khi hệ thống đã hoặc sắp chạy thật, cần quan sát, release, phục hồi và giữ dịch vụ ổn định. Nó giúp team biết nên đo gì, cảnh báo gì và xử lý thế nào khi production có vấn đề.
+Deployment Diagram giúp team thống nhất hình dung trước khi sửa architecture, API, database hoặc workflow. Nó là output để review quyết định, phát hiện dependency ẩn và onboarding người mới nhanh hơn.
 
 ## Khi nào cần quan tâm
 
-- Service chuẩn bị chạy production
-- Có incident, alert hoặc lỗi khó tái hiện
-- Cần cải thiện monitoring, release hoặc rollback
+- Team giải thích hệ thống bằng lời nhưng mỗi người hiểu một kiểu
+- Một thay đổi chạm nhiều component, service, table hoặc actor
+- Cần review boundary, data flow, state transition hoặc dependency
+- Người mới cần hiểu hệ thống mà đọc code quá lâu
+
+## Output / artifact nên có
+
+- Diagram hoặc artifact có tên version/date và phạm vi rõ
+- Legend hoặc note ngắn giải thích ký hiệu quan trọng
+- Decision/link tới node liên quan nếu diagram dẫn đến thay đổi thiết kế
+
+## Checklist kiểm tra
+
+- Diagram có nói rõ scope và mức abstraction không?
+- Các node/edge quan trọng có khớp hệ thống thật không?
+- Có bỏ sót external system, actor, database hoặc failure path không?
+- Diagram có còn đúng sau thay đổi gần nhất không?
+- Người đọc có biết dùng diagram này để ra quyết định gì không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Alert quá ồn hoặc thiếu tín hiệu quan trọng
-- Không có rollback/runbook khi incident xảy ra
-- Tối ưu cục bộ làm giảm reliability tổng thể
+- Diagram đẹp nhưng không khớp production/code thật
+- Quá nhiều chi tiết làm mất insight chính
+- Thiếu boundary làm người đọc hiểu sai trách nhiệm
+- Không version nên dùng nhầm diagram cũ
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần vẽ riêng nếu thay đổi nhỏ và code đã đủ rõ
+- Dễ over-engineer khi vẽ nhiều view nhưng không view nào phục vụ decision cụ thể
 
 ## Gồm những gì
 

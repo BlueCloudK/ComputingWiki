@@ -2,21 +2,48 @@
 
 Aliases: PEAA pattern, mẫu kiến trúc ứng dụng doanh nghiệp
 
+Type: Architecture / System Design
+
+## Bản chất
+
+Enterprise Application Architecture Pattern là quyết định ở mức system: boundary, dependency, runtime component, failure mode và trade-off. Nó không chỉ là sơ đồ; nó quyết định phần nào sở hữu dữ liệu, phần nào gọi phần nào, và hệ thống chịu tải/lỗi ra sao. Nó nối với các phần liên quan như [[Layering Pattern]], [[Data Source Architectural Pattern]], [[Object Relational Behavioral Pattern]] và nhóm quyết định quanh enterprise application architecture pattern.
+
 ## Dùng trong dự án để làm gì
 
-Enterprise Application Architecture Pattern giúp mô tả cấu trúc lớn, boundary và quan hệ giữa các phần của hệ thống. Trong dự án, nó hữu ích khi cần giải thích hệ thống cho người khác, chia module/service hoặc đánh giá tác động của thay đổi.
+Enterprise Application Architecture Pattern ảnh hưởng tới khả năng mở rộng, maintainability, deployability và cách team chia việc. Trong dự án, nó giúp chọn boundary, giảm coupling và ghi lại trade-off trước khi codebase khóa vào một hướng khó đổi.
 
 ## Khi nào cần quan tâm
 
-- Cần chia hệ thống thành module/service rõ hơn
-- Một thay đổi ảnh hưởng nhiều phần
-- Cần truyền đạt cấu trúc hệ thống cho team
+- Một thay đổi ảnh hưởng nhiều module/service/database
+- Team cần chốt boundary hoặc ownership
+- Có failure mode, scalability hoặc maintainability risk
+- Cần giải thích architecture cho review/onboarding
+
+## Output / artifact nên có
+
+- Architecture decision record hoặc diagram có boundary rõ
+- Danh sách dependency, owner và failure mode chính
+- Trade-off note về scalability, maintainability, cost và complexity
+
+## Checklist kiểm tra
+
+- Boundary giữa component/service đã rõ chưa?
+- Dependency nào là bắt buộc, dependency nào có thể đảo chiều?
+- Failure của phần này lan sang phần nào?
+- Thiết kế này scale bằng cách nào và tốn cost gì?
+- Có cách đơn giản hơn đủ dùng cho giai đoạn hiện tại không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Diagram hoặc boundary không phản ánh hệ thống thật
-- Quyết định kiến trúc không ghi lại nên khó đổi sau này
-- Coupling cao làm một thay đổi kéo theo nhiều lỗi
+- Boundary sai làm team ownership và data ownership rối
+- Coupling cao khiến một thay đổi kéo theo nhiều service
+- Không nghĩ failure mode nên incident khó khoanh vùng
+- Thiết kế quá lớn so với nhu cầu hiện tại
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần tách service/layer phức tạp khi một module đơn giản đủ kiểm soát
+- Dễ over-engineer nếu tối ưu scalability chưa có traffic hoặc team vận hành tương ứng
 
 ## Gồm những gì
 

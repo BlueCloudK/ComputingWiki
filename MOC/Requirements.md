@@ -2,21 +2,48 @@
 
 Aliases: software requirements, requirements engineering, yêu cầu phần mềm
 
+Type: Requirement / Planning
+
+## Bản chất
+
+Requirements là phần làm rõ nhu cầu, phạm vi hoặc tiêu chí chấp nhận trước khi team thiết kế và code. Điểm quan trọng là nó phải đủ đo được: biết ai cần gì, điều kiện nào được xem là đạt, và trace được từ stakeholder sang design/test. Nếu phần này mơ hồ, downstream sẽ sinh tranh luận ở lúc review hoặc QA. Nó nối với các phần liên quan như [[Requirement]], [[Use Case]], [[User Story]].
+
 ## Dùng trong dự án để làm gì
 
-Requirements là trang điều hướng cho nhóm kiến thức này trong Knowledge Library. Khi làm dự án, mở trang này để đi nhanh tới các node con liên quan, chọn hướng đọc đúng bối cảnh và tránh lạc vào từng khái niệm rời rạc.
+Requirements là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
 
 ## Khi nào cần quan tâm
 
-- Cần tìm nhanh các khái niệm chính trong nhóm này
-- Đang đọc graph và muốn đi từ vùng lớn xuống node cụ thể
-- Muốn kiểm tra node nào liên quan trực tiếp trước khi đào sâu
+- Stakeholder dùng từ mơ hồ như nhanh, ổn định, dễ dùng, bảo mật hoặc linh hoạt
+- Developer và tester hiểu khác nhau về hành vi cần giao
+- Acceptance criteria chưa đo được hoặc chưa có điều kiện pass/fail
+- Một thay đổi scope kéo theo design/test nhưng chưa được trace
+
+## Output / artifact nên có
+
+- Acceptance criteria hoặc decision note rõ điều kiện pass/fail
+- Trace từ requirement sang design, test và release scope
+- Danh sách assumption/open question cần stakeholder xác nhận
+
+## Checklist kiểm tra
+
+- Tiêu chí này có đo được bằng test, metric hoặc review không?
+- Ai là stakeholder/consumer chịu ảnh hưởng chính?
+- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
+- Requirement này có trace tới design và test case liên quan chưa?
+- Nếu scope đổi, node nào phải cập nhật theo?
 
 ## Lỗi / rủi ro thường gặp
 
-- Nhầm MOC với node giải thích chi tiết
-- Danh sách con quá rộng làm graph khó đọc
-- Link tới node chưa thật sự liên quan làm mất hướng điều hướng
+- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
+- Acceptance mơ hồ làm QA không kết luận được
+- Scope creep vì không ghi rõ out-of-scope
+- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần formal hóa quá mạnh khi chỉ là prototype cá nhân hoặc spike ngắn
+- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement nặng nề
 
 ## Gồm những gì
 

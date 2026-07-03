@@ -2,21 +2,48 @@
 
 Aliases: router, bộ định tuyến
 
+Type: Tooling / Implementation Detail
+
+## Bản chất
+
+Router là chi tiết triển khai hoặc tầng runtime ảnh hưởng tới cách code chạy trong môi trường thật. Nó thường nằm dưới lớp feature, nhưng khi lỗi xảy ra thì có thể quyết định performance, concurrency, memory, file hoặc platform behavior. Nó nối với các phần liên quan như [[Network Layer]].
+
 ## Dùng trong dự án để làm gì
 
-Router liên quan tới cách các máy, service hoặc client giao tiếp qua mạng. Khi hệ thống gọi API, truyền message, debug timeout hoặc thiết kế integration, node này giúp hiểu lớp giao tiếp đang có vấn đề ở đâu.
+Router giúp debug và ra quyết định ở tầng implementation: config, runtime, OS, memory, thread, file, tool hoặc framework boundary. Trong dự án, nó nên được quan tâm khi triệu chứng đã chạm tới tầng chạy thật.
 
 ## Khi nào cần quan tâm
 
-- API call timeout, retry nhiều hoặc kết nối chập chờn
-- Thiết kế giao tiếp giữa service/client
-- Cần debug protocol, routing hoặc DNS
+- Bug chỉ xảy ra ở một environment hoặc runtime cụ thể
+- Có lỗi memory, file, process, thread hoặc config
+- Performance/debug cần nhìn dưới tầng business logic
+- Tool/framework behavior khác giả định của team
+
+## Output / artifact nên có
+
+- Troubleshooting note hoặc checklist tái hiện lỗi
+- Config/runtime decision nếu ảnh hưởng deploy
+- Test hoặc script kiểm tra behavior quan trọng
+
+## Checklist kiểm tra
+
+- Triệu chứng có phụ thuộc environment/runtime không?
+- Config/tool/version nào đang ảnh hưởng behavior?
+- Có log/metric đủ chứng minh nguyên nhân không?
+- Thay đổi implementation này có ảnh hưởng portability không?
+- Có cách kiểm tra tự động để tránh regression không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Timeout/retry không rõ làm lỗi lan rộng
-- Client và server hiểu khác protocol hoặc version
-- Debug sai tầng nên mất thời gian ở chỗ không liên quan
+- Fix symptom ở tầng tool nhưng bỏ sót nguyên nhân hệ thống
+- Phụ thuộc behavior riêng của environment
+- Config/version lệch làm lỗi khó tái hiện
+- Tối ưu thấp tầng làm code khó hiểu mà lợi ích nhỏ
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần đào sâu nếu lỗi nằm rõ ở business logic
+- Dễ over-engineer nếu tối ưu chi tiết runtime trước khi có metric hoặc bug thật
 
 ## Gồm những gì
 

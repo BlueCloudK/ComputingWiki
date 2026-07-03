@@ -2,21 +2,48 @@
 
 Aliases: iterator pattern, mẫu iterator
 
+Type: Code Design / Pattern
+
+## Bản chất
+
+Iterator là cách tổ chức responsibility, dependency hoặc variation trong code. Nó chỉ có giá trị khi làm code dễ đổi, dễ test hoặc giảm coupling; nếu dùng vì tên pattern nghe hay thì thường làm code khó đọc hơn.
+
 ## Dùng trong dự án để làm gì
 
-Iterator hỗ trợ tổ chức code, model, object hoặc trách nhiệm trong phần mềm. Khi code bắt đầu khó đổi, nhiều dependency chéo hoặc logic nằm sai chỗ, node này giúp chọn cách thiết kế rõ hơn.
+Iterator ảnh hưởng tới module boundary, interface, testability và nơi đặt business logic. Trong dự án, nó giúp xử lý code đang phình, trùng logic hoặc phụ thuộc chéo giữa layer/object.
 
 ## Khi nào cần quan tâm
 
-- Code khó đổi hoặc trách nhiệm bị trộn lẫn
-- Dependency giữa module/object bắt đầu rối
-- Cần chọn pattern/model để tổ chức logic
+- Một class/module có quá nhiều trách nhiệm
+- Logic bị duplicate giữa nhiều handler/service
+- Dependency làm unit test khó viết hoặc mock quá nặng
+- Có nhiều biến thể behavior cần thay đổi độc lập
+
+## Output / artifact nên có
+
+- Design decision ngắn ghi pattern/responsibility được chọn
+- Interface hoặc module boundary rõ input/output
+- Refactor checklist và test regression cho behavior cũ
+
+## Checklist kiểm tra
+
+- Pattern này giải quyết coupling/duplication cụ thể nào?
+- Responsibility mới nằm đúng layer chưa?
+- Interface có đủ nhỏ và dễ test không?
+- Có làm tăng indirection quá mức không?
+- Regression test có giữ behavior cũ không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Pattern bị dùng quá tay làm code phức tạp hơn
-- Responsibility đặt sai chỗ gây duplicate logic
-- Interface thiếu rõ khiến module phụ thuộc chặt
+- Áp pattern máy móc làm code nhiều lớp hơn nhưng không rõ hơn
+- Business rule bị giấu sai layer
+- Interface quá chung gây leak abstraction
+- Refactor thiếu test làm đổi behavior ngoài ý muốn
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần pattern khi logic đơn giản và chưa có biến thể thật
+- Dễ over-engineer nếu tạo abstraction trước khi thấy duplication hoặc volatility
 
 ## Gồm những gì
 

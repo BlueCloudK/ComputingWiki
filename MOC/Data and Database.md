@@ -2,21 +2,48 @@
 
 Aliases: database systems, data systems, dữ liệu và database
 
+Type: Data / Database
+
+## Bản chất
+
+Data and Database liên quan tới cách dữ liệu được mô hình hóa, lưu, truy vấn, giữ nhất quán và thay đổi theo thời gian. Trong dự án thật, data issue thường không chỉ là code bug mà là schema, relationship, transaction, migration hoặc query không được nghĩ kỹ. Nó nối với các phần liên quan như [[ERD]], [[Database Schema]], [[SQL]] và nhóm quyết định quanh data and database.
+
 ## Dùng trong dự án để làm gì
 
-Data and Database là trang điều hướng cho nhóm kiến thức này trong Knowledge Library. Khi làm dự án, mở trang này để đi nhanh tới các node con liên quan, chọn hướng đọc đúng bối cảnh và tránh lạc vào từng khái niệm rời rạc.
+Data and Database là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
 
 ## Khi nào cần quan tâm
 
-- Cần tìm nhanh các khái niệm chính trong nhóm này
-- Đang đọc graph và muốn đi từ vùng lớn xuống node cụ thể
-- Muốn kiểm tra node nào liên quan trực tiếp trước khi đào sâu
+- Thiết kế schema/model hoặc thay đổi field/relationship
+- Dữ liệu sai, thiếu, trùng, inconsistent hoặc migrate khó
+- Query chậm, index thiếu hoặc transaction lock bất thường
+- Cần backup, audit trail, history hoặc rollback dữ liệu
+
+## Output / artifact nên có
+
+- Schema/model hoặc migration note rõ thay đổi dữ liệu
+- Constraint/index/transaction decision nếu có ảnh hưởng consistency/performance
+- Checklist backup, audit hoặc data validation cho dữ liệu quan trọng
+
+## Checklist kiểm tra
+
+- Schema có biểu diễn đúng relationship và cardinality không?
+- Migration có plan rollback/backfill và kiểm tra dữ liệu sau chạy không?
+- Transaction boundary có đủ giữ consistency không?
+- Query chính có index và baseline performance chưa?
+- Dữ liệu quan trọng có backup/history/audit đủ truy vết không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Nhầm MOC với node giải thích chi tiết
-- Danh sách con quá rộng làm graph khó đọc
-- Link tới node chưa thật sự liên quan làm mất hướng điều hướng
+- Schema sai làm code phải vá vòng quanh
+- Migration mất dữ liệu hoặc gây downtime
+- Transaction/consistency yếu làm dữ liệu lệch giữa service
+- Query thiếu index làm production chậm khi data tăng
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần model phức tạp khi dữ liệu nhỏ, ít quan hệ và dễ migrate
+- Dễ over-engineer nếu normalize/partition/cache trước khi có query pattern thật
 
 ## Gồm những gì
 

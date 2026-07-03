@@ -2,21 +2,48 @@
 
 Aliases: visual hóa curriculum
 
+Type: Tooling / Implementation Detail
+
+## Bản chất
+
+Curriculum Visualization là chi tiết triển khai hoặc tầng runtime ảnh hưởng tới cách code chạy trong môi trường thật. Nó thường nằm dưới lớp feature, nhưng khi lỗi xảy ra thì có thể quyết định performance, concurrency, memory, file hoặc platform behavior. Nó nối với các phần liên quan như [[Computing Education]] và nhóm quyết định quanh curriculum visualization.
+
 ## Dùng trong dự án để làm gì
 
-Curriculum Visualization là khái niệm hỗ trợ tổ chức và ra quyết định trong dự án IT/phần mềm. Mở node này khi nó xuất hiện trong tài liệu, thiết kế, debug hoặc khi cần hiểu vai trò của nó trong hệ thống hiện tại.
+Curriculum Visualization giúp debug và ra quyết định ở tầng implementation: config, runtime, OS, memory, thread, file, tool hoặc framework boundary. Trong dự án, nó nên được quan tâm khi triệu chứng đã chạm tới tầng chạy thật.
 
 ## Khi nào cần quan tâm
 
-- Khái niệm này xuất hiện trong thiết kế hoặc bug report
-- Cần nối nó với node liên quan để hiểu bối cảnh
-- Bạn muốn biết khi nào nó ảnh hưởng tới dự án thật
+- Bug chỉ xảy ra ở một environment hoặc runtime cụ thể
+- Có lỗi memory, file, process, thread hoặc config
+- Performance/debug cần nhìn dưới tầng business logic
+- Tool/framework behavior khác giả định của team
+
+## Output / artifact nên có
+
+- Troubleshooting note hoặc checklist tái hiện lỗi
+- Config/runtime decision nếu ảnh hưởng deploy
+- Test hoặc script kiểm tra behavior quan trọng
+
+## Checklist kiểm tra
+
+- Triệu chứng có phụ thuộc environment/runtime không?
+- Config/tool/version nào đang ảnh hưởng behavior?
+- Có log/metric đủ chứng minh nguyên nhân không?
+- Thay đổi implementation này có ảnh hưởng portability không?
+- Có cách kiểm tra tự động để tránh regression không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Hiểu khái niệm quá chung nên áp dụng sai chỗ
-- Link liên quan không rõ làm graph nhiễu
-- Source trace yếu khiến sau này khó kiểm chứng lại
+- Fix symptom ở tầng tool nhưng bỏ sót nguyên nhân hệ thống
+- Phụ thuộc behavior riêng của environment
+- Config/version lệch làm lỗi khó tái hiện
+- Tối ưu thấp tầng làm code khó hiểu mà lợi ích nhỏ
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần đào sâu nếu lỗi nằm rõ ở business logic
+- Dễ over-engineer nếu tối ưu chi tiết runtime trước khi có metric hoặc bug thật
 
 ## Gồm những gì
 

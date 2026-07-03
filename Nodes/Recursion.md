@@ -2,21 +2,48 @@
 
 Aliases: recursion, đệ quy
 
+Type: Computer Foundation
+
+## Bản chất
+
+Recursion là kiến thức nền giúp hiểu vì sao software chạy đúng, chạy chậm hoặc fail ở một số điều kiện. Nó không phải phần luôn viết vào code, nhưng giúp dev chọn cấu trúc dữ liệu, thuật toán và debug vấn đề sâu hơn. Nó nối với các phần liên quan như [[Induction and Recursion]].
+
 ## Dùng trong dự án để làm gì
 
-Recursion là nền tảng để hiểu cách máy tính, thuật toán hoặc mô hình toán học vận hành. Trong dự án, nó hữu ích khi cần phân tích độ phức tạp, chọn cấu trúc dữ liệu hoặc giải thích giới hạn kỹ thuật.
+Recursion ảnh hưởng tới lựa chọn algorithm, data structure, complexity, correctness và reasoning khi dữ liệu lớn hoặc edge case xuất hiện. Trong dự án, nó giúp tránh giải pháp 'chạy được demo' nhưng vỡ khi scale.
 
 ## Khi nào cần quan tâm
 
-- Cần chọn thuật toán hoặc cấu trúc dữ liệu
-- Cần phân tích chi phí, giới hạn hoặc correctness
-- Một bug xuất phát từ hiểu sai nền tảng computing
+- Cần phân tích complexity hoặc correctness
+- Dữ liệu tăng làm cách làm đơn giản bị chậm
+- Bug liên quan edge case, ordering, recursion, graph hoặc state
+- Cần chọn data structure/algorithm trước khi tối ưu
+
+## Output / artifact nên có
+
+- Decision note về thuật toán/cấu trúc dữ liệu được chọn
+- Complexity hoặc invariant ngắn nếu ảnh hưởng performance/correctness
+- Test case cho edge case nền tảng
+
+## Checklist kiểm tra
+
+- Input size và constraint thật là gì?
+- Complexity worst-case/average-case có chấp nhận được không?
+- Edge case nào dễ làm thuật toán sai?
+- Data structure hiện tại có phù hợp pattern truy cập không?
+- Có test chứng minh invariant/correctness quan trọng không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Chọn cấu trúc/thuật toán sai làm hệ thống chậm hoặc khó mở rộng
-- Nhầm độ phức tạp hoặc giả định dữ liệu
-- Bỏ qua edge case nền tảng dẫn tới bug khó thấy
+- Chọn cấu trúc dữ liệu sai làm query/update chậm
+- Nhầm complexity khiến hệ thống vỡ khi data tăng
+- Bỏ sót edge case nền tảng
+- Tối ưu thuật toán nhưng làm code khó bảo trì không cần thiết
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần đào sâu nếu input nhỏ và không nằm trên critical path
+- Dễ over-engineer nếu tối ưu thuật toán trước khi đo bottleneck thật
 
 ## Gồm những gì
 

@@ -2,21 +2,48 @@
 
 Aliases: row data gateway pattern, mẫu row data gateway
 
+Type: Code Design / Pattern
+
+## Bản chất
+
+Row Data Gateway là cách tổ chức responsibility, dependency hoặc variation trong code. Nó chỉ có giá trị khi làm code dễ đổi, dễ test hoặc giảm coupling; nếu dùng vì tên pattern nghe hay thì thường làm code khó đọc hơn. Nó nối với nhóm quyết định quanh row data gateway.
+
 ## Dùng trong dự án để làm gì
 
-Row Data Gateway ảnh hưởng tới cách hệ thống lưu, đọc, trao đổi và kiểm soát dữ liệu. Trong dự án, nó thường xuất hiện ở database design, API payload, migration, transaction, reporting hoặc khi debug lỗi dữ liệu sai lệch.
+Row Data Gateway ảnh hưởng tới module boundary, interface, testability và nơi đặt business logic. Trong dự án, nó giúp xử lý code đang phình, trùng logic hoặc phụ thuộc chéo giữa layer/object.
 
 ## Khi nào cần quan tâm
 
-- Thiết kế schema, payload hoặc data model
-- Dữ liệu bị sai, thiếu, trùng hoặc khó migrate
-- Tích hợp hệ thống cần thống nhất format và contract
+- Một class/module có quá nhiều trách nhiệm
+- Logic bị duplicate giữa nhiều handler/service
+- Dependency làm unit test khó viết hoặc mock quá nặng
+- Có nhiều biến thể behavior cần thay đổi độc lập
+
+## Output / artifact nên có
+
+- Design decision ngắn ghi pattern/responsibility được chọn
+- Interface hoặc module boundary rõ input/output
+- Refactor checklist và test regression cho behavior cũ
+
+## Checklist kiểm tra
+
+- Pattern này giải quyết coupling/duplication cụ thể nào?
+- Responsibility mới nằm đúng layer chưa?
+- Interface có đủ nhỏ và dễ test không?
+- Có làm tăng indirection quá mức không?
+- Regression test có giữ behavior cũ không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Schema và code hiểu khác nhau về field/type
-- Migration hoặc transaction làm mất/tạo sai dữ liệu
-- Format thay đổi mà consumer không được cập nhật
+- Áp pattern máy móc làm code nhiều lớp hơn nhưng không rõ hơn
+- Business rule bị giấu sai layer
+- Interface quá chung gây leak abstraction
+- Refactor thiếu test làm đổi behavior ngoài ý muốn
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần pattern khi logic đơn giản và chưa có biến thể thật
+- Dễ over-engineer nếu tạo abstraction trước khi thấy duplication hoặc volatility
 
 ## Gồm những gì
 

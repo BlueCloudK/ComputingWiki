@@ -2,21 +2,48 @@
 
 Aliases: data source architecture pattern, mẫu truy cập dữ liệu
 
+Type: Architecture / System Design
+
+## Bản chất
+
+Data Source Architectural Pattern là quyết định ở mức system: boundary, dependency, runtime component, failure mode và trade-off. Nó không chỉ là sơ đồ; nó quyết định phần nào sở hữu dữ liệu, phần nào gọi phần nào, và hệ thống chịu tải/lỗi ra sao. Nó nối với các phần liên quan như [[Table Data Gateway]], [[Row Data Gateway]], [[Active Record]] và nhóm quyết định quanh data source architectural pattern.
+
 ## Dùng trong dự án để làm gì
 
-Data Source Architectural Pattern ảnh hưởng tới cách hệ thống lưu, đọc, trao đổi và kiểm soát dữ liệu. Trong dự án, nó thường xuất hiện ở database design, API payload, migration, transaction, reporting hoặc khi debug lỗi dữ liệu sai lệch.
+Data Source Architectural Pattern ảnh hưởng tới khả năng mở rộng, maintainability, deployability và cách team chia việc. Trong dự án, nó giúp chọn boundary, giảm coupling và ghi lại trade-off trước khi codebase khóa vào một hướng khó đổi.
 
 ## Khi nào cần quan tâm
 
-- Thiết kế schema, payload hoặc data model
-- Dữ liệu bị sai, thiếu, trùng hoặc khó migrate
-- Tích hợp hệ thống cần thống nhất format và contract
+- Một thay đổi ảnh hưởng nhiều module/service/database
+- Team cần chốt boundary hoặc ownership
+- Có failure mode, scalability hoặc maintainability risk
+- Cần giải thích architecture cho review/onboarding
+
+## Output / artifact nên có
+
+- Architecture decision record hoặc diagram có boundary rõ
+- Danh sách dependency, owner và failure mode chính
+- Trade-off note về scalability, maintainability, cost và complexity
+
+## Checklist kiểm tra
+
+- Boundary giữa component/service đã rõ chưa?
+- Dependency nào là bắt buộc, dependency nào có thể đảo chiều?
+- Failure của phần này lan sang phần nào?
+- Thiết kế này scale bằng cách nào và tốn cost gì?
+- Có cách đơn giản hơn đủ dùng cho giai đoạn hiện tại không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Schema và code hiểu khác nhau về field/type
-- Migration hoặc transaction làm mất/tạo sai dữ liệu
-- Format thay đổi mà consumer không được cập nhật
+- Boundary sai làm team ownership và data ownership rối
+- Coupling cao khiến một thay đổi kéo theo nhiều service
+- Không nghĩ failure mode nên incident khó khoanh vùng
+- Thiết kế quá lớn so với nhu cầu hiện tại
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần tách service/layer phức tạp khi một module đơn giản đủ kiểm soát
+- Dễ over-engineer nếu tối ưu scalability chưa có traffic hoặc team vận hành tương ứng
 
 ## Gồm những gì
 

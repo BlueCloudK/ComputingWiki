@@ -2,21 +2,48 @@
 
 Aliases: API response, phản hồi API
 
+Type: API / Integration
+
+## Bản chất
+
+Response nằm ở boundary nơi client, backend, service hoặc third-party phải hiểu nhau bằng contract. Vấn đề chính không chỉ là gọi được, mà là request/response, validation, error format và compatibility có ổn định không. Nó nối với các phần liên quan như [[Error Handling]].
+
 ## Dùng trong dự án để làm gì
 
-Response dùng khi nhiều phần mềm cần giao tiếp ổn định với nhau. Trong dự án, nó quyết định contract, dữ liệu vào ra, lỗi tích hợp và khả năng thay đổi giữa frontend, backend, service hoặc third-party.
+Response quyết định cách các phần của hệ thống tích hợp, đổi version và debug lỗi mismatch. Trong dự án, nó giúp chốt contract trước khi nhiều team/client phụ thuộc vào nhau.
 
 ## Khi nào cần quan tâm
 
-- Thiết kế hoặc thay đổi endpoint/contract
-- Frontend-backend hoặc service-service hiểu dữ liệu khác nhau
-- Tích hợp third-party/webhook/RPC
+- Thiết kế hoặc thay đổi request/response giữa client và server
+- Client/server hiểu khác field, status code hoặc error format
+- Cần giữ backward compatibility cho consumer cũ
+- Tích hợp third-party, webhook, REST/RPC hoặc service nội bộ
+
+## Output / artifact nên có
+
+- API contract hoặc integration decision ghi rõ request/response/error
+- Validation rule và compatibility/versioning note
+- Test contract hoặc integration test cho path quan trọng
+
+## Checklist kiểm tra
+
+- Request/response có schema và required/optional field rõ chưa?
+- Error format có thống nhất và đủ debug không?
+- Validation xảy ra ở đâu và message trả về thế nào?
+- Change này có breaking với consumer hiện tại không?
+- Có test cho mismatch dữ liệu, auth và timeout không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Breaking change làm client hoặc service khác lỗi
-- Request/response thiếu validation và versioning
-- Error handling không thống nhất gây khó debug
+- Client/server mismatch làm lỗi chỉ xuất hiện khi tích hợp
+- Error format không chuẩn khiến frontend và log khó debug
+- Breaking change không version làm consumer cũ hỏng
+- Validation thiếu khiến dữ liệu bẩn đi sâu vào hệ thống
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần contract quá nặng cho prototype một client một server
+- Dễ over-engineer nếu versioning phức tạp khi chưa có consumer ổn định
 
 ## Gồm những gì
 

@@ -2,21 +2,48 @@
 
 Aliases: architecture views, sơ đồ kiến trúc
 
+Type: Artifact / Diagram
+
+## Bản chất
+
+Architecture Diagrams là artifact dùng để nhìn thấy cấu trúc, luồng hoặc quan hệ mà đọc code/tài liệu chữ khó thấy. Giá trị của nó nằm ở việc làm rõ boundary, actor, component, data flow hoặc state chứ không phải vẽ cho đẹp. Nó nối với các phần liên quan như [[Architecture Diagram]], [[C4 Model]], [[System Context Diagram]] và nhóm quyết định quanh architecture diagrams.
+
 ## Dùng trong dự án để làm gì
 
-Architecture Diagrams là trang điều hướng cho nhóm kiến thức này trong Knowledge Library. Khi làm dự án, mở trang này để đi nhanh tới các node con liên quan, chọn hướng đọc đúng bối cảnh và tránh lạc vào từng khái niệm rời rạc.
+Architecture Diagrams là MOC để đi từ vùng kiến thức lớn xuống các node có thể dùng trong dự án. Nó không thay node chi tiết; nhiệm vụ của nó là gom các quyết định, artifact, checklist và rủi ro liên quan để bạn không đọc rời rạc.
 
 ## Khi nào cần quan tâm
 
-- Cần tìm nhanh các khái niệm chính trong nhóm này
-- Đang đọc graph và muốn đi từ vùng lớn xuống node cụ thể
-- Muốn kiểm tra node nào liên quan trực tiếp trước khi đào sâu
+- Team giải thích hệ thống bằng lời nhưng mỗi người hiểu một kiểu
+- Một thay đổi chạm nhiều component, service, table hoặc actor
+- Cần review boundary, data flow, state transition hoặc dependency
+- Người mới cần hiểu hệ thống mà đọc code quá lâu
+
+## Output / artifact nên có
+
+- Diagram hoặc artifact có tên version/date và phạm vi rõ
+- Legend hoặc note ngắn giải thích ký hiệu quan trọng
+- Decision/link tới node liên quan nếu diagram dẫn đến thay đổi thiết kế
+
+## Checklist kiểm tra
+
+- Diagram có nói rõ scope và mức abstraction không?
+- Các node/edge quan trọng có khớp hệ thống thật không?
+- Có bỏ sót external system, actor, database hoặc failure path không?
+- Diagram có còn đúng sau thay đổi gần nhất không?
+- Người đọc có biết dùng diagram này để ra quyết định gì không?
 
 ## Lỗi / rủi ro thường gặp
 
-- Nhầm MOC với node giải thích chi tiết
-- Danh sách con quá rộng làm graph khó đọc
-- Link tới node chưa thật sự liên quan làm mất hướng điều hướng
+- Diagram đẹp nhưng không khớp production/code thật
+- Quá nhiều chi tiết làm mất insight chính
+- Thiếu boundary làm người đọc hiểu sai trách nhiệm
+- Không version nên dùng nhầm diagram cũ
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần vẽ riêng nếu thay đổi nhỏ và code đã đủ rõ
+- Dễ over-engineer khi vẽ nhiều view nhưng không view nào phục vụ decision cụ thể
 
 ## Gồm những gì
 
