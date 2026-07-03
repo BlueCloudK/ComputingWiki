@@ -159,6 +159,8 @@ Priority: Medium
 
 ## Frameworks and Tools Pack
 
+Status: Initial pack added.
+
 Purpose: add common engineering tools only when they are useful as stable project concepts.
 
 Example missing nodes:

@@ -21,6 +21,7 @@ Khác với MOC, path không cố gom toàn bộ node trong một vùng. Path ch
 - [[AI Application Engineering Path]]
 - [[AI RAG and Agent Engineering Path]]
 - [[Programming Languages Deep Path]]
+- [[Frameworks and Tools Path]]
 
 ## Cách dùng
 
