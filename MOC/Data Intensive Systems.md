@@ -71,6 +71,13 @@ Data Intensive Systems là MOC điều hướng: dùng để đi từ vùng lớ
 - [[ETL]]
 - [[Data Warehouse]]
 - [[Data Lake]]
+- [[Distributed System]]
+- [[Fault Tolerance]]
+- [[Leader Election]]
+- [[Quorum]]
+- [[CAP Theorem]]
+- [[Exactly Once]]
+- [[At Least Once]]
 
 ## Nối mạnh
 

@@ -65,6 +65,10 @@ Deployment and Operations là MOC điều hướng: dùng để đi từ vùng l
 - [[CD]]
 - [[Infrastructure as Code]]
 - [[Cloud Computing]]
+- [[Build Pipeline]]
+- [[Deployment Strategy]]
+- [[Blue-Green Deployment]]
+- [[Canary Release]]
 
 ## Nối mạnh
 

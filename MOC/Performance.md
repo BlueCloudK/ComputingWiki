@@ -63,6 +63,10 @@ Performance là MOC điều hướng: dùng để đi từ vùng lớn xuống n
 - [[Latency]]
 - [[Throughput]]
 - [[Backpressure]]
+- [[Tail Latency]]
+- [[Saturation]]
+- [[Performance Budget]]
+- [[Capacity]]
 
 ## Nối mạnh
 

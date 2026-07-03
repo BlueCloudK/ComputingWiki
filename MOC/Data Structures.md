@@ -62,6 +62,8 @@ Data Structures là MOC điều hướng: dùng để đi từ vùng lớn xuố
 - [[Tree]]
 - [[Matrix]]
 - [[Set]]
+- [[Heap]]
+- [[Priority Queue]]
 
 ## Nối mạnh
 

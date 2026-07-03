@@ -61,6 +61,10 @@ Computing Foundations là MOC điều hướng: dùng để đi từ vùng lớn
 - [[Computer Networks]]
 - [[Data and Database]]
 - [[Software Engineering]]
+- [[Turing Model]]
+- [[Von Neumann Model]]
+- [[Number System]]
+- [[Data Representation]]
 
 ## Nối mạnh
 

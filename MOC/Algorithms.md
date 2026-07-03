@@ -65,6 +65,11 @@ Algorithms là MOC điều hướng: dùng để đi từ vùng lớn xuống no
 - [[Dijkstra Algorithm]]
 - [[Greedy Algorithm]]
 - [[Dynamic Programming]]
+- [[Sorting Algorithm]]
+- [[Searching Algorithm]]
+- [[Graph Traversal]]
+- [[Time Complexity]]
+- [[Space Complexity]]
 
 ## Nối mạnh
 

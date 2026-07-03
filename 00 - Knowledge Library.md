@@ -22,6 +22,7 @@
 - [[Data and Database]]
 - [[Database Systems]]
 - [[Data Intensive Systems]]
+- [[Distributed Systems]]
 - [[Data Formats]]
 - [[API and Integration]]
 - [[Testing and Verification]]

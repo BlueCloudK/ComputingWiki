@@ -56,6 +56,15 @@ Vùng này giúp tránh lỗi môi trường: dev chạy được nhưng product
 
 - [[Cloud Computing]]
 - [[Infrastructure as Code]]
+- [[Region]]
+- [[Availability Zone]]
+- [[Load Balancer]]
+- [[Object Storage]]
+- [[VPC]]
+- [[IAM]]
+- [[Kubernetes]]
+- [[Docker]]
+- [[Terraform]]
 
 ## Nối mạnh
 

@@ -58,6 +58,11 @@ Vùng này giúp dữ liệu không bị biến thành file rời rạc hoặc q
 - [[ETL]]
 - [[Data Warehouse]]
 - [[Data Lake]]
+- [[ELT]]
+- [[Data Lakehouse]]
+- [[CDC]]
+- [[Data Quality]]
+- [[Orchestration]]
 
 ## Nối mạnh
 
