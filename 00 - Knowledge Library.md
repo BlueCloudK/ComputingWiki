@@ -1,5 +1,11 @@
 # Knowledge Library
 
+## Navigation
+
+- [[00 - Paths Index]]
+
+## Main Maps
+
 - [[Computing Foundations]]
 - [[Computing Disciplines]]
 - [[Discrete Mathematics]]
@@ -39,3 +45,12 @@
 - [[Debugging and Failure Patterns]]
 - [[AI and ML Engineering]]
 - [[Systems Engineering]]
+
+## Project Docs
+
+- [[AI_CONTEXT]]
+- [[NODE_SCHEMA]]
+- [[EXPANSION_GUIDE]]
+- [[SOURCE_POLICY]]
+- [[PACK_BACKLOG]]
+- [[GRAPH_RULES]]
