@@ -6,48 +6,58 @@ Type: Failure Pattern / Database
 
 ## Context / Ngữ cảnh
 
-N Plus One Query xuất hiện khi code gọi thêm một query cho từng record thay vì fetch theo batch hoặc join.
+N Plus One Query xuất hiện khi code lấy một danh sách record bằng 1 query, rồi tiếp tục gọi thêm 1 query cho từng record để lấy relation/child data. Nó thường xảy ra trong ORM, template rendering, API list endpoint, GraphQL resolver hoặc loop xử lý dữ liệu.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-N Plus One Query là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+N Plus One Query là failure pattern trong đó số query tăng theo số lượng item thay vì giữ gần như hằng số hoặc tăng theo batch. Ví dụ lấy 100 orders rồi query customer cho từng order sẽ thành 1 + 100 queries thay vì join/eager load/batch query.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+N Plus One Query không phải mọi vấn đề performance database. Query chậm vì thiếu index, lock, full table scan hoặc network latency là vấn đề khác. N+1 tập trung vào pattern “loop sinh query” làm số query tăng tuyến tính theo số record.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của N Plus One Query là lazy loading, relation traversal, query count, eager load và batching.
+N+1 thường sinh ra từ lazy loading hoặc resolver gọi data access trong vòng lặp. Dữ liệu ít thì khó thấy lỗi, nhưng khi list dài hoặc traffic cao, query count tăng mạnh, connection pool bị áp lực, latency tăng và database bị quá tải vì nhiều round trip nhỏ.
 
 ## Project Role / Vai trò trong dự án
 
-N Plus One Query giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+N Plus One Query là node cần mở khi API list page chậm, database query count tăng bất thường, ORM log có nhiều query giống nhau hoặc GraphQL endpoint chậm theo số item. Nó giúp team kiểm tra eager loading, join, batching, DataLoader, projection và query count test.
 
 ## Output / Artifact nên có
 
-- N Plus One Query decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới N Plus One Query
-- Failure note ghi rõ N Plus One Query ảnh hưởng user, runtime hay data thế nào
+- Query count baseline cho endpoint/list page quan trọng
+- ORM/logging config để thấy SQL được sinh ra
+- Test hoặc performance check phát hiện query count tăng theo số item
+- Fix note: eager loading, join, batch query, DataLoader hoặc projection phù hợp
+- Benchmark trước/sau fix với số record đại diện production
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- N Plus One Query đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của N Plus One Query không?
-- Khi N Plus One Query fail, user hoặc service nào bị ảnh hưởng trước?
+- Endpoint/list page có query trong vòng lặp không?
+- ORM relation đang lazy load hay eager load?
+- Query count có tăng theo số record trả về không?
+- Có log SQL hoặc tracing để nhìn thấy nhiều query giống nhau không?
+- Có thể fetch relation bằng join, include/eager load hoặc batch query không?
+- GraphQL resolver có dùng DataLoader/batching không?
+- Fix N+1 có làm payload quá lớn hoặc join quá nặng không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của N Plus One Query làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên N Plus One Query nhưng không ghi rõ owner, constraint hoặc rollback path
+- List page chạy ổn với dữ liệu demo nhưng chậm nặng khi production có nhiều record.
+- Mỗi item trigger lazy load làm database nhận hàng trăm/hàng nghìn query nhỏ.
+- Connection pool bị cạn vì nhiều request cùng tạo N+1 queries.
+- Cache che lỗi trong dev nhưng cache miss ở production làm latency tăng đột biến.
+- Fix bằng eager load quá rộng làm response nặng hoặc join sinh duplicate/Cartesian explosion.
+- Không có query count test nên N+1 quay lại sau refactor.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu N Plus One Query nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh N Plus One Query trước khi có nhu cầu vận hành hoặc học tập rõ
+- Dataset rất nhỏ và endpoint không nằm trên path quan trọng có thể chưa cần tối ưu ngay.
+- Không nên eager load mọi relation mặc định vì có thể làm query/payload lớn hơn cần thiết.
+- Với report/batch job ít chạy, giải pháp đơn giản có thể đủ nếu thời gian chạy chấp nhận được.
 
 ## Gồm những gì
 
@@ -55,16 +65,17 @@ N Plus One Query giúp team đọc code, thiết kế, debug hoặc vận hành 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[ORM]] vì lazy loading trong ORM là nguồn phổ biến gây N+1.
+- [[Database Query]] vì cần nhìn số lượng và pattern query để phát hiện N+1.
+- [[Connection Pooling]] vì N+1 tạo nhiều round trip và có thể làm pool cạn dưới tải.
+- [[Latency]] vì N+1 thường biểu hiện thành response time tăng theo số item.
 
 ## Liên quan rộng
 
-- Database reliability
 - Backend performance
-- Data correctness
-- AI system design
-- Model operations
-- Data quality
+- GraphQL resolver
+- Query optimization
+- API list endpoint
 
 ## Keywords / Từ khóa tìm kiếm
 
@@ -72,15 +83,18 @@ N Plus One Query giúp team đọc code, thiết kế, debug hoặc vận hành 
 - N+1 Query
 - N+1 query
 - truy vấn N cộng 1
-- n plus one query debugging
-- n plus one query design
-- database design
-- debug database
-- cơ sở dữ liệu
-- AI engineering
-- ML system
-- kỹ thuật AI
+- ORM lazy loading
+- eager loading
+- query count
+- query in loop
+- database round trip
+- GraphQL N+1
+- DataLoader
+- batch loading
+- API list slow
+- SQL log nhiều query
 
 ## Source trace
 
-- Hibernate docs; Rails ActiveRecord docs
+- Hibernate documentation
+- Rails ActiveRecord documentation
