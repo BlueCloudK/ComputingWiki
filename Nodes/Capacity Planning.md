@@ -1,56 +1,56 @@
 # Capacity Planning
 
-Aliases: capacity planning, lập kế hoạch capacity
+Aliases: capacity management, lập kế hoạch năng lực
 
 Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Capacity Planning xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
+Capacity Planning xuất hiện khi hệ thống cần chuẩn bị đủ tài nguyên để chịu tải hiện tại và tăng trưởng tương lai mà không vỡ latency, availability hoặc cost.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Capacity Planning là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
+Capacity Planning là quá trình ước lượng workload, resource demand, headroom và scaling plan dựa trên traffic, data volume, concurrency và growth.
 
 ### Nó không phải là gì
 
-Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
+Nó không phải là tối ưu hiệu năng từng hàm, không phải mua thêm máy theo cảm giác, và không thay thế load testing hoặc monitoring.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+Cơ chế lõi là đo nhu cầu, dự báo tăng trưởng, tính bottleneck và đặt buffer. Planning tốt liên kết load, utilization, saturation, autoscaling và ngưỡng cảnh báo.
 
 ## Project Role / Vai trò trong dự án
 
-Capacity Planning ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test case và release note. Nếu nó thay đổi, các node design/test liên quan cũng phải được cập nhật.
+Capacity Planning giúp team biết khi nào cần scale, giới hạn hiện tại nằm ở đâu và chi phí tăng theo tải như thế nào. Nó giảm rủi ro quá tải vào launch, campaign hoặc peak hour.
 
 ## Output / Artifact nên có
 
-- Acceptance criteria hoặc decision note có điều kiện pass/fail
-- Trace từ requirement sang design, test và release scope
-- Danh sách assumption/open question cần stakeholder xác nhận
+- Workload estimate: request rate, concurrent user, data growth
+- Capacity model hoặc headroom target
+- Scaling trigger, overload behavior và monitoring threshold
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tiêu chí này có đo được bằng test, metric hoặc review không?
-- Ai là stakeholder/consumer chịu ảnh hưởng chính?
-- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này trace tới design và test case nào?
-- Nếu scope đổi, node nào phải cập nhật theo?
+- Peak load và normal load hiện tại là bao nhiêu?
+- Bottleneck chính là CPU, memory, DB, network hay third-party limit?
+- Headroom cần giữ là bao nhiêu và vì sao?
+- Khi vượt capacity thì degrade, queue hay reject?
+- Chi phí scale có chấp nhận được không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
-- Acceptance mơ hồ làm QA không kết luận được
-- Scope creep vì không ghi rõ out-of-scope
-- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+- Chỉ scale sau khi user đã gặp outage
+- Dự báo theo average load và bỏ qua peak
+- Thêm tài nguyên sai tầng vì không biết bottleneck thật
+- Không có overload plan nên hệ thống sập dây chuyền
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
+- Chưa cần model phức tạp cho prototype chưa có traffic thật
+- Dễ over-engineer nếu tối ưu capacity trước khi biết workload thực tế
 
 ## Gồm những gì
 
@@ -60,14 +60,15 @@ Capacity Planning ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Nonfunctional Requirement]] vì capacity thường xuất phát từ throughput, latency hoặc availability target
+- [[Monitoring]] vì capacity planning cần số liệu sử dụng và saturation
+- [[Load Test]] vì giả định capacity cần được kiểm chứng dưới tải
 
 ## Liên quan rộng
 
-- Product planning
-- Documentation
-- Testing
-- Scope management
+- Cloud cost
+- Incident prevention
+- Launch readiness
 
 ## Source trace
 

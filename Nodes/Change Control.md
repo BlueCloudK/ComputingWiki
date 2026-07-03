@@ -6,51 +6,51 @@ Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Change Control xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
+Change Control xuất hiện khi requirement, scope hoặc system behavior đã được thống nhất nhưng có yêu cầu thay đổi cần đánh giá tác động trước khi nhận vào.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Change Control là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
+Change Control là cơ chế ghi nhận, đánh giá, approve/reject và trace một thay đổi đối với scope, requirement, design hoặc release.
 
 ### Nó không phải là gì
 
-Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
+Nó không phải là cấm thay đổi, không phải bureaucracy cho mọi chỉnh sửa nhỏ, và không thay thế trao đổi trực tiếp khi team còn đang khám phá.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+Cơ chế lõi là biến change request thành quyết định có context: lý do đổi, artifact bị ảnh hưởng, effort, risk, priority, owner và trạng thái approve.
 
 ## Project Role / Vai trò trong dự án
 
-Change Control ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test case và release note. Nếu nó thay đổi, các node design/test liên quan cũng phải được cập nhật.
+Change Control giúp team không âm thầm đổi scope rồi làm lệch timeline, test plan hoặc expectation. Nó đặc biệt hữu ích khi nhiều stakeholder cùng tác động vào sản phẩm.
 
 ## Output / Artifact nên có
 
-- Acceptance criteria hoặc decision note có điều kiện pass/fail
-- Trace từ requirement sang design, test và release scope
-- Danh sách assumption/open question cần stakeholder xác nhận
+- Change request hoặc decision note
+- Impact analysis lên requirement, scope, design, test và release
+- Quyết định approve/reject/defer cùng lý do
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tiêu chí này có đo được bằng test, metric hoặc review không?
-- Ai là stakeholder/consumer chịu ảnh hưởng chính?
-- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này trace tới design và test case nào?
-- Nếu scope đổi, node nào phải cập nhật theo?
+- Thay đổi này giải quyết vấn đề gì?
+- Nó ảnh hưởng requirement, scope, test hoặc release nào?
+- Ai có quyền approve thay đổi này?
+- Cost/risk của thay đổi có xứng với value không?
+- Nếu defer, có cần ghi lại assumption hoặc follow-up không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
-- Acceptance mơ hồ làm QA không kết luận được
-- Scope creep vì không ghi rõ out-of-scope
-- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+- Scope creep vì thay đổi nhỏ tích tụ thành cam kết mới
+- Test/design không cập nhật theo requirement mới
+- Stakeholder tưởng thay đổi đã được nhận dù team chưa approve
+- Quy trình quá nặng làm team né ghi nhận thay đổi
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
+- Chưa cần board phê duyệt nặng cho project cá nhân hoặc discovery sớm
+- Dễ over-engineer nếu mọi typo hoặc microcopy đều cần change request
 
 ## Gồm những gì
 
@@ -59,14 +59,14 @@ Change Control ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test cas
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Requirement]] vì change control thường bắt đầu từ thay đổi requirement
+- [[Acceptance Criteria]] vì criteria cần đổi khi điều kiện nghiệm thu đổi
 
 ## Liên quan rộng
 
-- Product planning
-- Documentation
-- Testing
-- Scope management
+- Release governance
+- Stakeholder approval
+- Impact analysis
 
 ## Source trace
 

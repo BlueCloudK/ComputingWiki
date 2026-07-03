@@ -1,72 +1,72 @@
 # Stakeholder
 
-Aliases: actor, customer, user representative, bên liên quan
+Aliases: interested party, bên liên quan
 
 Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Stakeholder xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
+Stakeholder xuất hiện khi requirement hoặc decision cần biết ai có nhu cầu, ai bị ảnh hưởng, ai có quyền quyết định và ai có thể cung cấp thông tin đúng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Stakeholder là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
+Stakeholder là người, nhóm hoặc tổ chức có lợi ích, trách nhiệm, rủi ro hoặc quyền quyết định liên quan tới hệ thống.
 
 ### Nó không phải là gì
 
-Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
+Nó không chỉ là end user, không phải tên phòng ban cho có, và không thay thế việc hiểu mục tiêu, pain point hoặc quyền hạn của từng nhóm.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+Cơ chế lõi là xác định vai trò của stakeholder: user, buyer, operator, regulator, maintainer, support, security, business owner hoặc system consumer. Mỗi vai trò có nhu cầu và tiêu chí chấp nhận khác nhau.
 
 ## Project Role / Vai trò trong dự án
 
-Stakeholder ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test case và release note. Nếu nó thay đổi, các node design/test liên quan cũng phải được cập nhật.
+Stakeholder giúp requirement có nguồn rõ ràng và giúp team xử lý conflict. Khi hai yêu cầu mâu thuẫn, biết stakeholder nào chịu ảnh hưởng giúp ra quyết định thực tế hơn.
 
 ## Output / Artifact nên có
 
-- Acceptance criteria hoặc decision note có điều kiện pass/fail
-- Trace từ requirement sang design, test và release scope
-- Danh sách assumption/open question cần stakeholder xác nhận
+- Danh sách stakeholder và vai trò
+- Nhu cầu, pain point, quyền quyết định và mức ảnh hưởng
+- Mapping từ stakeholder sang requirement hoặc use case
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tiêu chí này có đo được bằng test, metric hoặc review không?
-- Ai là stakeholder/consumer chịu ảnh hưởng chính?
-- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này trace tới design và test case nào?
-- Nếu scope đổi, node nào phải cập nhật theo?
+- Ai trực tiếp dùng hệ thống?
+- Ai vận hành, bảo trì, hỗ trợ hoặc chịu rủi ro?
+- Ai có quyền approve hoặc reject requirement?
+- Stakeholder nào đang bị đại diện thiếu?
+- Conflict giữa stakeholder được xử lý bằng tiêu chí nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
-- Acceptance mơ hồ làm QA không kết luận được
-- Scope creep vì không ghi rõ out-of-scope
-- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+- Chỉ nghe buyer mà bỏ qua operator hoặc support
+- Requirement bị lệch vì stakeholder thật không được phỏng vấn
+- Quyết định chậm vì không rõ ai có quyền chốt
+- Một nhóm chịu rủi ro security/compliance nhưng không có tiếng nói
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
+- Chưa cần stakeholder map phức tạp cho tool cá nhân hoặc prototype nhỏ
+- Dễ over-engineer nếu liệt kê mọi người liên quan nhưng không gắn với quyết định nào
 
 ## Gồm những gì
 
-- [[Requirement]]
-- [[Use Case]]
+- Chưa tách nhánh
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Requirement]] vì stakeholder là nguồn hoặc người chịu ảnh hưởng của requirement
+- [[Use Case]] vì use case cần actor và goal rõ
+- [[Scope]] vì stakeholder giúp xác định ai nằm trong phạm vi phục vụ
 
 ## Liên quan rộng
 
-- Product planning
-- Documentation
-- Testing
-- Scope management
+- User research
+- Governance
+- Product ownership
 
 ## Source trace
 

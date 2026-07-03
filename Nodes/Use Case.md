@@ -1,72 +1,72 @@
 # Use Case
 
-Aliases: use case model, tình huống sử dụng
+Aliases: usage scenario, ca sử dụng
 
 Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Use Case xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
+Use Case xuất hiện khi cần mô tả cách một actor đạt mục tiêu thông qua tương tác với hệ thống. Nó hữu ích khi hành vi có nhiều bước, nhiều nhánh hoặc nhiều actor.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Use Case là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
+Use Case là mô tả goal-driven về actor, trigger, main flow, alternative flow, exception flow và kết quả mong muốn.
 
 ### Nó không phải là gì
 
-Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
+Nó không phải là thiết kế màn hình, không phải sequence diagram bắt buộc, và không phải user story ngắn nếu chưa mô tả flow tương tác.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+Cơ chế lõi là đi từ mục tiêu của actor sang chuỗi tương tác có điều kiện: precondition, main success scenario, variation, error handling và postcondition.
 
 ## Project Role / Vai trò trong dự án
 
-Use Case ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test case và release note. Nếu nó thay đổi, các node design/test liên quan cũng phải được cập nhật.
+Use Case giúp team nhìn hành vi theo luồng nghiệp vụ thay vì chỉ theo task rời rạc. Nó tạo nền cho requirement, test scenario và API/UX boundary.
 
 ## Output / Artifact nên có
 
-- Acceptance criteria hoặc decision note có điều kiện pass/fail
-- Trace từ requirement sang design, test và release scope
-- Danh sách assumption/open question cần stakeholder xác nhận
+- Actor và goal
+- Main flow, alternative flow và exception flow
+- Preconditions, postconditions và acceptance criteria liên quan
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tiêu chí này có đo được bằng test, metric hoặc review không?
-- Ai là stakeholder/consumer chịu ảnh hưởng chính?
-- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này trace tới design và test case nào?
-- Nếu scope đổi, node nào phải cập nhật theo?
+- Actor chính là ai và họ muốn đạt goal gì?
+- Trigger bắt đầu flow là gì?
+- Main success path có kết quả rõ không?
+- Alternative/error path nào thay đổi requirement hoặc test?
+- Flow này có quá nhỏ để cần use case riêng không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
-- Acceptance mơ hồ làm QA không kết luận được
-- Scope creep vì không ghi rõ out-of-scope
-- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+- Mô tả quá giống UI script nên mất business goal
+- Chỉ viết happy path nên bỏ sót exception quan trọng
+- Gộp quá nhiều goal vào một use case làm scope phình
+- Không gắn acceptance criteria nên flow khó nghiệm thu
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
+- Chưa cần use case formal cho CRUD đơn giản đã rõ bằng API contract hoặc story nhỏ
+- Dễ over-engineer nếu biến mọi click thành use case riêng
 
 ## Gồm những gì
 
-- [[Stakeholder]]
 - [[Acceptance Criteria]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Stakeholder]] vì stakeholder/actor quyết định goal và success condition của use case
+- [[Functional Requirement]] vì use case thường triển khai hoặc nhóm các functional requirement
+- [[User Story]] vì cả hai đều mô tả nhu cầu theo góc nhìn người dùng nhưng khác độ chi tiết
 
 ## Liên quan rộng
 
-- Product planning
-- Documentation
-- Testing
-- Scope management
+- Business process modeling
+- UX flow
+- Scenario testing
 
 ## Source trace
 

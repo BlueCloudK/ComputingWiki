@@ -1,72 +1,72 @@
 # Traceability
 
-Aliases: requirement trace, truy vết yêu cầu
+Aliases: requirements traceability, truy vết yêu cầu
 
 Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Traceability xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
+Traceability xuất hiện khi cần biết một requirement đang liên quan tới design, code, test, release hoặc decision nào, đặc biệt khi hệ thống lớn lên và thay đổi thường xuyên.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Traceability là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
+Traceability là khả năng đi theo liên kết từ requirement sang artifact downstream và ngược lại để hiểu nguồn gốc, tác động và coverage.
 
 ### Nó không phải là gì
 
-Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
+Nó không phải là backlink cho đẹp graph, không phải tài liệu lặp nội dung, và không cần thành ma trận nặng nếu dự án không có rủi ro thay đổi.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+Cơ chế lõi là duy trì liên kết có ý nghĩa: source requirement, design decision, implementation unit, test case, defect, release note. Link phải giúp impact analysis hoặc audit, không chỉ tăng số cạnh graph.
 
 ## Project Role / Vai trò trong dự án
 
-Traceability ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test case và release note. Nếu nó thay đổi, các node design/test liên quan cũng phải được cập nhật.
+Traceability giúp trả lời "nếu đổi requirement này thì vỡ gì" và "test nào chứng minh requirement này". Nó đặc biệt quan trọng cho regression, compliance và hệ thống có nhiều dependency.
 
 ## Output / Artifact nên có
 
-- Acceptance criteria hoặc decision note có điều kiện pass/fail
-- Trace từ requirement sang design, test và release scope
-- Danh sách assumption/open question cần stakeholder xác nhận
+- Link requirement sang design, code, test hoặc release item liên quan
+- Coverage view cho requirement quan trọng
+- Impact notes khi change control xảy ra
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tiêu chí này có đo được bằng test, metric hoặc review không?
-- Ai là stakeholder/consumer chịu ảnh hưởng chính?
-- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này trace tới design và test case nào?
-- Nếu scope đổi, node nào phải cập nhật theo?
+- Requirement này trace tới test nào?
+- Design decision nào tồn tại vì requirement này?
+- Nếu xóa hoặc đổi requirement, artifact nào bị ảnh hưởng?
+- Link này giúp quyết định thật hay chỉ tạo backlink?
+- Có requirement quan trọng nào chưa có coverage không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
-- Acceptance mơ hồ làm QA không kết luận được
-- Scope creep vì không ghi rõ out-of-scope
-- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+- Đổi requirement nhưng quên sửa test hoặc API contract
+- Có nhiều link nhưng không giải thích lý do nên graph nhiễu
+- Trace bị cập nhật thủ công quá nặng rồi nhanh chóng stale
+- Compliance cần bằng chứng nhưng không truy được từ requirement sang test
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
+- Chưa cần trace matrix đầy đủ cho project nhỏ ít rủi ro
+- Dễ over-engineer nếu link mọi node với nhau nhưng không phục vụ impact analysis
 
 ## Gồm những gì
 
-- [[Requirement]]
-- [[Change Control]]
+- Chưa tách nhánh
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Requirement]] vì requirement là điểm neo phổ biến nhất của traceability
+- [[Change Control]] vì thay đổi cần biết artifact nào bị ảnh hưởng
+- [[Test Coverage]] vì coverage là một dạng trace từ requirement sang kiểm chứng
 
 ## Liên quan rộng
 
-- Product planning
-- Documentation
-- Testing
-- Scope management
+- Impact analysis
+- Compliance evidence
+- Regression safety
 
 ## Source trace
 

@@ -6,51 +6,51 @@ Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Requirements xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
+Requirements là vùng kiến thức về cách phát hiện, ghi lại, làm rõ, ưu tiên và kiểm soát nhu cầu phần mềm trước khi nó đi vào design, implementation và testing.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Requirements là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
+Requirements bao phủ requirement statement, stakeholder need, scope, acceptance, traceability và change control. Nó giúp team biết hệ thống cần phục vụ ai, làm gì, dưới ràng buộc nào.
 
 ### Nó không phải là gì
 
-Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
+Nó không phải là backlog task thuần kỹ thuật, không phải kiến trúc chi tiết, và không phải danh sách mong muốn chưa có owner, scope hoặc tiêu chí kiểm chứng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+Cơ chế lõi là đi từ nhu cầu mơ hồ sang artifact có thể quyết định: elicitation, analysis, specification, validation, prioritization và change management. Mỗi artifact phải giảm hiểu nhầm hoặc hỗ trợ quyết định dự án.
 
 ## Project Role / Vai trò trong dự án
 
-Requirements là MOC điều hướng: dùng để đi từ vùng lớn xuống node cụ thể, không thay thế node chi tiết. Khi review graph, trang này giúp chọn đúng nhánh cần đọc và tránh link rộng làm rối.
+Requirements là MOC điều hướng cho vùng requirement. Nó giúp đi từ nhu cầu cấp cao xuống node cụ thể như requirement, use case, user story, scope và traceability.
 
 ## Output / Artifact nên có
 
-- Acceptance criteria hoặc decision note có điều kiện pass/fail
-- Trace từ requirement sang design, test và release scope
-- Danh sách assumption/open question cần stakeholder xác nhận
+- Requirement set hoặc requirement specification
+- Scope boundary, acceptance criteria và stakeholder mapping
+- Traceability/change notes cho requirement quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tiêu chí này có đo được bằng test, metric hoặc review không?
-- Ai là stakeholder/consumer chịu ảnh hưởng chính?
-- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này trace tới design và test case nào?
-- Nếu scope đổi, node nào phải cập nhật theo?
+- Nhu cầu này đến từ stakeholder hoặc source nào?
+- Nó cần biểu diễn bằng requirement, user story hay use case?
+- Scope và out-of-scope đã rõ chưa?
+- Acceptance criteria và traceability có đủ cho rủi ro hiện tại không?
+- Thay đổi requirement có cần change control không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
-- Acceptance mơ hồ làm QA không kết luận được
-- Scope creep vì không ghi rõ out-of-scope
-- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+- Nhu cầu bị ghi mơ hồ nên design/test đi lệch
+- Scope creep vì không có ranh giới hoặc change control
+- Stakeholder quan trọng bị bỏ qua
+- Requirement đổi nhưng trace sang test/design không được cập nhật
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
+- Chưa cần requirements process nặng khi chỉ làm spike để học vấn đề
+- Dễ over-engineer nếu yêu cầu nhỏ nào cũng bị ép vào specification dài
 
 ## Gồm những gì
 
@@ -63,14 +63,15 @@ Requirements là MOC điều hướng: dùng để đi từ vùng lớn xuống 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Acceptance Criteria]] vì requirements cần tiêu chí nghiệm thu để tránh mơ hồ
+- [[Stakeholder]] vì requirement cần nguồn nhu cầu và người chịu ảnh hưởng rõ
 
 ## Liên quan rộng
 
 - Product planning
-- Documentation
-- Testing
-- Scope management
+- Software specification
+- Testing strategy
+- Release scope
 
 ## Source trace
 

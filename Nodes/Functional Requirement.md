@@ -6,51 +6,51 @@ Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Functional Requirement xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
+Functional Requirement xuất hiện khi cần mô tả hệ thống phải làm hành vi gì cho user, actor hoặc hệ thống bên ngoài. Nó trả lời câu hỏi "hệ thống phải thực hiện chức năng nào".
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Functional Requirement là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
+Functional Requirement là yêu cầu về hành vi quan sát được: input, action, business rule, state change, output hoặc response của hệ thống.
 
 ### Nó không phải là gì
 
-Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
+Nó không phải là quality target như latency hay availability, không phải thiết kế UI chi tiết, và không phải implementation task nếu chưa nói hành vi cần đạt.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+Cơ chế lõi là mô tả actor, trigger, điều kiện trước, hành vi hệ thống, kết quả và exception path. Một functional requirement tốt có thể chuyển thành use case, API behavior hoặc acceptance criteria.
 
 ## Project Role / Vai trò trong dự án
 
-Functional Requirement ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test case và release note. Nếu nó thay đổi, các node design/test liên quan cũng phải được cập nhật.
+Functional Requirement định hình backlog, API contract, domain logic và test case chức năng. Nó là phần dễ thấy nhất của phạm vi sản phẩm.
 
 ## Output / Artifact nên có
 
-- Acceptance criteria hoặc decision note có điều kiện pass/fail
-- Trace từ requirement sang design, test và release scope
-- Danh sách assumption/open question cần stakeholder xác nhận
+- Mô tả hành vi hệ thống cần thực hiện
+- Business rule, input/output và state change quan trọng
+- Acceptance criteria hoặc use case liên quan
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tiêu chí này có đo được bằng test, metric hoặc review không?
-- Ai là stakeholder/consumer chịu ảnh hưởng chính?
-- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này trace tới design và test case nào?
-- Nếu scope đổi, node nào phải cập nhật theo?
+- Actor hoặc hệ thống gọi chức năng này là ai?
+- Trigger nào làm hành vi bắt đầu?
+- Output hoặc state cuối mong đợi là gì?
+- Có business rule hoặc exception path nào bắt buộc không?
+- Requirement này có thể test bằng một scenario cụ thể không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
-- Acceptance mơ hồ làm QA không kết luận được
-- Scope creep vì không ghi rõ out-of-scope
-- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+- Viết thành task kỹ thuật nên mất mục tiêu người dùng
+- Chỉ ghi happy path, bỏ sót lỗi, permission hoặc dữ liệu biên
+- Trộn lẫn quality target khiến scope bị nhập nhằng
+- Không có acceptance criteria nên dev/test hiểu khác nhau
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
+- Chưa cần formal hóa dài khi team đang sketch ý tưởng ở mức rất thô
+- Dễ over-engineer nếu biến từng thao tác UI nhỏ thành requirement riêng không có giá trị trace
 
 ## Gồm những gì
 
@@ -59,14 +59,14 @@ Functional Requirement ảnh hưởng tới ưu tiên, phạm vi, thiết kế, 
 
 ## Nối mạnh
 
-- [[Requirement]] vì node này thường được kiểm tra cùng khi ra quyết định
+- [[Requirement]] vì functional requirement là một loại requirement chính
+- [[Nonfunctional Requirement]] vì cùng một chức năng thường có ràng buộc chất lượng đi kèm
 
 ## Liên quan rộng
 
-- Product planning
-- Documentation
-- Testing
-- Scope management
+- Product backlog
+- Domain logic
+- API behavior
 
 ## Source trace
 

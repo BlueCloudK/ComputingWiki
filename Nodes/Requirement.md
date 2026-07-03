@@ -1,56 +1,56 @@
 # Requirement
 
-Aliases: requirement statement, yêu cầu
+Aliases: software requirement, yêu cầu phần mềm
 
 Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Requirement xuất hiện khi team cần biến nhu cầu, scope hoặc tiêu chí chấp nhận thành thứ có thể thiết kế, code và test được. Nó nằm giữa stakeholder, product decision, design decision và test plan.
+Requirement xuất hiện khi một nhu cầu, ràng buộc hoặc hành vi mong muốn cần được ghi lại đủ rõ để team có thể thiết kế, triển khai, kiểm thử và quản lý thay đổi.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Requirement là một điểm kiểm soát độ rõ của nhu cầu: ai cần gì, điều kiện nào được xem là đạt, và thay đổi đó trace sang design/test nào.
+Requirement là phát biểu có thể kiểm chứng về thứ hệ thống phải làm, chất lượng phải đạt, hoặc ràng buộc phải tuân theo trong một phạm vi nhất định.
 
 ### Nó không phải là gì
 
-Nó không phải là câu mô tả mong muốn chung chung, cũng không phải backlog item không có acceptance criteria hoặc ownership rõ.
+Nó không phải là ý tưởng mơ hồ, không phải solution design sẵn, và không phải task implementation nếu chưa nói điều kiện cần đạt.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chuyển mơ hồ thành tiêu chí đo được: scope, assumption, acceptance criteria và traceability. Khi tiêu chí rõ, team biết phải build gì, test gì và khi nào được xem là xong.
+Cơ chế lõi là ghi lại nguồn yêu cầu, stakeholder, phạm vi, rationale, tiêu chí kiểm chứng và trace sang design/test. Requirement tốt giảm khoảng trống diễn giải giữa người cần và người xây.
 
 ## Project Role / Vai trò trong dự án
 
-Requirement ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test case và release note. Nếu nó thay đổi, các node design/test liên quan cũng phải được cập nhật.
+Requirement là đơn vị neo cho scope, design decision, test coverage và change control. Khi requirement đổi, các artifact phụ thuộc phải được kiểm tra theo.
 
 ## Output / Artifact nên có
 
-- Acceptance criteria hoặc decision note có điều kiện pass/fail
-- Trace từ requirement sang design, test và release scope
-- Danh sách assumption/open question cần stakeholder xác nhận
+- Requirement statement rõ actor, điều kiện, hành vi hoặc ràng buộc
+- Rationale, owner/source và priority nếu cần
+- Acceptance criteria hoặc trace sang test/design
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tiêu chí này có đo được bằng test, metric hoặc review không?
-- Ai là stakeholder/consumer chịu ảnh hưởng chính?
-- Có acceptance criteria đủ rõ để tester kết luận pass/fail chưa?
-- Requirement này trace tới design và test case nào?
-- Nếu scope đổi, node nào phải cập nhật theo?
+- Requirement này đến từ stakeholder, luật, hệ thống hay constraint nào?
+- Có thể kiểm chứng bằng test, review hoặc metric không?
+- Nó là functional hay nonfunctional requirement?
+- Out-of-scope và assumption đã rõ chưa?
+- Khi requirement đổi, artifact nào phải cập nhật?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Build đúng theo suy đoán của dev nhưng sai nhu cầu thật
-- Acceptance mơ hồ làm QA không kết luận được
-- Scope creep vì không ghi rõ out-of-scope
-- Trace thiếu khiến sửa requirement nhưng quên sửa test/design
+- Requirement bị viết như mong muốn nên mỗi người hiểu một kiểu
+- Trộn problem với solution làm khóa sớm thiết kế
+- Không có source/owner nên khó quyết định khi conflict
+- Không trace sang test nên thay đổi làm vỡ hành vi mà không biết
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần formal hóa nặng khi chỉ là spike ngắn hoặc prototype bỏ đi
-- Dễ over-engineer nếu biến mọi ý tưởng nhỏ thành quy trình requirement đầy đủ
+- Chưa cần formal hóa dày khi chỉ đang khám phá problem space
+- Dễ over-engineer nếu mọi note ý tưởng đều bị biến thành requirement có quy trình nặng
 
 ## Gồm những gì
 
@@ -60,14 +60,15 @@ Requirement ảnh hưởng tới ưu tiên, phạm vi, thiết kế, test case v
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Scope]] vì requirement quyết định phần nào nằm trong hoặc ngoài phạm vi
+- [[Traceability]] vì requirement cần liên kết sang design, code, test và release
+- [[Stakeholder]] vì requirement phải có nguồn nhu cầu hoặc người chịu ảnh hưởng
 
 ## Liên quan rộng
 
-- Product planning
-- Documentation
-- Testing
-- Scope management
+- Product discovery
+- Software specification
+- Change management
 
 ## Source trace
 
