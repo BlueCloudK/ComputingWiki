@@ -77,6 +77,8 @@ Priority: High
 
 ## Database Internals Pack
 
+Status: Initial pack added.
+
 Purpose: deepen database performance, storage, query planning, concurrency, and recovery.
 
 Example missing nodes:

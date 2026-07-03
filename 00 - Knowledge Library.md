@@ -30,6 +30,7 @@
 - [[Architecture Diagrams]]
 - [[Data and Database]]
 - [[Database Systems]]
+- [[Database Internals]]
 - [[Data Intensive Systems]]
 - [[Distributed Systems]]
 - [[Data Formats]]
