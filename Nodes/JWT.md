@@ -1,53 +1,63 @@
 # JWT
 
-Aliases: JSON Web Token, token JWT
+Aliases: JSON Web Token, token JWT, bearer token
 
 Type: Backend Security
 
 ## Context / Ngữ cảnh
 
-JWT xuất hiện khi hệ thống cần truyền claim đã ký giữa client/service trong auth flow.
+JWT xuất hiện trong authentication/authorization flow khi client hoặc service cần gửi một token chứa claims đã được ký. Nó thường đi trong header `Authorization: Bearer <token>`, dùng giữa frontend-backend, mobile-backend hoặc service-to-service.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-JWT là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+JWT là một token có cấu trúc gồm header, payload và signature. Payload chứa claims như subject, issuer, audience, role/scope, issued time và expiration. Signature giúp bên nhận kiểm tra token có bị sửa hay không.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+JWT không tự động đồng nghĩa với session an toàn. Nó không mã hóa payload mặc định, nên không nên nhét secret hoặc dữ liệu nhạy cảm vào token. JWT cũng không tự giải quyết logout, revoke token, refresh token hay phân quyền đúng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của JWT là header, payload, signature, expiry, issuer/audience và verification.
+Bên phát hành token ký header + payload bằng secret hoặc private key. Bên nhận verify signature, kiểm tra `exp`, `iss`, `aud`, algorithm và claims trước khi tin token. Nếu dùng access token ngắn hạn + refresh token, hệ thống cần cơ chế cấp lại, rotate và thu hồi token hợp lý.
 
 ## Project Role / Vai trò trong dự án
 
-JWT giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+JWT ảnh hưởng trực tiếp tới login, session, authorization, API security và service-to-service authentication. Khi thiết kế auth, team phải quyết định token nằm ở đâu, sống bao lâu, chứa claim gì, verify ở layer nào, refresh/revoke ra sao và log/debug lỗi token thế nào.
 
 ## Output / Artifact nên có
 
-- JWT decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới JWT
-- Failure note ghi rõ JWT ảnh hưởng user, runtime hay data thế nào
+- Token claim schema: subject, issuer, audience, expiration, issued time, role/scope nếu có
+- JWT verification rule: algorithm, signing key/JWKS, issuer, audience, expiry
+- Access token / refresh token strategy
+- Storage decision: cookie, memory, mobile secure storage hoặc service secret
+- Test case cho expired token, invalid signature, wrong audience, missing scope và revoked token
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- JWT đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của JWT không?
-- Khi JWT fail, user hoặc service nào bị ảnh hưởng trước?
+- JWT có được verify signature ở mọi protected endpoint không?
+- Có kiểm tra expiration, issuer, audience và algorithm không?
+- Payload có chứa dữ liệu nhạy cảm không?
+- Token lưu ở đâu: cookie, localStorage, memory hay secure storage?
+- Logout/revoke token xử lý thế nào?
+- Access token sống bao lâu, refresh token sống bao lâu?
+- Role/scope trong token có bị stale khi quyền user thay đổi không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của JWT làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên JWT nhưng không ghi rõ owner, constraint hoặc rollback path
+- Không verify signature hoặc verify sai algorithm làm attacker giả token.
+- Nhét dữ liệu nhạy cảm vào payload vì tưởng JWT được mã hóa.
+- Token sống quá lâu nên user bị mất quyền nhưng vẫn truy cập được.
+- Không kiểm tra audience/issuer làm token của hệ khác dùng nhầm được.
+- Lưu JWT trong localStorage làm tăng rủi ro khi có XSS.
+- Không có revoke/rotation strategy nên logout hoặc khóa tài khoản không có hiệu lực ngay.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu JWT nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh JWT trước khi có nhu cầu vận hành hoặc học tập rõ
+- App nhỏ server-rendered có thể dùng server-side session đơn giản hơn JWT.
+- Không nên dùng JWT chỉ vì “stateless” nếu vẫn cần revoke/logout realtime phức tạp.
+- Service nội bộ ít endpoint có thể dùng session, API key hoặc mTLS tùy ngữ cảnh thay vì tự dựng JWT flow phức tạp.
 
 ## Gồm những gì
 
@@ -55,24 +65,37 @@ JWT giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Authentication]] vì JWT thường được phát hành sau login để chứng minh user/service là ai.
+- [[Authorization]] vì role/scope trong JWT thường được dùng để quyết định quyền truy cập.
+- [[Session Management]] vì JWT thay đổi cách hệ thống duy trì trạng thái đăng nhập.
+- [[API Security]] vì lỗi verify, storage hoặc revoke JWT là lỗi bảo mật API phổ biến.
 
 ## Liên quan rộng
 
-- Application security
-- Threat modeling
-- Backend review
+- OAuth
+- OpenID Connect
+- Cookie security
+- XSS
+- Service-to-service authentication
 
 ## Keywords / Từ khóa tìm kiếm
 
 - JWT
 - JSON Web Token
-- token JWT
-- jwt debugging
-- jwt design
-- security review
-- kiểm tra bảo mật
+- bearer token
+- access token
+- refresh token
+- token claims
+- token signature
+- JWT verification
+- JWT expiration
+- JWT revoke
+- algorithm confusion
+- bearer authentication
+- token đăng nhập
+- xác thực bằng token
 
 ## Source trace
 
-- RFC 7519; OWASP JWT Cheat Sheet
+- RFC 7519
+- OWASP JSON Web Token for Java Cheat Sheet
