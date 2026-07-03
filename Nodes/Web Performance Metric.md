@@ -56,10 +56,10 @@ Web Performance Metric giúp team đặt tên đúng khi đọc tài liệu, rev
 ## Nối mạnh
 
 - [[Core Web Vitals]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng Web Performance Metric
-- [[Performance]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng Web Performance Metric
 
 ## Liên quan rộng
 
+- Performance
 - Frontend engineering
 - Browser runtime
 - User experience

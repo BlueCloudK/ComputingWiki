@@ -75,7 +75,7 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[Backend Engineering Path]]
-- [[DevOps Deployment Path]]
-- [[Cloud Infrastructure Path]]
-- [[Database Engineering Path]]
+- Backend Engineering Path
+- DevOps Deployment Path
+- Cloud Infrastructure Path
+- Database Engineering Path

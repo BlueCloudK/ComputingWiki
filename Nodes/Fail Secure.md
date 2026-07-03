@@ -55,11 +55,11 @@ Fail Secure giúp team viết requirement bảo mật, review API/code/config, t
 
 ## Nối mạnh
 
-- [[Security]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Fail Secure
 - [[Error Handling]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Fail Secure
 
 ## Liên quan rộng
 
+- Security
 - Application security
 - Threat modeling
 - Security testing

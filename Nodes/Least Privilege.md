@@ -1,4 +1,4 @@
-﻿# Least Privilege
+# Least Privilege
 
 Aliases: principle of least privilege, quyền tối thiểu, minimum permission
 

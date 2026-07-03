@@ -55,10 +55,11 @@ Flaky Test giúp team đặt tên đúng khi đọc tài liệu, review thiết 
 
 ## Nối mạnh
 
-- [[Testing and Verification]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng Flaky Test
 
+- Chưa có nối mạnh ngoài các node con trực tiếp
 ## Liên quan rộng
 
+- Testing and Verification
 - Production debugging
 - Incident response
 - Reliability engineering

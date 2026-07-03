@@ -154,13 +154,14 @@ MOC này giúp chọn node cần đọc khi thiết kế, debug, deploy hoặc a
 
 ## Nối mạnh
 
-- [[Database Systems]] vì liên quan trực tiếp tới Database Internals
-- [[Data Intensive Systems]] vì liên quan trực tiếp tới Database Internals
-- [[Performance]] vì liên quan trực tiếp tới Database Internals
-- [[Debugging and Failure Patterns]] vì liên quan trực tiếp tới Database Internals
 
+- Chưa có nối mạnh ngoài các node con trực tiếp
 ## Liên quan rộng
 
+- Database Systems
+- Data Intensive Systems
+- Performance
+- Debugging and Failure Patterns
 - ComputingWiki expansion pack
 - Project-oriented knowledge graph
 

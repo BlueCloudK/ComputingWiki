@@ -1,4 +1,4 @@
-﻿# Data Lakehouse
+# Data Lakehouse
 
 Aliases: lakehouse, kiến trúc lakehouse
 

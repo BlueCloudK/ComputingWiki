@@ -1,4 +1,4 @@
-﻿# Sorting Algorithm
+# Sorting Algorithm
 
 Aliases: sorting, thuật toán sắp xếp
 
@@ -57,10 +57,10 @@ Node này giúp chọn library/API sort hoặc thuật toán phù hợp khi inpu
 ## Nối mạnh
 
 - [[Time Complexity]] vì sorting thường được so sánh bằng growth cost
-- [[Data Structures]] vì structure ảnh hưởng sorting/access pattern
 
 ## Liên quan rộng
 
+- Data Structures vì structure ảnh hưởng sorting/access pattern
 - Stable sort
 - Merge sort
 

@@ -1,4 +1,4 @@
-﻿# Deployment Strategy
+# Deployment Strategy
 
 Aliases: deployment strategy, chiến lược triển khai
 

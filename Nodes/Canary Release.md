@@ -1,4 +1,4 @@
-﻿# Canary Release
+# Canary Release
 
 Aliases: canary deployment, phát hành canary
 

@@ -151,13 +151,14 @@ MOC này giúp chọn đúng node khi thiết kế feature, chia layer/module, v
 
 ## Nối mạnh
 
-- [[Backend Engineering]] vì application engineering thường đi qua backend/service flow
-- [[Web Development]] vì nhiều application có browser/UI boundary
-- [[Database Systems]] vì application state thường nằm trong database
-- [[Security]] vì application boundary thường là attack surface
 
+- Chưa có nối mạnh ngoài các node con trực tiếp
 ## Liên quan rộng
 
+- Backend Engineering vì application engineering thường đi qua backend/service flow
+- Web Development vì nhiều application có browser/UI boundary
+- Database Systems vì application state thường nằm trong database
+- Security vì application boundary thường là attack surface
 - Application architecture
 - Product engineering
 - Software delivery

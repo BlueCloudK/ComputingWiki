@@ -1,4 +1,4 @@
-﻿# Kubernetes
+# Kubernetes
 
 Aliases: K8s, Kubernetes, container orchestration, điều phối container
 

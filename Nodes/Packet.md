@@ -1,4 +1,4 @@
-﻿# Packet
+# Packet
 
 Aliases: network packet, gói tin
 

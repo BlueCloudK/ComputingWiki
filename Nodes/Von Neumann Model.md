@@ -1,4 +1,4 @@
-﻿# Von Neumann Model
+# Von Neumann Model
 
 Aliases: stored-program model, mô hình Von Neumann
 

@@ -1,4 +1,4 @@
-﻿# Capacity
+# Capacity
 
 Aliases: system capacity, năng lực hệ thống
 

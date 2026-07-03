@@ -56,10 +56,10 @@ SQL Injection Blind giúp team viết requirement bảo mật, review API/code/c
 ## Nối mạnh
 
 - [[SQL Injection]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện SQL Injection Blind
-- [[Database Systems]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện SQL Injection Blind
 
 ## Liên quan rộng
 
+- Database Systems
 - Application security
 - Threat modeling
 - Security testing

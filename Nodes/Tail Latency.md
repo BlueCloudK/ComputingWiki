@@ -1,4 +1,4 @@
-﻿# Tail Latency
+# Tail Latency
 
 Aliases: p95/p99 latency, độ trễ đuôi
 

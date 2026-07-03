@@ -1,4 +1,4 @@
-﻿# Kernel
+# Kernel
 
 Aliases: operating system kernel, nhân hệ điều hành
 

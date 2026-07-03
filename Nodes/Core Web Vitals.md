@@ -56,10 +56,10 @@ Core Web Vitals giúp team đặt tên đúng khi đọc tài liệu, review thi
 ## Nối mạnh
 
 - [[Web Performance Metric]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng Core Web Vitals
-- [[Performance]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng Core Web Vitals
 
 ## Liên quan rộng
 
+- Performance
 - Frontend engineering
 - Browser runtime
 - User experience

@@ -1,4 +1,4 @@
-﻿# At Least Once
+# At Least Once
 
 Aliases: at-least-once delivery, ít nhất một lần
 

@@ -1,4 +1,4 @@
-﻿# CDN
+# CDN
 
 Aliases: Content Delivery Network, mạng phân phối nội dung
 

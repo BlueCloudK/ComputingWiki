@@ -1,4 +1,4 @@
-﻿# Data Quality
+# Data Quality
 
 Aliases: data quality, chất lượng dữ liệu
 

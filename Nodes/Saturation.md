@@ -1,4 +1,4 @@
-﻿# Saturation
+# Saturation
 
 Aliases: resource saturation, bão hòa tài nguyên
 

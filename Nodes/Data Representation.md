@@ -1,4 +1,4 @@
-﻿# Data Representation
+# Data Representation
 
 Aliases: data encoding, biểu diễn dữ liệu
 

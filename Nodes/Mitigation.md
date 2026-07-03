@@ -56,10 +56,10 @@ Mitigation giúp team viết requirement bảo mật, review API/code/config, t�
 ## Nối mạnh
 
 - [[Threat Modeling]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Mitigation
-- [[Security]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Mitigation
 
 ## Liên quan rộng
 
+- Security
 - Application security
 - Threat modeling
 - Security testing

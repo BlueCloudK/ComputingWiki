@@ -1,4 +1,4 @@
-﻿# Region
+# Region
 
 Aliases: cloud region, vùng cloud
 

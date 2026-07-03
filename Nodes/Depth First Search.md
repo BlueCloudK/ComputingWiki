@@ -1,4 +1,4 @@
-﻿# Depth First Search
+# Depth First Search
 
 Aliases: DFS, tìm kiếm theo chiều sâu, depth-first traversal, duyệt sâu
 

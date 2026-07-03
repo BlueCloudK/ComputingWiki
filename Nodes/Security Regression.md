@@ -56,10 +56,10 @@ Security Regression giúp team viết requirement bảo mật, review API/code/c
 ## Nối mạnh
 
 - [[Regression Test]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Security Regression
-- [[Security]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Security Regression
 
 ## Liên quan rộng
 
+- Security
 - Application security
 - Threat modeling
 - Security testing

@@ -1,4 +1,4 @@
-﻿# Socket
+# Socket
 
 Aliases: network socket, socket
 

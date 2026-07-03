@@ -1,4 +1,4 @@
-﻿# Build Pipeline
+# Build Pipeline
 
 Aliases: build pipeline, pipeline build
 

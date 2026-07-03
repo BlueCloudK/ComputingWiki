@@ -1,4 +1,4 @@
-﻿# Number System
+# Number System
 
 Aliases: numeric representation, hệ đếm
 

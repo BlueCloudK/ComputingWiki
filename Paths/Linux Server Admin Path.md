@@ -76,7 +76,7 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[DevOps Deployment Path]]
-- [[Cloud Infrastructure Path]]
-- [[Debugging and Failure Patterns Path]]
-- [[Security Engineering Path]]
+- DevOps Deployment Path
+- Cloud Infrastructure Path
+- Debugging and Failure Patterns Path
+- Security Engineering Path

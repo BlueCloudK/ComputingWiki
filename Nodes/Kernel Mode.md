@@ -1,4 +1,4 @@
-﻿# Kernel Mode
+# Kernel Mode
 
 Aliases: supervisor mode, chế độ kernel
 

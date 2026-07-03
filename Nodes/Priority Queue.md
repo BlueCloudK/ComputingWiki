@@ -1,4 +1,4 @@
-﻿# Priority Queue
+# Priority Queue
 
 Aliases: priority queue, hàng đợi ưu tiên, heap queue
 

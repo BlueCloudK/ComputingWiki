@@ -1,4 +1,4 @@
-﻿# Port
+# Port
 
 Aliases: network port, cổng mạng
 

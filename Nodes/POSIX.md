@@ -55,11 +55,11 @@ POSIX giúp developer/operator deploy, debug incident, đọc log, quản lý qu
 
 ## Nối mạnh
 
-- [[Operating System]] vì liên quan trực tiếp tới cách dùng hoặc debug POSIX
 - [[Shell]] vì liên quan trực tiếp tới cách dùng hoặc debug POSIX
 
 ## Liên quan rộng
 
+- Operating System
 - Linux operations
 - Server administration
 - Production debugging

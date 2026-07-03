@@ -55,12 +55,12 @@ Application Architecture giúp team nối requirement, code, test, deploy và de
 
 ## Nối mạnh
 
-- [[Software Architecture]] vì liên quan trực tiếp tới cách áp dụng Application Architecture
-- [[Backend Engineering]] vì liên quan trực tiếp tới cách áp dụng Application Architecture
 - [[Application Layer]] vì liên quan trực tiếp tới cách áp dụng Application Architecture
 
 ## Liên quan rộng
 
+- Software Architecture
+- Backend Engineering
 - Application engineering
 - Project architecture
 - Software delivery

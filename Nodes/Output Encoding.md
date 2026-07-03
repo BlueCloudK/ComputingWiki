@@ -1,4 +1,4 @@
-﻿# Output Encoding
+# Output Encoding
 
 Aliases: output escaping, mã hóa output
 

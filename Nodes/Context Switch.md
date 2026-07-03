@@ -1,4 +1,4 @@
-﻿# Context Switch
+# Context Switch
 
 Aliases: task switch, chuyển ngữ cảnh
 

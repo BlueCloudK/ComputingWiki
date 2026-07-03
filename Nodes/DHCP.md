@@ -1,4 +1,4 @@
-﻿# DHCP
+# DHCP
 
 Aliases: Dynamic Host Configuration Protocol, DHCP, cấp phát IP động
 

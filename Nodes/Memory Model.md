@@ -59,12 +59,12 @@ Memory Model giúp debug bug state khó lặp lại và chọn pattern phù hợ
 ## Nối mạnh
 
 - [[Runtime]] vì runtime thường thực thi memory allocation/collection rule
-- [[Operating System]] vì memory cuối cùng chạy trên process/address space của OS
 - [[Concurrency]] vì shared memory và ordering là nguồn bug concurrency lớn
 - [[Race Condition]] vì race thường bắt nguồn từ memory sharing/mutation không kiểm soát
 
 ## Liên quan rộng
 
+- Operating System vì memory cuối cùng chạy trên process/address space của OS
 - Garbage collection
 - Ownership
 - Immutability

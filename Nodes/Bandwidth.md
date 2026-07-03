@@ -1,4 +1,4 @@
-﻿# Bandwidth
+# Bandwidth
 
 Aliases: network bandwidth, băng thông
 

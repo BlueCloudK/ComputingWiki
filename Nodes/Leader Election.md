@@ -1,4 +1,4 @@
-﻿# Leader Election
+# Leader Election
 
 Aliases: leader election, bầu leader
 

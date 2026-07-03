@@ -1,4 +1,4 @@
-﻿# TLS
+# TLS
 
 Aliases: Transport Layer Security, bảo mật tầng vận chuyển, SSL successor, bảo mật tầng truyền tải
 

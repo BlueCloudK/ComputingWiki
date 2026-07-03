@@ -59,11 +59,11 @@ Quality Attribute giúp kiến trúc không chỉ xoay quanh feature. Nó buộc
 ## Nối mạnh
 
 - [[Nonfunctional Requirement]] vì NFR cụ thể hóa quality attribute thành target kiểm chứng được
-- [[Software Architecture]] vì architecture thường là nơi trade-off quality attribute được quyết định
 - [[Scalability]] vì scalability là một quality attribute phổ biến
 
 ## Liên quan rộng
 
+- Software Architecture vì architecture thường là nơi trade-off quality attribute được quyết định
 - Architecture evaluation
 - SLO/SLA design
 - Risk analysis

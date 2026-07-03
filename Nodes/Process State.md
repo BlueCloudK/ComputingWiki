@@ -1,4 +1,4 @@
-﻿# Process State
+# Process State
 
 Aliases: process lifecycle state, trạng thái tiến trình
 

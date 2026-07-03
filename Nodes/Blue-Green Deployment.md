@@ -1,4 +1,4 @@
-﻿# Blue-Green Deployment
+# Blue-Green Deployment
 
 Aliases: blue green release, triển khai blue-green, blue/green deployment, triển khai xanh lam xanh lá
 

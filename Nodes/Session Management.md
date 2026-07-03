@@ -1,4 +1,4 @@
-﻿# Session Management
+# Session Management
 
 Aliases: session security, quản lý phiên
 

@@ -55,11 +55,11 @@ Linux giúp developer/operator deploy, debug incident, đọc log, quản lý qu
 
 ## Nối mạnh
 
-- [[Operating System]] vì liên quan trực tiếp tới cách dùng hoặc debug Linux
 - [[Kernel]] vì liên quan trực tiếp tới cách dùng hoặc debug Linux
 
 ## Liên quan rộng
 
+- Operating System
 - Linux operations
 - Server administration
 - Production debugging

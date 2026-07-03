@@ -79,7 +79,7 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[DevOps Deployment Path]]
-- [[Security Engineering Path]]
-- [[Debugging and Failure Patterns Path]]
-- [[Backend Engineering Path]]
+- DevOps Deployment Path
+- Security Engineering Path
+- Debugging and Failure Patterns Path
+- Backend Engineering Path

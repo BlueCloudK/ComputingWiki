@@ -1,4 +1,4 @@
-﻿# NAT
+# NAT
 
 Aliases: Network Address Translation, dịch địa chỉ mạng
 

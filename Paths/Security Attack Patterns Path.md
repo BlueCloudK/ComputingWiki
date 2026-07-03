@@ -72,7 +72,7 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[Security Engineering Path]]
-- [[API Design Path]]
-- [[Backend Engineering Path]]
-- [[Linux Server Admin Path]]
+- Security Engineering Path
+- API Design Path
+- Backend Engineering Path
+- Linux Server Admin Path

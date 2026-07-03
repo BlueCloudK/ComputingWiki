@@ -1,4 +1,4 @@
-﻿# Terraform
+# Terraform
 
 Aliases: Terraform, Terraform IaC
 

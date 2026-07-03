@@ -1,4 +1,4 @@
-﻿# Distributed Systems
+# Distributed Systems
 
 Aliases: distributed computing, hệ phân tán
 
@@ -65,11 +65,12 @@ MOC này giúp đọc graph backend/data/SRE khi vấn đề vượt khỏi mộ
 
 ## Nối mạnh
 
-- [[Data Intensive Systems]] vì distributed data là một nhánh lớn của data-intensive systems
-- [[SRE and Reliability]] vì vận hành distributed systems cần reliability discipline
 
+- Chưa có nối mạnh ngoài các node con trực tiếp
 ## Liên quan rộng
 
+- Data Intensive Systems vì distributed data là một nhánh lớn của data-intensive systems
+- SRE and Reliability vì vận hành distributed systems cần reliability discipline
 - Coordination
 - Partial failure
 - Replication

@@ -70,7 +70,7 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[Backend Engineering Path]]
-- [[Debugging and Failure Patterns Path]]
-- [[API Design Path]]
-- [[Cloud Infrastructure Path]]
+- Backend Engineering Path
+- Debugging and Failure Patterns Path
+- API Design Path
+- Cloud Infrastructure Path

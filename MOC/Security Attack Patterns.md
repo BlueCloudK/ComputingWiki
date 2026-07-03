@@ -176,13 +176,13 @@ MOC này giúp nối Security Path với API, backend, cloud, Linux, dependency 
 
 ## Nối mạnh
 
-- [[Security]] vì attack patterns là phần thực hành của application security
 - [[Threat Modeling]] vì threat model cần attack path và mitigation
 - [[API Security]] vì nhiều attack đi qua API boundary
-- [[Linux and Server Admin]] vì server/infra misconfig mở rộng attack surface
 
 ## Liên quan rộng
 
+- Security vì attack patterns là phần thực hành của application security
+- Linux and Server Admin vì server/infra misconfig mở rộng attack surface
 - Web security
 - API security
 - Cloud security

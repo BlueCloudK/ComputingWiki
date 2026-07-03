@@ -1,4 +1,4 @@
-﻿# Turing Model
+# Turing Model
 
 Aliases: Turing machine, mô hình Turing
 

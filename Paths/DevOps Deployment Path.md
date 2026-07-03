@@ -63,7 +63,7 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[Cloud Infrastructure Path]]
-- [[Debugging and Failure Patterns Path]]
-- [[Security Engineering Path]]
-- [[Backend Engineering Path]]
+- Cloud Infrastructure Path
+- Debugging and Failure Patterns Path
+- Security Engineering Path
+- Backend Engineering Path

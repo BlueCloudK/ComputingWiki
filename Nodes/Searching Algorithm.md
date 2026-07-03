@@ -1,4 +1,4 @@
-﻿# Searching Algorithm
+# Searching Algorithm
 
 Aliases: search algorithm, thuật toán tìm kiếm
 
@@ -56,11 +56,11 @@ Node này giúp chọn giữa linear scan, binary search, hash lookup hoặc gra
 
 ## Nối mạnh
 
-- [[Data Structures]] vì structure quyết định cách search hiệu quả
 - [[Big O Notation]] vì search cần so growth cost
 
 ## Liên quan rộng
 
+- Data Structures vì structure quyết định cách search hiệu quả
 - Lookup
 - Path finding
 

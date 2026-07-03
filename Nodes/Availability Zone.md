@@ -1,4 +1,4 @@
-﻿# Availability Zone
+# Availability Zone
 
 Aliases: AZ, vùng sẵn sàng, cloud availability zone
 

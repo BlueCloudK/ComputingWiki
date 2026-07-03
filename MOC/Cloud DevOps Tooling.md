@@ -154,13 +154,14 @@ MOC này giúp chọn node cần đọc khi thiết kế, debug, deploy hoặc a
 
 ## Nối mạnh
 
-- [[Cloud and Infrastructure]] vì liên quan trực tiếp tới Cloud DevOps Tooling
-- [[Deployment and Operations]] vì liên quan trực tiếp tới Cloud DevOps Tooling
-- [[Linux and Server Admin]] vì liên quan trực tiếp tới Cloud DevOps Tooling
-- [[SRE and Reliability]] vì liên quan trực tiếp tới Cloud DevOps Tooling
 
+- Chưa có nối mạnh ngoài các node con trực tiếp
 ## Liên quan rộng
 
+- Cloud and Infrastructure
+- Deployment and Operations
+- Linux and Server Admin
+- SRE and Reliability
 - ComputingWiki expansion pack
 - Project-oriented knowledge graph
 

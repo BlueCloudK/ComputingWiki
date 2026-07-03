@@ -1,4 +1,4 @@
-﻿# User Mode
+# User Mode
 
 Aliases: user space, chế độ người dùng
 

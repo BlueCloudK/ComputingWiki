@@ -76,8 +76,8 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[Backend Engineering Path]]
-- [[API Design Path]]
-- [[Web Application Path]]
-- [[Cloud Infrastructure Path]]
-- [[Security Attack Patterns Path]]
+- Backend Engineering Path
+- API Design Path
+- Web Application Path
+- Cloud Infrastructure Path
+- Security Attack Patterns Path

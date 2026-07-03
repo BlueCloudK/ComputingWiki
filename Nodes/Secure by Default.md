@@ -55,11 +55,11 @@ Secure by Default giúp team viết requirement bảo mật, review API/code/con
 
 ## Nối mạnh
 
-- [[Security]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Secure by Default
 - [[Configuration Management]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Secure by Default
 
 ## Liên quan rộng
 
+- Security
 - Application security
 - Threat modeling
 - Security testing

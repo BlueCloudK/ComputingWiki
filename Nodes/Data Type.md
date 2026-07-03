@@ -1,4 +1,4 @@
-﻿# Data Type
+# Data Type
 
 Aliases: type of data, kiểu dữ liệu
 

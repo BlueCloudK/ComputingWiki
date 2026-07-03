@@ -1,4 +1,4 @@
-﻿# Quorum
+# Quorum
 
 Aliases: quorum, số phiếu tối thiểu
 

@@ -1,4 +1,4 @@
-﻿# Fault Tolerance
+# Fault Tolerance
 
 Aliases: fault-tolerant system, chịu lỗi
 

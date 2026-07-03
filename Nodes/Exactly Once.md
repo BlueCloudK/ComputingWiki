@@ -1,4 +1,4 @@
-﻿# Exactly Once
+# Exactly Once
 
 Aliases: exactly-once processing, xử lý đúng một lần
 

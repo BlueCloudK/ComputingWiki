@@ -1,4 +1,4 @@
-﻿# Interrupt
+# Interrupt
 
 Aliases: hardware interrupt, ngắt
 

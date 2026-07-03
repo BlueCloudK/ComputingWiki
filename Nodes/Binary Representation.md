@@ -1,4 +1,4 @@
-﻿# Binary Representation
+# Binary Representation
 
 Aliases: binary encoding, biểu diễn nhị phân
 

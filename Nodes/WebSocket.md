@@ -56,10 +56,10 @@ WebSocket giúp team đặt tên đúng khi đọc tài liệu, review thiết k
 ## Nối mạnh
 
 - [[HTTP]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng WebSocket
-- [[API and Integration]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng WebSocket
 
 ## Liên quan rộng
 
+- API and Integration
 - Frontend engineering
 - Browser runtime
 - User experience

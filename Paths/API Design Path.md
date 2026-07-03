@@ -65,7 +65,7 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[Backend Engineering Path]]
-- [[Web Application Path]]
-- [[Security Engineering Path]]
-- [[Database Engineering Path]]
+- Backend Engineering Path
+- Web Application Path
+- Security Engineering Path
+- Database Engineering Path

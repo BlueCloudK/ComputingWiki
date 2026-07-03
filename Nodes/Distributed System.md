@@ -1,4 +1,4 @@
-﻿# Distributed System
+# Distributed System
 
 Aliases: distributed systems, hệ phân tán
 

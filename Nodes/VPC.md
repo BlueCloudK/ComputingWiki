@@ -1,4 +1,4 @@
-﻿# VPC
+# VPC
 
 Aliases: Virtual Private Cloud, mạng riêng ảo cloud
 

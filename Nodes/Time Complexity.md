@@ -1,4 +1,4 @@
-﻿# Time Complexity
+# Time Complexity
 
 Aliases: time cost, độ phức tạp thời gian
 

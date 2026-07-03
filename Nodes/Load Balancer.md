@@ -1,4 +1,4 @@
-﻿# Load Balancer
+# Load Balancer
 
 Aliases: LB, cân bằng tải, traffic load balancing
 

@@ -56,10 +56,10 @@ Security Requirement giúp team viết requirement bảo mật, review API/code/
 ## Nối mạnh
 
 - [[Nonfunctional Requirement]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Security Requirement
-- [[Security]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Security Requirement
 
 ## Liên quan rộng
 
+- Security
 - Application security
 - Threat modeling
 - Security testing

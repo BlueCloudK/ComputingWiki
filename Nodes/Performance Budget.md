@@ -1,4 +1,4 @@
-﻿# Performance Budget
+# Performance Budget
 
 Aliases: performance budget, ngân sách hiệu năng
 

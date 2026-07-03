@@ -1,4 +1,4 @@
-﻿# IAM
+# IAM
 
 Aliases: Identity and Access Management, quản lý định danh và quyền, quản lý danh tính và truy cập
 

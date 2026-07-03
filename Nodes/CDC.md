@@ -1,4 +1,4 @@
-﻿# CDC
+# CDC
 
 Aliases: Change Data Capture, bắt thay đổi dữ liệu
 

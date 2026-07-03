@@ -55,10 +55,11 @@ SAST giúp team đặt tên đúng khi đọc tài liệu, review thiết kế, 
 
 ## Nối mạnh
 
-- [[Security]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng SAST
 
+- Chưa có nối mạnh ngoài các node con trực tiếp
 ## Liên quan rộng
 
+- Security
 - Application security
 - Threat modeling
 - Secure operation

@@ -75,12 +75,13 @@ Vùng này giúp dev hiểu vì sao cùng một ý tưởng nhưng behavior khá
 
 ## Nối mạnh
 
-- [[Compiler and Interpreter]] vì compiler/interpreter là cách language được kiểm tra và thực thi
-- [[Operating System]] vì runtime cuối cùng vẫn chạy trên process, memory, file và system call
-- [[Software Engineering]] vì language choice ảnh hưởng maintainability, tooling và delivery
 
+- Chưa có nối mạnh ngoài các node con trực tiếp
 ## Liên quan rộng
 
+- Compiler and Interpreter vì compiler/interpreter là cách language được kiểm tra và thực thi
+- Operating System vì runtime cuối cùng vẫn chạy trên process, memory, file và system call
+- Software Engineering vì language choice ảnh hưởng maintainability, tooling và delivery
 - Language design
 - Runtime debugging
 - Developer productivity

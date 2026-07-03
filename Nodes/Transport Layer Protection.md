@@ -1,4 +1,4 @@
-﻿# Transport Layer Protection
+# Transport Layer Protection
 
 Aliases: transport security, bảo vệ dữ liệu truyền tải
 

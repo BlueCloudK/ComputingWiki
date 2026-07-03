@@ -72,7 +72,7 @@ Các khái niệm nên bổ sung sau, ghi text thường, không wikilink:
 
 ## Related paths
 
-- [[Backend Engineering Path]]
-- [[API Design Path]]
-- [[Security Engineering Path]]
-- [[Debugging and Failure Patterns Path]]
+- Backend Engineering Path
+- API Design Path
+- Security Engineering Path
+- Debugging and Failure Patterns Path

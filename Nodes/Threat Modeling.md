@@ -1,4 +1,4 @@
-﻿# Threat Modeling
+# Threat Modeling
 
 Aliases: threat model, mô hình đe dọa
 
@@ -56,11 +56,11 @@ Node này giúp security control đặt đúng chỗ thay vì thêm ngẫu nhiê
 
 ## Nối mạnh
 
-- [[Security]] vì threat modeling định hướng control security
 - [[API Security]] vì API boundary thường là attack surface lớn
 
 ## Liên quan rộng
 
+- Security vì threat modeling định hướng control security
 - STRIDE
 - Abuse cases
 

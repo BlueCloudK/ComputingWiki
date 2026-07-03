@@ -55,11 +55,11 @@ Defense in Depth giúp team viết requirement bảo mật, review API/code/conf
 
 ## Nối mạnh
 
-- [[Security]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Defense in Depth
 - [[Least Privilege]] vì liên quan trực tiếp tới cách phòng thủ hoặc nhận diện Defense in Depth
 
 ## Liên quan rộng
 
+- Security
 - Application security
 - Threat modeling
 - Security testing

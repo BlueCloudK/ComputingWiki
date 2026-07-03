@@ -56,10 +56,10 @@ IO Wait giúp developer/operator deploy, debug incident, đọc log, quản lý 
 ## Nối mạnh
 
 - [[Disk IO]] vì liên quan trực tiếp tới cách dùng hoặc debug IO Wait
-- [[Performance]] vì liên quan trực tiếp tới cách dùng hoặc debug IO Wait
 
 ## Liên quan rộng
 
+- Performance
 - Linux operations
 - Server administration
 - Production debugging

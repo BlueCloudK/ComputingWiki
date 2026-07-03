@@ -1,4 +1,4 @@
-﻿# CAP Theorem
+# CAP Theorem
 
 Aliases: CAP, định lý CAP, Brewer theorem, CAP tradeoff
 

@@ -1,4 +1,4 @@
-﻿# Object Storage
+# Object Storage
 
 Aliases: object store, lưu trữ object, blob storage, cloud object storage, lưu trữ đối tượng
 

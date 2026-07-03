@@ -1,4 +1,4 @@
-﻿# Password Storage
+# Password Storage
 
 Aliases: password hashing, lưu mật khẩu
 

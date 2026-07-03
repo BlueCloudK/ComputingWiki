@@ -1,4 +1,4 @@
-﻿# Docker
+# Docker
 
 Aliases: container runtime/tooling, Docker, container runtime, docker container, container hóa
 

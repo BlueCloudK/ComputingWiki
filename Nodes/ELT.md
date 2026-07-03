@@ -1,4 +1,4 @@
-﻿# ELT
+# ELT
 
 Aliases: Extract Load Transform, ELT, nạp rồi biến đổi dữ liệu
 

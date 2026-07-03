@@ -61,10 +61,10 @@ Runtime ảnh hưởng deploy, performance, memory usage, startup time và bug c
 - [[Programming Language]] vì language behavior thường cần runtime hỗ trợ
 - [[Compiler]] vì compiled code vẫn có thể phụ thuộc runtime library hoặc VM
 - [[Interpreter]] vì interpreter thường chính là một phần runtime execution
-- [[Operating System]] vì runtime dùng process, memory, file và system call của OS
 
 ## Liên quan rộng
 
+- Operating System vì runtime dùng process, memory, file và system call của OS
 - Virtual machine
 - Garbage collection
 - Event loop

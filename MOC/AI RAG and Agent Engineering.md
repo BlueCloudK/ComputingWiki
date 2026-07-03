@@ -154,13 +154,14 @@ MOC này giúp chọn node cần đọc khi thiết kế, debug, deploy hoặc a
 
 ## Nối mạnh
 
-- [[AI and ML Engineering]] vì liên quan trực tiếp tới AI RAG and Agent Engineering
-- [[Backend Engineering]] vì liên quan trực tiếp tới AI RAG and Agent Engineering
-- [[Data Engineering]] vì liên quan trực tiếp tới AI RAG and Agent Engineering
-- [[Security Attack Patterns]] vì liên quan trực tiếp tới AI RAG and Agent Engineering
 
+- Chưa có nối mạnh ngoài các node con trực tiếp
 ## Liên quan rộng
 
+- AI and ML Engineering
+- Backend Engineering
+- Data Engineering
+- Security Attack Patterns
 - ComputingWiki expansion pack
 - Project-oriented knowledge graph
 

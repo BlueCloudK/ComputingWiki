@@ -1,4 +1,4 @@
-﻿# Device Driver
+# Device Driver
 
 Aliases: driver, trình điều khiển thiết bị
 

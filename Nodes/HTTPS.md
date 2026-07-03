@@ -1,4 +1,4 @@
-﻿# HTTPS
+# HTTPS
 
 Aliases: HTTP over TLS, HTTPS, secure HTTP, HTTP bảo mật
 

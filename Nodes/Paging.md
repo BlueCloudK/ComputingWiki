@@ -1,4 +1,4 @@
-﻿# Paging
+# Paging
 
 Aliases: memory paging, phân trang
 
