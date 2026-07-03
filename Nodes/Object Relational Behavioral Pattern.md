@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Object Relational Behavioral Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Object Relational Behavioral Pattern xử lý behavior quanh object-relational mapping như identity, lazy load hoặc unit of work.
 
 ## Output / Artifact nên có
 

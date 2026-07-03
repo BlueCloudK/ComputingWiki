@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Identity Map ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Identity Map đảm bảo cùng một record trong một unit of work chỉ có một object instance, tránh update mâu thuẫn.
 
 ## Output / Artifact nên có
 

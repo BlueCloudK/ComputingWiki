@@ -42,7 +42,7 @@ Systems Engineering Users and Uses ảnh hưởng tới cách chia module/servic
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Boundary sai làm team ownership và data ownership rối
+- Systems Engineering Users and Uses không rõ boundary làm ownership, dependency hoặc data/control flow bị đặt sai chỗ
 - Coupling cao khiến một thay đổi kéo theo nhiều service
 - Không nghĩ failure mode nên incident khó khoanh vùng
 - Thiết kế quá lớn so với nhu cầu hiện tại

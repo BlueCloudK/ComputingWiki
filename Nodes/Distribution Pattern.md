@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Distribution Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Distribution Pattern xử lý ranh giới process/network như remote call, serialization và latency thay vì chỉ chia class nội bộ.
 
 ## Output / Artifact nên có
 

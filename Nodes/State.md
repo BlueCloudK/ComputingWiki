@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-State ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+State chuyển behavior theo trạng thái object, tránh if/switch lớn khi state transition là phần chính của logic.
 
 ## Output / Artifact nên có
 

@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Structural Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Structural Pattern tập trung vào cách ghép class/object để giảm coupling ở interface, wrapper, tree hoặc proxy boundary.
 
 ## Output / Artifact nên có
 

@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Web Presentation Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Web Presentation Pattern tổ chức request, controller, view và presentation flow để UI web không trộn quá sâu với domain/persistence.
 
 ## Output / Artifact nên có
 

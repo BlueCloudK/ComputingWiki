@@ -49,7 +49,7 @@ Number Theory and Cryptography ảnh hưởng tới lựa chọn thuật toán, 
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu nếu input nhỏ và không nằm trên critical path
+- Chưa cần đào sâu Number Theory and Cryptography nếu input nhỏ, bounded và không ảnh hưởng trực tiếp tới correctness hoặc latency người dùng
 - Dễ over-engineer nếu tối ưu thuật toán trước khi đo bottleneck thật
 
 ## Gồm những gì

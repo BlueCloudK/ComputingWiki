@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Active Record ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Active Record đặt persistence logic cạnh entity, hợp với CRUD đơn giản nhưng dễ làm domain object biết quá nhiều về database.
 
 ## Output / Artifact nên có
 

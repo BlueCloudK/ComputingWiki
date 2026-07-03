@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Decorator ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Decorator bọc object để thêm behavior theo lớp mà không sửa class gốc hoặc tạo nhiều subclass kết hợp.
 
 ## Output / Artifact nên có
 

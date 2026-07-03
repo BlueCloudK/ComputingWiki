@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Front Controller ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Front Controller gom request entrypoint của web app vào một nơi để xử lý routing, auth, logging và dispatch nhất quán.
 
 ## Output / Artifact nên có
 

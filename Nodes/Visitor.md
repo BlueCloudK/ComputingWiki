@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Visitor ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Visitor thêm operation mới trên object structure mà không sửa từng class, đổi lại dependency vào shape của structure.
 
 ## Output / Artifact nên có
 

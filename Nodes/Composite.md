@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Composite ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Composite cho client xử lý object đơn và cây object qua cùng interface, hợp với cấu trúc phân cấp như UI, menu hoặc tree.
 
 ## Output / Artifact nên có
 

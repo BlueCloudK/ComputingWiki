@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Creational Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Creational Pattern kiểm soát cách object được tạo khi constructor trực tiếp làm lộ lifecycle, dependency hoặc variant.
 
 ## Output / Artifact nên có
 

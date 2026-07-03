@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Bridge ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Bridge tách abstraction khỏi implementation để hai chiều thay đổi độc lập thay vì nhân số class theo mọi tổ hợp.
 
 ## Output / Artifact nên có
 

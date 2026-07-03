@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Page Controller ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Page Controller gắn controller với từng page/action, đơn giản cho web flow nhỏ nhưng dễ phân tán logic chung.
 
 ## Output / Artifact nên có
 

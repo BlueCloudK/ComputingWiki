@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Template Method ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Template Method định nghĩa skeleton algorithm trong base class và để subclass thay đổi một số bước.
 
 ## Output / Artifact nên có
 

@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Layering Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Layering Pattern chia hệ thống thành tầng trách nhiệm để dependency đi theo hướng kiểm soát được.
 
 ## Output / Artifact nên có
 

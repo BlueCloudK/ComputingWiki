@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Factory Method ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Factory Method để subclass hoặc hook quyết định class cụ thể được tạo trong một workflow chung.
 
 ## Output / Artifact nên có
 

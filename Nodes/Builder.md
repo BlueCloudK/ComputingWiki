@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Builder ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Builder gom quá trình dựng object phức tạp thành từng bước rõ ràng, tránh constructor dài và trạng thái khởi tạo khó đọc.
 
 ## Output / Artifact nên có
 

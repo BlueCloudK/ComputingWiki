@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Observer ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Observer tách publisher khỏi subscriber để nhiều bên phản ứng với event mà publisher không biết từng receiver.
 
 ## Output / Artifact nên có
 

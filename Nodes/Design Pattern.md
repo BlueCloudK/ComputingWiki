@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Design Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Design Pattern giúp đặt tên cho một trade-off thiết kế lặp lại; giá trị nằm ở force cụ thể chứ không phải áp dụng theo danh sách.
 
 ## Output / Artifact nên có
 

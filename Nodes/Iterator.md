@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Iterator ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Iterator chuẩn hóa cách duyệt collection để client không cần biết cấu trúc lưu trữ bên trong.
 
 ## Output / Artifact nên có
 

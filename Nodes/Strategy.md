@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Strategy ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Strategy đóng gói thuật toán có thể thay thế để caller chọn behavior mà không nhúng nhiều nhánh điều kiện.
 
 ## Output / Artifact nên có
 

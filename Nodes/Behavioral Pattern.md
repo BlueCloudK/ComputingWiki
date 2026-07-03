@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Behavioral Pattern ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Behavioral Pattern giúp đọc cách object phân phối trách nhiệm, gửi request và thay đổi behavior khi runtime flow phức tạp.
 
 ## Output / Artifact nên có
 

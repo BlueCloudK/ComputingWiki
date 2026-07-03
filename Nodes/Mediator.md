@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Mediator ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Mediator gom giao tiếp nhiều object vào trung tâm phối hợp để giảm coupling dạng many-to-many.
 
 ## Output / Artifact nên có
 

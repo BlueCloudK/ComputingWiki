@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Abstract Factory ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Abstract Factory gom việc tạo các family object tương thích để client không phụ thuộc class cụ thể của từng biến thể sản phẩm.
 
 ## Output / Artifact nên có
 

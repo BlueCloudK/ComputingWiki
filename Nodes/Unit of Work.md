@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Unit of Work ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Unit of Work gom các thay đổi trong một transaction boundary để commit/rollback nhất quán.
 
 ## Output / Artifact nên có
 

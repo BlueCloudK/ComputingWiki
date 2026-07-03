@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Service Layer ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Service Layer đặt use-case/application operation ở boundary giữa UI/API và domain/persistence.
 
 ## Output / Artifact nên có
 

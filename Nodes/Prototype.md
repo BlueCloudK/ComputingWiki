@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Prototype ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Prototype tạo object mới bằng clone object mẫu, hữu ích khi chi phí khởi tạo hoặc cấu hình ban đầu phức tạp.
 
 ## Output / Artifact nên có
 

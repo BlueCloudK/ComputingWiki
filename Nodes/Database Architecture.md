@@ -42,7 +42,7 @@ Database Architecture ảnh hưởng tới cách chia module/service, deploy, de
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Boundary sai làm team ownership và data ownership rối
+- Database Architecture không rõ boundary làm ownership, dependency hoặc data/control flow bị đặt sai chỗ
 - Coupling cao khiến một thay đổi kéo theo nhiều service
 - Không nghĩ failure mode nên incident khó khoanh vùng
 - Thiết kế quá lớn so với nhu cầu hiện tại

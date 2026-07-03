@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Proxy ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Proxy đứng thay object thật để kiểm soát access, lazy load, remote call hoặc caching mà giữ interface giống nhau.
 
 ## Output / Artifact nên có
 

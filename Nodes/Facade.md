@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Facade ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Facade tạo interface đơn giản trước subsystem phức tạp để client không biết nhiều dependency và thứ tự gọi bên trong.
 
 ## Output / Artifact nên có
 

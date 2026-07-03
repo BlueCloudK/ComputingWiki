@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Chain of Responsibility ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Chain of Responsibility cho request đi qua chuỗi handler, phù hợp khi rule xử lý có thứ tự và có thể dừng sớm.
 
 ## Output / Artifact nên có
 

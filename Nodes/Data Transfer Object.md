@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Data Transfer Object ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Data Transfer Object gom dữ liệu đi qua API hoặc layer boundary để tránh lộ entity nội bộ và giảm round trip.
 
 ## Output / Artifact nên có
 

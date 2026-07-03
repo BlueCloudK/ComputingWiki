@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Table Module ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Table Module đặt business logic quanh một table hoặc record set, hợp với app data-centric nhưng yếu khi domain behavior phức tạp.
 
 ## Output / Artifact nên có
 

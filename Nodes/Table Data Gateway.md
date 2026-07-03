@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Table Data Gateway ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Table Data Gateway gom SQL cho một table vào gateway riêng, hợp với data access đơn giản theo bảng.
 
 ## Output / Artifact nên có
 

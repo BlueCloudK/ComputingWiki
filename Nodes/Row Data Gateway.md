@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Row Data Gateway ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Row Data Gateway đại diện một row database và gom SQL cho row đó vào một object gateway.
 
 ## Output / Artifact nên có
 

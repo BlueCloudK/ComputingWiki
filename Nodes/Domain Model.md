@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Domain Model ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Domain Model đặt behavior và rule nghiệp vụ vào object/domain structure thay vì rải hết trong transaction script.
 
 ## Output / Artifact nên có
 

@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Data Mapper ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Data Mapper tách domain object khỏi database schema bằng mapper riêng, giảm coupling giữa model nghiệp vụ và persistence.
 
 ## Output / Artifact nên có
 

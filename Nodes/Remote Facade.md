@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Remote Facade ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Remote Facade gom nhiều thao tác nhỏ thành coarse-grained remote API để giảm round trip qua network.
 
 ## Output / Artifact nên có
 

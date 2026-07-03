@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Command ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Command biến hành động thành object để queue, undo, log hoặc dispatch mà caller không cần biết receiver cụ thể.
 
 ## Output / Artifact nên có
 

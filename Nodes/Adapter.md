@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Adapter ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Adapter dịch interface của dependency cũ hoặc third-party sang interface mà code hiện tại cần, giảm lan truyền mismatch qua nhiều module.
 
 ## Output / Artifact nên có
 

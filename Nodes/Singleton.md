@@ -24,7 +24,7 @@ Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai g
 
 ## Project Role / Vai trò trong dự án
 
-Singleton ảnh hưởng tới module boundary, unit test, refactor path và nơi business rule được đặt trong code.
+Singleton kiểm soát một instance toàn cục, nhưng dễ tạo hidden state và coupling nếu dùng cho dependency thường.
 
 ## Output / Artifact nên có
 
