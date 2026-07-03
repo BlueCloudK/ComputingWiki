@@ -31,10 +31,10 @@
 
 | Node | Parent | Type | Meaning | Source Trace | Use in library |
 |---|---|---|---|---|---|
-| [[Computer Architecture]] | [[Computer Organization and Architecture]] | area | hardware-visible system structure | Ch01 | candidate node |
+| [[Computer Organization and Architecture|Computer Architecture]] | [[Computer Organization and Architecture]] | area | hardware-visible system structure | Ch01 | candidate node |
 | [[CPU]] | [[Processor]] | component | executes instructions | Ch03/later | candidate node |
 | [[Cache]] | [[Memory System]] | concept/component | fast memory for repeated access | Ch04 | candidate node |
-| [[Memory]] | [[Memory System]] | area | storage hierarchy for data/instructions | Ch04-Ch06 | candidate node |
+| [[Memory System|Memory]] | [[Memory System]] | area | storage hierarchy for data/instructions | Ch04-Ch06 | candidate node |
 | [[Benchmark]] | [[Computer Performance]] | practice | repeatable performance measurement | Ch02.6 | existing node |
 
 ## Notes

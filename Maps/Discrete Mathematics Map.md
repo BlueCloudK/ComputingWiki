@@ -28,20 +28,20 @@
   - [[Counting]] - methods for counting arrangements and choices. `area` `source: Ch06`
   - [[Discrete Probability]] - probability over discrete outcomes. `area` `source: Ch07`
   - [[Relations]] - sets of ordered pairs and their properties. `area` `source: Ch09`
-  - [[Graphs]] - vertices, edges, paths, and graph properties. `area` `source: Ch10`
-  - [[Trees]] - connected acyclic graph structures. `area` `source: Ch11`
+  - [[Graph|Graphs]] - vertices, edges, paths, and graph properties. `area` `source: Ch10`
+  - [[Tree|Trees]] - connected acyclic graph structures. `area` `source: Ch11`
   - [[Boolean Algebra]] - algebra of boolean values and logic circuits. `area` `source: Ch12`
 
 ## Candidate Nodes
 
 | Node | Parent | Type | Meaning | Source Trace | Use in library |
 |---|---|---|---|---|---|
-| [[Logic]] | [[Logic and Proofs]] | area | formal true/false reasoning | Ch01 | candidate node |
-| [[Proof]] | [[Logic and Proofs]] | practice | justify truth of statements | Ch01 | candidate node |
+| [[Logic and Proofs|Logic]] | [[Logic and Proofs]] | area | formal true/false reasoning | Ch01 | candidate node |
+| [[Proof Methods|Proof]] | [[Logic and Proofs]] | practice | justify truth of statements | Ch01 | candidate node |
 | [[Set]] | [[Sets Functions Sequences and Matrices]] | concept | collection of elements | Ch02 | candidate node |
-| [[Algorithm Complexity]] | [[Algorithms]] | concept | time/space cost growth | Ch03 | candidate node |
-| [[Graph]] | [[Graphs]] | structure | vertices and edges | Ch10 | candidate node |
-| [[Tree]] | [[Trees]] | structure | acyclic connected graph | Ch11 | candidate node |
+| [[Complexity of Algorithms|Algorithm Complexity]] | [[Algorithms]] | concept | time/space cost growth | Ch03 | candidate node |
+| [[Graph]] | [[Graph|Graphs]] | structure | vertices and edges | Ch10 | candidate node |
+| [[Tree]] | [[Tree|Trees]] | structure | acyclic connected graph | Ch11 | candidate node |
 
 ## Notes
 

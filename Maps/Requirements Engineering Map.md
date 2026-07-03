@@ -32,7 +32,7 @@
     - [[Scenario]] - story-like description of system use. `artifact` `source: RE guide Ch04.11`
     - [[Prototype]] - rough version used to explore uncertain requirements. `artifact/practice` `source: RE guide Ch04.10 / SR Ch15`
   - [[Requirements Modeling]] - representing requirements with diagrams/tables/models. `practice` `source: RE guide Ch07 / SR Ch12`
-    - [[Context Diagram]] - diagram showing system boundary and external actors/systems. `artifact` `source: SR Ch05/Ch12`
+    - [[System Context Diagram|Context Diagram]] - diagram showing system boundary and external actors/systems. `artifact` `source: SR Ch05/Ch12`
     - [[Use Case]] - goal-oriented interaction between actor and system. `artifact` `source: SR Ch08`
     - [[Data Flow Diagram]] - model of data movement through processes. `artifact` `source: SR Ch12`
     - [[State Transition Diagram]] - model of states and transitions. `artifact` `source: SR Ch12`

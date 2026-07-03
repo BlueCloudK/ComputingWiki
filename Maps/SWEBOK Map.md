@@ -35,7 +35,7 @@
   - [[Software Testing]] - evaluating software behavior and quality through static and dynamic checks. `area` `source: SWEBOK testing chapter`
     - [[Testing Fundamentals]] - basic testing purpose, terminology, and principles. `topic` `source: testing chapter`
     - [[Test Levels]] - levels such as unit, integration, system, and acceptance testing. `topic` `source: testing chapter`
-    - [[Test Techniques]] - methods for designing tests. `practice` `source: testing chapter`
+    - [[Testing Techniques|Test Techniques]] - methods for designing tests. `practice` `source: testing chapter`
     - [[Test Process]] - planning, designing, executing, and reporting tests. `practice` `source: testing chapter`
   - [[Software Engineering Operations]] - running software in real environments after release. `area` `source: SWEBOK operations area`
     - [[Deployment]] - releasing software into an environment where it can run. `practice` `source: operations area`

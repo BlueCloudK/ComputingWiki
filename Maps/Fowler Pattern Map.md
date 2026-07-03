@@ -41,8 +41,8 @@
 | [[Unit of Work]] | [[Object Relational Behavioral Pattern]] | pattern | track and commit changes | PEAA | candidate node |
 | [[Data Mapper]] | [[Data Source Architectural Pattern]] | pattern | map objects to database independently | PEAA | candidate node |
 | [[Active Record]] | [[Data Source Architectural Pattern]] | pattern | object with persistence methods | PEAA | candidate node |
-| [[DTO]] | [[Distribution Pattern]] | pattern | carry data across boundary | PEAA | candidate node |
-| [[MVC]] | [[Web Presentation Pattern]] | pattern | split model/view/controller | PEAA | candidate node |
+| [[Data Transfer Object|DTO]] | [[Distribution Pattern]] | pattern | carry data across boundary | PEAA | candidate node |
+| [[Model View Controller|MVC]] | [[Web Presentation Pattern]] | pattern | split model/view/controller | PEAA | candidate node |
 
 ## Notes
 

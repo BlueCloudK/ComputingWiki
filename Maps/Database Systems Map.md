@@ -47,7 +47,7 @@
 
 | Node | Parent | Type | Meaning | Source Trace | Use in library |
 |---|---|---|---|---|---|
-| [[Database]] | [[Database System]] | area | durable data management system | Ch01 | MOC/node |
+| [[Database System|Database]] | [[Database System]] | area | durable data management system | Ch01 | MOC/node |
 | [[Database Schema]] | [[Relational Model]] | artifact | database structure definition | Ch02.2 | candidate node |
 | [[ERD]] | [[Database Design]] | artifact | entity relationship diagram | Ch06 | existing node |
 | [[SQL]] | [[Database System]] | language/topic | relational query language | Ch03-Ch05 | candidate node |

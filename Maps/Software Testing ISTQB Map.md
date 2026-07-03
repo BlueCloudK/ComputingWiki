@@ -47,10 +47,10 @@
 | [[Test Process]] | [[Software Testing]] | practice | lifecycle activities of testing | Ch01/Ch05 | candidate node |
 | [[Unit Test]] | [[Component Testing]] | practice | test a small code unit/component | Ch02 | existing node |
 | [[Integration Test]] | [[Integration Testing]] | practice | test interactions between parts | Ch02 | candidate node |
-| [[System Test]] | [[System Testing]] | practice | test whole integrated system | Ch02 | candidate node |
-| [[Acceptance Test]] | [[Acceptance Testing]] | practice | test business/user acceptance | Ch02 | candidate node |
+| [[System Testing|System Test]] | [[System Testing]] | practice | test whole integrated system | Ch02 | candidate node |
+| [[Acceptance Testing|Acceptance Test]] | [[Acceptance Testing]] | practice | test business/user acceptance | Ch02 | candidate node |
 | [[Static Testing]] | [[What Is Testing]] | practice | inspect without execution | Ch03 | candidate node |
-| [[Test Design Technique]] | [[Test Design Techniques]] | practice | method for deriving tests | Ch04 | candidate node |
+| [[Test Design Techniques|Test Design Technique]] | [[Test Design Techniques]] | practice | method for deriving tests | Ch04 | candidate node |
 | [[Test Management]] | [[Software Testing]] | area | planning and controlling test work | Ch05 | candidate node |
 
 ## Notes

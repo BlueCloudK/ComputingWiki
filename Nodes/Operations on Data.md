@@ -1,0 +1,73 @@
+# Operations on Data
+
+Aliases: Operations on Data
+
+Type: Computing Foundations
+
+## Context / Ngữ cảnh
+
+Operations on Data là khái niệm xuất hiện trong source map của ComputingWiki và cần có node thật để graph không sinh unresolved link.
+
+## Boundary / Ranh giới
+
+### Nó là gì
+
+Operations on Data dùng để đặt tên một vùng kiến thức, artifact, activity hoặc decision trong nhóm Computing Foundations.
+
+### Nó không phải là gì
+
+Nó không phải tutorial dài hoặc tool cụ thể; node này giữ nghĩa canonical để nối map nguồn với wiki chính.
+
+## Core Mechanism / Cơ chế lõi
+
+Cơ chế lõi là hiểu Operations on Data đang mô tả boundary nào, tạo artifact gì, và giúp kiểm tra hoặc thiết kế phần nào của hệ thống.
+
+## Project Role / Vai trò trong dự án
+
+Operations on Data giúp người đọc tra lại thuật ngữ từ source map, rồi nối sang các node chi tiết hơn trong project workflow.
+
+## Output / Artifact nên có
+
+- Note ngắn định nghĩa Operations on Data
+- Trace về source map nơi thuật ngữ xuất hiện
+- Link tới node liên quan mạnh nếu đã có trong wiki
+
+## Decision Checklist / Câu hỏi kiểm tra
+
+- Operations on Data thuộc vùng kiến thức nào trong ComputingWiki?
+- Nó là activity, artifact, concept hay quality concern?
+- Khi gặp thuật ngữ này trong source, nên nối sang node nào để học/làm tiếp?
+
+## Failure Modes / Cách nó gây lỗi
+
+- Để Operations on Data chỉ là ghost link làm graph view có node không tồn tại
+- Tạo trùng với canonical node khác mà không xử lý alias
+- Dùng thuật ngữ rộng nhưng không có source trace
+
+## Khi nào chưa cần hoặc dễ over-engineer
+
+- Chưa cần đào sâu nếu node chỉ dùng để giữ trace từ Maps
+- Dễ over-engineer nếu biến node này thành tutorial thay vì entry ngắn trong wiki
+
+## Gồm những gì
+
+- Chưa tách nhánh
+
+## Nối mạnh
+
+- Chưa có nối mạnh ngoài các node con trực tiếp
+
+## Liên quan rộng
+
+- Source extraction
+- Knowledge graph cleanup
+
+## Keywords / Từ khóa tìm kiếm
+
+- Operations on Data
+- operations on data
+- Operations on Data concept
+
+## Source trace
+
+- Maps\Computer Foundations Map.md

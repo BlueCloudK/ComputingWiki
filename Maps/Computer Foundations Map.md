@@ -9,13 +9,13 @@
 
 ## Extracted Knowledge Tree
 
-- [[Computer Science Foundations]] - broad entry layer for understanding computers and computation. `area` `source: book contents`
+- [[Computing Foundations|Computer Science Foundations]] - broad entry layer for understanding computers and computation. `area` `source: book contents`
   - [[Turing Model]] - abstract model of computation. `concept` `source: Ch01`
   - [[Von Neumann Model]] - stored-program model behind most computers. `concept` `source: Ch01`
   - [[Computer Components]] - CPU, memory, IO, and interconnection parts. `topic` `source: Ch01/Ch05`
-  - [[Number Systems]] - ways to represent numbers such as binary and positional notation. `topic` `source: Ch02`
+  - [[Number System|Number Systems]] - ways to represent numbers such as binary and positional notation. `topic` `source: Ch02`
   - [[Data Storage]] - how computers represent and store data types. `topic` `source: Ch03`
-    - [[Data Types]] - categories of representable data. `concept` `source: Ch03.1`
+    - [[Data Type|Data Types]] - categories of representable data. `concept` `source: Ch03.1`
     - [[Storing Numbers]] - numeric representation in computers. `concept` `source: Ch03.2`
     - [[Storing Text]] - character/text representation. `concept` `source: Ch03.3`
   - [[Operations on Data]] - primitive operations computers perform on data. `topic` `source: Ch04`
@@ -24,7 +24,7 @@
     - [[Arithmetic Operations]] - arithmetic at machine level. `concept` `source: Ch04.3`
   - [[Computer Organization]] - structure and function of computer hardware. `area` `source: Ch05`
   - [[Computer Networks]] - communication between computers. `area` `source: Ch06`
-  - [[Operating Systems]] - software layer managing hardware and programs. `area` `source: Ch07`
+  - [[Operating System|Operating Systems]] - software layer managing hardware and programs. `area` `source: Ch07`
   - [[Algorithms]] - step-by-step procedures for solving problems. `area` `source: Ch08`
   - [[Programming Languages]] - formal languages for writing programs. `area` `source: Ch09`
 
@@ -32,12 +32,12 @@
 
 | Node | Parent | Type | Meaning | Source Trace | Use in library |
 |---|---|---|---|---|---|
-| [[Computing Foundations]] | [[Computer Science Foundations]] | MOC | root for stable computing concepts | Contents | MOC |
-| [[Number System]] | [[Computer Science Foundations]] | topic | numeric representation basics | Ch02 | candidate node |
+| [[Computing Foundations]] | [[Computing Foundations|Computer Science Foundations]] | MOC | root for stable computing concepts | Contents | MOC |
+| [[Number System]] | [[Computing Foundations|Computer Science Foundations]] | topic | numeric representation basics | Ch02 | candidate node |
 | [[Data Representation]] | [[Data Storage]] | topic | how data is encoded in computers | Ch03 | candidate node |
-| [[Computer Organization]] | [[Computer Science Foundations]] | area | hardware structure/function | Ch05 | candidate node |
-| [[Operating System]] | [[Computer Science Foundations]] | area | manages resources and programs | Ch07 | MOC/node |
-| [[Algorithm]] | [[Computer Science Foundations]] | area | procedure for solving problems | Ch08 | MOC/node |
+| [[Computer Organization]] | [[Computing Foundations|Computer Science Foundations]] | area | hardware structure/function | Ch05 | candidate node |
+| [[Operating System]] | [[Computing Foundations|Computer Science Foundations]] | area | manages resources and programs | Ch07 | MOC/node |
+| [[Algorithm]] | [[Computing Foundations|Computer Science Foundations]] | area | procedure for solving problems | Ch08 | MOC/node |
 
 ## Notes
 
