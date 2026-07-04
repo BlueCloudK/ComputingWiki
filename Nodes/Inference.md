@@ -6,48 +6,58 @@ Type: AI / ML Engineering
 
 ## Context / Ngữ cảnh
 
-Inference xuất hiện khi model đã train cần tạo prediction/output cho input mới trong runtime thật.
+Inference xuất hiện khi model đã được train/chọn xong và cần tạo prediction, classification, embedding, text output hoặc action decision cho input mới trong runtime thật. Nó là phần AI system chạm trực tiếp vào latency, cost, scale, reliability và user experience.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Inference là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Inference là quá trình đưa input qua model để tạo output. Trong production, inference không chỉ là `model(input)`, mà còn gồm preprocessing, batching, model serving, hardware/runtime, timeout, output validation, logging, monitoring và version control.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Inference không phải training. Nó không cập nhật trọng số model chính trong lúc phục vụ request thông thường. Inference cũng không bảo đảm output đúng nếu input preprocessing sai, model version lệch, prompt/config đổi, hoặc output không được validate theo contract/use case.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Inference là serving latency, batching, model version, prompt/input preprocessing và output validation.
+Pipeline inference thường gồm nhận request, validate/preprocess input, chọn model/version, chạy model trên runtime phù hợp, postprocess output, validate/guardrail, trả response và ghi log/metric. Với LLM, inference còn phụ thuộc context length, decoding config, tool call, streaming, rate limit và token cost.
 
 ## Project Role / Vai trò trong dự án
 
-Inference giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Inference ảnh hưởng tới cách AI feature được deploy và vận hành. Khi debug AI app, team phải biết model version nào đang chạy, input được preprocess ra sao, latency nằm ở model hay network, output được validate thế nào, và fallback/rollback xảy ra ra sao khi inference fail.
 
 ## Output / Artifact nên có
 
-- Inference decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Inference
-- Failure note ghi rõ Inference ảnh hưởng user, runtime hay data thế nào
+- Inference serving design: endpoint, model version, runtime/hardware, batching, timeout
+- Input preprocessing và output postprocessing/validation contract
+- Metric dashboard: latency p50/p95/p99, throughput, error rate, token/cost, saturation
+- Rollout/rollback plan cho model version hoặc prompt/config version
+- Test case cho malformed input, slow inference, bad output, model unavailable và fallback
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Inference đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Inference không?
-- Khi Inference fail, user hoặc service nào bị ảnh hưởng trước?
+- Inference đang phục vụ online request, batch job hay background pipeline?
+- Latency/cost budget cho request là bao nhiêu?
+- Model version/prompt/config có được pin và log lại không?
+- Có batching/cache/streaming phù hợp workload không?
+- Output có cần schema validation, safety filter hoặc human review không?
+- Khi model/provider unavailable, fallback/rollback là gì?
+- Metric có tách model latency, queue time, network latency và postprocessing không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Inference làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Inference nhưng không ghi rõ owner, constraint hoặc rollback path
+- Model version đổi nhưng không log/version output làm regression khó trace.
+- Preprocessing train/inference lệch làm output sai dù model tốt.
+- Inference latency p95/p99 cao làm API timeout hoặc user experience tệ.
+- Batching quá lớn làm throughput tăng nhưng latency interactive request vượt budget.
+- Output không validate làm JSON sai/schema sai/action sai đi sâu vào hệ thống.
+- Provider/model outage không có fallback làm toàn bộ AI feature fail.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Inference nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Inference trước khi có nhu cầu vận hành hoặc học tập rõ
+- Prototype offline có thể gọi model đơn giản trước khi xây serving platform.
+- Không nên tối ưu GPU/batching phức tạp khi bottleneck thật là prompt/context hoặc network/provider.
+- Không nên deploy model mới nếu chưa có eval/regression check và rollback path rõ.
 
 ## Gồm những gì
 
@@ -55,25 +65,39 @@ Inference giúp team đọc code, thiết kế, debug hoặc vận hành bằng 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Model Serving]] vì inference production cần lớp serving ổn định.
+- [[AI Evaluation]] vì đổi inference model/config cần eval để bắt regression.
+- [[Latency]] vì inference thường là phần tốn thời gian nhất trong AI request.
+- [[Timeout]] vì inference chậm cần timeout/fallback rõ.
+- [[Model Versioning]] vì cần biết output đến từ model/prompt/config version nào.
 
 ## Liên quan rộng
 
-- AI system design
-- Model operations
-- Data quality
+- ML operations
+- AI product reliability
+- Runtime optimization
+- Cost control
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Inference
 - model inference
 - suy luận mô hình
+- model serving
+- online inference
+- batch inference
+- inference latency
+- inference throughput
+- model version
+- inference endpoint
+- batching
+- output validation
+- LLM inference
+- token cost
 - inference debugging
-- inference design
-- AI engineering
-- ML system
-- kỹ thuật AI
 
 ## Source trace
 
-- TensorFlow Serving docs; PyTorch docs
+- TensorFlow Serving documentation
+- PyTorch documentation
+- ML systems references
