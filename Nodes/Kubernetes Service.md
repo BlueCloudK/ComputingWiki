@@ -6,48 +6,58 @@ Type: Kubernetes
 
 ## Context / Ngữ cảnh
 
-Kubernetes Service xuất hiện khi nhóm Pod cần endpoint ổn định qua virtual IP hoặc DNS.
+Kubernetes Service xuất hiện khi một nhóm Pod cần endpoint ổn định dù Pod có thể bị tạo lại, đổi IP hoặc scale lên/xuống. Nó là lớp network abstraction giúp workload khác gọi app bằng DNS/service name thay vì gọi trực tiếp Pod IP.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Kubernetes Service là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Kubernetes Service là resource tạo stable virtual endpoint cho các Pod được chọn bằng label selector. Service có thể là ClusterIP, NodePort, LoadBalancer hoặc ExternalName, và map `port` của service tới `targetPort` của container/Pod.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Kubernetes Service không tự tạo Pod và không đảm bảo Pod healthy nếu selector chọn sai. Nó cũng không phải Ingress/API Gateway, dù LoadBalancer service có thể expose traffic ra ngoài. Service chỉ route tới endpoint phù hợp; app-level routing, auth và business logic vẫn nằm ở layer khác.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Kubernetes Service là selector, endpoint, ClusterIP, NodePort, LoadBalancer và service discovery.
+Service dùng selector để tìm Pod matching labels, tạo endpoint/EndpointSlice, rồi cluster DNS cho phép gọi bằng tên service. Khi client gọi Service IP/DNS, kube-proxy hoặc dataplane route traffic tới một endpoint Pod phù hợp. Nếu selector, port hoặc targetPort sai, Service tồn tại nhưng không route được traffic đúng.
 
 ## Project Role / Vai trò trong dự án
 
-Kubernetes Service giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Kubernetes Service ảnh hưởng trực tiếp tới service discovery, internal networking và expose app trong cluster. Khi debug lỗi “app chạy nhưng không gọi được”, team phải kiểm tra selector, endpoints, port mapping, DNS, readiness và service type trước khi đổ lỗi cho app code.
 
 ## Output / Artifact nên có
 
-- Kubernetes Service decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Kubernetes Service
-- Failure note ghi rõ Kubernetes Service ảnh hưởng user, runtime hay data thế nào
+- Service manifest: type, selector, ports, targetPort, protocol
+- Label contract giữa Deployment/Pod và Service selector
+- DNS/service discovery note cho client trong cluster
+- Debug checklist: service, endpoints, pod labels, readiness, port-forward/curl test
+- Exposure decision: ClusterIP, NodePort, LoadBalancer hay Ingress/Gateway
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Kubernetes Service đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Kubernetes Service không?
-- Khi Kubernetes Service fail, user hoặc service nào bị ảnh hưởng trước?
+- Selector của Service có match label Pod thật không?
+- Service `port` và Pod `targetPort` có đúng không?
+- Pod có Ready không, và endpoint có được tạo không?
+- Service type có phù hợp: internal ClusterIP hay external LoadBalancer?
+- Client gọi đúng DNS name/namespace chưa?
+- NetworkPolicy hoặc firewall có chặn traffic không?
+- Có cần Ingress/API Gateway thay vì expose trực tiếp bằng LoadBalancer không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Kubernetes Service làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Kubernetes Service nhưng không ghi rõ owner, constraint hoặc rollback path
+- Selector sai làm Service không có endpoint dù Pod vẫn chạy.
+- `targetPort` sai làm connection fail hoặc route tới port không có app lắng nghe.
+- Pod chưa Ready nên endpoint không nhận traffic, gây service không route như mong đợi.
+- Service name/namespace sai làm DNS resolve fail.
+- LoadBalancer service không provision external IP do cloud/provider config sai.
+- Expose service sai type làm app private bị public hoặc public app không truy cập được.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Kubernetes Service nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Kubernetes Service trước khi có nhu cầu vận hành hoặc học tập rõ
+- Pod/job chạy một lần không cần endpoint ổn định có thể không cần Service.
+- Không nên dùng LoadBalancer cho mọi service nội bộ; ClusterIP + Ingress/Gateway thường rõ hơn.
+- Không nên dùng Service để giải quyết routing phức tạp theo path/header; đó là vai trò của Ingress/Gateway/API layer.
 
 ## Gồm những gì
 
@@ -55,24 +65,36 @@ Kubernetes Service giúp team đọc code, thiết kế, debug hoặc vận hàn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Kubernetes]] vì Service là networking abstraction cơ bản của Kubernetes.
+- [[Pod]] vì Service route traffic tới Pod matching selector.
+- [[Load Balancer]] vì Service type LoadBalancer expose endpoint qua load balancer bên ngoài.
+- [[Kubernetes Controller]] vì controller duy trì endpoint/EndpointSlice liên quan tới Service.
 
 ## Liên quan rộng
 
-- Platform engineering
-- Deployment operations
-- Production reliability
+- Service discovery
+- Cluster networking
+- Internal API communication
+- Ingress and gateway design
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Kubernetes Service
 - Service
 - K8s service
+- ClusterIP
+- NodePort
+- LoadBalancer service
+- ExternalName
+- service selector
+- EndpointSlice
+- Kubernetes DNS
+- targetPort
+- service port
+- no endpoints
+- service discovery
 - kubernetes service debugging
-- kubernetes service design
-- deployment config
-- vận hành hạ tầng
 
 ## Source trace
 
-- Kubernetes docs
+- Kubernetes Service documentation
