@@ -6,48 +6,58 @@ Type: Database Systems
 
 ## Context / Ngữ cảnh
 
-Repeatable Read xuất hiện khi transaction cần view ổn định hơn để tránh non-repeatable read.
+Repeatable Read xuất hiện khi transaction cần view ổn định hơn Read Committed, đặc biệt khi nhiều statement trong cùng transaction phải đọc cùng dữ liệu mà không bị thay đổi bởi commit từ transaction khác. Nó thường liên quan tới report, consistency check, update workflow và concurrency bug.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Repeatable Read là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Repeatable Read là isolation level đảm bảo row đã đọc trong transaction không thay đổi khi đọc lại trong cùng transaction. Trong nhiều database dùng MVCC, transaction nhìn một snapshot ổn định tại thời điểm transaction bắt đầu, nhưng chi tiết phantom read và conflict behavior phụ thuộc database implementation.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Repeatable Read không luôn đồng nghĩa Serializable. Nó không tự chứng minh mọi invariant đa-row đều an toàn trong mọi database. Một số anomaly như write skew có thể vẫn xảy ra tùy implementation. Nếu nghiệp vụ cần serial order tuyệt đối, cần cân nhắc Serializable, explicit lock hoặc constraint.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Repeatable Read là transaction snapshot, row visibility, phantom behavior tùy DB implementation.
+Database tạo snapshot cho transaction hoặc bảo vệ row đã đọc để lần đọc sau thấy dữ liệu nhất quán hơn. Transaction khác vẫn có thể commit thay đổi, nhưng transaction hiện tại không nhất thiết nhìn thấy thay đổi đó. Với write conflict, database có thể block, abort hoặc yêu cầu retry tùy engine và isolation semantics.
 
 ## Project Role / Vai trò trong dự án
 
-Repeatable Read giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Repeatable Read là node cần mở khi transaction nhiều bước cần đọc dữ liệu nhất quán, report cần snapshot ổn định, hoặc Read Committed gây non-repeatable read. Nó giúp team chọn giữa isolation mạnh hơn, explicit lock, atomic update, constraint hoặc thiết kế lại workflow để tránh giữ transaction quá lâu.
 
 ## Output / Artifact nên có
 
-- Repeatable Read decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Repeatable Read
-- Failure note ghi rõ Repeatable Read ảnh hưởng user, runtime hay data thế nào
+- Isolation decision note cho transaction cần snapshot ổn định
+- Concurrency test cho non-repeatable read, phantom/write skew nếu use case nhạy cảm
+- Retry policy cho serialization/write conflict nếu database có thể abort transaction
+- Transaction duration budget để tránh giữ snapshot/lock quá lâu
+- Notes về behavior cụ thể của database đang dùng: PostgreSQL, MySQL/InnoDB, SQL Server...
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Repeatable Read đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Repeatable Read không?
-- Khi Repeatable Read fail, user hoặc service nào bị ảnh hưởng trước?
+- Transaction có cần đọc lại cùng dữ liệu và thấy kết quả ổn định không?
+- Use case có invariant đa-row hoặc predicate-based check không?
+- Database implementation của Repeatable Read có chặn phantom/write skew theo cách team mong đợi không?
+- Transaction có thể kéo dài lâu và giữ snapshot/lock gây bloat/contention không?
+- Khi transaction bị abort do conflict, app có retry an toàn không?
+- Có thể dùng unique/check constraint hoặc atomic update thay vì isolation cao hơn không?
+- Report/snapshot query có cần tách khỏi write transaction không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Repeatable Read làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Repeatable Read nhưng không ghi rõ owner, constraint hoặc rollback path
+- Developer tưởng Repeatable Read là Serializable và bỏ sót write skew/invariant race.
+- Transaction dài giữ snapshot lâu làm MVCC cleanup khó hơn hoặc tăng storage/bloat.
+- Conflict xảy ra dưới tải cao nhưng app không retry nên user thấy lỗi ngẫu nhiên.
+- Isolation mạnh hơn làm lock/wait tăng và giảm throughput nếu dùng không đúng chỗ.
+- Behavior khác nhau giữa PostgreSQL/MySQL làm test môi trường này pass nhưng môi trường khác lỗi.
+- Report đọc snapshot cũ quá lâu và không phản ánh dữ liệu mới như user mong đợi.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Repeatable Read nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Repeatable Read trước khi có nhu cầu vận hành hoặc học tập rõ
+- CRUD ngắn, một statement hoặc đã có constraint/atomic update thường không cần Repeatable Read.
+- Không nên tăng isolation toàn hệ thống nếu chỉ vài transaction cần view ổn định.
+- Không nên dùng transaction dài để tạo report lớn nếu snapshot/staleness có thể xử lý bằng read replica hoặc job riêng.
 
 ## Gồm những gì
 
@@ -55,25 +65,37 @@ Repeatable Read giúp team đọc code, thiết kế, debug hoặc vận hành b
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Isolation Level]] vì Repeatable Read là một isolation level mạnh hơn Read Committed.
+- [[Read Committed]] vì đây là mức thường được so sánh khi cần view ổn định hơn.
+- [[ACID]] vì Repeatable Read liên quan tới Isolation trong ACID.
+- [[Database Transaction]] vì behavior chỉ có ý nghĩa trong phạm vi transaction.
+- [[Database Lock]] vì conflict/lock behavior phụ thuộc engine và isolation.
 
 ## Liên quan rộng
 
-- Database reliability
-- Backend performance
+- MVCC
+- Concurrency control
 - Data correctness
+- Reporting snapshot
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Repeatable Read
 - repeatable read isolation
 - đọc lặp lại
+- transaction snapshot
+- snapshot isolation
+- non-repeatable read
+- phantom read
+- write skew
+- MVCC
+- serializable isolation
+- transaction retry
+- isolation anomaly
 - repeatable read debugging
-- repeatable read design
-- database design
-- debug database
-- cơ sở dữ liệu
 
 ## Source trace
 
-- PostgreSQL transaction isolation docs; MySQL docs
+- PostgreSQL transaction isolation documentation
+- MySQL InnoDB transaction isolation documentation
+- Database System Concepts
