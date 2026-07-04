@@ -6,51 +6,59 @@ Type: Reliability / SRE
 
 ## Context / Ngữ cảnh
 
-Incident xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
+Incident xuất hiện khi production hoặc môi trường quan trọng có lỗi gây user impact, mất dữ liệu, downtime, security risk, cost spike hoặc vận hành bị gián đoạn. Incident không chỉ là bug; nó là tình huống cần phản ứng có tổ chức để giảm impact và học để tránh lặp lại.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Incident là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
+Incident là sự cố runtime có impact đủ lớn để cần triage, owner, communication, mitigation và follow-up. Incident thường có timeline, severity, commander/owner, action log, mitigation, resolution và postmortem/action items.
 
 ### Nó không phải là gì
 
-Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
+Incident không phải mọi error log hoặc bug nhỏ. Nếu không có impact/risk đáng kể và không cần phản ứng khẩn, có thể chỉ là ticket/bug. Incident cũng không kết thúc khi service “xanh” lại; phần học và action item sau đó mới giảm recurrence.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
+Incident thường bắt đầu từ alert, user report hoặc operator phát hiện. Team xác định severity, mở channel, phân vai, giảm impact trước, tìm root/cause đủ dùng để mitigate, monitor recovery, communicate status, rồi làm postmortem để tạo action item kỹ thuật/quy trình.
 
 ## Project Role / Vai trò trong dự án
 
-Incident ảnh hưởng tới quyết định release, ưu tiên technical debt, incident response và automation giảm toil.
+Incident giúp team vận hành production mà không loạn khi sự cố xảy ra. Nó buộc team phân biệt detect, respond, mitigate, resolve và learn. Với hệ thống nhiều service, incident process giúp tránh mọi người cùng sửa bừa hoặc thiếu communication với stakeholder.
 
 ## Output / Artifact nên có
 
-- SLO/SLI hoặc reliability metric được owner chấp nhận
-- Alert rule, runbook và incident response checklist
-- Postmortem/action item sau incident quan trọng
+- Incident record: severity, owner, timeline, affected service/user, current status
+- Communication channel và update cadence
+- Mitigation/rollback/action log
+- Postmortem: impact, contributing factors, what went well/wrong, action items
+- Follow-up tracking cho action item giảm recurrence
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- User-visible reliability được đo bằng metric nào?
-- Alert có actionable hay chỉ tạo noise?
-- Error budget có ảnh hưởng quyết định release không?
-- Runbook có giúp người trực xử lý trong incident không?
-- Postmortem có action item giảm recurrence không?
+- Impact là gì: user, data, revenue, security, cost hay internal ops?
+- Severity/priority hiện tại là bao nhiêu và ai là owner?
+- Mitigation nhanh nhất để giảm impact là gì?
+- Có cần rollback, disable feature, shed load hoặc block traffic không?
+- Ai cần được thông báo và update theo nhịp nào?
+- Khi nào coi incident đã resolved?
+- Action item nào ngăn lỗi lặp lại?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Alert fatigue làm team bỏ qua tín hiệu thật
-- SLO đặt sai nên tối ưu không khớp user impact
-- Incident không có learning nên lỗi lặp lại
-- Automation thiếu kiểm soát gây blast radius lớn
+- Không phân owner nên nhiều người nói nhưng không ai quyết.
+- Tập trung root cause quá sớm thay vì giảm impact trước.
+- Không ghi timeline/action log nên postmortem mơ hồ.
+- Communication thiếu làm stakeholder/user không biết trạng thái.
+- Resolve khi triệu chứng giảm nhưng guardrail chưa có, lỗi quay lại.
+- Postmortem đổ lỗi cá nhân thay vì cải thiện system/process.
+- Action item không owner/deadline nên không bao giờ được làm.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần SRE process nặng cho service chưa có user thật
-- Dễ over-engineer nếu đặt quá nhiều SLO/alert trước khi biết user journey quan trọng
+- Project cá nhân nhỏ có thể ghi incident note ngắn thay vì process nặng.
+- Không nên mở incident cho mọi lỗi nhỏ nếu sẽ làm team mệt và giảm tín hiệu.
+- Không nên bỏ qua incident process với dữ liệu/security/payment dù traffic nhỏ.
 
 ## Gồm những gì
 
@@ -60,28 +68,38 @@ Incident ảnh hưởng tới quyết định release, ưu tiên technical debt,
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Alert]] vì alert thường là điểm phát hiện incident.
+- [[Monitoring]] vì monitoring cung cấp tín hiệu và dashboard trong incident.
+- [[Rollback]] vì rollback là mitigation phổ biến khi deploy gây lỗi.
+- [[Postmortem]] vì incident cần learning loop sau khi resolve.
+- [[Service Level Objective]] vì SLO breach giúp xác định user impact và severity.
 
 ## Liên quan rộng
 
 - Production reliability
 - Incident management
-- Monitoring
-- Release governance
+- Communication
+- Learning loop
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Incident
-- sự cố
 - production issue
-- release pipeline
-- operational readiness
+- sự cố
 - incident response
-- triển khai phần mềm
-- vận hành hệ thống
-- Postmortem
-- Rollback
+- incident commander
+- severity
+- mitigation
+- resolution
+- action log
+- incident timeline
+- postmortem
+- rollback
+- user impact
+- incident management
+- production incident
 
 ## Source trace
 
-- SRE Map / incident chapters
+- Google SRE Book
+- SRE Workbook incident response chapters
