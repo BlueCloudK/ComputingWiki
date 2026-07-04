@@ -6,48 +6,58 @@ Type: Failure Pattern
 
 ## Context / Ngữ cảnh
 
-Thundering Herd xuất hiện khi nhiều worker/client cùng thức dậy hoặc gọi cùng resource một lúc làm hệ thống spike tải.
+Thundering Herd xuất hiện khi nhiều client, worker, thread hoặc service cùng thức dậy/gọi lại/cạnh tranh cùng một resource gần như đồng thời, tạo spike tải đột ngột. Nó thường gặp khi cache hết hạn cùng lúc, retry đồng bộ, lock release đánh thức nhiều worker, cron chạy cùng giờ hoặc service restart hàng loạt.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Thundering Herd là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Thundering Herd là failure pattern trong đó nhiều actor cùng hành động tại một thời điểm và làm resource bị quá tải. Vấn đề chính không chỉ là traffic cao, mà là traffic/cạnh tranh được đồng bộ hóa thay vì phân tán theo thời gian.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Thundering Herd không phải mọi traffic spike. Nếu traffic tăng đều theo nhu cầu thật, đó là capacity/scaling problem. Herd effect thường có nguyên nhân đồng bộ như cùng TTL, cùng retry schedule, cùng lock wakeup, cùng deploy/restart hoặc cùng timer.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Thundering Herd là lock contention, cache expiry alignment, wakeup storm và jitter.
+Nhiều actor chờ cùng điều kiện hoặc dùng cùng lịch. Khi điều kiện mở ra, tất cả chạy cùng lúc: cùng gọi database, cùng rebuild cache, cùng retry dependency, cùng acquire lock hoặc cùng accept connection. Không có jitter, backoff, request coalescing, rate limit hoặc backpressure thì spike vượt capacity và kéo theo timeout/retry tiếp.
 
 ## Project Role / Vai trò trong dự án
 
-Thundering Herd giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Thundering Herd là node cần mở khi hệ thống có spike theo chu kỳ, sau cache expiry, sau deploy, sau dependency recover hoặc sau lock release. Nó giúp team kiểm tra TTL jitter, retry jitter, cron staggering, singleflight, distributed lock, rate limit và warmup strategy.
 
 ## Output / Artifact nên có
 
-- Thundering Herd decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Thundering Herd
-- Failure note ghi rõ Thundering Herd ảnh hưởng user, runtime hay data thế nào
+- Herd source analysis: cache TTL, retry schedule, cron, lock, deploy/restart, connection wakeup
+- Mitigation policy: jitter, exponential backoff, request coalescing, rate limit, backpressure
+- Metric: synchronized spike timing, retry count, cache miss burst, lock contention, upstream QPS
+- Load test mô phỏng nhiều client/worker cùng thức dậy
+- Runbook cho dependency recovery hoặc cache flush tránh spike đồng loạt
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Thundering Herd đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Thundering Herd không?
-- Khi Thundering Herd fail, user hoặc service nào bị ảnh hưởng trước?
+- Có nhiều client/worker dùng cùng TTL, timer hoặc retry interval không?
+- Retry có exponential backoff và jitter không?
+- Cache key hot có request coalescing/singleflight không?
+- Cron/job có chạy đồng loạt ở cùng phút/giờ không?
+- Khi lock release, có đánh thức quá nhiều worker cùng tranh lock không?
+- Dependency vừa recover có bị tất cả client retry cùng lúc không?
+- Có rate limit/backpressure để cắt spike trước khi dependency sập không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Thundering Herd làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Thundering Herd nhưng không ghi rõ owner, constraint hoặc rollback path
+- Cache hết hạn cùng lúc làm tất cả request cùng rebuild và đánh database.
+- Retry không jitter làm client cùng gọi lại dependency đúng một thời điểm.
+- Cron fleet chạy cùng giờ làm database/API bị spike tải.
+- Lock release hoặc event broadcast đánh thức quá nhiều worker cùng tranh resource.
+- Service restart sau deploy làm tất cả instance warm cache/connect DB cùng lúc.
+- Herd gây timeout, timeout lại kích retry, tạo vòng khuếch đại tải.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Thundering Herd nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Thundering Herd trước khi có nhu cầu vận hành hoặc học tập rõ
+- Hệ thống ít client/worker hoặc traffic thấp có thể chỉ cần retry/backoff cơ bản.
+- Không nên thêm distributed coordination phức tạp nếu jitter/stagger đơn giản đã đủ.
+- Không nên xem mọi spike là herd nếu không có bằng chứng actor bị đồng bộ hóa.
 
 ## Gồm những gì
 
@@ -55,25 +65,39 @@ Thundering Herd giúp team đọc code, thiết kế, debug hoặc vận hành b
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Retry]] vì retry không jitter là nguồn thundering herd phổ biến.
+- [[Cache Stampede]] vì cache stampede là một dạng herd quanh hot key/cache miss.
+- [[Backpressure]] vì cần chặn herd trước khi dependency quá tải.
+- [[Rate Limiting]] vì rate limit giúp làm phẳng spike đồng loạt.
+- [[Timeout]] vì timeout/retry có thể khuếch đại herd effect.
 
 ## Liên quan rộng
 
-- AI system design
-- Model operations
-- Data quality
+- Reliability engineering
+- Traffic shaping
+- Cache design
+- Distributed systems
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Thundering Herd
 - herd effect
 - stampede request
+- wakeup storm
+- retry storm
+- jitter
+- exponential backoff
+- synchronized retry
+- cache expiry alignment
+- lock contention
+- cron staggering
+- request coalescing
+- singleflight
+- traffic spike
 - thundering herd debugging
-- thundering herd design
-- AI engineering
-- ML system
-- kỹ thuật AI
 
 ## Source trace
 
-- Linux accept docs; caching pattern references
+- Linux accept documentation
+- Caching pattern references
+- Google SRE Book
