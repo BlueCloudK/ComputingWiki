@@ -6,51 +6,58 @@ Type: Reliability / SRE
 
 ## Context / Ngữ cảnh
 
-Service Level Objective xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
+Service Level Objective xuất hiện khi team cần định nghĩa “service đủ tốt” bằng mục tiêu đo được thay vì cảm giác ổn định chung chung. SLO thường áp dụng cho user journey quan trọng như login, checkout, API read/write, job completion hoặc AI inference response.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Service Level Objective là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
+SLO là mục tiêu reliability cụ thể cho một Service Level Indicator trong một time window, ví dụ 99.9% request thành công trong 30 ngày hoặc p95 latency dưới 300ms cho endpoint quan trọng. Nó giúp cân bằng tốc độ release và độ ổn định bằng error budget.
 
 ### Nó không phải là gì
 
-Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
+SLO không phải mọi metric đẹp trên dashboard. Nếu metric không phản ánh user impact hoặc không ảnh hưởng quyết định release/incident, nó không phải SLO tốt. SLO cũng không phải SLA pháp lý với khách hàng, dù SLA có thể dựa trên SLO nội bộ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
+Team chọn SLI đại diện trải nghiệm user, đặt objective trong một window, tính phần lỗi được phép thành error budget, rồi dùng burn rate để cảnh báo và điều chỉnh release. SLO tốt cần rõ numerator/denominator, scope, exclusions, data source và owner.
 
 ## Project Role / Vai trò trong dự án
 
-Service Level Objective ảnh hưởng tới quyết định release, ưu tiên technical debt, incident response và automation giảm toil.
+SLO giúp quyết định khi nào được tiếp tục release, khi nào phải dừng feature work để sửa reliability, và alert nào thật sự đáng gọi người. Nó là cầu nối giữa monitoring kỹ thuật và impact sản phẩm.
 
 ## Output / Artifact nên có
 
-- SLO/SLI hoặc reliability metric được owner chấp nhận
-- Alert rule, runbook và incident response checklist
-- Postmortem/action item sau incident quan trọng
+- SLI definition: success/failure, latency, availability hoặc freshness metric
+- SLO target và time window: ví dụ 99.9% trong 30 ngày
+- Error budget calculation và burn-rate alert
+- Dashboard theo user journey/service critical path
+- Policy khi budget burn nhanh hoặc budget cạn: freeze release, rollback, reliability work
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- User-visible reliability được đo bằng metric nào?
-- Alert có actionable hay chỉ tạo noise?
+- SLO này đo user journey nào?
+- SLI có phản ánh user impact thật không?
+- Numerator/denominator và data source có rõ không?
+- Target có thực tế không hay đặt 100% không thể đạt?
+- Time window phù hợp với business/user expectation không?
 - Error budget có ảnh hưởng quyết định release không?
-- Runbook có giúp người trực xử lý trong incident không?
-- Postmortem có action item giảm recurrence không?
+- Alert burn-rate có phát hiện nhanh nhưng không quá noisy không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Alert fatigue làm team bỏ qua tín hiệu thật
-- SLO đặt sai nên tối ưu không khớp user impact
-- Incident không có learning nên lỗi lặp lại
-- Automation thiếu kiểm soát gây blast radius lớn
+- SLO đặt theo CPU/RAM thay vì user impact nên tối ưu sai chỗ.
+- Target quá cao làm team bị khóa release không cần thiết.
+- Target quá thấp làm user bị ảnh hưởng nhưng budget vẫn “ổn”.
+- SLI tính sai denominator nên lỗi thật không được tính.
+- SLO không gắn policy nên chỉ là con số trang trí.
+- Không tách critical journey làm lỗi nhỏ và lỗi lớn bị cân như nhau.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần SRE process nặng cho service chưa có user thật
-- Dễ over-engineer nếu đặt quá nhiều SLO/alert trước khi biết user journey quan trọng
+- Service chưa có user thật có thể bắt đầu bằng vài metric/alert cơ bản trước.
+- Không nên tạo quá nhiều SLO cho mọi endpoint; ưu tiên journey quan trọng.
+- Không nên đặt SLO nếu chưa có dữ liệu baseline và owner hành động.
 
 ## Gồm những gì
 
@@ -59,28 +66,36 @@ Service Level Objective ảnh hưởng tới quyết định release, ưu tiên 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Monitoring]] vì SLO cần telemetry đáng tin để tính SLI.
+- [[Error Budget]] vì error budget là phần lỗi được phép theo SLO.
+- [[Alert]] vì burn-rate alert thường dựa trên SLO.
+- [[Incident]] vì SLO breach thường kích hoạt incident hoặc reliability work.
 
 ## Liên quan rộng
 
-- Production reliability
-- Incident management
-- Monitoring
+- Reliability target
+- User journey metrics
 - Release governance
+- SLA
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Service Level Objective
 - SLO
 - mục tiêu mức dịch vụ
-- release pipeline
-- operational readiness
-- incident response
-- triển khai phần mềm
-- vận hành hệ thống
-- Error Budget
-- Monitoring
+- SLI
+- Service Level Indicator
+- error budget
+- burn rate
+- availability SLO
+- latency SLO
+- reliability target
+- user journey metric
+- SLO dashboard
+- SLO alert
+- SLO debugging
 
 ## Source trace
 
-- SRE Map / SLO chapters
+- Google SRE Book
+- SRE Workbook SLO chapters
