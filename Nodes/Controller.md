@@ -6,48 +6,58 @@ Type: Backend Engineering
 
 ## Context / Ngữ cảnh
 
-Controller xuất hiện khi request ở boundary web/API cần được map tới application logic phù hợp.
+Controller xuất hiện khi request ở boundary web/API cần được map tới application logic phù hợp. Nó thường nằm sau router/middleware và trước service/use case layer trong MVC, layered architecture hoặc backend API framework.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Controller là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Controller là lớp nhận request đã match route, parse input, gọi validation/auth handoff nếu cần, chuyển dữ liệu sang service/use case, rồi map kết quả hoặc lỗi thành response. Nó là adapter giữa giao thức HTTP/API và application logic.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Controller không nên chứa business logic chính, query phức tạp hoặc transaction workflow dài. Nó cũng không phải service layer. Nếu controller biết quá nhiều domain rule, database detail hoặc external integration, code dễ khó test và endpoint behavior khó reuse.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Controller là routing, request parsing, validation handoff, response mapping và error handling.
+Request đi qua routing/middleware tới controller action. Controller đọc path/query/body/header, gọi validator/mapper, gọi service/use case, bắt lỗi domain/application và trả status code/response DTO phù hợp. Controller tốt mỏng, rõ input/output và đẩy rule nghiệp vụ xuống layer phù hợp.
 
 ## Project Role / Vai trò trong dự án
 
-Controller giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Controller giúp team xác định nơi endpoint bắt đầu trong code, nơi request được chuyển thành command/query, và nơi response/error được chuẩn hóa. Khi debug API, controller là điểm kiểm tra request có vào đúng route không, validation có chạy không, service có được gọi không và lỗi được map ra response thế nào.
 
 ## Output / Artifact nên có
 
-- Controller decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Controller
-- Failure note ghi rõ Controller ảnh hưởng user, runtime hay data thế nào
+- Controller/action map theo endpoint: method/path → controller method → service/use case
+- Request DTO/response DTO và validation rule tương ứng
+- Error mapping rule: domain error → HTTP status/error body
+- Test case cho controller: success, validation fail, unauthorized/forbidden, not found, service error
+- Logging/trace convention ở boundary request
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Controller đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Controller không?
-- Khi Controller fail, user hoặc service nào bị ảnh hưởng trước?
+- Controller có chỉ làm orchestration mỏng hay đang chứa business logic?
+- Input validation nằm ở DTO/validator/middleware hay rải trong controller?
+- Controller gọi service/use case rõ ràng hay gọi repository/database trực tiếp?
+- Error được map thống nhất sang status code và error body không?
+- Response DTO có che field nhạy cảm và giữ contract ổn định không?
+- Có controller test cho failure path quan trọng không?
+- Endpoint metric/log có gắn được tới controller/action không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Controller làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Controller nhưng không ghi rõ owner, constraint hoặc rollback path
+- Controller phình to chứa business rule làm logic khó test và trùng lặp giữa endpoint.
+- Controller gọi database trực tiếp làm transaction/service boundary mơ hồ.
+- Error mapping không thống nhất làm client nhận status code/body khó dự đoán.
+- Thiếu validation ở boundary làm dữ liệu sai đi sâu vào service/database.
+- Response trả entity trực tiếp làm lộ field nội bộ hoặc phá API contract khi entity đổi.
+- Controller catch exception quá rộng làm che lỗi thật và trả 200/500 sai.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Controller nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Controller trước khi có nhu cầu vận hành hoặc học tập rõ
+- App nhỏ có vài endpoint có thể dùng controller đơn giản, chưa cần tách quá nhiều adapter/mapper.
+- Không nên tạo controller-service-usecase-command nhiều lớp nếu behavior chưa đủ phức tạp.
+- Không nên biến controller thành nơi gom mọi logic chỉ vì “dễ code nhanh”.
 
 ## Gồm những gì
 
@@ -55,13 +65,17 @@ Controller giúp team đọc code, thiết kế, debug hoặc vận hành bằng
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[API Endpoint]] vì controller thường implement endpoint handler.
+- [[Service Layer]] vì controller nên gọi service/use case thay vì chứa business logic.
+- [[DTO]] vì controller thường nhận/trả request/response DTO.
+- [[Validation]] vì controller boundary là nơi quan trọng để validate input.
 
 ## Liên quan rộng
 
-- Software design
-- Debugging
-- Operations
+- MVC
+- Backend architecture
+- Request handling
+- API error handling
 
 ## Keywords / Từ khóa tìm kiếm
 
@@ -69,9 +83,18 @@ Controller giúp team đọc code, thiết kế, debug hoặc vận hành bằng
 - request controller
 - web controller
 - controller backend
-- controller debugging
-- controller design
+- controller action
+- endpoint handler
+- MVC controller
+- thin controller
+- request parsing
+- response mapping
+- error mapping
+- controller validation
+- controller service layer
+- API controller
 
 ## Source trace
 
-- Martin Fowler P of EAA; Spring MVC docs
+- Martin Fowler Patterns of Enterprise Application Architecture
+- Spring MVC documentation
