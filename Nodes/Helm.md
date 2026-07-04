@@ -6,48 +6,59 @@ Type: Cloud / Kubernetes
 
 ## Context / Ngữ cảnh
 
-Helm xuất hiện khi Kubernetes manifest cần được package, template và version theo release.
+Helm xuất hiện khi Kubernetes manifest cần được đóng gói, template hóa, version và deploy lặp lại qua nhiều môi trường. Nó thường dùng để triển khai app, dependency như database/cache, hoặc platform component vào cluster.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Helm là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Helm là package manager/template system cho Kubernetes. Một chart chứa template manifest, `values.yaml`, metadata và helper template. Khi install/upgrade, Helm render template thành Kubernetes resources và quản lý chúng như một release có revision, history và rollback.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Helm không thay thế hiểu biết về Kubernetes manifest thật. Template render ra YAML sai thì cluster vẫn fail như thường. Helm cũng không tự giải quyết secret management, drift, policy, rollout safety hoặc environment design; nó chỉ là lớp đóng gói và render/deploy.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Helm là chart, values.yaml, release, template rendering và upgrade/rollback.
+Helm lấy chart + values, render template thành manifest, rồi apply vào cluster theo release. `values.yaml` quyết định khác biệt giữa môi trường. Upgrade tạo revision mới, rollback quay về revision cũ nhưng không phải lúc nào cũng hoàn tác được external state như database migration, PVC hoặc side effect ngoài cluster.
 
 ## Project Role / Vai trò trong dự án
 
-Helm giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Helm ảnh hưởng tới cách team chuẩn hóa deployment Kubernetes, chia config theo môi trường, reuse chart và rollback release. Khi vận hành cluster, Helm giúp biết tài nguyên nào thuộc release nào, chart version nào đang chạy và values nào tạo ra manifest hiện tại.
 
 ## Output / Artifact nên có
 
-- Helm decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Helm
-- Failure note ghi rõ Helm ảnh hưởng user, runtime hay data thế nào
+- Helm chart structure: Chart.yaml, values.yaml, templates, helpers
+- Values file theo môi trường: dev/staging/prod
+- Rendered manifest check bằng `helm template` hoặc CI lint
+- Release upgrade/rollback runbook
+- Chart versioning và app versioning convention
+- Policy cho secret/config: cái gì nằm trong values, cái gì nằm ở secret manager
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Helm đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Helm không?
-- Khi Helm fail, user hoặc service nào bị ảnh hưởng trước?
+- Chart có render ra manifest đúng với values của từng môi trường không?
+- `values.yaml` có đang chứa secret hoặc config nhạy cảm không?
+- Upgrade có thay đổi immutable field hoặc resource name không?
+- Rollback Helm có đủ an toàn nếu release kèm database migration/PVC không?
+- Chart version và app image tag có được pin rõ không?
+- CI có chạy `helm lint` và render manifest trước khi deploy không?
+- Values override có quá rối làm khó biết production đang chạy cấu hình nào không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Helm làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Helm nhưng không ghi rõ owner, constraint hoặc rollback path
+- Template sai indentation/type làm manifest render được nhưng apply fail.
+- Values môi trường sai làm service trỏ nhầm image, port, secret hoặc resource limit.
+- Rollback Helm không rollback được data/schema/external state, gây mismatch với app version.
+- Chart quá generic làm values phình to và khó review.
+- Dùng latest image tag hoặc không pin chart version làm deploy không reproducible.
+- Drift giữa tài nguyên chỉnh tay bằng kubectl và release Helm làm upgrade sau đó khó đoán.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Helm nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Helm trước khi có nhu cầu vận hành hoặc học tập rõ
+- App rất nhỏ một vài manifest có thể dùng YAML thuần hoặc Kustomize trước.
+- Không nên viết chart quá generic cho mọi app nếu chỉ có một app cụ thể.
+- Không nên dùng Helm để che việc team chưa hiểu Kubernetes resources được render ra.
 
 ## Gồm những gì
 
@@ -55,13 +66,17 @@ Helm giúp team đọc code, thiết kế, debug hoặc vận hành bằng đún
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Kubernetes]] vì Helm deploy và quản lý Kubernetes resources.
+- [[Deployment]] vì Helm thường là công cụ release app lên cluster.
+- [[Rollback]] vì Helm quản lý release history và rollback revision.
+- [[ConfigMap]] vì values thường render ra ConfigMap hoặc cấu hình app.
 
 ## Liên quan rộng
 
+- GitOps
 - Platform engineering
-- Deployment operations
-- Production reliability
+- Release management
+- Environment configuration
 
 ## Keywords / Từ khóa tìm kiếm
 
@@ -69,11 +84,18 @@ Helm giúp team đọc code, thiết kế, debug hoặc vận hành bằng đún
 - Helm chart
 - Kubernetes package manager
 - Helm Kubernetes
+- values.yaml
+- helm template
+- helm install
+- helm upgrade
+- helm rollback
+- chart version
+- release revision
+- Kubernetes templating
+- helm lint
+- rendered manifest
 - helm debugging
-- helm design
-- deployment config
-- vận hành hạ tầng
 
 ## Source trace
 
-- Helm docs
+- Helm documentation
