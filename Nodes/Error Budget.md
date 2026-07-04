@@ -6,51 +6,58 @@ Type: Reliability / SRE
 
 ## Context / Ngữ cảnh
 
-Error Budget xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
+Error Budget xuất hiện khi service có SLO và team cần biết còn bao nhiêu “lỗi được phép” trong một time window trước khi reliability không còn đạt mục tiêu. Nó giúp cân bằng giữa release nhanh và ổn định sản phẩm.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Error Budget là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
+Error Budget là phần downtime/error/latency violation được phép theo SLO. Ví dụ SLO 99.9% availability trong 30 ngày nghĩa là service có khoảng 0.1% request/thời gian được phép lỗi trong window đó. Budget burn càng nhanh thì càng cần giảm risk release và tập trung sửa reliability.
 
 ### Nó không phải là gì
 
-Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
+Error Budget không phải lý do để cố tình gây lỗi cho đủ quota. Nó cũng không phải metric độc lập nếu không có SLO/SLI rõ. Nếu SLO đo sai user impact, error budget cũng dẫn team tới quyết định sai.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
+Team định nghĩa SLI/SLO, tính allowed bad events hoặc allowed downtime, rồi đo bad events thực tế theo window. Burn rate cho biết tốc độ tiêu budget. Nếu burn rate cao, alert hoặc policy có thể yêu cầu rollback, freeze release, giảm traffic, fix reliability hoặc điều tra incident.
 
 ## Project Role / Vai trò trong dự án
 
-Error Budget ảnh hưởng tới quyết định release, ưu tiên technical debt, incident response và automation giảm toil.
+Error Budget biến tranh luận “deploy tiếp hay sửa ổn định” thành quyết định dựa trên số liệu. Khi budget còn nhiều, team có thể chấp nhận release risk vừa phải. Khi budget cạn hoặc burn nhanh, team nên ưu tiên giảm lỗi, rollback hoặc harden hệ thống.
 
 ## Output / Artifact nên có
 
-- SLO/SLI hoặc reliability metric được owner chấp nhận
-- Alert rule, runbook và incident response checklist
-- Postmortem/action item sau incident quan trọng
+- Error budget calculation từ SLO và SLI cụ thể
+- Burn-rate dashboard theo window ngắn/dài
+- Policy khi budget burn nhanh hoặc cạn: rollback, release freeze, reliability sprint
+- Alert rule dựa trên burn rate thay vì ngưỡng đơn lẻ
+- Review định kỳ: budget dùng vào incident nào, action item nào giảm burn
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- User-visible reliability được đo bằng metric nào?
-- Alert có actionable hay chỉ tạo noise?
-- Error budget có ảnh hưởng quyết định release không?
-- Runbook có giúp người trực xử lý trong incident không?
-- Postmortem có action item giảm recurrence không?
+- SLO/SLI nào tạo ra error budget này?
+- Bad event được tính là gì: failed request, slow request, downtime hay stale data?
+- Burn rate hiện tại có vượt ngưỡng cần alert không?
+- Budget cạn thì team phải dừng release hay chỉ review?
+- Incident nào tiêu budget nhiều nhất?
+- Có route/user journey nào tiêu budget nhưng bị che bởi aggregate metric không?
+- Budget policy có được product/engineering đồng thuận không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Alert fatigue làm team bỏ qua tín hiệu thật
-- SLO đặt sai nên tối ưu không khớp user impact
-- Incident không có learning nên lỗi lặp lại
-- Automation thiếu kiểm soát gây blast radius lớn
+- SLO sai làm budget còn dư dù user đang đau.
+- Budget policy không có quyền lực nên burn rate chỉ là dashboard trang trí.
+- Aggregate budget che lỗi ở một tenant/region/endpoint quan trọng.
+- Burn-rate alert quá nhạy tạo noise hoặc quá chậm làm phát hiện muộn.
+- Team dùng budget như quota để chấp nhận lỗi không cần thiết.
+- Không review incident tiêu budget nên lỗi lặp lại.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần SRE process nặng cho service chưa có user thật
-- Dễ over-engineer nếu đặt quá nhiều SLO/alert trước khi biết user journey quan trọng
+- Service chưa có user thật có thể chưa cần error budget formal.
+- Không nên tạo budget nếu SLO/SLI chưa đáng tin hoặc không có policy đi kèm.
+- Không nên áp dụng cùng một budget cho mọi endpoint nếu user impact rất khác nhau.
 
 ## Gồm những gì
 
@@ -59,27 +66,37 @@ Error Budget ảnh hưởng tới quyết định release, ưu tiên technical d
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Service Level Objective]] vì error budget được tính trực tiếp từ SLO.
+- [[Monitoring]] vì cần telemetry để đo burn rate và bad events.
+- [[Alert]] vì burn-rate alert là cách dùng error budget trong vận hành.
+- [[Incident]] vì incident thường tiêu error budget và tạo action item.
+- [[Deployment Strategy]] vì budget còn/cạn ảnh hưởng rollout và release risk.
 
 ## Liên quan rộng
 
-- Production reliability
-- Incident management
-- Monitoring
 - Release governance
+- Reliability trade-off
+- Risk management
+- Product engineering alignment
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Error Budget
+- error budget
 - ngân sách lỗi
-- release pipeline
-- operational readiness
-- incident response
-- triển khai phần mềm
-- vận hành hệ thống
-- Service Level Objective
-- Risk
+- SLO budget
+- burn rate
+- error budget policy
+- bad events
+- availability budget
+- reliability budget
+- release freeze
+- SLO burn
+- budget exhausted
+- error budget alert
+- reliability tradeoff
 
 ## Source trace
 
-- SRE Map / SLO chapters
+- Google SRE Book
+- SRE Workbook SLO chapters
