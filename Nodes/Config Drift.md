@@ -6,48 +6,58 @@ Type: Failure Pattern / Operations
 
 ## Context / Ngữ cảnh
 
-Config Drift xuất hiện khi cấu hình runtime khác với source of truth làm behavior giữa environment không giống nhau.
+Config Drift xuất hiện khi cấu hình runtime của môi trường thật khác với source of truth như Git, IaC, Helm values, Terraform state, Ansible playbook hoặc tài liệu vận hành. Nó thường làm dev/staging/prod có behavior khác nhau dù code giống nhau.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Config Drift là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Config Drift là failure pattern trong đó cấu hình đang chạy lệch khỏi cấu hình mong muốn hoặc cấu hình đã được review. Drift có thể nằm ở environment variable, feature flag, secret, firewall rule, Kubernetes manifest, database setting, cloud resource hoặc config file sửa tay trên server.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Config Drift không phải mọi khác biệt cấu hình. Một số khác biệt giữa dev/staging/prod là chủ ý. Drift là khác biệt không được quản lý, không được review hoặc không còn khớp source of truth. Nó cũng không chỉ là lỗi DevOps; app behavior và security có thể lệch vì drift.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Config Drift là manual change, IaC drift detection, environment diff và reconciliation.
+Drift thường sinh ra từ hotfix thủ công, thay đổi qua console, script một lần, secret/config update ngoài Git, apply thiếu bước hoặc rollback không đồng bộ. Khi source of truth không được reconcile với runtime, hệ thống dần mất khả năng tái tạo môi trường và debug vì “config thật” không còn giống thứ team nghĩ.
 
 ## Project Role / Vai trò trong dự án
 
-Config Drift giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Config Drift là node cần mở khi chỉ production lỗi, một node chạy khác node khác, redeploy không tái tạo được behavior, hoặc IaC plan phát hiện resource đã bị sửa ngoài luồng. Nó giúp team kiểm tra source of truth, runtime diff, change history và cơ chế reconciliation.
 
 ## Output / Artifact nên có
 
-- Config Drift decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Config Drift
-- Failure note ghi rõ Config Drift ảnh hưởng user, runtime hay data thế nào
+- Source of truth rõ: Git/IaC/Helm/Config service nào sở hữu config nào
+- Drift detection report: runtime config vs declared config
+- Change audit: ai đổi, đổi khi nào, qua pipeline hay manual
+- Reconciliation plan: revert runtime hay cập nhật source of truth
+- Policy hạn chế manual change ở production và yêu cầu PR/change record
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Config Drift đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Config Drift không?
-- Khi Config Drift fail, user hoặc service nào bị ảnh hưởng trước?
+- Config runtime hiện tại có khớp Git/IaC/Helm values không?
+- Khác biệt giữa environment là intentional hay drift?
+- Ai có quyền sửa config trực tiếp ngoài pipeline?
+- Có log/audit trail cho thay đổi config không?
+- Drift được detect tự động hay chỉ biết khi incident xảy ra?
+- Rollback/deploy có khôi phục config về source of truth không?
+- Secret/feature flag có source of truth và history riêng không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Config Drift làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Config Drift nhưng không ghi rõ owner, constraint hoặc rollback path
+- Production có env var khác staging làm bug không reproduce được.
+- Config sửa tay trên server mất sau redeploy/restart và làm hệ thống đổi behavior bất ngờ.
+- Firewall/cloud setting chỉnh ngoài Terraform làm IaC apply sau đó phá route hoặc expose sai.
+- Helm values runtime lệch chart Git làm rollback/upgrade khó đoán.
+- Feature flag bật/tắt ngoài quy trình làm user thấy behavior khác nhau không có trace.
+- Secret/config drift làm một instance gọi endpoint khác instance còn lại.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Config Drift nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Config Drift trước khi có nhu cầu vận hành hoặc học tập rõ
+- Project cá nhân nhỏ có thể chấp nhận config thủ công nếu ghi chú rõ và ít môi trường.
+- Không nên triển khai governance nặng nếu chưa có nhiều người/môi trường/resource.
+- Không nên coi mọi khác biệt là drift; khác biệt intentional cần được document và version.
 
 ## Gồm những gì
 
@@ -55,25 +65,36 @@ Config Drift giúp team đọc code, thiết kế, debug hoặc vận hành bằ
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Infrastructure as Code]] vì IaC thường là source of truth để phát hiện drift.
+- [[GitOps]] vì GitOps dựa trên reconciliation giữa Git và runtime state.
+- [[ConfigMap]] vì config Kubernetes có thể drift giữa manifest và cluster.
+- [[Deployment]] vì deploy/rollback phải kiểm soát config đi kèm code.
 
 ## Liên quan rộng
 
-- AI system design
-- Model operations
-- Data quality
+- Operations reliability
+- Environment parity
+- Change management
+- Incident debugging
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Config Drift
 - configuration drift
 - drift cấu hình
-- config drift debugging
-- config drift design
-- AI engineering
-- ML system
-- kỹ thuật AI
+- runtime config mismatch
+- environment drift
+- IaC drift
+- Terraform drift
+- GitOps drift
+- config source of truth
+- manual change
+- config reconciliation
+- production config mismatch
+- Helm values drift
+- drift detection
 
 ## Source trace
 
-- Terraform docs; GitOps references
+- Terraform drift documentation
+- GitOps references
