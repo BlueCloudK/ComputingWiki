@@ -6,48 +6,58 @@ Type: Web Development
 
 ## Context / Ngữ cảnh
 
-SSR xuất hiện khi cần render HTML ở server để cải thiện first load, SEO hoặc data-fetching boundary.
+SSR xuất hiện khi web app cần render HTML ở server trước khi gửi về browser để cải thiện first load, SEO, social preview, data-fetching boundary hoặc performance trên thiết bị yếu. Nó thường gặp trong Next.js/Nuxt/SvelteKit/Razor Pages hoặc framework có server render pipeline.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-SSR là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+SSR là cách server chạy render logic, lấy dữ liệu cần thiết, tạo HTML ban đầu và gửi cho client. Sau đó browser có thể hydrate để biến HTML tĩnh thành app tương tác. SSR tạo boundary rõ giữa code chạy server và code chạy browser.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+SSR không tự làm web app nhanh hoặc SEO tốt nếu data fetch chậm, cache sai, hydration lỗi hoặc HTML vẫn thiếu nội dung quan trọng. SSR cũng không giống static generation hoàn toàn; SSR thường chạy theo request hoặc theo cơ chế cache/revalidate, nên phải quan tâm latency, request-specific data và server cost.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của SSR là server render pipeline, hydration, cache và request-specific data.
+Request vào server route, server fetch data, render component/page thành HTML, gửi HTML cho browser, rồi browser tải JavaScript và hydrate event handler/state. Các điểm nhạy cảm gồm server-only code, client-only API như `window`, hydration mismatch, cache boundary, auth/session data, streaming và error handling khi data fetch fail.
 
 ## Project Role / Vai trò trong dự án
 
-SSR giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+SSR là node cần mở khi trang cần SEO/first contentful paint tốt, hoặc khi bug chỉ xảy ra giữa server render và client hydrate. Nó giúp team quyết định page nào SSR, page nào CSR/static, data nào cache được, data nào user-specific, và metric nào đo server render latency.
 
 ## Output / Artifact nên có
 
-- SSR decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới SSR
-- Failure note ghi rõ SSR ảnh hưởng user, runtime hay data thế nào
+- Rendering decision per route/page: SSR, CSR, SSG, ISR hoặc hybrid
+- Data fetching plan: server-only data, user-specific data, cache/revalidate rule
+- Hydration test/checklist cho state, locale/timezone, random id và browser-only API
+- Metrics: TTFB, FCP/LCP, server render time, hydration time, error rate
+- Fallback/error boundary cho data fetch hoặc server render failure
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- SSR đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của SSR không?
-- Khi SSR fail, user hoặc service nào bị ảnh hưởng trước?
+- Page này cần SEO/social preview hoặc first load nhanh hơn CSR không?
+- Data có user-specific/private không, có được cache shared không?
+- Server render có dùng API chỉ tồn tại ở browser như `window`, `localStorage` không?
+- HTML server và render client có thể mismatch vì time/random/locale/auth state không?
+- TTFB có tăng quá cao vì fetch data chậm không?
+- Hydration cost có làm trang tương tác chậm không?
+- Error/fallback khi server data fetch fail là gì?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của SSR làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên SSR nhưng không ghi rõ owner, constraint hoặc rollback path
+- Hydration mismatch làm UI nhấp nháy, warning hoặc event/state sai.
+- Dùng `window`/`document` trong server render làm request fail.
+- Cache SSR sai làm user này thấy dữ liệu user khác hoặc dữ liệu cũ.
+- Data fetch chậm làm TTFB cao dù HTML được render server-side.
+- Server render crash làm toàn trang 500 thay vì fallback ở client.
+- Bundle/hydration quá nặng làm first HTML có nhưng user chưa tương tác được lâu.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu SSR nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh SSR trước khi có nhu cầu vận hành hoặc học tập rõ
+- App nội bộ sau login, ít cần SEO và chấp nhận loading client có thể dùng CSR đơn giản hơn.
+- Không nên SSR mọi page nếu phần lớn nội dung user-specific, dynamic và khó cache.
+- Không nên chọn SSR chỉ vì framework hỗ trợ; cần đo trade-off TTFB, complexity và hydration cost.
 
 ## Gồm những gì
 
@@ -55,25 +65,38 @@ SSR giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[CSR]] vì SSR thường được so sánh với client-side rendering.
+- [[SPA]] vì SPA route/CSR có trade-off khác SSR.
+- [[Hydration]] vì hydration là bước nối HTML server với app client tương tác.
+- [[Cache]] vì SSR performance và privacy phụ thuộc cache boundary đúng.
+- [[Route]] vì SSR thường được quyết định theo từng route/page.
 
 ## Liên quan rộng
 
+- Web performance
+- SEO
 - Frontend architecture
-- Browser debugging
-- User experience
+- Data fetching
 
 ## Keywords / Từ khóa tìm kiếm
 
 - SSR
 - Server Side Rendering
 - render phía server
-- ssr debugging
-- ssr design
-- web development
-- frontend debugging
-- phát triển web
+- server render
+- hydration
+- hydration mismatch
+- TTFB
+- FCP
+- LCP
+- SEO rendering
+- data fetching server side
+- user specific cache
+- Next.js SSR
+- SSR debugging
+- rendering strategy
 
 ## Source trace
 
-- Next.js docs; web.dev rendering
+- Next.js documentation
+- web.dev rendering documentation
