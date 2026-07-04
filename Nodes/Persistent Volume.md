@@ -6,48 +6,59 @@ Type: Kubernetes / Storage
 
 ## Context / Ngữ cảnh
 
-Persistent Volume xuất hiện khi Pod cần storage bền vững không mất theo vòng đời container.
+Persistent Volume xuất hiện khi Pod cần storage bền vững không mất theo vòng đời container hoặc Pod. Nó thường dùng cho database, file upload, message broker state, model/data cache, hoặc app cần đọc/ghi dữ liệu nằm ngoài container image.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Persistent Volume là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Persistent Volume là resource đại diện cho storage trong Kubernetes cluster. Pod thường không dùng PV trực tiếp mà dùng PersistentVolumeClaim để yêu cầu storage theo size, access mode và StorageClass. PV có lifecycle tách khỏi Pod nên dữ liệu có thể tồn tại sau khi Pod bị xóa hoặc reschedule.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Persistent Volume không tự đảm bảo backup, replication, encryption hoặc performance. Nó cũng không thay thế database replication hay object storage. Nếu dùng sai access mode, reclaim policy hoặc storage class, dữ liệu có thể không mount được, bị mất sau delete hoặc bị kẹt ở trạng thái không bind.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Persistent Volume là PV, PVC, storage class, access mode, reclaim policy và volume binding.
+Admin hoặc dynamic provisioner tạo PV dựa trên StorageClass. User tạo PVC để claim storage. Kubernetes bind PVC với PV phù hợp, kubelet mount volume vào Pod trên node. Reclaim policy như Retain/Delete quyết định volume thật được giữ hay xóa khi claim bị xóa. Access mode quyết định volume có thể mount read/write bởi bao nhiêu node.
 
 ## Project Role / Vai trò trong dự án
 
-Persistent Volume giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Persistent Volume là node cần mở khi workload stateful chạy trên Kubernetes, Pod restart mất dữ liệu, PVC Pending, volume mount fail, hoặc app cần backup/restore. Nó giúp team phân biệt dữ liệu nằm trong container layer, emptyDir, PV/PVC, object storage hay database managed bên ngoài.
 
 ## Output / Artifact nên có
 
-- Persistent Volume decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Persistent Volume
-- Failure note ghi rõ Persistent Volume ảnh hưởng user, runtime hay data thế nào
+- PV/PVC manifest hoặc Helm values: size, access mode, StorageClass, reclaim policy
+- Data ownership note: dữ liệu gì nằm trên volume, ai backup/restore
+- Backup/restore runbook cho workload stateful
+- Mount path và permission/fsGroup decision
+- Monitoring: volume usage, mount error, provision error, IOPS/latency nếu storage hỗ trợ
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Persistent Volume đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Persistent Volume không?
-- Khi Persistent Volume fail, user hoặc service nào bị ảnh hưởng trước?
+- Workload này thật sự cần storage bền vững hay chỉ cần emptyDir/cache tạm?
+- PVC yêu cầu access mode nào: ReadWriteOnce, ReadOnlyMany hay ReadWriteMany?
+- StorageClass có hỗ trợ dynamic provisioning và performance cần thiết không?
+- Reclaim policy là Retain hay Delete, và khi xóa PVC dữ liệu sẽ ra sao?
+- Pod có mount đúng path, quyền user/group và filesystem không?
+- Có backup/restore test cho dữ liệu trên volume không?
+- Nếu Pod reschedule sang node khác, volume có attach/mount được không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Persistent Volume làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Persistent Volume nhưng không ghi rõ owner, constraint hoặc rollback path
+- PVC Pending vì không có StorageClass/PV phù hợp.
+- Pod stuck ContainerCreating do volume attach/mount fail.
+- Reclaim policy Delete làm mất dữ liệu khi PVC bị xóa nhầm.
+- ReadWriteOnce volume không mount được nhiều node như workload mong đợi.
+- Permission sai làm app không ghi được vào mount path.
+- Không monitor dung lượng khiến volume đầy và database/app fail.
+- Không backup volume nên node/storage failure thành mất dữ liệu thật.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Persistent Volume nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Persistent Volume trước khi có nhu cầu vận hành hoặc học tập rõ
+- Stateless app không cần ghi dữ liệu bền vững thì không cần PV.
+- Cache có thể rebuild được có thể dùng emptyDir hoặc external cache thay vì PV phức tạp.
+- Database production quan trọng đôi khi nên dùng managed database ngoài cluster thay vì tự vận hành PV nếu team chưa đủ ops maturity.
 
 ## Gồm những gì
 
@@ -55,30 +66,37 @@ Persistent Volume giúp team đọc code, thiết kế, debug hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Kubernetes]] vì Persistent Volume là storage abstraction của Kubernetes.
+- [[Kubelet]] vì kubelet mount volume vào Pod trên node.
+- [[Pod]] vì Pod dùng PVC để mount storage.
+- [[Backup]] vì dữ liệu trên PV cần backup/restore strategy riêng.
+- [[StatefulSet]] vì workload stateful thường dùng PVC ổn định theo Pod identity.
 
 ## Liên quan rộng
 
-- Platform engineering
-- Deployment operations
-- Production reliability
-- AI system design
-- Model operations
-- Data quality
+- Kubernetes storage
+- Stateful workload
+- Disaster recovery
+- StorageClass
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Persistent Volume
 - PV
 - Kubernetes persistent volume
+- PersistentVolumeClaim
+- PVC
+- StorageClass
+- reclaim policy
+- ReadWriteOnce
+- ReadWriteMany
+- volume binding
+- volume mount fail
+- PVC Pending
+- Kubernetes storage
+- stateful workload
 - persistent volume debugging
-- persistent volume design
-- deployment config
-- vận hành hạ tầng
-- AI engineering
-- ML system
-- kỹ thuật AI
 
 ## Source trace
 
-- Kubernetes docs
+- Kubernetes Persistent Volumes documentation
