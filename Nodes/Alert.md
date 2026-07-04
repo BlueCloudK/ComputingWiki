@@ -6,51 +6,58 @@ Type: Reliability / SRE
 
 ## Context / Ngữ cảnh
 
-Alert xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
+Alert xuất hiện khi hệ thống cần gọi người hoặc automation vào xử lý vì một tín hiệu runtime cho thấy user impact, risk hoặc sự cố sắp xảy ra. Nó thường dựa trên metric, log, trace, health check, SLO burn rate hoặc synthetic check.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Alert là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
+Alert là rule biến tín hiệu quan sát được thành thông báo có action rõ cho owner phù hợp. Alert tốt phải trả lời: chuyện gì đang hỏng, impact là gì, độ khẩn cấp ra sao, ai xử lý, và bước đầu tiên nên làm gì.
 
 ### Nó không phải là gì
 
-Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
+Alert không phải dashboard và không phải mọi metric vượt ngưỡng đều nên đánh thức người. Nếu alert không actionable, không gắn user impact hoặc quá nhiều false positive, nó tạo alert fatigue và làm team bỏ qua tín hiệu thật.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
+Alert rule theo dõi condition như error rate, latency, saturation, SLO burn rate, queue lag hoặc health check failure. Khi condition giữ đủ lâu hoặc vượt threshold, hệ thống gửi notification tới channel/on-call. Alert cần severity, routing, deduplication, silence, escalation và runbook.
 
 ## Project Role / Vai trò trong dự án
 
-Alert ảnh hưởng tới quyết định release, ưu tiên technical debt, incident response và automation giảm toil.
+Alert giúp team phản ứng kịp khi production có lỗi thật. Khi thiết kế monitoring, alert là nơi quyết định tín hiệu nào đáng gọi người, tín hiệu nào chỉ nên hiện dashboard, và tín hiệu nào nên trigger automation như rollback hoặc scale.
 
 ## Output / Artifact nên có
 
-- SLO/SLI hoặc reliability metric được owner chấp nhận
-- Alert rule, runbook và incident response checklist
-- Postmortem/action item sau incident quan trọng
+- Alert rule: metric/query, threshold, duration, severity, owner
+- Runbook link: cách xác minh, giảm impact, rollback/escalate
+- Routing/escalation policy: channel, on-call, business hours hay 24/7
+- Noise review: false positive, duplicate, flapping, silence condition
+- Post-incident tuning nếu alert quá muộn, quá sớm hoặc không nổ
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- User-visible reliability được đo bằng metric nào?
-- Alert có actionable hay chỉ tạo noise?
-- Error budget có ảnh hưởng quyết định release không?
-- Runbook có giúp người trực xử lý trong incident không?
-- Postmortem có action item giảm recurrence không?
+- Alert này có user impact hoặc risk rõ không?
+- Người nhận alert có action cụ thể trong vài phút đầu không?
+- Threshold/duration có tránh flapping và false positive không?
+- Severity có đúng mức cần đánh thức người không?
+- Alert có runbook và owner không?
+- Có cần alert theo SLO burn rate thay vì một metric đơn lẻ không?
+- Sau incident, alert này đã nổ đúng lúc chưa?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Alert fatigue làm team bỏ qua tín hiệu thật
-- SLO đặt sai nên tối ưu không khớp user impact
-- Incident không có learning nên lỗi lặp lại
-- Automation thiếu kiểm soát gây blast radius lớn
+- Alert quá nhiều làm alert fatigue và team bỏ qua sự cố thật.
+- Alert không actionable khiến người trực chỉ nhìn dashboard nhưng không biết làm gì.
+- Threshold quá cao làm báo động khi user đã bị ảnh hưởng lâu.
+- Threshold quá thấp làm false positive liên tục.
+- Alert thiếu routing/owner nên không ai xử lý.
+- Alert chỉ nhìn health check xanh giả nên bỏ sót lỗi user journey chính.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần SRE process nặng cho service chưa có user thật
-- Dễ over-engineer nếu đặt quá nhiều SLO/alert trước khi biết user journey quan trọng
+- Service chưa có user thật có thể bắt đầu bằng log/metric/dashboard trước khi on-call alert nặng.
+- Không nên alert mọi warning; chỉ alert khi cần hành động kịp thời.
+- Không nên tạo alert nếu chưa có runbook hoặc owner chịu trách nhiệm.
 
 ## Gồm những gì
 
@@ -59,26 +66,38 @@ Alert ảnh hưởng tới quyết định release, ưu tiên technical debt, in
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Monitoring]] vì alert là phần actionable của monitoring.
+- [[Service Level Objective]] vì SLO/burn rate thường là nền cho alert ít noise hơn.
+- [[Incident]] vì alert thường là điểm mở incident.
+- [[Health Check]] vì health check failure có thể trigger alert nếu ảnh hưởng traffic.
+- [[Runbook]] vì alert cần hướng dẫn xử lý ban đầu.
 
 ## Liên quan rộng
 
-- Production reliability
+- On-call
 - Incident management
-- Monitoring
-- Release governance
+- Alert fatigue
+- Reliability operations
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Alert
 - cảnh báo
-- release pipeline
-- operational readiness
-- incident response
-- triển khai phần mềm
-- vận hành hệ thống
-- Monitoring
+- alert rule
+- alert fatigue
+- actionable alert
+- false positive alert
+- SLO burn rate
+- on-call alert
+- escalation policy
+- alert routing
+- runbook
+- incident alert
+- monitoring alert
+- alert flapping
+- alert debugging
 
 ## Source trace
 
-- SRE Map / monitoring/alerting
+- Google SRE Book
+- SRE Workbook alerting guidance
