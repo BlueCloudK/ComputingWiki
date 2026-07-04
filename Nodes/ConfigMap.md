@@ -6,48 +6,58 @@ Type: Kubernetes
 
 ## Context / Ngữ cảnh
 
-ConfigMap xuất hiện khi Pod cần nhận cấu hình không nhạy cảm qua env hoặc file.
+ConfigMap xuất hiện khi Pod cần nhận cấu hình không nhạy cảm như environment variable, config file, feature flag đơn giản, endpoint nội bộ hoặc runtime setting. Nó giúp tách cấu hình khỏi container image để cùng một image có thể chạy ở nhiều môi trường.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-ConfigMap là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+ConfigMap là Kubernetes resource lưu key-value hoặc file-like config không nhạy cảm. Pod có thể dùng ConfigMap qua env var, `envFrom`, command argument hoặc volume mount. Nó phù hợp cho cấu hình app, không phù hợp cho password/token/secret.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+ConfigMap không phải Secret và không nên chứa credential, API key hoặc dữ liệu nhạy cảm. Nó cũng không tự đảm bảo app reload config khi nội dung đổi; tùy cách mount/env và cách app đọc config, có thể cần restart/rollout để config mới có hiệu lực.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của ConfigMap là key-value config, volume mount, envFrom và rollout behavior khi config đổi.
+ConfigMap được tạo trong namespace và được Pod tham chiếu trong spec. Nếu dùng env var, giá trị được inject khi container start nên đổi ConfigMap thường không đổi env trong container đang chạy. Nếu mount dạng volume, file có thể update sau một thời gian, nhưng app vẫn phải đọc lại file hoặc restart để áp dụng.
 
 ## Project Role / Vai trò trong dự án
 
-ConfigMap giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+ConfigMap ảnh hưởng tới deploy, environment configuration và debug lỗi “local chạy, cluster không chạy”. Khi review Kubernetes app, team phải biết cấu hình nào nằm ở image, values/chart, ConfigMap, Secret và rollout nào cần chạy khi config thay đổi.
 
 ## Output / Artifact nên có
 
-- ConfigMap decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới ConfigMap
-- Failure note ghi rõ ConfigMap ảnh hưởng user, runtime hay data thế nào
+- ConfigMap manifest hoặc template tương ứng với từng environment
+- Danh sách key config, owner và default/required value
+- Mapping Pod dùng config qua env var hay volume mount
+- Rollout strategy khi ConfigMap thay đổi
+- Validation/test để phát hiện thiếu key hoặc sai format trước production
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- ConfigMap đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của ConfigMap không?
-- Khi ConfigMap fail, user hoặc service nào bị ảnh hưởng trước?
+- Config này có nhạy cảm không, có nên chuyển sang Secret không?
+- App đọc config qua env var hay file mount?
+- Khi ConfigMap đổi, Pod có cần restart/rollout không?
+- ConfigMap và Deployment có cùng namespace không?
+- Key config có schema/default/validation rõ không?
+- Có config nào khác nhau giữa dev/staging/prod cần quản lý bằng Helm/Kustomize không?
+- ConfigMap có bị dùng như database mini hoặc chứa quá nhiều logic không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của ConfigMap làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên ConfigMap nhưng không ghi rõ owner, constraint hoặc rollback path
+- Đưa secret vào ConfigMap làm lộ credential qua manifest/log/access cluster.
+- Đổi ConfigMap nhưng Pod không restart nên app vẫn dùng config cũ.
+- Thiếu key hoặc sai format làm container crash lúc startup.
+- ConfigMap sai namespace/name khiến Pod không mount được hoặc env rỗng.
+- Config quá phân tán giữa image, ConfigMap, Helm values và env làm khó debug.
+- Dùng ConfigMap cho file quá lớn hoặc config động phức tạp làm vận hành rối.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu ConfigMap nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh ConfigMap trước khi có nhu cầu vận hành hoặc học tập rõ
+- App nhỏ một môi trường có thể bắt đầu với env vars đơn giản trước khi tách nhiều ConfigMap.
+- Không nên đưa mọi setting vào ConfigMap nếu chúng là constant của build/image.
+- Config thay đổi realtime/phức tạp có thể cần config service hoặc reload mechanism riêng.
 
 ## Gồm những gì
 
@@ -55,24 +65,34 @@ ConfigMap giúp team đọc code, thiết kế, debug hoặc vận hành bằng 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Kubernetes]] vì ConfigMap là resource cấu hình cơ bản trong Kubernetes.
+- [[Deployment]] vì Pod spec trong Deployment thường tham chiếu ConfigMap.
+- [[Helm]] vì Helm values thường render ra ConfigMap theo môi trường.
+- [[Kubernetes Secret]] vì cần phân biệt rõ config không nhạy cảm và secret.
 
 ## Liên quan rộng
 
-- Platform engineering
-- Deployment operations
-- Production reliability
+- Environment configuration
+- Platform operations
+- GitOps
+- Application startup
 
 ## Keywords / Từ khóa tìm kiếm
 
 - ConfigMap
 - Kubernetes ConfigMap
 - config map
+- non-secret config
+- envFrom
+- config volume mount
+- Kubernetes env var
+- config rollout
+- config reload
+- missing config key
 - configmap debugging
-- configmap design
-- deployment config
-- vận hành hạ tầng
+- Helm values ConfigMap
+- Kubernetes configuration
 
 ## Source trace
 
-- Kubernetes docs
+- Kubernetes ConfigMap documentation
