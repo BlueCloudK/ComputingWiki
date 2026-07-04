@@ -6,51 +6,58 @@ Type: Reliability / SRE
 
 ## Context / Ngữ cảnh
 
-Logging xuất hiện khi service có user thật và lỗi/downtime làm giảm trải nghiệm hoặc gây chi phí vận hành.
+Logging xuất hiện khi hệ thống cần ghi lại sự kiện runtime để debug, audit, điều tra incident hoặc hiểu request/job đã đi qua những bước nào. Log thường nằm trong app, gateway, worker, database, infrastructure và security/audit path.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Logging là cách biến 'ổn định' thành metric, SLO, alert, runbook và postmortem/action item.
+Logging là việc ghi event có cấu trúc hoặc bán cấu trúc về điều gì đã xảy ra: timestamp, level, message, request id, actor, action, resource, status, latency, error context. Log tốt giúp trả lời “đã xảy ra gì” và nối được với metric/trace khi incident xảy ra.
 
 ### Nó không phải là gì
 
-Nó không phải nhiều dashboard cho đẹp; nếu alert không actionable hoặc không gắn user impact thì chỉ tạo noise.
+Logging không phải monitoring đầy đủ và không nên thay thế metric/alert. Log quá nhiều, thiếu cấu trúc hoặc chứa secret/PII có thể làm cost tăng và tạo risk. Logging cũng không phải nơi dump toàn bộ payload nhạy cảm chỉ để debug cho dễ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là SLI/SLO + error budget + monitoring + incident response + learning loop. Reliability được đo, cảnh báo, xử lý và cải thiện qua postmortem.
+Code phát log ở các event quan trọng với level như debug/info/warn/error. Log được format, gắn correlation id/trace id, gửi tới stdout/file/collector, index và query. Structured logging giúp filter theo field thay vì grep text tự do.
 
 ## Project Role / Vai trò trong dự án
 
-Logging ảnh hưởng tới quyết định release, ưu tiên technical debt, incident response và automation giảm toil.
+Logging giúp debug request lỗi, audit hành động nhạy cảm, reconstruct timeline incident và hiểu failure path. Khi thiết kế backend, cần quyết định log gì ở boundary, log level nào, field nào bắt buộc, dữ liệu nào phải mask và retention bao lâu.
 
 ## Output / Artifact nên có
 
-- SLO/SLI hoặc reliability metric được owner chấp nhận
-- Alert rule, runbook và incident response checklist
-- Postmortem/action item sau incident quan trọng
+- Logging convention: level, format, required fields, request id/trace id
+- Sensitive data policy: secret/PII masking, redaction, retention
+- Audit log schema cho hành động nhạy cảm
+- Error log pattern: exception type, stack trace, context, user-safe message
+- Query/dashboard mẫu cho incident: by request id, user id, endpoint, error code
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- User-visible reliability được đo bằng metric nào?
-- Alert có actionable hay chỉ tạo noise?
-- Error budget có ảnh hưởng quyết định release không?
-- Runbook có giúp người trực xử lý trong incident không?
-- Postmortem có action item giảm recurrence không?
+- Log này giúp debug/audit quyết định nào?
+- Có request id/trace id để nối log giữa service không?
+- Log level có đúng không: debug/info/warn/error?
+- Có lộ password, token, secret, PII hoặc payload nhạy cảm không?
+- Log có structured fields thay vì message text khó query không?
+- Volume/cardinality có làm logging cost tăng quá mức không?
+- Retention và access control log có phù hợp dữ liệu nhạy cảm không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Alert fatigue làm team bỏ qua tín hiệu thật
-- SLO đặt sai nên tối ưu không khớp user impact
-- Incident không có learning nên lỗi lặp lại
-- Automation thiếu kiểm soát gây blast radius lớn
+- Thiếu correlation id làm không nối được request qua gateway/backend/worker.
+- Log quá ít khiến incident chỉ biết có lỗi nhưng không biết context.
+- Log quá nhiều gây cost cao, noise và làm query chậm.
+- Log token/secret/PII gây data leak và compliance risk.
+- Log level sai làm error thật chìm trong noise hoặc info thành alert giả.
+- Không log audit action nhạy cảm nên không điều tra được ai làm gì.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần SRE process nặng cho service chưa có user thật
-- Dễ over-engineer nếu đặt quá nhiều SLO/alert trước khi biết user journey quan trọng
+- Prototype nhỏ có thể dùng log đơn giản nhưng vẫn nên tránh log secret.
+- Không nên thêm structured logging phức tạp nếu service chưa có nhiều request/service, nhưng nên giữ format dễ nâng cấp.
+- Không nên log mọi payload chỉ để né việc thiết kế observability đúng.
 
 ## Gồm những gì
 
@@ -59,28 +66,38 @@ Logging ảnh hưởng tới quyết định release, ưu tiên technical debt, 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Monitoring]] vì log là một telemetry source trong monitoring/observability.
+- [[Incident]] vì log giúp reconstruct timeline và root/contributing factors.
+- [[Alert]] vì một số alert dựa trên log-derived metrics.
+- [[Security Logging]] vì hành động nhạy cảm cần log audit khác log debug thường.
+- [[Tracing]] vì trace id/correlation id nối log với request path phân tán.
 
 ## Liên quan rộng
 
-- Production reliability
-- Incident management
-- Monitoring
-- Release governance
+- Observability
+- Audit trail
+- Debugging
+- Compliance
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Logging
-- ghi log
 - logs
-- release pipeline
-- operational readiness
-- incident response
-- triển khai phần mềm
-- vận hành hệ thống
-- Monitoring
-- Incident
+- ghi log
+- structured logging
+- log level
+- request id
+- trace id
+- correlation id
+- audit log
+- error log
+- log redaction
+- PII masking
+- log retention
+- logging cost
+- logging debugging
 
 ## Source trace
 
-- SRE Map / SWEBOK Operations
+- Google SRE Book
+- SWEBOK Operations
