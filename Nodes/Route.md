@@ -6,48 +6,58 @@ Type: Backend / Web Development
 
 ## Context / Ngữ cảnh
 
-Route xuất hiện khi URL/method cần được map tới handler hoặc page/component tương ứng.
+Route xuất hiện khi URL, HTTP method hoặc navigation path cần được map tới handler, controller, page, component hoặc upstream service tương ứng. Nó nằm ở boundary giữa request từ client và phần code thật xử lý request đó.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Route là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Route là rule định tuyến request: pattern nào match path/method nào, route parameter nào được parse, middleware nào chạy và handler nào nhận request. Trong backend, route thường map tới controller/action. Trong frontend, route map URL tới page/component và data-loading behavior.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Route không phải toàn bộ API contract. Route chỉ nói request đi đâu; contract còn cần request/response schema, auth, validation, error format và side effect. Route cũng không nên chứa business logic chính; nếu route config quá thông minh, debug sẽ khó vì behavior nằm trong routing layer thay vì handler/use case.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Route là path pattern, method matching, route parameter, priority và fallback.
+Router so sánh request path/method với route table theo priority/order, parse params/query, chạy middleware/guard, rồi gọi handler hoặc fallback/404. Các yếu tố quan trọng gồm path pattern, dynamic segment, wildcard, route order, method matching, trailing slash, base path, version prefix và nested routes.
 
 ## Project Role / Vai trò trong dự án
 
-Route giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Route là node cần mở khi endpoint/page không vào đúng handler, 404 lạ, route dynamic bắt nhầm route static, middleware không chạy, frontend refresh mất page hoặc reverse proxy/gateway chuyển path sai. Nó giúp team trace request từ URL → proxy/gateway → router → controller/page.
 
 ## Output / Artifact nên có
 
-- Route decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Route
-- Failure note ghi rõ Route ảnh hưởng user, runtime hay data thế nào
+- Route map: method/path → middleware/guard → handler/controller/page
+- Route parameter convention và validation rule
+- Fallback/404/redirect behavior
+- API version/base path decision nếu có nhiều version hoặc service prefix
+- Test case cho static route, dynamic route, wildcard, unauthorized và not found
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Route đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Route không?
-- Khi Route fail, user hoặc service nào bị ảnh hưởng trước?
+- Route có match đúng method và path không?
+- Dynamic route có bắt nhầm static route không?
+- Route order/priority có rõ trong framework đang dùng không?
+- Middleware/auth guard có chạy trước handler không?
+- Route param có được validate trước khi vào service không?
+- Base path/proxy prefix có bị rewrite sai không?
+- Fallback 404/redirect có phân biệt API route và frontend route không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Route làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Route nhưng không ghi rõ owner, constraint hoặc rollback path
+- Route order sai làm `/users/new` bị bắt bởi `/users/:id`.
+- Thiếu method matching làm POST/GET đi nhầm handler hoặc trả 405/404 khó hiểu.
+- Proxy rewrite/base path sai làm app route không match production dù local chạy.
+- Frontend SPA route refresh trả 404 vì web server không fallback đúng.
+- Middleware không gắn route nhạy cảm làm thiếu auth/authorization.
+- Wildcard route quá rộng che route cụ thể và làm debug khó.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Route nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Route trước khi có nhu cầu vận hành hoặc học tập rõ
+- App nhỏ ít endpoint/page có thể dùng route trực tiếp, chưa cần route generator/phân tầng quá nhiều.
+- Không nên encode business workflow vào route structure nếu domain logic nằm tốt hơn ở service/use case.
+- Không nên tạo route versioning phức tạp khi chưa có consumer ổn định cần backward compatibility.
 
 ## Gồm những gì
 
@@ -55,13 +65,18 @@ Route giúp team đọc code, thiết kế, debug hoặc vận hành bằng đú
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[API Endpoint]] vì route thường là cách endpoint được map tới handler.
+- [[Controller]] vì backend route thường gọi controller/action.
+- [[Middleware]] vì middleware/guard thường chạy theo route.
+- [[Reverse Proxy]] vì proxy rewrite/base path có thể làm route match sai.
+- [[SPA]] vì frontend route và server fallback cần phối hợp để tránh refresh 404.
 
 ## Liên quan rộng
 
-- Frontend architecture
-- Browser debugging
-- User experience
+- Web framework
+- Request handling
+- Frontend navigation
+- API design
 
 ## Keywords / Từ khóa tìm kiếm
 
@@ -69,12 +84,19 @@ Route giúp team đọc code, thiết kế, debug hoặc vận hành bằng đú
 - routing
 - URL route
 - định tuyến request
-- route debugging
-- route design
-- web development
-- frontend debugging
-- phát triển web
+- route matching
+- path pattern
+- dynamic route
+- route parameter
+- route order
+- wildcard route
+- middleware route
+- API route
+- frontend route
+- 404 route debugging
+- base path rewrite
 
 ## Source trace
 
-- Express routing docs; MDN
+- Express routing documentation
+- MDN HTTP documentation
