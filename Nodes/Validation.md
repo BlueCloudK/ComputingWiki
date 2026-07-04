@@ -6,51 +6,58 @@ Type: Requirement / Planning
 
 ## Context / Ngữ cảnh
 
-Validation xuất hiện khi dữ liệu, request hoặc requirement cần được kiểm tra xem có phù hợp với rule mong đợi trước khi hệ thống xử lý tiếp hay không.
+Validation xuất hiện khi request, form input, file, config, message, command hoặc requirement cần được kiểm tra có hợp lệ trước khi hệ thống xử lý tiếp. Nó là boundary quan trọng giữa dữ liệu không tin cậy và domain logic/database.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Validation là kiểm tra tính hợp lệ theo rule: format, range, required field, schema, domain constraint hoặc business invariant.
+Validation là kiểm tra dữ liệu theo rule rõ: required field, type, format, range, enum, length, schema, relation giữa field, domain constraint hoặc business invariant. Mục tiêu là reject dữ liệu không hợp lệ sớm, trả lỗi rõ và giữ dữ liệu bên trong hệ thống nhất quán.
 
 ### Nó không phải là gì
 
-Nó không phải là authentication, không phải authorization, và không phải sanitize output. Validation trả lời "dữ liệu này có hợp lệ để xử lý không".
+Validation không phải authentication, authorization hoặc output sanitization. Authentication hỏi “bạn là ai”; authorization hỏi “bạn được làm gì”; validation hỏi “dữ liệu này có hợp lệ để xử lý không”. Validation cũng không thay thế database constraint nếu invariant cần bảo vệ chắc chắn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là đặt rule ở boundary phù hợp, reject dữ liệu sai sớm, trả lỗi rõ và giữ invariant bên trong hệ thống. Validation tốt có cùng nghĩa giữa client, API và domain.
+Validation thường chạy theo nhiều lớp: client validation để UX tốt, API/request validation để bảo vệ boundary, domain validation để giữ rule nghiệp vụ, và database constraint để bảo vệ invariant cuối cùng. Rule tốt phải nhất quán với API contract và trả error format đủ rõ cho consumer sửa input.
 
 ## Project Role / Vai trò trong dự án
 
-Validation bảo vệ API, database và business logic khỏi dữ liệu rác hoặc dữ liệu vượt constraint. Nó cũng làm acceptance criteria cụ thể hơn khi requirement có rule dữ liệu.
+Validation giúp biến requirement mơ hồ thành rule kiểm chứng được và giúp backend không nhận dữ liệu rác. Khi debug bug dữ liệu, cần biết input sai lọt qua lớp nào, frontend/backend rule có lệch không, error response có đúng contract không và database có constraint cuối cùng không.
 
 ## Output / Artifact nên có
 
-- Validation rule hoặc schema
-- Error message/status cho input không hợp lệ
-- Test case cho valid, invalid và boundary value
+- Validation schema/rule: required, optional, nullable, enum, range, format, cross-field rule
+- Error response format và status code cho invalid input
+- Test case cho valid, invalid, boundary value, missing field và malformed payload
+- Mapping rule với API Contract/OpenAPI nếu endpoint public hoặc nhiều consumer
+- Database constraint hoặc invariant note cho rule quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Rule hợp lệ nằm ở format, domain hay business process?
-- Validation nên ở client, API, domain hay database?
-- Khi invalid thì reject, normalize hay ask user sửa?
-- Error có đủ rõ cho consumer xử lý không?
-- Rule này có thống nhất với API contract không?
+- Rule này là format-level, schema-level, domain-level hay business invariant?
+- Validation nên nằm ở client, API boundary, domain service hay database constraint?
+- Frontend và backend có cùng hiểu required/optional/nullable không?
+- Invalid input sẽ reject, normalize hay yêu cầu user sửa?
+- Error message có đủ rõ cho user/consumer nhưng không lộ thông tin nhạy cảm không?
+- Có test boundary value và malformed payload không?
+- Rule này có thay đổi theo role/permission/context không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Chỉ validate ở client nên API vẫn nhận dữ liệu sai
-- Rule khác nhau giữa frontend/backend làm bug khó trace
-- Error quá mơ hồ khiến consumer retry sai cách
-- Nhầm validation với authorization làm lộ hoặc chặn sai quyền
+- Chỉ validate ở client nên API vẫn nhận dữ liệu sai từ script/tool khác.
+- Frontend/backend validation lệch làm user thấy pass ở UI nhưng fail ở API.
+- Error mơ hồ khiến consumer retry hoặc sửa sai chỗ.
+- Validate quá muộn làm dữ liệu rác đi vào database/job/event.
+- Nhầm validation với authorization làm user gửi dữ liệu hợp lệ nhưng không được phép vẫn lọt qua.
+- Rule chỉ nằm ở app code, không có constraint, nên race condition vẫn phá invariant.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần schema phức tạp cho dữ liệu thử nghiệm chỉ dùng nội bộ
-- Dễ over-engineer nếu validate mọi intermediate object thay vì boundary quan trọng
+- Dữ liệu thử nghiệm nội bộ ngắn hạn có thể dùng validation nhẹ nhưng vẫn cần boundary rõ.
+- Không nên validate mọi object trung gian nếu boundary chính đã rõ và domain invariant được bảo vệ.
+- Không nên dùng schema quá phức tạp khi rule nghiệp vụ thay đổi liên tục và chưa ổn định.
 
 ## Gồm những gì
 
@@ -59,25 +66,38 @@ Validation bảo vệ API, database và business logic khỏi dữ liệu rác h
 
 ## Nối mạnh
 
-- [[Acceptance Criteria]] vì rule dữ liệu thường cần tiêu chí pass/fail rõ
-- [[Requirement]] vì validation rule nên trace được về nhu cầu hoặc constraint
-- [[Authentication]] vì dễ bị nhầm với validation dù mục đích khác nhau
+- [[API Contract]] vì validation rule phải khớp request/response contract.
+- [[OpenAPI]] vì schema OpenAPI có thể mô tả và kiểm tra nhiều validation rule.
+- [[Controller]] vì controller/API boundary thường là nơi nhận request và kích hoạt validation.
+- [[Database Constraint]] vì invariant quan trọng nên có lớp bảo vệ ở database.
+- [[Acceptance Criteria]] vì validation rule nên trace được thành tiêu chí pass/fail.
 
 ## Liên quan rộng
 
 - Data quality
 - Defensive programming
 - Security boundary
+- Requirements engineering
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Validation
 - validate input
 - xác thực dữ liệu
-- Input Validation
-- API Contract
-- Validation learning keyword
+- input validation
+- schema validation
+- request validation
+- required field
+- nullable field
+- boundary value
+- validation error
+- domain validation
+- database constraint
+- malformed payload
+- validation rule
+- validation debugging
 
 ## Source trace
 
-- Requirements Engineering Map / OWASP Map
+- OWASP Input Validation Cheat Sheet
+- Requirements Engineering Map
