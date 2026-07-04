@@ -6,48 +6,58 @@ Type: Backend Engineering
 
 ## Context / Ngữ cảnh
 
-API Endpoint là node bổ sung cho ComputingWiki về địa chỉ và operation cụ thể mà client gọi để thao tác với backend.
+API Endpoint xuất hiện khi client, frontend, mobile app, service nội bộ hoặc third-party cần gọi một operation cụ thể của backend qua URL/path/method. Nó là điểm chạm trực tiếp giữa API contract và code xử lý request.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-API Endpoint dùng để gọi đúng khái niệm khi thiết kế, debug hoặc vận hành phần liên quan tới địa chỉ và operation cụ thể mà client gọi để thao tác với backend.
+API Endpoint là một operation được expose qua API, thường xác định bởi method, path, request schema, response schema, auth requirement, status code và side effect. Ví dụ `GET /orders/{id}` và `POST /orders` là hai endpoint khác nhau vì hành vi và contract khác nhau.
 
 ### Nó không phải là gì
 
-Nó không thay thế toàn bộ vùng Backend Engineering; nếu dùng như nhãn chung mà không chỉ ra behavior cụ thể thì dễ làm graph nhiễu.
+API Endpoint không chỉ là URL. Nếu thiếu method, input/output, auth, validation, error format và ownership thì chưa đủ để thiết kế hoặc test. Endpoint cũng không nên chứa toàn bộ business logic; nó thường chỉ nhận request, validate, gọi service/use case và trả response.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của API Endpoint là hiểu boundary, input/output, state và failure mode riêng của địa chỉ và operation cụ thể mà client gọi để thao tác với backend.
+Request đi vào router, match method/path, qua middleware như auth/rate limit/validation, rồi tới handler/controller. Handler parse input, gọi domain/service layer, map result/error thành HTTP response. Endpoint tốt phải rõ idempotency, side effect, status code, error format và compatibility với client.
 
 ## Project Role / Vai trò trong dự án
 
-API Endpoint giúp team đặt tên đúng khi đọc tài liệu, review thiết kế, viết test hoặc xử lý incident liên quan.
+API Endpoint giúp team chia nhỏ backend thành các operation cụ thể để design, implement, test, document và debug. Khi incident xảy ra, endpoint là đơn vị để nhìn traffic, latency, error rate, auth failure, validation failure và breaking change ảnh hưởng client nào.
 
 ## Output / Artifact nên có
 
-- API Endpoint contract hoặc design note
-- Test case cho request/response hoặc failure path
-- Log/metric liên quan khi chạy production
+- Endpoint contract: method, path, request, response, error, auth, status codes
+- Handler/controller ownership và service/use case được gọi
+- Test case cho success, validation error, auth error, not found, conflict và timeout
+- Observability: endpoint name, request id, latency, error rate, status code distribution
+- Documentation/OpenAPI entry nếu endpoint public hoặc có nhiều consumer
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- API Endpoint nằm ở boundary client, service, data hay third-party?
-- Failure path có response/log/rollback rõ không?
-- Có test kiểm tra behavior quan trọng không?
+- Method/path có phản ánh đúng operation không?
+- Request/response schema và required/optional fields có rõ không?
+- Endpoint có cần authentication/authorization/scope nào không?
+- Validation lỗi trả status code và error body thế nào?
+- Operation có side effect không, có cần idempotency key không?
+- Endpoint có versioning/backward compatibility requirement không?
+- Có metric/log đủ để trace lỗi theo endpoint không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Thiết kế API Endpoint mơ hồ làm client/backend hiểu khác nhau
-- Không xử lý edge case làm lỗi chỉ lộ khi traffic thật
-- Thiếu metric/log khiến incident khó trace
+- Endpoint thiếu validation làm dữ liệu bẩn đi vào service/database.
+- Status code/error body không nhất quán làm frontend hoặc client SDK xử lý sai.
+- Auth/authorization thiếu ở endpoint nhạy cảm làm lộ hoặc sửa dữ liệu trái phép.
+- Handler chứa quá nhiều business logic làm khó test và reuse.
+- Breaking change request/response làm client cũ hỏng.
+- Không có endpoint-level metric khiến incident không biết API nào gây lỗi.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu API Endpoint nếu app nhỏ và chưa có nhiều client/service
-- Dễ over-engineer nếu tạo abstraction trước khi có repeated behavior thật
+- Prototype một client một backend có thể document nhẹ, nhưng endpoint public hoặc nhiều consumer cần contract rõ.
+- Không nên tạo endpoint quá nhỏ/vụn nếu mỗi endpoint chỉ bọc một field không có use case rõ.
+- Không nên dùng một endpoint quá rộng kiểu “doEverything” vì sẽ phá validation, auth và observability.
 
 ## Gồm những gì
 
@@ -55,14 +65,17 @@ API Endpoint giúp team đặt tên đúng khi đọc tài liệu, review thiế
 
 ## Nối mạnh
 
-- [[Route]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng API Endpoint
-- [[API Contract]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng API Endpoint
+- [[Route]] vì route là rule match method/path tới endpoint handler.
+- [[API Contract]] vì endpoint cần contract request/response/error rõ ràng.
+- [[Request]] vì endpoint bắt đầu từ input HTTP/request.
+- [[Response]] vì endpoint phải map result/error thành output cho client.
 
 ## Liên quan rộng
 
 - Backend architecture
 - API design
-- Production service
+- Integration testing
+- Observability
 
 ## Keywords / Từ khóa tìm kiếm
 
@@ -70,9 +83,20 @@ API Endpoint giúp team đặt tên đúng khi đọc tài liệu, review thiế
 - endpoint
 - API endpoint
 - đường dẫn API
+- HTTP endpoint
+- method path
+- endpoint handler
+- controller action
+- API route
+- request schema
+- response schema
+- endpoint validation
+- endpoint auth
+- endpoint metrics
+- API operation
 
 ## Source trace
 
 - Microsoft REST API Guidelines
 - Google API Improvement Proposals
-- Fowler Patterns of Enterprise Application Architecture
+- OpenAPI Specification
