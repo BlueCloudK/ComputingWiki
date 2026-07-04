@@ -6,48 +6,59 @@ Type: AI / ML Engineering
 
 ## Context / Ngữ cảnh
 
-Dataset xuất hiện khi AI/ML system cần dữ liệu để train, evaluate hoặc validate behavior.
+Dataset xuất hiện khi AI/ML system cần dữ liệu để train, fine-tune, evaluate, validate hoặc benchmark behavior. Trong dự án thực tế, dataset không chỉ là file dữ liệu mà là asset có schema, nguồn gốc, phiên bản, split, label quality và giới hạn sử dụng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Dataset là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Dataset là tập dữ liệu có cấu trúc hoặc bán cấu trúc được dùng cho một mục tiêu cụ thể như training, validation, test, evaluation hoặc retrieval corpus. Dataset cần mô tả nguồn dữ liệu, schema, label, sampling, preprocessing, version và quyền sử dụng.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Dataset không tự đồng nghĩa với “dữ liệu đúng”. Dữ liệu có thể bias, stale, duplicate, thiếu nhãn, leak target, sai phân phối hoặc không đại diện production. Dataset cũng không phải model; nó là input quyết định model/evaluator học và đo cái gì.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Dataset là schema, label, split, distribution, leakage và data quality.
+Dataset được thu thập, làm sạch, chuẩn hóa, gán nhãn, chia split và version hóa. Chất lượng dataset phụ thuộc vào data provenance, schema consistency, label agreement, class distribution, leakage control và độ khớp với use case thật. Với AI app, dataset còn dùng để tạo eval set và regression test cho model/prompt/RAG.
 
 ## Project Role / Vai trò trong dự án
 
-Dataset giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Dataset ảnh hưởng trực tiếp tới chất lượng model, evaluation, debugging và trust. Khi model trả sai, team phải kiểm tra dữ liệu training/eval có đại diện không, nhãn có đúng không, split có leak không, và metric có đo đúng behavior người dùng cần không.
 
 ## Output / Artifact nên có
 
-- Dataset decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Dataset
-- Failure note ghi rõ Dataset ảnh hưởng user, runtime hay data thế nào
+- Dataset card hoặc data note: source, schema, license, collection method, limitation
+- Data split: train/validation/test/eval, tránh leakage giữa split
+- Labeling guideline và quality check nếu có human label
+- Data version và changelog khi dataset thay đổi
+- Data quality report: missing value, duplicate, class distribution, outlier, bias risk
+- Evaluation set đại diện use case thật
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Dataset đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Dataset không?
-- Khi Dataset fail, user hoặc service nào bị ảnh hưởng trước?
+- Dataset dùng cho training, validation, test hay evaluation?
+- Dữ liệu có nguồn gốc rõ và được phép dùng không?
+- Schema/label có nhất quán giữa các version không?
+- Train/test split có leak user, time, document hoặc target không?
+- Distribution có giống production traffic không?
+- Có duplicate hoặc near-duplicate làm metric ảo không?
+- Dataset có chứa PII/secret hoặc dữ liệu nhạy cảm cần xử lý không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Dataset làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Dataset nhưng không ghi rõ owner, constraint hoặc rollback path
+- Label sai hoặc guideline mơ hồ làm model học target không ổn định.
+- Data leakage giữa train/test làm metric cao giả.
+- Dataset stale khiến model/eval không phản ánh production hiện tại.
+- Sampling bias làm model tốt trên nhóm phổ biến nhưng fail nhóm hiếm.
+- Schema thay đổi nhưng pipeline không biết, gây train/eval sai âm thầm.
+- Dữ liệu nhạy cảm lọt vào dataset làm rủi ro privacy/compliance.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Dataset nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Dataset trước khi có nhu cầu vận hành hoặc học tập rõ
+- Prototype ý tưởng có thể bắt đầu bằng dataset nhỏ, nhưng phải ghi rõ giới hạn.
+- Không nên xây data platform phức tạp trước khi biết dataset nào ảnh hưởng metric/use case.
+- Không nên tối ưu model khi lỗi thật nằm ở label, split hoặc data quality.
 
 ## Gồm những gì
 
@@ -55,25 +66,38 @@ Dataset giúp team đọc code, thiết kế, debug hoặc vận hành bằng đ
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Training]] vì dataset là input chính cho quá trình train/fine-tune.
+- [[AI Evaluation]] vì eval dataset quyết định hệ thống được đo bằng câu hỏi/tình huống nào.
+- [[Data Quality]] vì chất lượng dataset quyết định độ tin cậy của model và metric.
+- [[RAG]] vì corpus tài liệu trong RAG cũng cần quản lý như dataset về nguồn, version và quyền truy cập.
 
 ## Liên quan rộng
 
-- AI system design
-- Model operations
-- Data quality
+- Data governance
+- Labeling workflow
+- Model debugging
+- Bias analysis
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Dataset
 - training dataset
 - tập dữ liệu
+- evaluation dataset
+- validation set
+- test set
+- data split
+- data leakage
+- label quality
+- dataset version
+- dataset card
+- data provenance
+- class distribution
+- stale dataset
 - dataset debugging
-- dataset design
-- AI engineering
-- ML system
-- kỹ thuật AI
 
 ## Source trace
 
-- Google ML Crash Course; scikit-learn docs
+- Google ML Crash Course
+- scikit-learn documentation
+- TensorFlow data documentation
