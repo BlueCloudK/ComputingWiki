@@ -6,48 +6,58 @@ Type: Failure Pattern
 
 ## Context / Ngữ cảnh
 
-Thread Starvation xuất hiện khi thread pool bị block hoặc chiếm hết làm request mới không được xử lý kịp.
+Thread Starvation xuất hiện khi worker/thread pool không còn thread rảnh để xử lý request/job mới đúng hạn. Nó thường gặp trong web server, background worker, executor pool, Java/.NET backend, blocking I/O trong async runtime hoặc task queue dùng worker pool cố định.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Thread Starvation là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+Thread Starvation là failure pattern trong đó thread bị block, giữ quá lâu hoặc pool size quá thấp so với workload, làm task mới phải chờ trong queue dù CPU có thể chưa full. Triệu chứng thường là request latency tăng, queue wait cao, timeout, health check fail hoặc app có vẻ “đơ” nhưng không crash.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+Thread Starvation không phải mọi CPU bottleneck. CPU 100% do computation nặng là CPU saturation; thread starvation có thể xảy ra cả khi CPU thấp vì thread đang chờ I/O, lock, database connection, remote API hoặc sleep/blocking call. Nó cũng khác deadlock, dù deadlock có thể làm thread bị giữ mãi.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của Thread Starvation là blocking call, worker pool, queue wait, async boundary và saturation.
+Request/job lấy thread từ pool. Nếu thread gọi blocking I/O, chờ lock, chờ connection, sync-over-async hoặc xử lý lâu, pool không trả thread đủ nhanh. Task mới xếp hàng, timeout tăng, retry tăng và có thể kéo theo connection pool saturation, queue backlog hoặc health check failure.
 
 ## Project Role / Vai trò trong dự án
 
-Thread Starvation giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+Thread Starvation là node cần mở khi p95/p99 latency tăng, request queue dài, thread pool active/max cao, app không nhận request mới hoặc worker xử lý chậm dù dependency mới là nguyên nhân thật. Nó giúp team debug thread dump, blocking call, async boundary, pool size, lock wait và downstream timeout.
 
 ## Output / Artifact nên có
 
-- Thread Starvation decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới Thread Starvation
-- Failure note ghi rõ Thread Starvation ảnh hưởng user, runtime hay data thế nào
+- Thread pool dashboard: active thread, queued task, completed task rate, queue wait time
+- Thread dump/profile khi sự cố xảy ra
+- Blocking call inventory: DB, HTTP, filesystem, lock, sleep, sync-over-async
+- Timeout/cancellation policy cho dependency call
+- Load/soak test để thấy pool behavior dưới concurrency thật
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Thread Starvation đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của Thread Starvation không?
-- Khi Thread Starvation fail, user hoặc service nào bị ảnh hưởng trước?
+- Thread pool active có chạm max và queue task có tăng không?
+- CPU thấp nhưng latency cao có phải vì thread đang block không?
+- Thread dump cho thấy thread đang chờ lock, DB connection, HTTP call hay sleep?
+- Có sync-over-async hoặc blocking I/O trong async request path không?
+- Pool dùng chung cho request nhanh và job dài không?
+- Timeout/cancellation có giải phóng thread khi dependency chậm không?
+- Tăng pool size có thật sự giúp hay chỉ che bottleneck downstream?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của Thread Starvation làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên Thread Starvation nhưng không ghi rõ owner, constraint hoặc rollback path
+- Blocking remote call giữ thread lâu làm request mới không được xử lý.
+- Chờ database connection trong thread pool làm thread và connection pool cùng cạn.
+- Job dài dùng chung executor với request realtime làm API latency tăng.
+- Sync-over-async gây deadlock/starvation trong runtime async.
+- Health check cũng cần thread nên service bị đánh dấu unhealthy dù process sống.
+- Retry sau timeout tạo thêm request và làm pool starvation nặng hơn.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu Thread Starvation nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh Thread Starvation trước khi có nhu cầu vận hành hoặc học tập rõ
+- App nhỏ ít concurrency có thể chưa cần tuning pool sâu, nhưng vẫn nên tránh blocking không cần thiết.
+- Không nên tăng thread pool mù nếu bottleneck thật là database/API/lock.
+- Không nên chuyển mọi thứ sang async nếu team chưa hiểu cancellation, backpressure và thread usage thật.
 
 ## Gồm những gì
 
@@ -55,25 +65,38 @@ Thread Starvation giúp team đọc code, thiết kế, debug hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Resource Exhaustion]] vì thread pool cạn là một dạng cạn tài nguyên.
+- [[Queue Backlog]] vì task chờ thread tạo backlog trong executor/request queue.
+- [[Connection Pool Saturation]] vì thread và DB connection pool thường bão hòa cùng nhau.
+- [[Timeout]] vì timeout/cancellation giúp thread không bị giữ vô hạn.
+- [[Deadlock]] vì deadlock có thể làm thread bị block vĩnh viễn.
 
 ## Liên quan rộng
 
-- AI system design
-- Model operations
-- Data quality
+- Runtime performance
+- Web server concurrency
+- Executor design
+- Async programming
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Thread Starvation
 - thread pool starvation
 - thiếu thread xử lý
+- worker pool starvation
+- executor queue
+- queued task
+- blocking call
+- sync over async
+- thread dump
+- request queue
+- pool active threads
+- pool max threads
 - thread starvation debugging
-- thread starvation design
-- AI engineering
-- ML system
-- kỹ thuật AI
+- async blocking
+- worker starvation
 
 ## Source trace
 
-- .NET ThreadPool docs; Java concurrency docs
+- .NET ThreadPool documentation
+- Java concurrency documentation
