@@ -6,48 +6,58 @@ Type: Security / Web
 
 ## Context / Ngữ cảnh
 
-CSP xuất hiện khi browser cần giới hạn nguồn script/style/img để giảm impact của XSS.
+CSP xuất hiện khi web app cần giới hạn nguồn script, style, image, font, frame, connect endpoint hoặc worker mà browser được phép tải/chạy. Nó thường dùng để giảm impact của XSS, phát hiện injection và kiểm soát tài nguyên third-party trên trang.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-CSP là khái niệm dùng để gọi đúng phần việc, constraint hoặc failure mode liên quan trong hệ thống.
+CSP là browser security policy được gửi qua HTTP header `Content-Security-Policy` hoặc meta tag để định nghĩa nguồn nội dung hợp lệ. Các directive như `script-src`, `style-src`, `img-src`, `connect-src`, `frame-ancestors`, nonce/hash và report-uri/report-to quyết định browser cho phép hay chặn tài nguyên nào.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn để thêm cho đủ thuật ngữ; nếu không chỉ ra boundary, owner hoặc behavior cụ thể thì dễ làm graph rối mà không giúp debug/design.
+CSP không thay thế việc fix XSS ở code. Nó là defense-in-depth: nếu input/output encoding, sanitization hoặc dependency bị lỗi, CSP có thể giảm khả năng script độc hại chạy. CSP yếu kiểu cho phép `unsafe-inline` rộng hoặc wildcard quá nhiều thì gần như không còn giá trị bảo vệ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của CSP là directive, nonce/hash, report-only mode, script-src và violation report.
+Browser đọc policy, so sánh mỗi resource/script/action với directive tương ứng, rồi cho phép hoặc chặn. Với script inline, CSP mạnh thường dùng nonce hoặc hash để chỉ script được server đánh dấu mới chạy. Report-only mode cho phép thử policy và thu violation report trước khi enforce chính thức.
 
 ## Project Role / Vai trò trong dự án
 
-CSP giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng ngôn ngữ thay vì gom mọi vấn đề vào một khái niệm quá rộng.
+CSP ảnh hưởng tới frontend build, third-party script, CDN, analytics, auth redirect, iframe embedding và security review. Khi triển khai web app, team cần biết script/style nào hợp lệ, inline script có cần nonce/hash không, môi trường dev/prod khác gì và violation report được theo dõi ở đâu.
 
 ## Output / Artifact nên có
 
-- CSP decision note hoặc checklist ngắn cho boundary đang dùng
-- Config/test/metric liên quan trực tiếp tới CSP
-- Failure note ghi rõ CSP ảnh hưởng user, runtime hay data thế nào
+- CSP header policy theo environment
+- Danh sách source hợp lệ cho script/style/img/connect/frame
+- Nonce/hash strategy nếu app dùng inline script
+- Report-only rollout plan và violation report endpoint/dashboard
+- Test case cho XSS payload cơ bản, blocked script, third-party script và auth/iframe flow
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- CSP đang nằm ở runtime, code, data, network hay operations boundary nào?
-- Có metric, test, config hoặc diagram nào chứng minh behavior của CSP không?
-- Khi CSP fail, user hoặc service nào bị ảnh hưởng trước?
+- Policy có chặn inline script không, hay đang dùng `unsafe-inline`?
+- Có cần nonce/hash cho script hợp lệ không?
+- `script-src`, `connect-src`, `frame-ancestors` có quá rộng không?
+- Third-party analytics/CDN/payment/auth provider có được allowlist đúng không?
+- Có dùng report-only trước khi enforce để tránh làm gãy production không?
+- Violation report có được thu và review không?
+- CSP có khác nhau giữa dev/staging/prod theo cách kiểm soát được không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng sai boundary của CSP làm team debug nhầm layer
-- Thiếu test/metric/config nên lỗi chỉ lộ khi tích hợp hoặc chạy production
-- Gọi đúng tên CSP nhưng không ghi rõ owner, constraint hoặc rollback path
+- Policy quá lỏng cho phép wildcard hoặc unsafe-inline làm CSP không chặn XSS hiệu quả.
+- Policy quá chặt làm app không tải được script/style/CDN hợp lệ ở production.
+- Thiếu `connect-src` cho API/websocket làm frontend gọi backend fail.
+- Thiếu `frame-ancestors` hoặc cấu hình sai làm embedding/clickjacking protection không đúng.
+- Không dùng report-only trước khi enforce làm deploy CSP gây lỗi người dùng thật.
+- CSP chỉ đặt trong meta tag nên một số directive/header behavior không hoạt động như mong muốn.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách sâu CSP nếu hệ thống nhỏ và chưa có failure mode thật liên quan
-- Dễ over-engineer nếu thêm tool/process quanh CSP trước khi có nhu cầu vận hành hoặc học tập rõ
+- Prototype nội bộ chưa expose rộng có thể bắt đầu bằng policy đơn giản và XSS hygiene trước.
+- Không nên viết policy cực phức tạp khi frontend còn thay đổi mạnh và chưa có report workflow.
+- Không nên coi CSP là lý do bỏ qua escaping/sanitization/input validation.
 
 ## Gồm những gì
 
@@ -55,30 +65,37 @@ CSP giúp team đọc code, thiết kế, debug hoặc vận hành bằng đúng
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[XSS]] vì CSP là defense-in-depth quan trọng để giảm impact của XSS.
+- [[Browser Security]] vì CSP được enforce bởi browser.
+- [[Same Origin Policy]] vì cả hai đều thuộc browser security model nhưng giải quyết boundary khác nhau.
+- [[Frontend Security]] vì CSP cần phối hợp với frontend build và third-party resources.
 
 ## Liên quan rộng
 
 - Application security
 - Threat modeling
-- Backend review
-- Frontend architecture
-- Browser debugging
-- User experience
+- Web hardening
+- Third-party script governance
 
 ## Keywords / Từ khóa tìm kiếm
 
 - CSP
 - Content Security Policy
 - chính sách bảo mật nội dung
-- csp debugging
-- csp design
-- security review
-- kiểm tra bảo mật
-- web development
-- frontend debugging
-- phát triển web
+- script-src
+- style-src
+- connect-src
+- frame-ancestors
+- nonce
+- hash
+- unsafe-inline
+- report-only
+- violation report
+- CSP header
+- XSS mitigation
+- browser security policy
 
 ## Source trace
 
-- MDN CSP; OWASP CSP Cheat Sheet
+- MDN Content Security Policy
+- OWASP Content Security Policy Cheat Sheet
