@@ -1,79 +1,85 @@
 # Vue
 
-Aliases: Vue, vue
+Aliases: Vue, Vue.js
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-Vue xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+Vue xuất hiện khi web app cần xây UI bằng component, reactive state và template dễ đọc.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Vue là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+Vue là frontend framework cho JavaScript, tổ chức UI thành component với props, emits, state và template.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Vue không phải backend framework, database hoặc design system.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Vue giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Component Vue khai báo template, logic và style. Khi reactive state đổi, Vue cập nhật UI tương ứng.
 
 ## Project Role / Vai trò trong dự án
 
-Vue giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi cần hiểu component Vue, reactivity, router, store hoặc build frontend.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Vue
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Component tree
+- Props/emits contract
+- State ownership map
+- Router/page map nếu cần
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Vue nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- State là local, store, route hay server data?
+- Props/emits có rõ không?
+- Component có quá lớn không?
+- Có cần Nuxt hay Vue SPA đủ dùng?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Vue như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Store quá rộng làm state khó kiểm soát.
+- Props/emits mơ hồ làm component coupling cao.
+- Reactivity hiểu sai làm UI không cập nhật như mong đợi.
+- Component quá lớn khó test/refactor.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Vue nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Trang tĩnh nhỏ chưa cần Vue.
+- Không nên thêm store nếu local state đủ.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Pinia]]
+- [[Nuxt]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Frontend Framework]] vì Vue là framework frontend phổ biến.
+- [[Component]] vì component là đơn vị chính trong Vue.
+- [[State Management]] vì Vue app thường cần phân biệt local state và store.
+- [[Vite]] vì Vite là toolchain phổ biến cho Vue.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- UI architecture
+- Reactive state
+- Frontend routing
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Vue
-- vue
-- vue design
-- vue debugging
-- vue production
+- Vue.js
+- Vue component
+- Vue reactivity
+- Vue Router
+- Pinia
+- Vue debugging
 
 ## Source trace
 
-- React documentation
 - Vue documentation
-- Angular documentation
-- MDN Web Docs
