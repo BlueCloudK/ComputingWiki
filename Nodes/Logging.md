@@ -69,8 +69,8 @@ Logging giúp debug request lỗi, audit hành động nhạy cảm, reconstruct
 - [[Monitoring]] vì log là một telemetry source trong monitoring/observability.
 - [[Incident]] vì log giúp reconstruct timeline và root/contributing factors.
 - [[Alert]] vì một số alert dựa trên log-derived metrics.
-- [[Security Logging]] vì hành động nhạy cảm cần log audit khác log debug thường.
-- [[Tracing]] vì trace id/correlation id nối log với request path phân tán.
+- security logging vì hành động nhạy cảm cần log audit khác log debug thường.
+- Tracing vì trace id/correlation id nối log với request path phân tán.
 
 ## Liên quan rộng
 
