@@ -1,53 +1,59 @@
 # Prettier
 
-Aliases: Prettier, prettier
+Aliases: Prettier
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Prettier xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Prettier xuất hiện khi JavaScript/TypeScript/CSS/Markdown project cần format code tự động và thống nhất giữa developer, editor và CI.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Prettier là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Prettier là opinionated code formatter. Nó parse source file rồi in lại theo style rule cố định để giảm tranh luận thủ công về formatting.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Prettier không phải linter logic. Nó không thay thế ESLint, type checker, test hoặc review kiến trúc.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Prettier giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Prettier đọc file, tạo AST nếu hỗ trợ, rồi rewrite whitespace, line break, quote, trailing comma và format bề mặt theo config/version. Output nên deterministic.
 
 ## Project Role / Vai trò trong dự án
 
-Prettier giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi setup formatting, debug CI format fail, giảm diff nhiễu trong pull request hoặc chuẩn hóa style repo public.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Prettier
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Prettier config
+- Ignore file
+- Format command
+- CI format check
+- Editor integration note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Prettier nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Prettier version có pin không?
+- File/generated folder nào cần ignore?
+- Editor format có khớp CI không?
+- Format chạy auto-fix local hay check-only CI?
+- Prettier có conflict với linter rule không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Prettier như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Local và CI dùng Prettier version khác.
+- Format trên generated/vendor file làm diff lớn.
+- Prettier và ESLint tranh cùng một rule.
+- PR chứa cả logic change và format toàn repo.
+- Không có script chung nên mỗi người chạy khác nhau.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Prettier nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Repo nhỏ một người có thể dùng config mặc định đơn giản.
+- Không nên tranh luận style thủ công nếu formatter đã được chọn.
 
 ## Gồm những gì
 
@@ -55,26 +61,26 @@ Prettier giúp chọn đúng abstraction, config, test hoặc debug path khi là
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Formatter]] vì Prettier là một formatter cụ thể.
+- [[Pull Request]] vì format ổn giúp diff dễ review hơn.
+- [[CI]] vì format check thường chạy trong pipeline.
+- [[JavaScript]] vì Prettier phổ biến trong JavaScript ecosystem.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Code style
+- Developer workflow
+- Editor tooling
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Prettier
-- prettier
-- prettier design
+- code formatter
+- prettier config
+- format check
+- prettier ignore
 - prettier debugging
-- prettier production
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- Prettier documentation
