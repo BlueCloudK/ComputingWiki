@@ -1,53 +1,60 @@
 # Capacity Review
 
-Aliases: Capacity Review, capacity review
+Aliases: Capacity Review, capacity planning review
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Capacity Review xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Capacity Review xuất hiện khi hệ thống cần kiểm tra tài nguyên hiện tại có đủ chịu traffic, dữ liệu, queue backlog, storage growth hoặc workload mới không.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Capacity Review là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Capacity Review là hoạt động đánh giá capacity dựa trên workload forecast, current utilization, bottleneck, scaling policy và failure margin.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Capacity Review không chỉ là nhìn CPU/RAM hiện tại. Nó phải xét peak, growth, dependency limit, queue, database, network và rollback/surge scenario.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Capacity Review nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Team thu metric lịch sử, dự báo growth, xác định bottleneck, so với limit/SLO, rồi quyết định scale up/out, optimize, shard, cache, rate limit hoặc đặt alert mới.
 
 ## Project Role / Vai trò trong dự án
 
-Capacity Review giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này trước release lớn, event traffic, migration, load test, cloud cost review hoặc khi hệ thống gần saturation.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Capacity Review
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Current utilization report
+- Forecast workload
+- Bottleneck list
+- Scaling decision
+- Alert/SLO threshold update
+- Risk và action owner
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Capacity Review giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Bottleneck hiện tại là CPU, memory, DB, queue hay network?
+- Peak traffic cao hơn average bao nhiêu?
+- Dependency nào có hard limit?
+- Scaling policy có test chưa?
+- Cost tăng bao nhiêu nếu scale?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Capacity Review sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chỉ nhìn average, bỏ qua peak.
+- DB/queue bottleneck bị che bởi CPU app còn thấp.
+- Autoscaling có nhưng dependency downstream không scale.
+- Forecast không tính campaign/release lớn.
+- Không có action owner sau review.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Capacity Review nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Prototype ít user có thể chỉ cần metric cơ bản.
+- Không nên capacity plan quá chi tiết nếu workload chưa có signal thật.
 
 ## Gồm những gì
 
@@ -55,27 +62,27 @@ Capacity Review giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Monitoring]] vì capacity review dựa trên metric lịch sử.
+- [[Resource Exhaustion]] vì capacity thiếu dẫn tới exhaustion.
+- [[Load Balancer]] vì scaling/traffic distribution ảnh hưởng capacity.
+- [[Queue Backlog]] vì backlog là signal capacity không đủ.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Capacity planning
+- Load testing
+- Scaling strategy
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Capacity Review
-- capacity review
-- capacity review design
+- capacity planning
+- resource utilization
+- bottleneck analysis
+- traffic forecast
 - capacity review debugging
-- capacity review production
-- capacity review best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Google SRE Books
+- Designing Data-Intensive Applications
