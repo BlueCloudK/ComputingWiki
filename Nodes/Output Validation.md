@@ -1,53 +1,59 @@
 # Output Validation
 
-Aliases: Output Validation, output validation
+Aliases: Output Validation, output schema validation
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Output Validation xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Output Validation xuất hiện khi AI output cần đúng schema, đúng format, đúng policy hoặc đủ điều kiện an toàn trước khi đưa cho user hoặc downstream system.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Output Validation là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Output Validation là bước kiểm tra output sau generation: schema, field required, type, citation, policy, tool result, business rule hoặc safety constraint.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Output Validation không thay thế prompt tốt. Nó là guardrail cuối để phát hiện và xử lý output sai trước khi gây lỗi.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Output Validation nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+System parse output, validate bằng schema/rule/judge, trả success hoặc error. Nếu fail, pipeline có thể retry, repair, fallback, block hoặc yêu cầu human review.
 
 ## Project Role / Vai trò trong dự án
 
-Output Validation giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi AI output feed vào API, UI, report, database, tool call hoặc automation có risk nếu format/nội dung sai.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Output Validation
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Output schema
+- Validation rules
+- Failure handling policy
+- Retry/repair strategy
+- Validation error log
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Output Validation giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Output cần schema nào?
+- Field nào bắt buộc?
+- Nếu validation fail thì retry, repair hay block?
+- Có validate citation/evidence không?
+- Downstream system có chịu được partial output không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Output Validation sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chỉ tin prompt nên output sai format làm parser crash.
+- Validation quá lỏng để lọt field sai.
+- Validation quá cứng làm block output hợp lệ.
+- Retry không giới hạn gây cost/latency cao.
+- Error log thiếu context nên khó debug.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Output Validation nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Chat tự do không downstream automation có thể dùng validation nhẹ.
+- Không nên validate bằng rule phức tạp hơn requirement thật.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Output Validation giúp team thiết kế, review, test, deploy hoặc vận hà
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Validation]] vì output validation là validation ở boundary AI output.
+- [[Prompt Regression]] vì prompt change dễ làm output schema regress.
+- [[RAG Evaluation]] vì RAG output cần validate grounding/citation.
+- [[AI Agent]] vì agent output có thể kích hoạt action/tool.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Structured output
+- Guardrails
+- Parser safety
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Output Validation
-- output validation
-- output validation design
+- output schema validation
+- structured output
+- JSON schema validation
+- guardrails
+- output repair
 - output validation debugging
-- output validation production
-- output validation best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
-- Anthropic prompt engineering docs
+- OWASP LLM guidance
