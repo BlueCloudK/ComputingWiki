@@ -1,53 +1,56 @@
 # HUD
 
-Aliases: HUD, hud
+Aliases: HUD, Heads-Up Display
 
 Type: Game Development
 
 ## Context / Ngữ cảnh
 
-HUD xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+HUD xuất hiện khi game cần hiển thị thông tin trạng thái trực tiếp trên màn hình trong lúc chơi.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-HUD là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+HUD là lớp UI gameplay hiển thị thông tin như máu, điểm, đạn, minimap, nhiệm vụ hoặc cooldown.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+HUD không phải toàn bộ menu UI. Menu, inventory hoặc setting screen có thể là UI khác ngoài gameplay HUD.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu HUD giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Gameplay system cập nhật state, HUD đọc hoặc nhận event rồi render thông tin cần thiết lên UI layer. HUD cần rõ data source, update frequency và priority hiển thị.
 
 ## Project Role / Vai trò trong dự án
 
-HUD giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi thiết kế UI gameplay, debug điểm/máu hiển thị sai, hoặc tối ưu overlay trong game.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới HUD
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- HUD layout mockup
+- State/data source map
+- Update rule cho từng indicator
+- Test checklist trong gameplay chính
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- HUD nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- HUD cần hiển thị thông tin nào?
+- Data đến từ system nào?
+- Thông tin nào ưu tiên cao nhất?
+- HUD có che gameplay không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng HUD như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- HUD hiển thị state cũ.
+- HUD quá nhiều thông tin làm rối màn hình.
+- UI update quá thường gây performance cost.
+- Data source không rõ làm debug khó.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu HUD nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype gameplay rất sớm có thể dùng HUD tạm.
+- Không nên polish HUD trước khi core loop ổn.
 
 ## Gồm những gì
 
@@ -55,25 +58,27 @@ HUD giúp chọn đúng abstraction, config, test hoặc debug path khi làm pro
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Game Loop]] vì HUD thường cập nhật theo state gameplay.
+- [[UI]] vì HUD là lớp giao diện trong game.
+- [[Performance Optimization]] vì HUD update/render có thể ảnh hưởng frame time.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- Gameplay UI
+- Game feedback
+- Player information
 
 ## Keywords / Từ khóa tìm kiếm
 
 - HUD
-- hud
-- hud design
-- hud debugging
-- hud production
+- Heads-Up Display
+- gameplay UI
+- health bar
+- score UI
+- minimap
+- HUD debugging
 
 ## Source trace
 
 - Game Programming Patterns
 - Unity documentation
-- Unreal Engine documentation
-- Godot documentation
