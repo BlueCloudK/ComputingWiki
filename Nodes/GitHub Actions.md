@@ -6,48 +6,58 @@ Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-GitHub Actions xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+GitHub Actions xuất hiện khi repo GitHub cần tự động hóa CI, test, build, release, deployment, scheduled job hoặc repository maintenance. Nó thường nằm trên critical path của PR check, artifact build, Docker image publish, documentation deploy và production release.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-GitHub Actions là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+GitHub Actions là workflow automation platform tích hợp trong GitHub. Workflow được định nghĩa bằng YAML trong `.github/workflows`, trigger theo event như push, pull_request, schedule hoặc workflow_dispatch, rồi chạy job/step trên runner hosted hoặc self-hosted.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+GitHub Actions không tự đảm bảo CI/CD tốt. Workflow YAML có thể chạy sai trigger, dùng secret quá rộng, cache sai hoặc deploy production thiếu gate. Nó cũng không phải runtime production; nó là automation runner cho repo/process.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu GitHub Actions nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Event trigger workflow. Workflow gồm job, mỗi job chạy trên runner, có steps dùng shell command hoặc action tái sử dụng. Job có thể dùng matrix, cache, artifact, environment, permission, secret và concurrency control. Status check trả về PR/commit để cho phép hoặc chặn merge.
 
 ## Project Role / Vai trò trong dự án
 
-GitHub Actions giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+GitHub Actions là node cần mở khi thiết kế PR check, chạy test, publish package/image, deploy, hoặc debug pipeline đỏ. Nó giúp team trace từ event → workflow → job → step → runner → secret/cache/artifact → status check.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới GitHub Actions
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Workflow YAML theo mục tiêu: CI, release, deploy, audit
+- Required checks và branch protection nếu dùng
+- Secret/permission policy: `permissions`, environment secret, OIDC nếu có
+- Cache/artifact policy: key, retention, restore behavior
+- Debug runbook: failed step, runner, log, artifact, re-run, concurrency cancellation
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- GitHub Actions giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Workflow trigger đúng event chưa?
+- Job cần quyền gì trong `permissions` và có đang quá rộng không?
+- Secret nào được expose, ở branch/PR nào?
+- Cache key có làm dùng dependency/build cũ sai không?
+- Matrix có test đủ runtime/OS/version cần hỗ trợ không?
+- Deploy job có environment approval/concurrency không?
+- Log/artifact có đủ debug nhưng không lộ secret không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng GitHub Actions sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Pull request từ fork không có secret làm workflow fail hoặc bị skip nhầm.
+- `permissions: write-all` hoặc token quá rộng tạo risk supply-chain.
+- Cache key quá rộng dùng dependency cũ và build sai.
+- Trigger sai làm push/PR quan trọng không chạy check.
+- Deploy job chạy song song nhiều lần vì thiếu concurrency lock.
+- Log in env/secret làm credential lộ trong Actions log.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu GitHub Actions nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Repo nhỏ một người có thể bắt đầu bằng một workflow CI đơn giản.
+- Không nên ghép CI, release và deploy production vào một workflow khó đọc nếu boundary khác nhau.
+- Không nên dùng third-party action không pin version/sha cho path nhạy cảm.
 
 ## Gồm những gì
 
@@ -55,27 +65,36 @@ GitHub Actions giúp team thiết kế, review, test, deploy hoặc vận hành 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[CI]] vì GitHub Actions thường chạy CI checks trong GitHub repo.
+- [[CD]] vì GitHub Actions có thể điều phối release/deploy pipeline.
+- [[Matrix Build]] vì matrix strategy là feature phổ biến của Actions.
+- [[Build Cache]] vì Actions cache ảnh hưởng tốc độ và correctness pipeline.
+- [[Secret]] vì Actions secret/token là boundary bảo mật quan trọng.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Workflow automation
+- Pull request checks
+- Release pipeline
+- DevOps tooling
 
 ## Keywords / Từ khóa tìm kiếm
 
 - GitHub Actions
 - github actions
-- github actions design
-- github actions debugging
-- github actions production
-- github actions best practice
+- workflow yaml
+- actions runner
+- workflow trigger
+- pull_request workflow
+- workflow_dispatch
+- actions cache
+- actions artifact
+- GitHub Actions secrets
+- permissions token
+- OIDC deploy
+- GitHub Actions debugging
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
 - GitHub Actions documentation
+- GitHub Actions security hardening documentation
