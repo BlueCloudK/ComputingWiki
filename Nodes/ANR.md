@@ -1,53 +1,59 @@
 # ANR
 
-Aliases: ANR, anr
+Aliases: ANR, Application Not Responding
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-ANR xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+ANR xuất hiện trong Android khi app không phản hồi kịp với input, lifecycle event hoặc broadcast, khiến hệ thống báo ứng dụng không phản hồi.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-ANR là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+ANR là trạng thái Android báo app bị kẹt hoặc quá chậm trên main thread trong một khoảng thời gian quan trọng.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+ANR không giống crash. App có thể vẫn còn chạy, nhưng UI bị chặn và user không thao tác được.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu ANR giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Nếu main thread bị block bởi CPU work, disk I/O, network call, lock hoặc deadlock, app không xử lý input/lifecycle đúng hạn và hệ thống ghi nhận ANR.
 
 ## Project Role / Vai trò trong dự án
 
-ANR giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug app treo, UI đơ, thao tác chậm, thread dump hoặc performance issue trên Android.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới ANR
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- ANR trace/thread dump
+- Main thread blocking analysis
+- Reproduction step
+- Startup/input responsiveness metric
+- Fix note: move work off main thread, timeout, async boundary
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- ANR nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Main thread đang làm việc nặng gì?
+- Có network/disk/lock trên main thread không?
+- ANR xảy ra ở startup, input hay background receiver?
+- Có trace đủ để thấy call stack không?
+- Việc nặng có thể tách sang background/coroutine phù hợp không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng ANR như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Network hoặc disk I/O chạy trên main thread.
+- Deadlock làm UI không phản hồi.
+- Vòng lặp CPU nặng chặn input.
+- Startup quá nặng khiến app treo khi mở.
+- Background callback quay lại main thread quá lâu.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu ANR nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- App chưa có Android runtime path thì chưa cần tối ưu ANR.
+- Không nên tối ưu mù nếu chưa có trace hoặc reproduction.
 
 ## Gồm những gì
 
@@ -55,25 +61,27 @@ ANR giúp chọn đúng abstraction, config, test hoặc debug path khi làm pro
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Kotlin]] vì nhiều Android app gây/giải ANR bằng Kotlin code.
+- [[Thread Starvation]] vì main thread bị block là dạng starvation ở UI thread.
+- [[Performance Optimization]] vì ANR là failure nghiêm trọng về responsiveness.
+- [[APK]] vì ANR thường được debug trên artifact Android đã build/cài.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Android performance
+- Main thread
+- Mobile reliability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - ANR
-- anr
-- anr design
-- anr debugging
-- anr production
+- Application Not Responding
+- Android ANR
+- main thread blocked
+- thread dump
+- UI freeze
+- ANR debugging
 
 ## Source trace
 
 - Android Developers documentation
-- Apple Developer documentation
-- React Native documentation
-- Flutter documentation
