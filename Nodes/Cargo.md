@@ -1,53 +1,58 @@
 # Cargo
 
-Aliases: Cargo, cargo
+Aliases: Cargo, Rust Cargo
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Cargo xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Cargo xuất hiện khi Rust project cần quản lý dependency, build, test, package và publish crate.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Cargo là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Cargo là package manager và build tool chính của Rust ecosystem.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Cargo không phải Rust compiler trực tiếp. Compiler chính là `rustc`, còn Cargo điều phối build/dependency/test.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Cargo giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Cargo đọc `Cargo.toml` và `Cargo.lock`, resolve dependency, gọi compiler, chạy test/bench/doc và tạo artifact trong target directory.
 
 ## Project Role / Vai trò trong dự án
 
-Cargo giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug Rust build, crate dependency, feature flag, workspace, test hoặc publish package.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Cargo
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- `Cargo.toml`
+- `Cargo.lock`
+- Feature/workspace note
+- Build/test command
+- Artifact output note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Cargo nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Package là binary hay library crate?
+- Feature flag nào đang bật?
+- Lockfile có commit không?
+- Workspace dependency có đúng không?
+- CI có chạy cargo test/build không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Cargo như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Feature flag thiếu làm compile path khác.
+- Dependency version lệch.
+- Workspace config sai làm package không resolve.
+- Build cache cũ làm debug khó.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Cargo nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project không dùng Rust thì chưa cần Cargo.
+- Không nên tách workspace sớm nếu chỉ có một crate nhỏ.
 
 ## Gồm những gì
 
@@ -55,26 +60,28 @@ Cargo giúp chọn đúng abstraction, config, test hoặc debug path khi làm p
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Rust]] vì Cargo là tool chính của Rust project.
+- [[CI]] vì Rust build/test thường chạy qua Cargo trong pipeline.
+- [[Build Cache]] vì target directory/cache ảnh hưởng tốc độ build.
+- [[FFI]] vì Rust crate đôi khi expose native boundary.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Rust ecosystem
+- Package management
+- Build tooling
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Cargo
-- cargo
-- cargo design
-- cargo debugging
-- cargo production
+- Rust Cargo
+- Cargo.toml
+- Cargo.lock
+- cargo build
+- cargo test
+- Rust crate
+- Cargo debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- Rust Cargo Book
