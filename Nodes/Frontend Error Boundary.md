@@ -1,53 +1,59 @@
 # Frontend Error Boundary
 
-Aliases: Frontend Error Boundary, frontend error boundary
+Aliases: Frontend Error Boundary, error boundary
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-Frontend Error Boundary xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+Frontend Error Boundary xuất hiện khi UI cần bắt lỗi render/runtime ở một vùng giao diện để tránh làm sập toàn bộ app và hiển thị fallback có kiểm soát.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Frontend Error Boundary là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+Frontend Error Boundary là boundary xử lý lỗi ở UI tree, thường bắt exception trong render/lifecycle của component con và render fallback UI.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Error Boundary không thay thế validation, logging hoặc backend error handling. Nó cũng không bắt mọi lỗi như async callback, event handler hoặc network failure nếu framework không hỗ trợ trực tiếp.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Frontend Error Boundary giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Framework phát hiện lỗi trong subtree, chuyển lỗi tới boundary gần nhất, boundary ghi log/report và render fallback thay vì để cả app trắng màn hình.
 
 ## Project Role / Vai trò trong dự án
 
-Frontend Error Boundary giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug white screen, component crash, fallback UI, route-level resilience hoặc observability frontend production.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Frontend Error Boundary
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Boundary placement map
+- Fallback UI design
+- Error reporting/logging rule
+- Retry/reset behavior
+- Test case cho component crash
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Frontend Error Boundary nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Boundary đặt ở app-level, route-level hay widget-level?
+- Fallback có đủ thông tin cho user không?
+- Error có được log với context không?
+- Có cơ chế retry/reset boundary không?
+- Lỗi async/network có được xử lý riêng không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Frontend Error Boundary như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Đặt boundary quá cao làm cả page fallback dù chỉ một widget lỗi.
+- Không log error nên production khó debug.
+- Fallback UI gây loop hoặc crash tiếp.
+- Tin error boundary bắt mọi lỗi nên bỏ qua async error handling.
+- Reset boundary không rõ làm user kẹt ở fallback.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Frontend Error Boundary nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype nhỏ có thể dùng app-level fallback trước.
+- Không nên đặt boundary dày đặc nếu chưa có failure domain rõ.
 
 ## Gồm những gì
 
@@ -55,25 +61,28 @@ Frontend Error Boundary giúp chọn đúng abstraction, config, test hoặc deb
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Component]] vì error boundary bao quanh component subtree.
+- [[React]] vì React phổ biến khái niệm Error Boundary.
+- [[Logging]] vì boundary nên report error có context.
+- [[Monitoring]] vì frontend crash cần quan sát production.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- UI resilience
+- Fallback UI
+- Frontend observability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Frontend Error Boundary
-- frontend error boundary
-- frontend error boundary design
-- frontend error boundary debugging
-- frontend error boundary production
+- error boundary
+- fallback UI
+- component crash
+- white screen
+- frontend error reporting
+- error boundary debugging
 
 ## Source trace
 
 - React documentation
-- Vue documentation
-- Angular documentation
-- MDN Web Docs
+- Sentry frontend documentation
