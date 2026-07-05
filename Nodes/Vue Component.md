@@ -1,53 +1,59 @@
 # Vue Component
 
-Aliases: Vue Component, vue component
+Aliases: Vue Component, Vue SFC
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-Vue Component xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+Vue Component xuất hiện khi Vue app cần chia UI thành unit có template, state, props, event, lifecycle và style riêng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Vue Component là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+Vue Component là đơn vị UI trong Vue, thường được viết dưới dạng Single File Component với template, script và style để render một phần giao diện.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Vue Component không phải nơi nhét mọi logic của app. Business logic, API access và global state nên có boundary rõ để component không phình quá lớn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Vue Component giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Component nhận props, giữ local reactive state, emit event, dùng computed/watch/lifecycle hook và render template theo reactivity system của Vue.
 
 ## Project Role / Vai trò trong dự án
 
-Vue Component giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug props/event flow, reactive state, component reuse, lifecycle side effect hoặc tách UI trong Vue/Nuxt app.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Vue Component
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Component props/emits contract
+- Local state/computed/watch note
+- Slot usage nếu có
+- Lifecycle side effect rule
+- Component test/story nếu quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Vue Component nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Component nhận props gì và emit event gì?
+- State này local hay global/store?
+- Watch/computed có side effect không?
+- Slot có contract rõ không?
+- Component có quá nhiều responsibility không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Vue Component như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Mutate props trực tiếp làm data flow rối.
+- Watch quá rộng gây side effect khó đoán.
+- Component phình thành god component.
+- Slot/emit contract không rõ làm parent-child coupling cao.
+- Lifecycle hook gọi API không cleanup hoặc race.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Vue Component nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- UI nhỏ, chưa reuse có thể giữ component đơn giản.
+- Không nên tách component quá sớm nếu boundary props/emits chưa rõ.
 
 ## Gồm những gì
 
@@ -55,25 +61,27 @@ Vue Component giúp chọn đúng abstraction, config, test hoặc debug path kh
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Vue]] vì Vue Component là đơn vị UI của Vue.
+- [[Component]] vì đây là một dạng component frontend.
+- [[State Management]] vì component phải quyết định state local/global.
+- [[Nuxt]] vì Nuxt page/layout cũng dựa trên Vue component.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Single File Component
+- Props emits
+- Vue reactivity
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Vue Component
-- vue component
-- vue component design
-- vue component debugging
-- vue component production
+- Vue SFC
+- props emits
+- computed watch
+- Vue lifecycle
+- Vue component debugging
 
 ## Source trace
 
-- React documentation
 - Vue documentation
-- Angular documentation
-- MDN Web Docs
+- Nuxt documentation
