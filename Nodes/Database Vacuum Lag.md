@@ -1,53 +1,59 @@
 # Database Vacuum Lag
 
-Aliases: Database Vacuum Lag, database vacuum lag
+Aliases: Database Vacuum Lag, vacuum lag
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Database Vacuum Lag xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Database Vacuum Lag xuất hiện khi database dùng MVCC và cleanup dead tuples/version cũ không theo kịp tốc độ write/update/delete.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Database Vacuum Lag là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Database Vacuum Lag là tình trạng quá trình vacuum/cleanup bị chậm, khiến dead row/version cũ tích tụ, table/index bloat tăng và query/storage performance giảm.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Vacuum lag không phải chỉ là database “đầy disk”. Nó là signal rằng cleanup lifecycle phía storage/MVCC đang bị tụt sau workload thật.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Database Vacuum Lag nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Transaction update/delete tạo version cũ. Vacuum cần biết version nào không còn transaction nào cần đọc, rồi reclaim space hoặc đánh dấu có thể reuse. Long transaction, workload write cao hoặc config yếu có thể làm vacuum tụt lại.
 
 ## Project Role / Vai trò trong dự án
 
-Database Vacuum Lag giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug table bloat, query chậm dần, autovacuum không theo kịp, disk tăng bất thường hoặc PostgreSQL workload update-heavy.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Database Vacuum Lag
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Dead tuple / bloat metric
+- Long transaction list
+- Vacuum/autovacuum log
+- Table/index growth trend
+- Remediation plan: tune, batch, vacuum, reindex nếu cần
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Database Vacuum Lag giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Dead tuple tăng ở bảng nào?
+- Có long-running transaction giữ version cũ không?
+- Autovacuum có chạy nhưng không theo kịp không?
+- Bloat ảnh hưởng query/index nào?
+- Cleanup có cần maintenance window không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Database Vacuum Lag sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Long transaction chặn cleanup.
+- Write-heavy workload tạo dead tuple nhanh hơn vacuum.
+- Table/index bloat làm query đọc nhiều page hơn.
+- Vacuum chạy lúc peak gây I/O cạnh tranh.
+- Chỉ tăng disk mà không xử lý nguyên nhân transaction/workload.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Database Vacuum Lag nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Bảng nhỏ, ít update có thể chưa cần tối ưu vacuum.
+- Không nên chạy VACUUM FULL/reindex nặng nếu chưa hiểu lock, downtime và nguyên nhân bloat.
 
 ## Gồm những gì
 
@@ -55,26 +61,29 @@ Database Vacuum Lag giúp team thiết kế, review, test, deploy hoặc vận h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Storage Layout]] vì dead tuple/bloat là vấn đề physical storage.
+- [[Page Cache]] vì bloat làm đọc nhiều page hơn và giảm cache efficiency.
+- [[Transaction]] vì long transaction có thể giữ version cũ.
+- [[Performance Optimization]] vì vacuum lag ảnh hưởng latency và I/O.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- MVCC cleanup
+- Autovacuum
+- Table bloat
+- Dead tuple
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Database Vacuum Lag
-- database vacuum lag
-- database vacuum lag design
-- database vacuum lag debugging
-- database vacuum lag production
-- database vacuum lag best practice
+- vacuum lag
+- autovacuum lag
+- dead tuples
+- table bloat
+- long transaction
+- vacuum lag debugging
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
 - Designing Data-Intensive Applications
