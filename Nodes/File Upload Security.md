@@ -6,48 +6,58 @@ Type: Security
 
 ## Context / Ngữ cảnh
 
-File Upload Security là node bổ sung cho ComputingWiki về control bảo vệ upload file khỏi malware, path abuse và content-type spoofing.
+File Upload Security xuất hiện khi user, partner hoặc system khác có thể gửi file vào application. Upload file là boundary rủi ro cao vì file có thể chứa malware, script, payload parser, path abuse, oversized content, spoofed MIME type hoặc dữ liệu nhạy cảm cần access control.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-File Upload Security dùng để gọi đúng khái niệm khi thiết kế, debug hoặc vận hành phần liên quan tới control bảo vệ upload file khỏi malware, path abuse và content-type spoofing.
+File Upload Security là tập control để nhận, kiểm tra, lưu, xử lý và phục vụ file upload an toàn. Nó bao gồm allowlist file type, size limit, magic-byte/MIME check, filename sanitization, storage ngoài webroot, malware scan nếu cần, permission check, signed URL và xử lý parser/thumbnail/conversion an toàn.
 
 ### Nó không phải là gì
 
-Nó không thay thế toàn bộ vùng Security; nếu dùng như nhãn chung mà không chỉ ra behavior cụ thể thì dễ làm graph nhiễu.
+File Upload Security không chỉ là kiểm tra extension. Extension, `Content-Type` header và filename đều có thể bị giả mạo. Nó cũng không chỉ là input validation; file sau khi lưu/xử lý/phục vụ vẫn có thể gây XSS, RCE, path traversal, data leak hoặc resource exhaustion.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi của File Upload Security là hiểu boundary, input/output, state và failure mode riêng của control bảo vệ upload file khỏi malware, path abuse và content-type spoofing.
+Backend nhận file, enforce auth/authorization, kiểm tra size/count/type bằng allowlist, đổi tên file sang id an toàn, lưu ở storage tách biệt, quét hoặc xử lý trong sandbox nếu cần, ghi metadata, rồi phục vụ qua signed URL/proxy có permission. File không nên được execute như code và không nên lưu theo path do user điều khiển.
 
 ## Project Role / Vai trò trong dự án
 
-File Upload Security giúp team đặt tên đúng khi đọc tài liệu, review thiết kế, viết test hoặc xử lý incident liên quan.
+File Upload Security là node cần mở khi làm avatar, document upload, import CSV/PDF, image processing, video conversion, object storage hoặc attachment system. Nó giúp team review toàn bộ lifecycle: upload → validate → store → process → serve → delete.
 
 ## Output / Artifact nên có
 
-- File Upload Security control note hoặc checklist
-- Test/security review cho attack path liên quan
-- Log/audit hoặc monitoring nếu control fail
+- Upload policy: allowed types, max size/count, storage bucket/path, retention
+- Validation rule: magic byte/MIME/extension match, filename handling, parser limit
+- Processing boundary: antivirus, sandbox, timeout, resource limit, queue
+- Access control: owner/tenant permission, signed URL, private/public object rule
+- Test case: double extension, MIME spoof, oversized file, traversal filename, executable payload
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Asset nào được bảo vệ bởi File Upload Security?
-- Attack path chính là input, auth, session, dependency hay deployment?
-- Control có enforce ở backend/runtime đúng chỗ không?
+- Ai được upload và ai được download file này?
+- File type nào thật sự cần allow, và kiểm tra bằng gì ngoài extension?
+- File lưu ở đâu, có nằm ngoài webroot/execution path không?
+- Filename/path có do user điều khiển không?
+- File có được parse/convert/thumbnail không, và process có sandbox/timeout không?
+- Download/preview có thể gây XSS hoặc MIME sniffing không?
+- File có chứa PII/secret và cần retention/delete policy không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Triển khai File Upload Security sai boundary làm control không chặn được attack path
-- Thiếu test/audit làm lỗ hổng chỉ phát hiện sau incident
-- Control quá rộng làm false sense of security
+- Upload `.php`, `.jsp`, script hoặc polyglot rồi server execute như code.
+- Filename `../../...` hoặc path trick dẫn tới path traversal/arbitrary write.
+- MIME/extension spoof làm app preview file nguy hiểm như HTML/SVG/script.
+- Image/PDF parser có vulnerability và bị payload file kích hoạt RCE.
+- File quá lớn hoặc zip bomb làm cạn disk/CPU/memory.
+- Object storage public nhầm làm lộ file riêng tư giữa user/tenant.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần ceremony lớn cho File Upload Security nếu script nội bộ không xử lý dữ liệu nhạy cảm
-- Dễ over-engineer nếu thêm nhiều control không map với asset/attack surface
+- App không nhận file từ user/third-party thì chưa cần control upload riêng.
+- Upload nội bộ ít rủi ro có thể bắt đầu với allowlist, size limit và private storage trước.
+- Không nên tự viết malware scanner/parser nếu provider/service đáng tin đã có.
 
 ## Gồm những gì
 
@@ -55,14 +65,18 @@ File Upload Security giúp team đặt tên đúng khi đọc tài liệu, revie
 
 ## Nối mạnh
 
-- [[Path Traversal]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng File Upload Security
-- [[Input Validation]] vì liên quan trực tiếp tới cách hiểu hoặc áp dụng File Upload Security
+- [[Path Traversal]] vì filename/path upload có thể phá storage boundary.
+- [[Input Validation]] vì file metadata/type/size/count đều là input không tin cậy.
+- [[RCE]] vì parser hoặc executable upload có thể dẫn tới code execution.
+- [[Object Storage]] vì upload thường được lưu và phục vụ qua object storage.
+- [[MIME Sniffing]] vì browser có thể diễn giải file sai content-type khi preview/download.
 
 ## Liên quan rộng
 
-- Application security
-- Threat modeling
-- Secure operation
+- Malware scanning
+- File processing
+- Object storage security
+- User-generated content
 
 ## Keywords / Từ khóa tìm kiếm
 
@@ -70,12 +84,18 @@ File Upload Security giúp team đặt tên đúng khi đọc tài liệu, revie
 - file upload security
 - secure file upload
 - bảo mật upload file
-- file
-- upload
-- security
+- unrestricted file upload
+- malicious file upload
+- MIME spoofing
+- magic byte validation
+- double extension
+- zip bomb
+- file upload RCE
+- signed URL
+- object storage upload
+- upload security debugging
 
 ## Source trace
 
-- OWASP Cheat Sheet Series
-- OWASP Top 10
-- NIST Secure Software Development Framework
+- OWASP File Upload Cheat Sheet
+- OWASP Unrestricted File Upload references
