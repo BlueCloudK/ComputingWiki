@@ -1,53 +1,59 @@
 # Linkerd
 
-Aliases: Linkerd, linkerd
+Aliases: Linkerd
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Linkerd xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Linkerd xuất hiện khi Kubernetes service cần service mesh nhẹ để thêm mTLS, telemetry, traffic policy và reliability behavior giữa service-to-service mà không sửa app code quá nhiều.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Linkerd là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Linkerd là service mesh cho Kubernetes, dùng control plane và sidecar proxy để quản lý traffic giữa workload.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Linkerd không phải API gateway public và không thay thế toàn bộ observability stack. Nó tập trung vào service-to-service traffic bên trong cluster.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Linkerd nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Workload được inject sidecar proxy. Traffic inbound/outbound đi qua proxy; control plane cấp identity/cert, thu telemetry và áp policy/route theo config.
 
 ## Project Role / Vai trò trong dự án
 
-Linkerd giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug mTLS, service mesh latency, traffic policy, retry/timeout, telemetry giữa service hoặc quyết định có cần mesh trong Kubernetes không.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Linkerd
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Mesh install/version note
+- Namespace/workload injection status
+- mTLS identity/cert status
+- Traffic policy/route config
+- Linkerd dashboard/metrics check
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Linkerd giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Workload có được inject proxy chưa?
+- Traffic có đi qua sidecar không?
+- mTLS có bật và cert hợp lệ không?
+- Policy/route nào áp lên request này?
+- Mesh overhead có đáng so với lợi ích không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Linkerd sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Namespace chưa inject nên telemetry/policy thiếu.
+- mTLS identity/cert lỗi làm request fail.
+- Proxy resource limit thấp làm tăng latency.
+- Mesh policy block traffic nhưng app log không rõ.
+- Thêm mesh khi team chưa có nhu cầu/khả năng vận hành.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Linkerd nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Hệ thống ít service có thể dùng ingress/reverse proxy và monitoring đơn giản trước.
+- Không nên thêm service mesh chỉ vì “production-looking” nếu chưa có pain về mTLS, traffic policy hoặc service observability.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Linkerd giúp team thiết kế, review, test, deploy hoặc vận hành hệ th
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Sidecar Proxy]] vì Linkerd dùng sidecar proxy cho data plane.
+- [[Kubernetes Controller]] vì control plane vận hành theo controller/reconciliation.
+- [[TLS]] vì mTLS là chức năng lõi của Linkerd.
+- [[Monitoring]] vì Linkerd cung cấp telemetry service-to-service.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Service mesh
+- mTLS
+- Traffic policy
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Linkerd
-- linkerd
-- linkerd design
-- linkerd debugging
-- linkerd production
-- linkerd best practice
+- service mesh
+- Linkerd sidecar
+- Linkerd mTLS
+- Linkerd dashboard
+- Linkerd policy
+- Linkerd debugging
 
 ## Source trace
 
+- Linkerd documentation
 - Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
