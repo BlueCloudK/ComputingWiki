@@ -1,53 +1,59 @@
 # Copy Semantics
 
-Aliases: Copy Semantics, copy semantics
+Aliases: Copy Semantics, copy behavior
 
 Type: Programming Languages Deep
 
 ## Context / Ngữ cảnh
 
-Copy Semantics xuất hiện trong programming languages deep mở rộng semantics, runtime, type system, memory management, concurrency và language implementation concepts.
+Copy Semantics xuất hiện khi cần hiểu việc gán, truyền tham số, clone object hoặc return value tạo bản sao mới hay chỉ chia sẻ reference/ownership.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Copy Semantics là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Programming Languages Deep.
+Copy Semantics là rule của ngôn ngữ/runtime về việc một value/object được copy như thế nào: shallow copy, deep copy, move, clone hoặc reference sharing.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Copy Semantics không chỉ là syntax `=`. Cùng một cú pháp có thể copy value, copy reference, move ownership hoặc trigger custom copy tùy ngôn ngữ/type.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Copy Semantics giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Khi value được assign/pass/return, runtime/compiler áp rule theo type và language semantics. Primitive/value type có thể copy dữ liệu trực tiếp; object/reference type có thể copy pointer/reference; một số ngôn ngữ có move/clone rõ.
 
 ## Project Role / Vai trò trong dự án
 
-Copy Semantics giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug mutation ngoài ý muốn, performance do copy lớn, ownership/lifetime, data race hoặc bug vì object bị share thay vì clone.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Copy Semantics
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Value/reference ownership note
+- Shallow vs deep copy decision
+- Mutation side effect test
+- Performance note cho copy lớn
+- API contract: copy, clone, borrow hay move
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Copy Semantics nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Operation này copy data hay copy reference?
+- Mutation ở bản copy có ảnh hưởng object gốc không?
+- Copy này shallow hay deep?
+- Object lớn có bị copy nhiều lần không?
+- API có nói rõ caller sở hữu gì không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Copy Semantics như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Tưởng copy độc lập nhưng thực tế share nested object.
+- Deep copy quá nhiều gây performance cost.
+- Move/copy ownership hiểu sai làm object không còn dùng được.
+- Mutable object bị share qua nhiều module.
+- Clone thiếu field hoặc copy resource handle sai.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Copy Semantics nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Code chỉ dùng immutable primitive đơn giản thường chưa cần đào sâu.
+- Không nên clone/deep copy mọi thứ để né hiểu ownership vì dễ tốn memory/time.
 
 ## Gồm những gì
 
@@ -55,25 +61,31 @@ Copy Semantics giúp chọn đúng abstraction, config, test hoặc debug path k
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Memory Management]] vì copy ảnh hưởng ownership, allocation và lifetime.
+- [[Ownership]] vì copy/move/borrow liên quan cách value được sở hữu.
+- [[Runtime]] vì runtime/language quyết định behavior object/reference.
+- [[Performance Optimization]] vì copy lớn có thể thành bottleneck.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Compiler and Interpreter
-- Operating System
+- Shallow copy
+- Deep copy
+- Move semantics
+- Reference sharing
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Copy Semantics
-- copy semantics
-- copy semantics design
+- copy behavior
+- shallow copy
+- deep copy
+- move semantics
+- clone
+- reference sharing
 - copy semantics debugging
-- copy semantics production
 
 ## Source trace
 
 - Types and Programming Languages
-- Crafting Interpreters
-- Engineering a Compiler
-- LLVM documentation
+- Rust documentation
+- C++ reference documentation
