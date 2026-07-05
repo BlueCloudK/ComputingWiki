@@ -1,53 +1,59 @@
 # Android Keystore
 
-Aliases: Android Keystore, android keystore
+Aliases: Android Keystore, Android Keystore System
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-Android Keystore xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+Android Keystore xuất hiện khi Android app cần tạo, lưu hoặc dùng cryptographic key mà không muốn key material bị lộ trực tiếp trong app storage.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Android Keystore là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+Android Keystore là hệ thống của Android để lưu và sử dụng key cryptography trong container được OS/hardware bảo vệ tùy thiết bị.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Android Keystore không phải nơi lưu mọi secret dạng text. Nó chủ yếu quản lý key; dữ liệu như token/password thường cần được mã hóa hoặc lưu qua secure storage phù hợp.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Android Keystore giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+App tạo hoặc import key với alias và policy. Khi cần encrypt/decrypt/sign, app yêu cầu Keystore thực hiện operation bằng key đó. Key có thể bị ràng buộc bởi device lock, biometric, hardware-backed storage hoặc validity window.
 
 ## Project Role / Vai trò trong dự án
 
-Android Keystore giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi thiết kế secure storage, mobile session token, encryption local, signing request hoặc debug lỗi key invalidated sau đổi lock/biometric/device restore.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Android Keystore
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Key alias/purpose
+- Algorithm và key size
+- Authentication requirement
+- Backup/restore behavior note
+- Error handling for invalidated key
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Android Keystore nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Key dùng để encrypt, decrypt, sign hay verify?
+- Key có cần user authentication không?
+- Key có hardware-backed không?
+- Khi user đổi lock/biometric thì key xử lý ra sao?
+- Dữ liệu mã hóa có backup/restore được không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Android Keystore như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Tưởng Keystore lưu token trực tiếp thay vì key.
+- Key bị invalidated làm app không decrypt được dữ liệu cũ.
+- Backup encrypted data nhưng không backup/restore được key.
+- Dùng alias trùng hoặc rotate key không có migration.
+- Fallback insecure khi Keystore operation fail.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Android Keystore nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Dữ liệu không nhạy cảm có thể không cần Keystore.
+- Không nên tự thiết kế crypto phức tạp nếu secure storage library/platform API đủ dùng.
 
 ## Gồm những gì
 
@@ -55,25 +61,28 @@ Android Keystore giúp chọn đúng abstraction, config, test hoặc debug path
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Secret]] vì Android Keystore giúp bảo vệ key/secret boundary.
+- [[Mobile Session]] vì session token local thường liên quan secure storage.
+- [[Kotlin]] vì Android implementation thường viết bằng Kotlin.
+- [[Authentication]] vì key có thể gắn với device/user authentication.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Secure storage
+- Mobile cryptography
+- Hardware-backed key
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Android Keystore
-- android keystore
-- android keystore design
-- android keystore debugging
-- android keystore production
+- Android Keystore System
+- secure storage Android
+- hardware-backed key
+- key invalidated
+- mobile encryption
+- Android Keystore debugging
 
 ## Source trace
 
 - Android Developers documentation
-- Apple Developer documentation
-- React Native documentation
-- Flutter documentation
+- OWASP Mobile guidance
