@@ -1,53 +1,59 @@
 # RxJS
 
-Aliases: RxJS, rxjs
+Aliases: RxJS, Reactive Extensions for JavaScript
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-RxJS xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+RxJS xuất hiện khi JavaScript app cần xử lý nhiều luồng event/asynchronous data như user input, WebSocket, timer, stream hoặc state phức tạp theo kiểu reactive.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-RxJS là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+RxJS là thư viện reactive programming cho JavaScript, dùng Observable và operator để mô hình hóa, biến đổi, combine và cancel stream dữ liệu theo thời gian.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+RxJS không phải state manager bắt buộc cho mọi frontend app. Với flow async đơn giản, Promise/state thường đủ dễ hiểu hơn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu RxJS giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Observable phát value/error/complete theo thời gian. Subscriber nhận value; operator như map, filter, switchMap, debounceTime, mergeMap biến đổi hoặc kết hợp stream. Subscription cần được cleanup để tránh leak.
 
 ## Project Role / Vai trò trong dự án
 
-RxJS giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug event stream, autocomplete debounce, WebSocket flow, cancellation, race condition hoặc memory leak do subscription.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới RxJS
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Observable source map
+- Operator chain rõ mục đích
+- Subscription cleanup rule
+- Error handling path
+- Test marble hoặc behavior test nếu flow quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- RxJS nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Data này có thật sự là stream theo thời gian không?
+- Operator nào chịu trách nhiệm cancel/race?
+- Subscription được cleanup ở đâu?
+- Error có làm stream chết ngoài ý muốn không?
+- Có thể viết đơn giản hơn bằng Promise/state không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng RxJS như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Quên unsubscribe gây memory leak.
+- Chọn mergeMap/switchMap sai làm race hoặc cancel nhầm.
+- Operator chain quá dài khó debug.
+- Error không catch làm stream dừng.
+- Dùng RxJS cho case quá đơn giản làm code khó đọc.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu RxJS nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Async request đơn giản có thể dùng Promise/fetch hoặc data fetching library.
+- Không nên đưa RxJS vào toàn app nếu chỉ có vài event đơn giản.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ RxJS giúp chọn đúng abstraction, config, test hoặc debug path khi làm pr
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[JavaScript]] vì RxJS chạy trong JavaScript ecosystem.
+- [[Memory Leak]] vì subscription không cleanup dễ gây leak.
+- [[Event Loop]] vì stream async vẫn chạy trên event loop/runtime.
+- [[State Management]] vì RxJS đôi khi dùng để mô hình hóa state/event stream.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Reactive programming
+- Event stream
+- Async cancellation
 
 ## Keywords / Từ khóa tìm kiếm
 
 - RxJS
-- rxjs
-- rxjs design
-- rxjs debugging
-- rxjs production
+- Reactive Extensions for JavaScript
+- Observable
+- subscription
+- switchMap
+- mergeMap
+- debounceTime
+- RxJS debugging
 
 ## Source trace
 
-- React documentation
-- Vue documentation
-- Angular documentation
+- RxJS documentation
 - MDN Web Docs
