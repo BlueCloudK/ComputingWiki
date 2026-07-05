@@ -1,53 +1,59 @@
 # Chunk Overlap
 
-Aliases: Chunk Overlap, chunk overlap
+Aliases: Chunk Overlap, overlap tokens
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Chunk Overlap xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Chunk Overlap xuất hiện trong RAG khi tài liệu được cắt thành chunk và cần giữ một phần ngữ cảnh lặp lại giữa các chunk liền kề.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Chunk Overlap là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Chunk Overlap là số lượng hoặc tỷ lệ text/token được lặp lại giữa hai chunk để tránh mất ý ở điểm cắt.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Chunk Overlap không phải cách chữa mọi lỗi retrieval. Overlap quá lớn làm index phình, duplicate context và tăng nhiễu nếu chunking boundary sai.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Chunk Overlap nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Chunker cắt document thành đoạn có size nhất định, rồi giữ lại một phần cuối chunk trước vào đầu chunk sau. Khi query retrieve một chunk, phần overlap giúp giữ câu/section bị cắt ngang.
 
 ## Project Role / Vai trò trong dự án
 
-Chunk Overlap giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug RAG thiếu context ở biên chunk, citation bị cắt, retrieval duplicate hoặc index size/cost tăng bất thường.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Chunk Overlap
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Chunk size và overlap config
+- Sample chunks trước/sau
+- Duplicate context check
+- Retrieval eval comparison
+- Index size/cost note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Chunk Overlap giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Điểm cắt có thường làm mất context không?
+- Overlap bao nhiêu là đủ cho document type này?
+- Duplicate chunks có làm retriever nhiễu không?
+- Index size tăng bao nhiêu?
+- Eval có cải thiện sau khi đổi overlap không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Chunk Overlap sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Overlap bằng 0 làm mất ý ở biên chunk.
+- Overlap quá lớn làm nhiều chunk gần trùng nhau.
+- Retriever trả nhiều bản lặp thay vì evidence đa dạng.
+- Cost embedding/storage tăng không đáng.
+- Dùng overlap để che lỗi cần semantic chunking.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Chunk Overlap nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Document ngắn hoặc chunk theo heading rõ có thể không cần overlap lớn.
+- Không nên tăng overlap nếu lỗi thật nằm ở query rewrite, metadata filter hoặc reranking.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Chunk Overlap giúp team thiết kế, review, test, deploy hoặc vận hành h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Chunking Strategy]] vì overlap là tham số trong chunking.
+- [[Document Ingestion]] vì overlap được áp trong ingestion pipeline.
+- [[RAG Evaluation]] vì đổi overlap cần đo lại recall/answer quality.
+- [[Vector Database]] vì overlap ảnh hưởng số record được index.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Token window
+- Context boundary
+- Duplicate retrieval
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Chunk Overlap
-- chunk overlap
-- chunk overlap design
+- overlap tokens
+- RAG chunk overlap
+- chunk boundary
+- duplicate chunks
+- chunking config
 - chunk overlap debugging
-- chunk overlap production
-- chunk overlap best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
