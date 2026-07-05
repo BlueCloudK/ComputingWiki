@@ -1,53 +1,59 @@
 # Prompt Registry
 
-Aliases: Prompt Registry, prompt registry
+Aliases: Prompt Registry, prompt version registry
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Prompt Registry xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Prompt Registry xuất hiện khi nhiều prompt/template được dùng trong production AI app và cần version, owner, diff, approval, rollback và eval trace rõ.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Prompt Registry là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Prompt Registry là nơi quản lý prompt như artifact có version: system prompt, prompt template, tool instruction, output schema và metadata liên quan.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Prompt Registry không phải chỉ là folder text. Nếu không có version/eval/owner, nó không giúp kiểm soát prompt regression.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Prompt Registry nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Prompt được lưu với id, version, purpose, variables, owner, changelog và eval result. Runtime hoặc config chọn version cụ thể; pipeline có thể rollback hoặc promote prompt version.
 
 ## Project Role / Vai trò trong dự án
 
-Prompt Registry giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi app có nhiều agent/prompt, cần kiểm soát thay đổi prompt, audit behavior hoặc rollback nhanh khi prompt mới gây lỗi.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Prompt Registry
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Prompt id/version
+- Template variables
+- Owner/purpose
+- Eval result per version
+- Changelog và rollback note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Prompt Registry giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Prompt này dùng ở flow nào?
+- Version nào đang chạy production?
+- Biến template có schema rõ không?
+- Prompt đổi có chạy eval chưa?
+- Có rollback về version cũ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Prompt Registry sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Prompt bị sửa trực tiếp không có version.
+- Runtime dùng nhầm prompt staging/production.
+- Prompt variables thiếu làm output lỗi.
+- Không có eval trace nên không biết version nào tốt hơn.
+- Registry có nhưng không được runtime dùng thật.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Prompt Registry nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- App thử nghiệm một prompt có thể dùng version file đơn giản.
+- Không nên build registry phức tạp nếu chưa có prompt regression thực tế.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Prompt Registry giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Prompt Regression]] vì registry giúp phát hiện và rollback regression.
+- [[Offline Evaluation]] vì mỗi prompt version nên gắn eval result.
+- [[Output Validation]] vì prompt thường quy định schema output.
+- [[AI Agent]] vì agent thường có prompt/profile riêng.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Prompt versioning
+- AI config management
+- Agent profile
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Prompt Registry
-- prompt registry
-- prompt registry design
+- prompt version registry
+- prompt versioning
+- prompt template
+- prompt changelog
+- prompt rollback
 - prompt registry debugging
-- prompt registry production
-- prompt registry best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
 - Anthropic prompt engineering docs
