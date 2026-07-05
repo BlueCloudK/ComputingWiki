@@ -1,53 +1,59 @@
 # Git Remote
 
-Aliases: Git Remote, git remote
+Aliases: Git Remote, remote repository
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Git Remote xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Git Remote xuất hiện khi local repository cần đồng bộ code với repository ở máy chủ như GitHub, GitLab hoặc server nội bộ.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Git Remote là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Git Remote là tên trỏ tới repository bên ngoài local machine. Remote thường có URL, tên như `origin`, và branch tracking để push/pull/fetch.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Git Remote không phải branch. Remote là nơi chứa repo; branch là dòng lịch sử trong repo.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Git Remote giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Git lưu remote URL trong config. `fetch` lấy ref mới về local, `pull` lấy và merge/rebase, `push` gửi commit local lên remote branch.
 
 ## Project Role / Vai trò trong dự án
 
-Git Remote giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug push/pull fail, sai origin, sai branch tracking, permission hoặc đồng bộ fork/upstream.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Git Remote
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Remote list
+- Remote URL
+- Branch tracking note
+- Auth/permission note
+- Fork/upstream convention nếu có
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Git Remote nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Remote nào là source of truth?
+- URL dùng HTTPS hay SSH?
+- Branch local đang track remote branch nào?
+- Push/pull có đúng remote không?
+- Fork và upstream có tách rõ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Git Remote như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Push nhầm remote hoặc branch.
+- Local track sai upstream branch.
+- Remote URL dùng credential sai.
+- Fetch chưa cập nhật nên nhìn lịch sử cũ.
+- Fork/upstream lẫn lộn làm PR sai target.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Git Remote nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Repo local thử nghiệm chưa cần remote.
+- Không nên thêm nhiều remote nếu team không có workflow fork/upstream rõ.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Git Remote giúp chọn đúng abstraction, config, test hoặc debug path khi l
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Git]] vì remote là phần của Git workflow.
+- [[Pull Request]] vì PR thường đi từ branch trên remote.
+- [[CI]] vì push lên remote thường trigger CI.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Version control
+- Repository hosting
+- Collaboration workflow
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Git Remote
 - git remote
-- git remote design
-- git remote debugging
-- git remote production
+- origin
+- upstream
+- git fetch
+- git pull
+- git push
+- remote tracking branch
+- Git remote debugging
 
 ## Source trace
 
 - Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
