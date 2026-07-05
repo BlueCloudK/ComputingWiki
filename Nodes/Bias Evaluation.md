@@ -1,53 +1,59 @@
 # Bias Evaluation
 
-Aliases: Bias Evaluation, bias evaluation
+Aliases: Bias Evaluation, bias eval
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Bias Evaluation xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Bias Evaluation xuất hiện khi AI system cần được kiểm tra xem output có thiên lệch không công bằng giữa nhóm người, ngôn ngữ, dialect, domain hoặc use case khác nhau.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Bias Evaluation là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Bias Evaluation là quá trình đo và review output AI theo nhóm/khía cạnh nhạy cảm hoặc phân khúc dữ liệu để phát hiện disparity, stereotype, underperformance hoặc harmful framing.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Bias Evaluation không phải một điểm số chung duy nhất. Nếu chỉ nhìn average quality, lỗi thiên lệch theo nhóm nhỏ có thể bị che mất.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Bias Evaluation nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Team tạo hoặc lấy eval cases có metadata nhóm, chạy model/pipeline, đo metric theo slice, dùng human review nếu cần và phân tích case có disparity để sửa data, prompt, model, policy hoặc product flow.
 
 ## Project Role / Vai trò trong dự án
 
-Bias Evaluation giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi đánh giá chatbot, classifier, recommender, RAG answer hoặc agent decision có tác động tới user khác nhau theo nhóm/context.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Bias Evaluation
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Bias eval dataset with metadata slices
+- Metric per group/slice
+- Human review rubric nếu cần
+- Failure case analysis
+- Mitigation and re-eval plan
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Bias Evaluation giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Nhóm/slice nào cần đo?
+- Dataset có đủ đại diện không?
+- Metric nào thể hiện unfair disparity?
+- Có human review cho case nhạy cảm không?
+- Fix xong có re-eval theo slice không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Bias Evaluation sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Dataset thiếu nhóm nhỏ nên bias không lộ.
+- Chỉ đo aggregate score.
+- Rubric human review mơ hồ.
+- Fix bias ở một nhóm nhưng làm giảm quality nhóm khác.
+- Không log metadata nên production không biết lỗi nằm ở slice nào.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Bias Evaluation nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Demo nội bộ không tác động user thật có thể bắt đầu bằng checklist nhẹ.
+- Không nên tuyên bố “không bias” nếu chưa định nghĩa nhóm, metric và giới hạn eval.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Bias Evaluation giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[AI Evaluation]] vì bias evaluation là một nhánh eval quan trọng.
+- [[Eval Dataset]] vì cần case có metadata group/slice.
+- [[Human Evaluation]] vì bias/harmful framing thường cần human review.
+- [[Safety Evaluation]] vì bias có thể là safety/product harm.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Fairness testing
+- Slice-based evaluation
+- Harm analysis
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Bias Evaluation
-- bias evaluation
-- bias evaluation design
+- bias eval
+- fairness evaluation
+- slice evaluation
+- disparity metric
+- human review
 - bias evaluation debugging
-- bias evaluation production
-- bias evaluation best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
