@@ -1,53 +1,59 @@
 # On Call Rotation
 
-Aliases: On Call Rotation, on call rotation
+Aliases: On Call Rotation, on-call rotation
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-On Call Rotation xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+On Call Rotation xuất hiện khi service production cần người chịu trách nhiệm nhận alert, triage incident và xử lý sự cố ngoài giờ hoặc theo ca trực.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-On Call Rotation là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+On Call Rotation là lịch phân công người/nhóm trực vận hành, kèm escalation, handoff, ownership và runbook để phản hồi incident.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+On Call Rotation không tự làm hệ thống đáng tin hơn. Nếu alert nhiễu, runbook kém hoặc escalation mơ hồ, người trực chỉ bị overload.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu On Call Rotation nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Rotation định nghĩa primary/secondary on-call theo khung giờ. Alert route tới người trực, người trực acknowledge, triage, escalate nếu cần và ghi lại action/postmortem cho incident đáng kể.
 
 ## Project Role / Vai trò trong dự án
 
-On Call Rotation giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế incident response, alert routing, ownership service, handoff ca trực hoặc giảm burnout/noise trong vận hành production.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới On Call Rotation
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Rotation schedule
+- Primary/secondary owner
+- Escalation policy
+- Runbook link
+- Handoff and post-incident note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- On Call Rotation giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Ai là primary và secondary?
+- Alert nào page người trực, alert nào chỉ ticket/log?
+- Escalation sau bao lâu?
+- Runbook có đủ để xử lý lúc nửa đêm không?
+- Rotation có công bằng và tránh burnout không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng On Call Rotation sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Alert quá nhiễu làm người trực bỏ qua.
+- Không có secondary/escalation nên incident kẹt.
+- Handoff thiếu context làm lỗi kéo dài.
+- Service owner không rõ nên ai cũng tưởng người khác xử lý.
+- Runbook stale khiến người trực làm sai bước.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu On Call Rotation nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Project không có production user hoặc SLA thấp có thể chưa cần on-call formal.
+- Không nên bật paging 24/7 nếu alert chưa chất lượng và runbook chưa có.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ On Call Rotation giúp team thiết kế, review, test, deploy hoặc vận hàn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Incident Response]] vì on-call là người thực thi incident response đầu tiên.
+- [[Alert]] vì alert route tới on-call.
+- [[Escalation Policy]] vì rotation cần escalation khi primary không xử lý được.
+- [[Runbook Automation]] vì runbook tốt giảm toil cho người trực.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- SRE operations
+- Alert routing
+- Incident ownership
 
 ## Keywords / Từ khóa tìm kiếm
 
 - On Call Rotation
-- on call rotation
-- on call rotation design
-- on call rotation debugging
-- on call rotation production
-- on call rotation best practice
+- on-call rotation
+- incident on-call
+- primary secondary on-call
+- alert routing
+- handoff
+- on-call rotation debugging
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Google SRE Books
+- Incident management documentation
