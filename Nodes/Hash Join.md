@@ -6,48 +6,54 @@ Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Hash Join xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Hash Join xuất hiện trong query plan khi database nối hai input bằng cách build hash table trên một phía rồi probe bằng phía còn lại.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Hash Join là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Hash Join là join strategy phù hợp với equality join, thường hiệu quả khi không có index tốt hoặc khi cần join tập dữ liệu lớn.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Hash Join không phải index. Nó là thuật toán execution tại thời điểm query chạy và có thể cần memory lớn để build hash table.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Hash Join nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Executor chọn build side nhỏ hơn, đọc rows và tạo hash table theo join key. Sau đó đọc probe side, hash join key và tìm match trong hash table để emit result.
 
 ## Project Role / Vai trò trong dự án
 
-Hash Join giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi đọc EXPLAIN plan, debug join chậm, memory spill, row estimate sai hoặc so sánh hash join với nested loop/merge join.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Hash Join
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- EXPLAIN/ANALYZE plan
+- Build/probe side row count
+- Hash table memory usage
+- Spill/batch metric nếu có
+- Join condition and selectivity
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Hash Join giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Join condition có phải equality không?
+- Build side có đủ nhỏ để fit memory không?
+- Row estimate có sát actual không?
+- Hash join có spill ra disk không?
+- Có index/nested loop tốt hơn cho case này không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Hash Join sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Build side quá lớn làm spill ra disk.
+- Row estimate sai làm planner chọn build side tệ.
+- Memory setting thấp làm hash join chậm.
+- Join key skew làm bucket không đều.
+- Hash join dùng cho query trả rất ít row trong khi index lookup tốt hơn.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Hash Join nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Query nhỏ hoặc đã đủ nhanh thì chưa cần ép join strategy.
+- Không nên disable/force join algorithm nếu chưa hiểu statistics và data distribution.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Hash Join giúp team thiết kế, review, test, deploy hoặc vận hành hệ 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Query Plan]] vì hash join là node trong execution plan.
+- [[Nested Loop Join]] vì đây là strategy join thường được so sánh.
+- [[Page Cache]] vì spill/read pattern ảnh hưởng I/O.
+- [[Performance Optimization]] vì join strategy ảnh hưởng query latency.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Join algorithm
+- Hash table
+- Query execution
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Hash Join
 - hash join
-- hash join design
+- hash table join
+- build side
+- probe side
+- hash join spill
 - hash join debugging
-- hash join production
-- hash join best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
