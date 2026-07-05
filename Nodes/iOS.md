@@ -1,79 +1,83 @@
 # iOS
 
-Aliases: iOS, ios
+Aliases: iOS
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-iOS xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+iOS xuất hiện khi app cần chạy trên iPhone/iPad, dùng ecosystem Apple, App Store release, native UI và platform capability riêng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-iOS là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+iOS là mobile operating system của Apple cho iPhone. Với developer, iOS là target platform có SDK, lifecycle, permission, storage, networking, UI framework và release process riêng.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+iOS không phải Swift hoặc Xcode, dù hai thứ đó thường dùng để phát triển iOS app.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu iOS giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+App iOS được build bằng toolchain Apple, chạy trong sandbox, tương tác với system API qua permission/capability, và được phân phối qua App Store hoặc test channel.
 
 ## Project Role / Vai trò trong dự án
 
-iOS giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi cần hiểu target platform, app lifecycle, permission, release, device compatibility hoặc native integration cho iOS.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới iOS
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Platform target note
+- Permission/capability list
+- App lifecycle note
+- Release/test channel decision
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- iOS nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- App cần capability iOS nào?
+- Target version/device là gì?
+- Permission có được giải thích rõ không?
+- Release qua kênh nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng iOS như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Permission thiếu hoặc mô tả sai.
+- Device/version không tương thích.
+- App lifecycle xử lý sai làm mất state.
+- Release config sai làm build không upload được.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu iOS nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project không target iOS thì chưa cần đào sâu.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Swift]]
+- [[UIKit]]
+- [[Xcode]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Swift]] vì Swift là ngôn ngữ phổ biến cho iOS app.
+- [[Xcode]] vì Xcode là IDE/toolchain chính cho iOS.
+- [[UIKit]] vì UIKit là UI framework native của iOS.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Apple platform
+- Mobile app lifecycle
+- App Store release
 
 ## Keywords / Từ khóa tìm kiếm
 
 - iOS
-- ios
-- ios design
-- ios debugging
-- ios production
+- iPhone app
+- iOS SDK
+- iOS permission
+- App Store
+- iOS debugging
 
 ## Source trace
 
-- Android Developers documentation
 - Apple Developer documentation
-- React Native documentation
-- Flutter documentation
