@@ -1,53 +1,59 @@
 # Flux CD
 
-Aliases: Flux CD, flux cd
+Aliases: Flux CD, Flux
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Flux CD xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Flux CD xuất hiện khi Kubernetes cluster cần GitOps controller tự đồng bộ trạng thái từ Git/registry vào cluster.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Flux CD là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Flux CD là bộ controller GitOps cho Kubernetes, theo dõi source như Git repository hoặc OCI artifact, rồi reconcile manifest/Kustomize/Helm release vào cluster.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Flux CD không phải CI build tool. Nó không build/test code chính; nó kéo desired state đã được publish và làm cluster tiến về state đó.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Flux CD nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Flux source controller fetch source, kustomize/helm controller render/apply resource, image automation có thể cập nhật version, và reconciliation loop liên tục so sánh desired state với cluster state.
 
 ## Project Role / Vai trò trong dự án
 
-Flux CD giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế GitOps deploy, debug Kubernetes drift, Helm release fail, image update automation hoặc production rollout từ Git.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Flux CD
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Git/OCI source config
+- Kustomization hoặc HelmRelease
+- Reconciliation interval
+- Image policy/update rule nếu có
+- Alert/log/debug checklist
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Flux CD giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Source of truth nằm ở repo/path nào?
+- Controller nào đang reconcile resource này?
+- Drift có bị Flux sửa lại không?
+- Secret/credential lấy từ đâu?
+- Rollback bằng revert Git hay thao tác cluster trực tiếp?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Flux CD sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Sửa tay trong cluster bị Flux revert mà không hiểu vì sao.
+- Git path/source sai nên controller không thấy manifest.
+- Helm/Kustomize render fail làm deploy đứng.
+- Credential thiếu làm source fetch fail.
+- Image automation update nhầm tag hoặc quá nhanh.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Flux CD nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Cluster nhỏ deploy thủ công hoặc CI apply đơn giản có thể chưa cần GitOps controller.
+- Không nên thêm Flux nếu team chưa thống nhất Git là source of truth.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Flux CD giúp team thiết kế, review, test, deploy hoặc vận hành hệ th
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[CD]] vì Flux là cơ chế continuous delivery theo GitOps.
+- [[Kubernetes Controller]] vì Flux vận hành bằng controller reconciliation.
+- [[Git Remote]] vì Git repository thường là source of truth.
+- [[Rollback]] vì rollback GitOps thường là revert commit/version.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- GitOps
+- Kubernetes reconciliation
+- Helm release
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Flux CD
-- flux cd
-- flux cd design
-- flux cd debugging
-- flux cd production
-- flux cd best practice
+- Flux
+- GitOps
+- Kustomization
+- HelmRelease
+- reconciliation
+- Flux debugging
 
 ## Source trace
 
+- Flux documentation
 - Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
