@@ -1,53 +1,55 @@
 # Dart
 
-Aliases: Dart, dart
+Aliases: Dart
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-Dart xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+Dart xuất hiện khi phát triển app với Flutter hoặc cần ngôn ngữ client-side có static typing, async và tooling rõ.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Dart là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+Dart là ngôn ngữ lập trình do Google phát triển, thường dùng với Flutter để xây app đa nền tảng.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Dart không phải Flutter. Dart là ngôn ngữ; Flutter là UI framework/toolkit dùng Dart.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Dart giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Dart code được compile hoặc JIT/AOT tùy môi trường. Nó có static typing, async/await, isolate, package system và runtime/toolchain riêng.
 
 ## Project Role / Vai trò trong dự án
 
-Dart giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug Flutter code, async flow, package dependency, build mobile hoặc logic viết bằng Dart.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Dart
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Dart source/module
+- Package dependency note
+- Async/isolate note nếu cần
+- Test cho logic quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Dart nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Code chạy trong Flutter hay Dart runtime khác?
+- Async flow có xử lý error đúng không?
+- Package version có pin rõ không?
+- Logic có test chưa?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Dart như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Async error bị bỏ qua.
+- State/UI update sai lifecycle trong Flutter.
+- Package version lệch làm build fail.
+- Work nặng không tách isolate làm UI chậm.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Dart nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project không dùng Flutter/Dart thì chưa cần Dart.
 
 ## Gồm những gì
 
@@ -55,25 +57,27 @@ Dart giúp chọn đúng abstraction, config, test hoặc debug path khi làm pr
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Mobile App]] vì Dart thường dùng trong app mobile Flutter.
+- [[SDK]] vì Dart đi kèm SDK/toolchain riêng.
+- [[Performance Optimization]] vì work nặng trong UI app cần tối ưu đúng boundary.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Flutter ecosystem
+- Mobile development
+- Async programming
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Dart
-- dart
-- dart design
-- dart debugging
-- dart production
+- Dart language
+- Flutter Dart
+- async await
+- isolate
+- Dart package
+- Dart debugging
 
 ## Source trace
 
-- Android Developers documentation
-- Apple Developer documentation
-- React Native documentation
+- Dart documentation
 - Flutter documentation
