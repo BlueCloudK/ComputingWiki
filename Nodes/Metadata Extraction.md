@@ -6,48 +6,54 @@ Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Metadata Extraction xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Metadata Extraction xuất hiện khi ingestion pipeline cần lấy thông tin phụ từ tài liệu như title, author, page, section, timestamp, source URL, permission hoặc document type.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Metadata Extraction là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Metadata Extraction là bước trích xuất metadata có cấu trúc để hỗ trợ filtering, citation, access control, retrieval ranking và audit trong RAG/search system.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Metadata Extraction không phải chỉ lấy text chính. Metadata sai có thể làm filter/citation/permission sai dù extracted text đúng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Metadata Extraction nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Parser hoặc model đọc source document, lấy field metadata từ file header, layout, path, markup, database record hoặc inference, rồi normalize theo schema trước khi indexing.
 
 ## Project Role / Vai trò trong dự án
 
-Metadata Extraction giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug RAG filter không ra tài liệu, citation sai page, permission leak, document routing sai hoặc eval cần phân tích theo source/type/time.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Metadata Extraction
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Metadata schema
+- Extraction rule/source field mapping
+- Sample extracted records
+- Validation rule
+- Missing/uncertain metadata handling
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Metadata Extraction giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Metadata nào bắt buộc cho retrieval/citation/permission?
+- Field lấy từ source thật hay suy luận?
+- Missing metadata xử lý ra sao?
+- Metadata có được normalize cùng format không?
+- Filter/ranking có phụ thuộc field này không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Metadata Extraction sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Page/section sai làm citation sai.
+- Permission metadata thiếu làm lộ tài liệu không nên retrieve.
+- Source/type normalize không nhất quán làm filter fail.
+- Timestamp sai làm ranking theo recency lệch.
+- Model suy luận metadata nhưng không đánh dấu uncertainty.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Metadata Extraction nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Corpus nhỏ, không filter/citation có thể metadata tối thiểu.
+- Không nên thêm nhiều metadata nếu không có use case retrieval/debug rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ Metadata Extraction giúp team thiết kế, review, test, deploy hoặc vận h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Document Ingestion]] vì metadata extraction nằm trong ingestion pipeline.
+- [[Text Extraction]] vì text và metadata thường được extract cùng lúc.
+- [[Chunking Strategy]] vì metadata cần propagate xuống chunk.
+- [[Authorization]] vì permission metadata có thể ảnh hưởng retrieval boundary.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Document metadata
+- Source attribution
+- Permission filter
+- Citation
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Metadata Extraction
 - metadata extraction
-- metadata extraction design
+- document metadata
+- source metadata
+- page metadata
+- permission metadata
 - metadata extraction debugging
-- metadata extraction production
-- metadata extraction best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
-- Anthropic prompt engineering docs
+- Designing Data-Intensive Applications
