@@ -1,53 +1,59 @@
 # App Link
 
-Aliases: App Link, app link
+Aliases: App Link, Deep Link, Universal Link
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-App Link xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+App Link xuất hiện khi URL hoặc external intent cần mở đúng màn hình trong mobile app thay vì chỉ mở web browser.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-App Link là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+App Link là cơ chế liên kết URL/domain với app mobile để route người dùng vào app và màn hình cụ thể. Trên Android thường gọi là App Links; trên iOS thường tương ứng với Universal Links.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+App Link không chỉ là route nội bộ trong app. Nó cần cấu hình platform, domain verification, manifest/entitlement và fallback khi app chưa cài.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu App Link giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Platform nhận URL/intent, kiểm tra domain association/verification, mở app nếu hợp lệ, rồi app parse path/query và điều hướng tới screen tương ứng.
 
 ## Project Role / Vai trò trong dự án
 
-App Link giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug link không mở app, mở sai screen, login redirect, campaign link, payment callback hoặc cross-platform mobile navigation.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới App Link
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Domain/path mapping
+- Android manifest intent-filter
+- iOS associated domains config
+- Fallback web behavior
+- Test matrix: installed/not installed/login state
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- App Link nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Domain đã verify với app chưa?
+- Path nào được app handle?
+- User chưa login thì redirect ra sao?
+- App chưa cài thì fallback đi đâu?
+- Android/iOS behavior có giống nhau không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng App Link như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Domain association file sai làm link mở browser.
+- Path parser sai làm mở nhầm screen.
+- Login flow mất deep link target.
+- Multiple app/environment cùng domain gây conflict.
+- Test chỉ trên app đã cài, bỏ qua fallback.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu App Link nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- App chưa cần external entry point thì chưa cần app link.
+- Không nên thêm nhiều scheme/path nếu navigation và auth flow chưa ổn.
 
 ## Gồm những gì
 
@@ -55,25 +61,28 @@ App Link giúp chọn đúng abstraction, config, test hoặc debug path khi là
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Route]] vì app link cần map URL tới route/screen.
+- [[Mobile Session]] vì login/session state ảnh hưởng deep link handling.
+- [[iOS]] vì Universal Links cần config phía iOS.
+- [[HTTPS]] vì domain verification thường dựa trên HTTPS-hosted association file.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Deep linking
+- Universal Links
+- Mobile navigation
 
 ## Keywords / Từ khóa tìm kiếm
 
 - App Link
-- app link
-- app link design
+- Deep Link
+- Universal Link
+- Android App Links
+- associated domains
+- mobile deep linking
 - app link debugging
-- app link production
 
 ## Source trace
 
 - Android Developers documentation
 - Apple Developer documentation
-- React Native documentation
-- Flutter documentation
