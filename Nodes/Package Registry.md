@@ -6,48 +6,54 @@ Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Package Registry xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Package Registry xuất hiện khi project cần publish, resolve, download và audit dependency/package theo version, scope, owner và access policy.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Package Registry là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Package Registry là dịch vụ lưu trữ package artifact và metadata version để package manager như npm, Maven, Gradle, Cargo hoặc NuGet có thể install/resolve dependency.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Package Registry không phải dependency resolver. Registry giữ package/version; resolver quyết định version nào được chọn dựa trên manifest, lockfile và constraint.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Package Registry giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Package được publish với name, version, checksum, metadata và artifact. Package manager query registry, tải package theo resolved version, kiểm tra integrity và cache/local install nếu hợp lệ.
 
 ## Project Role / Vai trò trong dự án
 
-Package Registry giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug install fail, private package, supply-chain risk, publish release, registry auth, package integrity hoặc CI dependency download chậm.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Package Registry
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Registry URL/scope config
+- Package name/version
+- Auth token/publish permission boundary
+- Integrity/checksum metadata
+- Retention/deprecation policy nếu internal registry
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Package Registry nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Package lấy từ public hay private registry?
+- Scope/name có trỏ đúng registry không?
+- Token có quyền install hay publish?
+- Version artifact có immutable không?
+- CI có dùng lockfile và integrity check không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Package Registry như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Scope config sai làm tải package từ registry nhầm.
+- Token hết hạn hoặc quyền quá rộng.
+- Package bị unpublish/deprecate làm build fail.
+- Registry private down làm CI/deploy bị chặn.
+- Không pin/lock version làm dependency supply chain drift.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Package Registry nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project nhỏ dùng public ecosystem có thể chưa cần private registry.
+- Không nên tự host registry nếu chưa có nhu cầu access control, caching hoặc artifact retention rõ.
 
 ## Gồm những gì
 
@@ -55,26 +61,30 @@ Package Registry giúp chọn đúng abstraction, config, test hoặc debug path
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[npm]] vì npm dùng package registry cho JavaScript package.
+- [[Dependency Resolver]] vì resolver lấy metadata/version từ registry.
+- [[Artifact Repository]] vì package registry là một dạng artifact repository.
+- [[CI]] vì pipeline thường install package từ registry.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Dependency management
+- Package publishing
+- Supply chain security
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Package Registry
 - package registry
-- package registry design
+- private registry
+- package publish
+- registry auth
+- package integrity
 - package registry debugging
-- package registry production
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
 - npm documentation
 - Maven documentation
 - Gradle documentation
+- NuGet documentation
