@@ -6,48 +6,54 @@ Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Terraform Apply xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Terraform Apply xuất hiện khi IaC change đã được plan/review và cần thực thi để tạo, sửa hoặc xóa resource thật trên cloud/platform.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Terraform Apply là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Terraform Apply là lệnh/step thực thi Terraform plan lên provider API, cập nhật infrastructure thực tế và state file theo thay đổi đã tính.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Terraform Apply không phải bước thử vô hại. Apply có thể thay đổi production resource, xóa dữ liệu hoặc gây downtime nếu plan/approval/state không được kiểm soát.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Terraform Apply nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Terraform đọc config, state và provider, tạo execution plan rồi apply plan bằng API call tới provider. Sau khi action thành công, Terraform cập nhật state để phản ánh resource hiện tại.
 
 ## Project Role / Vai trò trong dự án
 
-Terraform Apply giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế IaC pipeline, review infra change, debug apply fail, state lock, drift hoặc production approval cho infrastructure.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Terraform Apply
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Terraform plan đã review
+- Apply log
+- State update
+- Approval/audit record nếu production
+- Rollback/remediation note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Terraform Apply giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Plan có được review chưa?
+- Apply chạy ở workspace/environment nào?
+- State lock có hoạt động không?
+- Change có destroy/recreate resource nhạy cảm không?
+- Nếu apply fail giữa chừng thì xử lý ra sao?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Terraform Apply sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Apply nhầm workspace/environment.
+- Plan có destroy resource nhưng reviewer bỏ sót.
+- State lock thiếu làm hai apply chạy song song.
+- Apply fail giữa chừng khiến state/thực tế lệch.
+- Provider credential quá rộng làm blast radius lớn.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Terraform Apply nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Infra thử nghiệm nhỏ có thể apply local, nhưng production nên có plan/review/approval.
+- Không nên auto-apply production nếu chưa có guardrail, state backend và rollback path rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,27 @@ Terraform Apply giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Terraform Provider]] vì apply gọi provider API để đổi resource.
+- [[Deployment Approval]] vì production apply thường cần approval gate.
+- [[Pipeline Secret]] vì apply cần credential provider trong CI.
+- [[Config Drift]] vì apply/state liên quan drift giữa config và reality.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Infrastructure as Code
+- Terraform state
+- Cloud provisioning
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Terraform Apply
 - terraform apply
-- terraform apply design
+- Terraform plan
+- state lock
+- workspace
+- infrastructure change
 - terraform apply debugging
-- terraform apply production
-- terraform apply best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
 - Terraform documentation
-- GitHub Actions documentation
