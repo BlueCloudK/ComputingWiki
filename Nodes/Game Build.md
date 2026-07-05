@@ -6,48 +6,54 @@ Type: Game Development
 
 ## Context / Ngữ cảnh
 
-Game Build xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+Game Build xuất hiện khi project game cần được đóng gói thành bản chạy được cho tester, player, store, platform hoặc CI release pipeline.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Game Build là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+Game Build là artifact hoặc process tạo ra executable/package của game từ source code, asset, engine config, platform setting và build profile.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Game Build không phải source project trong editor. Editor play mode có thể chạy được nhưng chưa chứng minh build thật ổn trên target platform.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Game Build giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Build pipeline lấy code, scene, asset, shader, platform setting và dependency, rồi compile/package thành artifact như desktop executable, APK/AAB, IPA, WebGL build hoặc console package.
 
 ## Project Role / Vai trò trong dự án
 
-Game Build giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug build fail, asset thiếu trong build, platform config sai, performance khác editor hoặc chuẩn bị release/test build.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Game Build
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Build artifact
+- Target platform/profile
+- Build config/version
+- Included scene/asset list
+- Smoke test checklist
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Game Build nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Build target là platform nào?
+- Build dùng debug, development hay release profile?
+- Scene/asset cần thiết có được include không?
+- Version/build number có trace được commit không?
+- Build đã chạy smoke test trên target chưa?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Game Build như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Chạy ổn trong editor nhưng build thiếu asset/scene.
+- Platform setting sai làm input/render/storage lỗi.
+- Development build bị đưa nhầm cho release.
+- Shader/asset compile khác giữa platform.
+- Build artifact không trace được source commit.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Game Build nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype gameplay cực sớm có thể test trong editor trước.
+- Không nên tối ưu release pipeline khi core loop chưa ổn.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Game Build giúp chọn đúng abstraction, config, test hoặc debug path khi l
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Asset Pipeline]] vì asset phải được import/package vào build.
+- [[Platform Porting]] vì build thay đổi theo target platform.
+- [[Release Artifact]] vì game build là artifact phát hành/test.
+- [[Performance Optimization]] vì performance build thật mới đáng tin.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- Build pipeline
+- Game release
+- Platform target
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Game Build
 - game build
-- game build design
+- build artifact
+- development build
+- release build
+- platform build
 - game build debugging
-- game build production
 
 ## Source trace
 
-- Game Programming Patterns
 - Unity documentation
 - Unreal Engine documentation
 - Godot documentation
