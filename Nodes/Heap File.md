@@ -1,53 +1,59 @@
 # Heap File
 
-Aliases: Heap File, heap file
+Aliases: Heap File, heap storage
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Heap File xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Heap File xuất hiện trong database storage engine khi table row được lưu không theo thứ tự index cụ thể, mà trong các page/block của vùng heap/table storage.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Heap File là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Heap File là cách lưu trữ table data dưới dạng tập page chứa record/tuple, thường không đảm bảo thứ tự logic theo key.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Heap File không phải heap memory của programming language runtime. Đây là khái niệm storage của database/table file.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Heap File nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Database insert row vào page còn chỗ trống, quản lý free space và dùng row identifier/tuple pointer để index trỏ về row trong heap. Query có thể scan heap hoặc lookup heap từ index.
 
 ## Project Role / Vai trò trong dự án
 
-Heap File giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi hiểu table scan, index lookup, bloat, vacuum/compaction, update-heavy workload hoặc vì sao query dùng index vẫn phải đọc heap.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Heap File
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Heap/table storage note
+- Row/page density signal
+- Index-to-heap lookup explanation
+- Bloat/free space metric
+- Maintenance action nếu cần
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Heap File giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Query đang scan heap hay lookup từ index?
+- Heap có bloat/free space lớn không?
+- Update/delete pattern có làm table phình không?
+- Index có cover đủ để tránh heap lookup không?
+- Maintenance như vacuum/compact có cần không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Heap File sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Index lookup nhiều nhưng heap read vẫn đắt.
+- Table bloat làm scan chậm dần.
+- Row rộng làm page density thấp.
+- Update/delete tạo dead tuple/free space xấu.
+- Hiểu nhầm heap file là dữ liệu đã sort theo primary key.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Heap File nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Dữ liệu ít và query nhanh thì chưa cần tối ưu heap layout.
+- Không nên đụng maintenance/storage khi lỗi thật nằm ở query/ORM pattern.
 
 ## Gồm những gì
 
@@ -55,26 +61,29 @@ Heap File giúp team thiết kế, review, test, deploy hoặc vận hành hệ 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Storage Layout]] vì heap file là một dạng tổ chức physical storage.
+- [[Index]] vì index thường trỏ về row trong heap.
+- [[Query Plan]] vì plan thể hiện heap scan hoặc heap fetch.
+- [[Bitmap Index Scan]] vì bitmap heap scan đọc heap page theo bitmap.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Table storage
+- Heap scan
+- Tuple pointer
+- Table bloat
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Heap File
-- heap file
-- heap file design
+- heap storage
+- database heap
+- heap scan
+- table bloat
+- tuple pointer
 - heap file debugging
-- heap file production
-- heap file best practice
 
 ## Source trace
 
 - Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
