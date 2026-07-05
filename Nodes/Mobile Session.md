@@ -1,53 +1,59 @@
 # Mobile Session
 
-Aliases: Mobile Session, mobile session
+Aliases: Mobile Session, app session
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-Mobile Session xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+Mobile Session xuất hiện khi app mobile cần duy trì trạng thái đăng nhập, user context, token, navigation state hoặc analytics session qua nhiều lần foreground/background.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Mobile Session là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+Mobile Session là vòng đời trạng thái người dùng/app trên thiết bị mobile, thường liên quan auth token, refresh, secure storage, app lifecycle và session timeout.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Mobile Session không chỉ là HTTP session truyền thống. Mobile app có lifecycle offline/background, token storage và network không ổn định riêng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Mobile Session giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+App lưu session credential/context trong secure storage, refresh token khi cần, xử lý foreground/background, expire/logout và đồng bộ state với backend theo policy.
 
 ## Project Role / Vai trò trong dự án
 
-Mobile Session giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug app tự logout, token hết hạn, refresh fail, session restore, offline mode hoặc behavior khác nhau giữa Android/iOS.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Mobile Session
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Session state diagram
+- Token/storage policy
+- Expire/refresh rule
+- App lifecycle handling
+- Logout/revoke flow
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Mobile Session nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Session sống bao lâu?
+- Token được lưu ở đâu?
+- Refresh xảy ra khi nào?
+- App background/foreground xử lý session ra sao?
+- Logout có revoke server-side không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Mobile Session như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Token lưu không an toàn.
+- Refresh race làm user logout ngẫu nhiên.
+- App resume dùng token hết hạn.
+- Offline state không rõ làm UI sai.
+- Android/iOS lifecycle xử lý khác nhau.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Mobile Session nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- App không đăng nhập hoặc chỉ demo local chưa cần session policy phức tạp.
+- Không nên tự xây auth/session flow nếu platform SDK chuẩn đã đủ.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Mobile Session giúp chọn đúng abstraction, config, test hoặc debug path k
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Session Management]] vì mobile session là session management trong mobile app.
+- [[Authentication]] vì session thường bắt đầu từ login/auth.
+- [[Secret]] vì token/credential là secret cần bảo vệ.
+- [[iOS]] vì lifecycle/storage iOS ảnh hưởng session behavior.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Mobile auth
+- Secure storage
+- App lifecycle
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Mobile Session
-- mobile session
-- mobile session design
+- app session
+- mobile auth session
+- refresh token
+- secure storage
+- app lifecycle session
 - mobile session debugging
-- mobile session production
 
 ## Source trace
 
 - Android Developers documentation
 - Apple Developer documentation
-- React Native documentation
-- Flutter documentation
+- OWASP Mobile guidance
