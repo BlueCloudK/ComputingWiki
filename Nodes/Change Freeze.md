@@ -1,53 +1,59 @@
 # Change Freeze
 
-Aliases: Change Freeze, change freeze
+Aliases: Change Freeze, deployment freeze
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Change Freeze xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Change Freeze xuất hiện khi hệ thống cần hạn chế hoặc tạm dừng thay đổi trong giai đoạn rủi ro cao như peak traffic, event lớn, incident, audit hoặc release window nhạy cảm.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Change Freeze là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Change Freeze là policy vận hành quy định loại thay đổi nào bị dừng, loại nào được phép, ai có quyền exception và thời gian áp dụng.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Change Freeze không phải ngừng mọi hoạt động kỹ thuật. Bug fix khẩn cấp, security fix hoặc rollback vẫn cần path rõ thay vì bị chặn mù.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Change Freeze nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Team xác định freeze window, scope hệ thống, allowed change, approval/exception flow và communication channel. CI/CD hoặc deployment approval có thể enforce freeze bằng gate.
 
 ## Project Role / Vai trò trong dự án
 
-Change Freeze giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi chuẩn bị event lớn, production peak, holiday release, incident stabilization hoặc change management cho hệ thống quan trọng.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Change Freeze
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Freeze window
+- Scope service/environment
+- Allowed/blocked change list
+- Exception approval rule
+- Communication and audit log
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Change Freeze giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Freeze áp cho service/environment nào?
+- Change nào vẫn được phép?
+- Ai approve exception?
+- Emergency rollback có bị chặn không?
+- Team/on-call có biết policy chưa?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Change Freeze sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Freeze quá rộng làm chậm fix cần thiết.
+- Không có exception path nên team bypass không audit.
+- Freeze chỉ thông báo bằng miệng, pipeline vẫn deploy tự do.
+- Không phân biệt deploy code, config, data migration và rollback.
+- Hết freeze nhưng không có review change backlog.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Change Freeze nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Project nhỏ, chưa có production traffic đáng kể có thể chưa cần freeze formal.
+- Không nên dùng freeze để thay thế test, rollback và progressive delivery.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Change Freeze giúp team thiết kế, review, test, deploy hoặc vận hành h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Deployment Approval]] vì freeze thường được enforce bằng approval gate.
+- [[CD]] vì change freeze tác động trực tiếp pipeline deploy.
+- [[Incident Response]] vì freeze có thể dùng để ổn định hệ thống sau incident.
+- [[Rollback]] vì rollback nên là exception được phép trong freeze.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Change management
+- Release governance
+- Production stability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Change Freeze
-- change freeze
-- change freeze design
+- deployment freeze
+- release freeze
+- freeze window
+- emergency change
+- production change control
 - change freeze debugging
-- change freeze production
-- change freeze best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Google SRE Books
+- Continuous Delivery
