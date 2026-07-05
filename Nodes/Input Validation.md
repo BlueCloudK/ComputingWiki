@@ -6,51 +6,58 @@ Type: Security
 
 ## Context / Ngữ cảnh
 
-Input Validation xuất hiện ở nơi hệ thống có asset cần bảo vệ: identity, permission, secret, dữ liệu nhạy cảm, input công khai hoặc boundary với third-party.
+Input Validation xuất hiện ở mọi boundary nhận dữ liệu không tin cậy: HTTP request, form, file upload, webhook, message queue, CLI argument, config, AI prompt, third-party payload hoặc internal API. Nó giúp reject dữ liệu sai format/range/schema trước khi đi vào domain logic, database, shell command hoặc downstream service.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Input Validation là control hoặc vùng kiến thức giúp giảm khả năng misuse và giảm impact khi control fail.
+Input Validation là kiểm tra input theo allowlist/schema/rule rõ: type, required/optional, length, format, enum, range, relation giữa field, file type/size và business constraint. Trong security, nó giảm attack surface cho injection, traversal, parser abuse, malformed payload và dữ liệu bẩn đi sâu vào hệ thống.
 
 ### Nó không phải là gì
 
-Nó không phải checkbox thêm vào cuối dự án; nếu không map với asset và attack surface thì control dễ sai chỗ.
+Input Validation không thay thế output encoding, authorization, authentication hoặc parameterized query. Validate input tốt vẫn không đủ để chống XSS/SQL injection nếu output/DB layer dùng sai. Nó cũng không nên chỉ nằm ở frontend vì attacker có thể gọi backend trực tiếp.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là asset + attack surface + control + audit. Cần biết bảo vệ gì, ai có thể tấn công/lạm dụng, chặn ở đâu, và log thế nào để điều tra.
+Backend nhận input, parse theo content type, validate schema/rule, normalize nếu cần, reject input không hợp lệ với error format nhất quán, rồi chỉ truyền dữ liệu đã được type-safe/validated vào service/domain. Rule nên ưu tiên allowlist hơn blocklist, và phải có test cho boundary value/malformed payload.
 
 ## Project Role / Vai trò trong dự án
 
-Input Validation ảnh hưởng tới auth flow, permission, validation, secret handling, logging/audit và failure response.
+Input Validation là node cần mở khi thiết kế API contract, file upload, search/filter, webhook, command execution, path/file access hoặc AI/tool input. Nó giúp team quyết định rule nằm ở controller/schema/domain/database đâu và lỗi trả cho client như thế nào.
 
 ## Output / Artifact nên có
 
-- Security checklist cho asset và attack surface liên quan
-- Permission/auth/input validation rule rõ ràng
-- Audit/logging decision cho hành động nhạy cảm
+- Input schema/rule: type, required, nullable, enum, range, length, pattern, file limit
+- Error response format cho invalid input
+- Test case: missing field, wrong type, boundary value, malformed JSON, oversized payload
+- Normalization decision: trim/lowercase/canonicalize path/email/URL nếu cần
+- Security review cho input đi vào SQL, shell, file path, template, parser hoặc LLM/tool
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Asset nào cần bảo vệ và ai có quyền truy cập?
-- Attack surface chính nằm ở input, auth, secret hay dependency?
-- Permission được enforce ở tầng nào và có test chưa?
-- Log có đủ audit nhưng không lộ secret/PII không?
-- Nếu control này fail thì impact tới user/system là gì?
+- Input này đến từ boundary không tin cậy nào?
+- Rule nên là allowlist/schema hay blocklist?
+- Có giới hạn length/size/depth để tránh parser/resource abuse không?
+- Input có đi vào SQL, shell, file path, template, regex hoặc external API không?
+- Frontend/backend validation có khớp nhau không?
+- Invalid input trả lỗi đủ rõ nhưng không leak internals không?
+- Có test malformed/boundary case trong CI không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Tin tưởng input hoặc token quá mức
-- Authorization bị kiểm tra thiếu ở backend
-- Secret/PII lọt vào log hoặc response
-- Failure mode trả lỗi quá chi tiết cho attacker
+- Chỉ validate ở frontend nên attacker gửi payload trực tiếp tới API.
+- Blocklist thiếu case encoding/unicode khiến bypass rule.
+- Không giới hạn size/depth làm parser hoặc memory bị cạn.
+- Validate format nhưng không enforce authorization, vẫn cho truy cập object trái quyền.
+- Normalize/canonicalize path sai dẫn tới path traversal.
+- Error quá chi tiết lộ stack trace, schema nội bộ hoặc security rule.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần security ceremony nặng cho dữ liệu không nhạy trong prototype nội bộ
-- Dễ over-engineer nếu thêm nhiều control nhưng không map với asset/attack surface thật
+- Input nội bộ rất hẹp có thể dùng validation nhẹ nhưng vẫn cần boundary rõ.
+- Không nên tạo custom validator phức tạp nếu schema/framework validation đủ dùng.
+- Không nên tin validation là “lá chắn duy nhất”; vẫn cần encoding, parameterized query, auth và least privilege.
 
 ## Gồm những gì
 
@@ -60,28 +67,35 @@ Input Validation ảnh hưởng tới auth flow, permission, validation, secret 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Validation]] vì input validation là một phần cụ thể của validation ở boundary.
+- [[API Contract]] vì request schema phải khớp contract.
+- [[Command Injection]] vì input đi vào shell/command cần kiểm soát rất nghiêm.
+- [[Path Traversal]] vì path/filename cần canonicalize và enforce base directory.
+- [[RCE]] vì nhiều RCE bắt đầu từ untrusted input vào execution primitive.
 
 ## Liên quan rộng
 
 - Application security
-- Backend
-- Audit
-- Risk management
+- Backend boundary
+- Parser safety
+- Defensive programming
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Input Validation
 - validate untrusted input
 - kiểm tra input
-- security review
-- attack surface
-- permission check
-- bảo mật ứng dụng
-- kiểm tra bảo mật
-- Validation
-- XSS
-- SQL Injection
+- allowlist validation
+- schema validation
+- malformed payload
+- boundary value
+- input size limit
+- canonicalization
+- parser abuse
+- validation bypass
+- backend validation
+- security input validation
+- input validation debugging
 
 ## Source trace
 
