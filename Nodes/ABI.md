@@ -1,53 +1,59 @@
 # ABI
 
-Aliases: ABI, abi
+Aliases: ABI, Application Binary Interface
 
 Type: Programming Languages Deep
 
 ## Context / Ngữ cảnh
 
-ABI xuất hiện trong programming languages deep mở rộng semantics, runtime, type system, memory management, concurrency và language implementation concepts.
+ABI xuất hiện khi compiled code, native library, operating system hoặc language runtime cần tương thích ở mức binary.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-ABI là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Programming Languages Deep.
+ABI là contract ở mức binary: calling convention, register usage, stack layout, symbol naming, data layout và cách truyền/nhận value giữa compiled components.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+ABI không giống API source-level. API nói code gọi gì; ABI nói binary đã compile gọi nhau như thế nào.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu ABI giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Compiler tạo binary theo ABI của platform. Khi program gọi library, cả hai bên phải thống nhất function signature, calling convention, memory layout, symbol và linking rule.
 
 ## Project Role / Vai trò trong dự án
 
-ABI giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug native crash, FFI, shared library, mobile native module, linker error hoặc dependency binary không tương thích.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới ABI
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Target platform/architecture note
+- Calling convention note nếu cần
+- Library version and symbol compatibility
+- Build/link config
+- Test trên target runtime thật
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- ABI nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Binary target architecture là gì?
+- Library được build bằng ABI nào?
+- Function signature có khớp không?
+- Version native dependency có tương thích không?
+- Crash có chỉ xảy ra trên một platform/architecture không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng ABI như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Library build sai architecture.
+- Calling convention mismatch.
+- Struct/layout khác giữa hai bên.
+- Symbol không tìm thấy khi link/load.
+- Crash chỉ xảy ra trên một platform cụ thể.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu ABI nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Code thuần managed/runtime cao có thể chưa cần quan tâm ABI.
+- Không nên đụng ABI nếu không có native/FFI/binary dependency.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ ABI giúp chọn đúng abstraction, config, test hoặc debug path khi làm pro
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[FFI]] vì FFI phụ thuộc ABI đúng.
+- [[Linker]] vì linker cần symbol và binary compatibility.
+- [[Runtime]] vì ABI ảnh hưởng cách binary chạy trong runtime/platform.
+- [[Memory Management]] vì layout/ownership sai có thể gây memory bug.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Compiler and Interpreter
-- Operating System
+- Native code
+- Binary compatibility
+- Compiler toolchain
 
 ## Keywords / Từ khóa tìm kiếm
 
 - ABI
-- abi
-- abi design
-- abi debugging
-- abi production
+- Application Binary Interface
+- calling convention
+- binary compatibility
+- symbol
+- struct layout
+- native library
+- ABI debugging
 
 ## Source trace
 
-- Types and Programming Languages
-- Crafting Interpreters
-- Engineering a Compiler
 - LLVM documentation
+- System V ABI references
