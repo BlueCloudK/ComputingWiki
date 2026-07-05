@@ -1,53 +1,57 @@
 # Kotlin
 
-Aliases: Kotlin, kotlin
+Aliases: Kotlin
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-Kotlin xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+Kotlin xuất hiện khi phát triển Android app hoặc JVM service cần ngôn ngữ hiện đại, null-safety và coroutine.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Kotlin là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+Kotlin là ngôn ngữ lập trình chạy trên JVM và là lựa chọn phổ biến cho Android development.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Kotlin không phải Android framework. Android là platform; Kotlin là ngôn ngữ dùng để viết code.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Kotlin giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Kotlin compile thành bytecode JVM hoặc target khác. Nó có null-safety, data class, extension function, coroutine và interop với Java.
 
 ## Project Role / Vai trò trong dự án
 
-Kotlin giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug Android code, coroutine, nullability, build Gradle hoặc interop Java/Kotlin.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Kotlin
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Kotlin source/module
+- Gradle config
+- Coroutine/threading note
+- Nullability convention
+- Test cho logic quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Kotlin nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Code chạy trên Android hay JVM backend?
+- Coroutine scope có đúng lifecycle không?
+- Nullability có được xử lý rõ không?
+- Java interop có tạo risk không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Kotlin như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Coroutine scope sai làm task sống quá lâu.
+- Nullability xử lý sai gây crash.
+- Blocking call chạy sai thread.
+- Java interop làm type/null contract không rõ.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Kotlin nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project không dùng Android/JVM thì chưa cần Kotlin.
+- Không nên dùng coroutine phức tạp nếu flow đồng bộ đơn giản đủ dùng.
 
 ## Gồm những gì
 
@@ -55,25 +59,27 @@ Kotlin giúp chọn đúng abstraction, config, test hoặc debug path khi làm 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[APK]] vì Android app viết bằng Kotlin thường đóng gói thành APK.
+- [[AAB]] vì Android release hiện đại thường dùng app bundle.
+- [[ANR]] vì Kotlin Android code có thể gây hoặc tránh ANR.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Android development
+- JVM
+- Coroutine
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Kotlin
-- kotlin
-- kotlin design
-- kotlin debugging
-- kotlin production
+- Android Kotlin
+- coroutine
+- null safety
+- data class
+- Gradle Kotlin
+- Kotlin debugging
 
 ## Source trace
 
+- Kotlin documentation
 - Android Developers documentation
-- Apple Developer documentation
-- React Native documentation
-- Flutter documentation
