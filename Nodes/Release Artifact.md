@@ -1,53 +1,59 @@
 # Release Artifact
 
-Aliases: Release Artifact, release artifact
+Aliases: Release Artifact, build artifact
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Release Artifact xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Release Artifact xuất hiện khi CI/CD cần một output bất biến để deploy, rollback, audit và trace từ source code tới production.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Release Artifact là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Release Artifact là file/image/package đã build và sẵn sàng phát hành, ví dụ container image, JAR, ZIP, binary, APK/AAB hoặc static bundle.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Release Artifact không phải source code working tree. Không nên rebuild tùy ý ở production nếu muốn trace và rollback rõ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Release Artifact nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+CI build artifact từ commit cụ thể, gắn version/digest, lưu vào artifact repository hoặc registry, rồi CD promote artifact đó qua environment.
 
 ## Project Role / Vai trò trong dự án
 
-Release Artifact giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế release pipeline, rollback, artifact signing, versioning hoặc trace lỗi production về commit.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Release Artifact
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Artifact name/version/digest
+- Source commit SHA
+- Build metadata
+- Storage location
+- Promotion/rollback rule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Release Artifact giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Artifact có trace được về commit không?
+- Artifact có immutable không?
+- Environment nào đang chạy version nào?
+- Rollback dùng artifact cũ hay rebuild?
+- Artifact được lưu bao lâu?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Release Artifact sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Rebuild cùng version nhưng nội dung khác.
+- Artifact không trace được về commit.
+- Artifact bị xóa trước khi cần rollback.
+- Deploy dùng artifact local không qua pipeline.
+- Version tag như `latest` làm production khó audit.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Release Artifact nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Prototype local chưa deploy có thể chưa cần artifact repository formal.
+- Không nên thêm signing/promotion phức tạp trước khi release flow ổn.
 
 ## Gồm những gì
 
@@ -55,27 +61,27 @@ Release Artifact giúp team thiết kế, review, test, deploy hoặc vận hàn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[CD]] vì CD promote release artifact qua environment.
+- [[Artifact Repository]] vì artifact cần nơi lưu trữ và truy xuất.
+- [[Rollback]] vì rollback thường cần artifact version cũ.
+- [[Deployment]] vì deployment dùng artifact đã build.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Release pipeline
+- Versioning
+- Supply chain
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Release Artifact
-- release artifact
-- release artifact design
+- build artifact
+- artifact version
+- container image digest
+- immutable artifact
 - release artifact debugging
-- release artifact production
-- release artifact best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
+- Continuous Delivery
 - GitHub Actions documentation
