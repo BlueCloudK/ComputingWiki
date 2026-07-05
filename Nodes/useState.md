@@ -1,53 +1,59 @@
 # useState
 
-Aliases: useState, usestate
+Aliases: useState
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-useState xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+useState xuất hiện trong React khi function component cần giữ local state giữa các lần render, ví dụ input value, toggle, selected item hoặc UI state nhỏ.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-useState là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+useState là React Hook cho phép component khai báo một state value và setter để yêu cầu React render lại khi state đổi.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+useState không phải global store và không phải nơi giữ server cache dài hạn. Nếu state cần share rộng hoặc fetch/cache từ server, cần xem boundary khác.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu useState giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+React lưu state theo thứ tự hook trong component. Khi gọi setter, React schedule update và render lại component với state mới. Nếu state mới phụ thuộc state cũ, nên dùng functional update.
 
 ## Project Role / Vai trò trong dự án
 
-useState giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug local UI state, stale state, rerender, form input, toggle logic hoặc khi quyết định state nên nằm local, parent hay global store.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới useState
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- State purpose
+- Initial value
+- Setter/update rule
+- Derived-vs-stored decision
+- Test cho interaction quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- useState nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- State này có thật sự cần lưu không hay derive được từ props/data?
+- State thuộc component này hay parent?
+- Update có phụ thuộc state cũ không?
+- State object/array có update immutable không?
+- State reset khi props/user/context đổi chưa?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng useState như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Lưu state có thể derive làm lệch dữ liệu.
+- Dùng state cũ trong closure làm update sai.
+- Mutate object/array trực tiếp khiến React không nhận update đúng.
+- Đưa state quá cao làm nhiều component rerender.
+- Dùng useState cho server data/cache làm invalidation rối.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu useState nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Value tính được trực tiếp từ props/data thì không cần state riêng.
+- Không nên đưa mọi thứ vào state chỉ vì muốn đọc lại sau render.
 
 ## Gồm những gì
 
@@ -55,25 +61,27 @@ useState giúp chọn đúng abstraction, config, test hoặc debug path khi là
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[React Hook]] vì useState là một hook cơ bản.
+- [[React]] vì useState thuộc React component model.
+- [[Component]] vì state local gắn với component render.
+- [[Global State]] vì nhiều lỗi đến từ đặt state local/global sai boundary.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Local state
+- Functional update
+- Derived state
 
 ## Keywords / Từ khóa tìm kiếm
 
 - useState
-- usestate
-- usestate design
-- usestate debugging
-- usestate production
+- React useState
+- local state
+- state setter
+- functional update
+- derived state
+- useState debugging
 
 ## Source trace
 
 - React documentation
-- Vue documentation
-- Angular documentation
-- MDN Web Docs
