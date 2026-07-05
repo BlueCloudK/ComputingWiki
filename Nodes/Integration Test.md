@@ -2,87 +2,99 @@
 
 Aliases: integration testing, kiểm thử tích hợp
 
-Type: API / Integration
+Type: Testing / Verification
 
 ## Context / Ngữ cảnh
 
-Integration Test xuất hiện ở boundary giữa client, backend, service nội bộ hoặc third-party. Nó thường liên quan tới endpoint, request/response, validation, auth boundary, timeout và error format.
+Integration Test xuất hiện khi nhiều module, service, database, queue, filesystem, API hoặc third-party client cần được kiểm tra cùng nhau. Mục tiêu là bắt lỗi ở boundary giữa các phần mà unit test thường mock hoặc bỏ qua.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Integration Test là phần làm rõ hai bên tích hợp phải gửi gì, nhận gì, xử lý lỗi ra sao và giữ compatibility thế nào khi một bên thay đổi.
+Integration Test là test xác minh các thành phần thật hoặc gần thật có giao tiếp đúng qua contract, schema, transaction, config, auth, network và error behavior. Nó thường chạy với database test, container dependency, API server, message broker hoặc fake external service có contract rõ.
 
 ### Nó không phải là gì
 
-Nó không chỉ là URL hoặc function call; nếu thiếu contract, error format và validation thì integration vẫn mỏng dù gọi được.
+Integration Test không phải E2E full user journey. Nó cũng không thay thế unit test; nếu mọi logic nhỏ đều phải chạy qua integration test, feedback sẽ chậm. Integration test nên tập trung vào boundary rủi ro: DB mapping, API contract, transaction, serialization, auth, queue và external call.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là contract: request schema, response schema, status/error format, validation rule và versioning. Contract càng rõ thì client/server càng ít mismatch và dễ test độc lập.
+Test dựng môi trường gồm code đang test và dependency thật/gần thật, chuẩn bị test data, gọi boundary như HTTP endpoint/service method/repository/message handler, rồi assert output, side effect và persisted state. Setup/teardown phải deterministic để tránh flaky test và data leak giữa test case.
 
 ## Project Role / Vai trò trong dự án
 
-Integration Test ảnh hưởng tới API design, frontend/backend handoff, integration test, backward compatibility và debug lỗi giữa service.
+Integration Test giúp team tự tin rằng controller-service-repository-DB, API contract, migration, config và external adapter không vỡ khi refactor. Nó rất hữu ích cho backend/API/RAG/agent workflow nơi lỗi thường nằm ở chỗ nối giữa module.
 
 ## Output / Artifact nên có
 
-- API contract hoặc integration decision ghi rõ request/response/error
-- Validation rule và compatibility/versioning note
-- Contract test hoặc integration test cho path quan trọng
+- Integration test suite theo boundary quan trọng: API, DB, queue, external adapter
+- Test fixture/seed data và teardown rõ ràng
+- Test environment config: database/container/service URL, secret test, timeout
+- Expected result gồm response, persisted state, emitted event/log nếu quan trọng
+- CI rule tách test nhanh/chậm nếu suite nặng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Request/response có schema và required/optional field rõ chưa?
-- Error format có thống nhất và đủ debug không?
-- Validation xảy ra ở đâu và message trả về thế nào?
-- Change này có breaking với consumer hiện tại không?
-- Có test cho mismatch dữ liệu, auth và timeout không?
+- Boundary nào cần kiểm tra thật thay vì mock?
+- Dependency nào dùng thật, dependency nào fake/stub?
+- Test data có isolate giữa test case không?
+- Test có assert side effect trong DB/queue/cache không?
+- Test có deterministic hay phụ thuộc time/network/random ngoài kiểm soát?
+- Khi fail, log/artifact có đủ debug không?
+- Có chạy ở CI đúng thời điểm hay chỉ local?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Client/server mismatch làm lỗi chỉ xuất hiện khi tích hợp
-- Error format không chuẩn khiến frontend và log khó debug
-- Breaking change không version làm consumer cũ hỏng
-- Validation thiếu khiến dữ liệu bẩn đi sâu vào hệ thống
+- Mock quá nhiều làm integration test không khác unit test.
+- Dùng shared database không cleanup làm test phụ thuộc thứ tự chạy.
+- External service thật unstable làm test flaky.
+- Test chỉ assert status 200 nhưng không kiểm tra persisted state.
+- Suite quá chậm khiến team bỏ qua trước merge.
+- Config test khác production quá xa nên không bắt lỗi deploy thật.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần contract quá nặng cho prototype một client một server
-- Dễ over-engineer nếu versioning phức tạp khi chưa có consumer ổn định
+- Logic thuần nhỏ nên ưu tiên unit test trước.
+- Không nên biến mọi case thành integration test nếu unit test đủ bắt logic.
+- Không nên gọi third-party production thật trong CI nếu có sandbox/fake contract tốt hơn.
 
 ## Gồm những gì
 
 - [[API Contract]]
-- [[Database Schema]]
 
 ## Nối mạnh
 
-- [[Integration Testing]] vì nó là check trực tiếp để phát hiện lỗi hoặc xác nhận hành vi
+- [[Unit Test]] vì integration test bổ sung cho unit test ở boundary giữa module.
+- [[E2E Test]] vì E2E kiểm tra journey rộng hơn còn integration test kiểm tra boundary hẹp hơn.
+- [[API Contract]] vì integration test thường xác nhận request/response contract.
+- [[Regression Test]] vì bug integration quan trọng nên thành regression test.
+- [[CI]] vì integration suite thường chạy trong pipeline trước merge/release.
 
 ## Liên quan rộng
 
-- Backend
-- Frontend
-- Third-party integration
+- Test environment
+- Database testing
 - Contract testing
+- Service integration
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Integration Test
-- integration test checklist
-- integration test strategy
-- kiểm thử Integration
 - integration testing
 - kiểm thử tích hợp
-- API schema
-- request response
-- integration boundary
-- contract testing
-- tích hợp API
-- API Contract
+- integration test suite
+- test database
+- test container
+- API integration test
+- database integration test
+- contract test
+- test fixture
+- test teardown
+- flaky integration test
+- integration test debugging
 
 ## Source trace
 
-- Software Testing ISTQB Map / Ch02
+- Software Testing ISTQB Map
+- xUnit Test Patterns
