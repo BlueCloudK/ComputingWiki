@@ -6,51 +6,58 @@ Type: Code Design / Pattern
 
 ## Context / Ngữ cảnh
 
-Service Layer xuất hiện trong codebase khi team phải chia trách nhiệm, dependency, interface hoặc biến thể behavior. Nó nằm gần refactor, testability và maintainability.
+Service Layer xuất hiện khi backend cần một lớp application/use-case nằm giữa controller/API boundary và domain/persistence. Nó thường dùng để gom workflow nghiệp vụ, transaction boundary, authorization check cấp use case, gọi repository/external service và orchestration nhiều bước.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Service Layer là cách tổ chức code để một phần thay đổi không kéo theo quá nhiều phần khác.
+Service Layer là lớp chứa application operation như `createOrder`, `approveClaim`, `registerUser`, `scanProject`. Nó nhận input đã được controller parse/validate, áp rule use case, gọi domain/repository/integration cần thiết, rồi trả output cho controller/API.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn pattern để làm code trông chuyên nghiệp; nếu không giảm coupling, duplication hoặc volatility thì nó chỉ thêm indirection.
+Service Layer không phải nơi nhét mọi thứ cho xong. Nếu service chỉ gọi repository một dòng hoặc chứa HTTP/request details, nó không tạo boundary tốt. Service cũng không nên biến thành God Service biết quá nhiều module, quá nhiều workflow và quá nhiều infrastructure detail.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai gọi ai, dependency đi hướng nào, interface nào được expose và behavior nào có thể thay thế.
+Controller mỏng nhận request và gọi service method. Service method điều phối rule nghiệp vụ, transaction, repository, external API, event/outbox và error mapping ở mức use case. Repository che persistence detail; controller che HTTP detail; service giữ workflow ứng dụng.
 
 ## Project Role / Vai trò trong dự án
 
-Service Layer đặt use-case/application operation ở boundary giữa UI/API và domain/persistence.
+Service Layer là node cần mở khi controller phình to, business logic rải rác, transaction boundary mơ hồ, unit test use case khó hoặc nhiều endpoint cần dùng lại cùng workflow. Nó giúp team biết logic nào thuộc API/controller, logic nào thuộc domain, logic nào thuộc application service.
 
 ## Output / Artifact nên có
 
-- Design decision ngắn ghi responsibility/pattern được chọn
-- Interface hoặc module boundary rõ input/output
-- Refactor checklist và regression test cho behavior cũ
+- Service method list theo use case thật, không theo table CRUD máy móc
+- Input/output contract nội bộ hoặc DTO mapping rõ
+- Transaction boundary và rollback/error policy
+- Dependency list: repository, external client, event publisher, validator/policy
+- Unit/integration tests cho happy path, failure path và authorization/business rule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Pattern này giải quyết coupling/duplication cụ thể nào?
-- Responsibility mới nằm đúng layer chưa?
-- Interface có đủ nhỏ và dễ test không?
-- Có làm tăng indirection quá mức không?
-- Regression test có giữ behavior cũ không?
+- Service này đại diện use case nào?
+- Controller có còn giữ business logic không?
+- Transaction boundary có nằm đúng ở service/use case không?
+- Service có đang leak HTTP framework, request object hoặc ORM entity ra ngoài không?
+- Dependency có quá nhiều tới mức service thành God Service không?
+- Business rule nào nên đưa xuống domain/entity thay vì service?
+- Test có chứng minh workflow chính và failure path không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Áp pattern máy móc làm code nhiều lớp hơn nhưng không rõ hơn
-- Business rule bị giấu sai layer
-- Interface quá chung gây leak abstraction
-- Refactor thiếu test làm đổi behavior ngoài ý muốn
+- Controller vẫn chứa workflow chính nên service layer chỉ là hình thức.
+- Service quá lớn gom mọi use case và khó test/refactor.
+- Transaction mở trong repository riêng lẻ khiến nhiều bước không atomic.
+- Service gọi external API trong transaction làm lock giữ lâu.
+- Service trả ORM entity trực tiếp làm API contract phụ thuộc persistence model.
+- Logic authorization/validation nằm rải rác giữa controller/service/repository gây bypass.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần pattern khi logic đơn giản và chưa có biến thể thật
-- Dễ over-engineer nếu tạo abstraction trước khi thấy duplication hoặc volatility
+- CRUD rất nhỏ, controller gọi ORM trực tiếp và chưa có workflow phức tạp có thể chưa cần service layer riêng.
+- Không nên tạo service cho mọi entity nếu không có use case thật.
+- Không nên dùng service layer để né việc đặt boundary domain/repository rõ.
 
 ## Gồm những gì
 
@@ -58,26 +65,35 @@ Service Layer đặt use-case/application operation ở boundary giữa UI/API v
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Controller]] vì controller nên mỏng và gọi service cho use case chính.
+- [[Repository]] vì service layer thường gọi repository để truy cập dữ liệu.
+- [[Transaction]] vì transaction boundary thường nằm ở use case/service layer.
+- [[Dependency Injection]] vì service dependency thường được inject để test và thay thế.
+- [[Unit Test]] vì service layer là nơi unit test workflow/use case tương đối tốt.
 
 ## Liên quan rộng
 
-- Codebase
-- Refactoring
-- Unit testing
-- Maintainability
+- Application architecture
+- Use case orchestration
+- Backend maintainability
+- Domain modeling
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Service Layer
 - service layer pattern
 - mẫu service layer
-- design pattern
-- refactoring
-- module boundary
-- testability
-- mẫu thiết kế
+- application service
+- use case service
+- business workflow
+- transaction boundary
+- thin controller
+- God service
+- service repository pattern
+- service layer testing
+- backend architecture
 
 ## Source trace
 
-- Fowler Pattern Map / PEAA Service Layer
+- Patterns of Enterprise Application Architecture
+- Domain-Driven Design references
