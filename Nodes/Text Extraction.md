@@ -6,48 +6,54 @@ Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Text Extraction xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Text Extraction xuất hiện khi hệ thống RAG/search cần lấy text sạch từ PDF, HTML, DOCX, ảnh OCR, log hoặc file bán cấu trúc trước khi chunk/index.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Text Extraction là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Text Extraction là bước chuyển source document thành text và metadata có thể xử lý tiếp trong ingestion, retrieval hoặc evaluation.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Text Extraction không chỉ là đọc raw bytes. Nếu mất heading, table, page number, code block hoặc metadata, RAG phía sau có thể retrieve sai dù model tốt.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Text Extraction nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline nhận file/source, chọn parser/OCR phù hợp, trích text, normalize layout, giữ metadata như title/page/section, rồi xuất record cho chunking và indexing.
 
 ## Project Role / Vai trò trong dự án
 
-Text Extraction giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug tài liệu ingest bị thiếu chữ, bảng lỗi, citation sai page, OCR nhiễu hoặc chunking không giữ được cấu trúc gốc.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Text Extraction
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Extracted text sample
+- Metadata schema
+- Parser/OCR choice
+- Quality check cases
+- Failed extraction log
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Text Extraction giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Source format là gì?
+- Parser có giữ heading/table/page number không?
+- OCR có cần không và độ nhiễu ra sao?
+- Metadata nào cần cho citation/filter?
+- Extraction có deterministic giữa các lần chạy không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Text Extraction sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Mất bảng hoặc cột làm answer sai.
+- Page/section metadata sai làm citation sai.
+- OCR nhiễu làm embedding/search lệch.
+- Parser bỏ qua text trong image hoặc footnote.
+- Normalize quá mạnh làm mất cấu trúc quan trọng.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Text Extraction nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Corpus plain text nhỏ có thể dùng parser đơn giản trước.
+- Không nên thêm OCR/layout pipeline nặng nếu tài liệu không cần.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ Text Extraction giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Document Ingestion]] vì extraction là bước đầu trong ingestion.
+- [[Chunking Strategy]] vì text extracted quyết định chunk có giữ context không.
+- [[RAG Evaluation]] vì extraction change cần đo lại retrieval/answer.
+- [[Data Quality]] vì text extraction lỗi làm dữ liệu index bẩn.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Document parsing
+- OCR
+- Metadata extraction
+- Layout preservation
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Text Extraction
-- text extraction
-- text extraction design
+- document text extraction
+- PDF parsing
+- OCR text
+- layout extraction
+- table extraction
 - text extraction debugging
-- text extraction production
-- text extraction best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
