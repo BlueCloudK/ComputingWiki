@@ -1,81 +1,92 @@
 # RAG Evaluation
 
-Aliases: RAG Evaluation, rag evaluation
+Aliases: RAG Evaluation, retrieval augmented generation evaluation
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-RAG Evaluation xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+RAG Evaluation xuất hiện khi cần biết hệ thống RAG trả lời đúng nhờ truy xuất đúng tài liệu, dùng evidence đúng và không bịa ngoài context.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-RAG Evaluation là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+RAG Evaluation là quá trình đo chất lượng retrieval, grounding, citation, answer correctness và failure mode của pipeline RAG.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+RAG Evaluation không chỉ là hỏi thử vài câu trong chat. Nếu không có dataset, expected evidence và metric, kết quả rất dễ cảm tính.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu RAG Evaluation nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Hệ thống chạy tập câu hỏi kiểm thử qua pipeline retrieve → rerank/context → generate → validate. Kết quả được so với expected answer, expected source, citation và rule về hallucination/safety.
 
 ## Project Role / Vai trò trong dự án
 
-RAG Evaluation giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi nâng chất lượng chatbot/RAG app, chọn chunking, đổi embedding, thêm reranker hoặc kiểm tra regression sau khi cập nhật knowledge base.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới RAG Evaluation
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Eval dataset
+- Retrieval metrics
+- Answer quality rubric
+- Citation/evidence check
+- Regression report theo version pipeline
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- RAG Evaluation giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Câu hỏi eval có đại diện use case thật không?
+- Có expected evidence/source không?
+- Metric tách retrieval và generation chưa?
+- Có kiểm tra hallucination/citation sai không?
+- Kết quả có so sánh theo version pipeline không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng RAG Evaluation sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chỉ đo answer đẹp nhưng không đo retrieval.
+- Dataset quá nhỏ hoặc quá dễ.
+- Expected evidence thiếu nên không biết model có dùng đúng nguồn không.
+- Dùng judge không ổn định nhưng không review sample.
+- Eval không chạy lại sau đổi index/chunk/prompt.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu RAG Evaluation nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Prototype cực sớm có thể dùng manual eval nhỏ trước.
+- Không nên xây framework eval lớn khi chưa có câu hỏi thật và failure mode rõ.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Eval Dataset]]
+- [[Offline Evaluation]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[RAG]] vì RAG Evaluation đo chất lượng pipeline RAG.
+- [[Retriever Query]] vì query truy xuất ảnh hưởng trực tiếp recall.
+- [[Chunking Strategy]] vì chunking làm thay đổi evidence được retrieve.
+- [[Prompt Regression]] vì prompt đổi có thể làm output RAG regress.
+- [[Output Validation]] vì RAG output cần validate grounding/citation.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Grounded answer quality
+- Retrieval metrics
+- LLM evaluation
+- Production RAG reliability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - RAG Evaluation
-- rag evaluation
-- rag evaluation design
-- rag evaluation debugging
-- rag evaluation production
-- rag evaluation best practice
+- RAG eval
+- retrieval evaluation
+- grounded answer evaluation
+- citation accuracy
+- hallucination check
+- RAG regression
+- RAG evaluation debugging
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
