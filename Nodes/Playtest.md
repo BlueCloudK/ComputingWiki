@@ -1,53 +1,59 @@
 # Playtest
 
-Aliases: Playtest, playtest
+Aliases: Playtest, playtesting
 
 Type: Game Development
 
 ## Context / Ngữ cảnh
 
-Playtest xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+Playtest xuất hiện khi game cần kiểm tra trải nghiệm thật của người chơi: fun, difficulty, control, pacing, clarity, bug và onboarding.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Playtest là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+Playtest là buổi/tập thử game với người chơi thật hoặc tester để quan sát hành vi, thu feedback và phát hiện vấn đề không lộ ra khi developer tự chơi.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Playtest không chỉ là hỏi “game có vui không”. Cần goal, scenario, observation, metric và câu hỏi đúng để tránh feedback mơ hồ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Playtest giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Team chuẩn bị build, task/scenario, người chơi mục tiêu và cách ghi nhận. Trong test, quan sát player hành động, ghi điểm kẹt/confuse/frustration, sau đó tổng hợp issue và ưu tiên fix.
 
 ## Project Role / Vai trò trong dự án
 
-Playtest giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi kiểm tra core loop, tutorial, difficulty curve, level design, UI clarity hoặc trước milestone/release.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Playtest
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Playtest goal
+- Test build/version
+- Scenario/task list
+- Observation notes
+- Issue priority and action list
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Playtest nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Playtest muốn kiểm tra giả thuyết nào?
+- Tester có giống target player không?
+- Build có đủ ổn để test đúng thứ cần test không?
+- Quan sát behavior hay chỉ hỏi opinion?
+- Feedback được chuyển thành action nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Playtest như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Test với người không đại diện target player.
+- Hỏi dẫn dắt làm feedback lệch.
+- Developer giải thích trong lúc test nên che lỗi onboarding.
+- Chỉ nghe opinion, không quan sát hành vi.
+- Không chốt action sau playtest.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Playtest nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype chưa có core interaction có thể tự test nhanh trước.
+- Không nên tổ chức playtest lớn nếu build quá vỡ khiến không test được giả thuyết chính.
 
 ## Gồm những gì
 
@@ -55,25 +61,30 @@ Playtest giúp chọn đúng abstraction, config, test hoặc debug path khi là
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Game Build]] vì playtest cần build cụ thể để trace feedback.
+- [[Game Loop]] vì core loop là mục tiêu playtest quan trọng.
+- [[HUD]] vì UI clarity thường lộ trong playtest.
+- [[Regression Test]] vì bug đã fix từ playtest nên có guard nếu lặp lại.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- User testing
+- Game feedback
+- Difficulty tuning
+- Onboarding
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Playtest
-- playtest
-- playtest design
+- playtesting
+- game testing
+- player feedback
+- usability test
+- difficulty tuning
 - playtest debugging
-- playtest production
 
 ## Source trace
 
 - Game Programming Patterns
 - Unity documentation
-- Unreal Engine documentation
-- Godot documentation
+- Game design playtesting references
