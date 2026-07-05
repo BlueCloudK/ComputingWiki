@@ -1,53 +1,59 @@
 # Vite
 
-Aliases: Vite, vite
+Aliases: Vite
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Vite xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Vite xuất hiện khi frontend project cần dev server nhanh, hot reload và build production cho JavaScript/TypeScript app hiện đại.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Vite là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Vite là frontend build tool và dev server. Nó cung cấp workflow phát triển nhanh, plugin ecosystem và production build cho web app.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Vite không phải frontend framework. Nó không tự quyết định component model, routing, state management hoặc backend architecture.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Vite giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Trong dev, Vite phục vụ module nhanh qua native ESM và transform khi cần. Trong build, Vite dùng bundler/config/plugin để tạo static assets hoặc bundle production.
 
 ## Project Role / Vai trò trong dự án
 
-Vite giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug dev server, HMR, env variable, asset path, alias, bundle output hoặc frontend build trong CI.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Vite
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- `vite.config`
+- Package scripts
+- Env/base path note
+- Plugin list
+- Build output check
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Vite nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- App dùng framework plugin nào?
+- Base path production có đúng không?
+- Env nào được expose ra client?
+- Alias có khớp test và IDE không?
+- Build có chạy trong CI không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Vite như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Base path sai làm asset không tải được sau deploy.
+- Env client/server bị nhầm boundary.
+- Dev chạy nhưng production build fail.
+- Plugin hoặc alias config lệch giữa test và build.
+- Bundle lớn nhưng không được đo.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Vite nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Trang nhỏ có thể dùng static HTML/CSS/JS.
+- Không nên tùy biến plugin quá nhiều nếu preset đủ dùng.
 
 ## Gồm những gì
 
@@ -55,26 +61,29 @@ Vite giúp chọn đúng abstraction, config, test hoặc debug path khi làm pr
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[JavaScript]] vì Vite build JavaScript frontend.
+- [[Frontend Framework]] vì Vite thường dùng cùng React/Vue/Svelte.
+- [[npm]] vì Vite thường chạy qua package scripts.
+- [[esbuild]] vì Vite dùng esbuild cho nhiều transform.
+- [[CI]] vì production build cần chạy trong pipeline.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Frontend build
+- Dev server
+- Hot module reload
+- Asset pipeline
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Vite
-- vite
-- vite design
-- vite debugging
-- vite production
+- Vite dev server
+- Vite build
+- vite config
+- HMR
+- frontend build
+- Vite debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- Vite documentation
