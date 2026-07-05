@@ -1,77 +1,88 @@
 # Read Phenomena
 
-Aliases: Read Phenomena, read phenomena
+Aliases: Read Phenomena, read anomalies
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Read Phenomena xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Read Phenomena xuất hiện khi transaction đọc dữ liệu trong môi trường concurrent và kết quả đọc có thể thay đổi tùy isolation level, MVCC hoặc lock behavior.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Read Phenomena là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Read Phenomena là nhóm hiện tượng/anomaly khi transaction đọc thấy dữ liệu không ổn định hoặc không đúng kỳ vọng, như dirty read, non-repeatable read, phantom read hoặc lost update liên quan read-write.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Read Phenomena không phải bug database mặc định. Nhiều hiện tượng là tradeoff có chủ ý của isolation level để đổi consistency lấy concurrency/performance.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Read Phenomena nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Khi nhiều transaction đọc/ghi cùng dữ liệu, engine dùng lock hoặc MVCC snapshot để quyết định transaction thấy version nào. Isolation level thấp hơn cho phép nhiều interleaving hơn và có thể lộ nhiều read phenomena hơn.
 
 ## Project Role / Vai trò trong dự án
 
-Read Phenomena giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi chọn isolation level, debug dữ liệu đọc không nhất quán, thiết kế transaction cho booking/inventory/accounting hoặc test concurrent behavior.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Read Phenomena
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Transaction timeline
+- Isolation level hiện tại
+- Phenomenon observed
+- Expected invariant
+- Fix option: higher isolation, lock, atomic update, version check
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Read Phenomena giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Transaction cần invariant nào?
+- Isolation level hiện tại cho phép hiện tượng gì?
+- Timeline concurrent read/write ra sao?
+- Có cần repeatable snapshot hoặc serializable không?
+- Có thể dùng atomic update/constraint thay vì tăng isolation không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Read Phenomena sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chọn isolation mặc định mà không hiểu tradeoff.
+- Test đơn luồng nên không thấy anomaly.
+- Fix bằng lock quá rộng làm giảm concurrency.
+- Tưởng read replica stale là isolation issue.
+- Không ghi lại timeline nên debug chỉ dựa cảm giác.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Read Phenomena nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Read-only/reporting không cần invariant mạnh có thể dùng isolation mặc định.
+- Không nên tăng toàn hệ thống lên isolation cao nếu chỉ một workflow cần bảo vệ.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Lost Update]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Isolation Level]] vì isolation level quyết định hiện tượng nào có thể xảy ra.
+- [[Transaction]] vì read phenomena xảy ra trong tương tác transaction.
+- [[Lost Update]] vì lost update là anomaly quan trọng liên quan read-modify-write.
+- [[Repeatable Read]] vì repeatable read ngăn một số hiện tượng đọc không ổn định.
+- [[Read Committed]] vì read committed cho phép một số read phenomena phổ biến.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Dirty read
+- Non-repeatable read
+- Phantom read
+- MVCC snapshot
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Read Phenomena
-- read phenomena
-- read phenomena design
+- read anomalies
+- dirty read
+- non-repeatable read
+- phantom read
+- isolation level
 - read phenomena debugging
-- read phenomena production
-- read phenomena best practice
 
 ## Source trace
 
