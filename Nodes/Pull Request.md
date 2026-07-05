@@ -1,53 +1,59 @@
 # Pull Request
 
-Aliases: Pull Request, pull request
+Aliases: Pull Request, PR
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Pull Request xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Pull Request xuất hiện khi code cần được review, kiểm tra tự động và thảo luận trước khi merge vào branch chính.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Pull Request là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Pull Request là đơn vị review change trong Git hosting platform. Nó gom diff, commit, discussion, CI status và approval signal.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Pull Request không tự đảm bảo chất lượng. Nếu diff quá lớn, test yếu hoặc reviewer không có context, PR chỉ là hình thức.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Pull Request giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Developer push branch, mở PR, CI chạy check, reviewer xem diff và comment. Khi check và approval đạt rule, PR được merge bằng merge commit, squash hoặc rebase tùy workflow.
 
 ## Project Role / Vai trò trong dự án
 
-Pull Request giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi thiết kế workflow review, debug CI check, chia nhỏ change hoặc quản lý release branch.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Pull Request
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- PR title/description rõ
+- Diff đủ nhỏ để review
+- CI status
+- Reviewer/owner
+- Merge strategy
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Pull Request nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- PR giải quyết issue/change nào?
+- Diff có nhỏ và tập trung không?
+- Test/check nào phải xanh?
+- Reviewer có đủ context không?
+- Merge strategy có phù hợp lịch sử repo không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Pull Request như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- PR quá lớn làm review hình thức.
+- CI thiếu check nên lỗi vào main.
+- Description mơ hồ làm reviewer đoán ý.
+- Merge conflict xử lý vội làm mất thay đổi.
+- Approval không đúng owner domain.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Pull Request nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Repo cá nhân thử nghiệm nhỏ có thể commit trực tiếp.
+- Không nên tạo rule review quá nặng nếu team chưa có nhu cầu.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Pull Request giúp chọn đúng abstraction, config, test hoặc debug path khi
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Git]] vì PR dựa trên branch/commit/diff của Git.
+- [[CI]] vì PR thường gắn với automated checks.
+- [[GitHub Actions]] vì Actions thường chạy check cho PR.
+- [[Regression Test]] vì PR nên chạy regression guard trước merge.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Code review
+- Collaboration workflow
+- Branch protection
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Pull Request
-- pull request
-- pull request design
-- pull request debugging
-- pull request production
+- PR
+- code review
+- merge request
+- branch protection
+- PR checklist
+- PR debugging
 
 ## Source trace
 
+- GitHub documentation
 - Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
