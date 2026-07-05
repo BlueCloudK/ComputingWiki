@@ -6,48 +6,54 @@ Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Nested Loop Join xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Nested Loop Join xuất hiện trong query plan khi database nối hai input bằng cách lặp qua outer rows và tìm matching rows ở inner side.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Nested Loop Join là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Nested Loop Join là join strategy trong query execution. Với mỗi row từ outer input, database dò inner input bằng scan hoặc index lookup để tìm row khớp join condition.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Nested Loop Join không tự xấu. Nó tốt khi outer input nhỏ hoặc inner side có index phù hợp; nó tệ khi hai phía lớn và lookup lặp quá nhiều.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Nested Loop Join nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Planner chọn outer/inner input. Executor lấy từng row outer, chạy inner lookup theo join condition, emit cặp row match. Chi phí xấp xỉ outer rows nhân chi phí inner lookup.
 
 ## Project Role / Vai trò trong dự án
 
-Nested Loop Join giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi đọc EXPLAIN plan, debug query join chậm, index thiếu, row estimate sai hoặc N+1-like pattern trong SQL plan.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Nested Loop Join
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- EXPLAIN/ANALYZE plan
+- Outer/inner row count
+- Join condition
+- Inner access path: index scan hay seq scan
+- Before/after index/query comparison
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Nested Loop Join giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Outer input có nhỏ không?
+- Inner lookup có dùng index không?
+- Row estimate có sát actual không?
+- Join condition có selective không?
+- Có join strategy khác tốt hơn không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Nested Loop Join sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Outer rows lớn làm inner lookup lặp rất nhiều.
+- Inner side thiếu index nên mỗi row outer gây scan lớn.
+- Statistic sai làm planner chọn nested loop nhầm.
+- Filter apply quá muộn khiến join xử lý nhiều row thừa.
+- Query chạy nhanh ở dev data nhỏ nhưng chậm ở production data lớn.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Nested Loop Join nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Query nhỏ/chạy hiếm và đủ nhanh thì chưa cần ép plan.
+- Không nên disable join strategy nếu chưa hiểu row estimate và data distribution.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Nested Loop Join giúp team thiết kế, review, test, deploy hoặc vận hàn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Query Plan]] vì nested loop join là node trong execution plan.
+- [[Index]] vì inner lookup thường cần index để nested loop hiệu quả.
+- [[N Plus One Query]] vì cả hai đều có pattern lặp lookup nhiều lần.
+- [[Performance Optimization]] vì join strategy ảnh hưởng query latency.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Join algorithm
+- Query execution
+- Row estimate
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Nested Loop Join
 - nested loop join
-- nested loop join design
+- join algorithm
+- EXPLAIN ANALYZE
+- index lookup
+- row estimate
 - nested loop join debugging
-- nested loop join production
-- nested loop join best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
