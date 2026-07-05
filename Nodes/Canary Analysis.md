@@ -6,48 +6,54 @@ Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Canary Analysis xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Canary Analysis xuất hiện khi version mới được rollout cho một phần nhỏ traffic/user và cần quyết định tiếp tục rollout hay rollback dựa trên metric thật.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Canary Analysis là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Canary Analysis là quá trình so sánh signal của canary version với baseline/stable version để đánh giá release mới có an toàn không.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Canary Analysis không chỉ là “deploy ít traffic”. Nếu không có metric, threshold và decision rule, canary chỉ là rollout chậm hơn nhưng vẫn mù.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Canary Analysis nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Traffic được chia giữa stable và canary. Hệ thống thu metric như error rate, latency, saturation, crash, business conversion hoặc log anomaly, rồi so sánh với threshold để pass, pause hoặc rollback.
 
 ## Project Role / Vai trò trong dự án
 
-Canary Analysis giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế progressive delivery, automated rollout gate, rollback rule hoặc debug vì sao release mới chỉ lỗi ở một phần traffic.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Canary Analysis
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Canary metric list
+- Baseline comparison window
+- Pass/fail threshold
+- Rollback rule
+- Owner/on-call context
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Canary Analysis giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Metric nào đại diện user impact?
+- Canary traffic có đủ sample không?
+- Baseline có cùng điều kiện traffic không?
+- Threshold pass/fail là gì?
+- Khi fail thì rollback tự động hay cần approval?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Canary Analysis sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Sample traffic quá ít nên không thấy lỗi.
+- Metric chọn sai nên release lỗi vẫn pass.
+- Baseline/canary khác loại user nên so sánh lệch.
+- Rollout tăng quá nhanh trước khi signal ổn định.
+- Alert noise làm người trực bỏ qua canary failure.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Canary Analysis nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Service nhỏ ít traffic có thể dùng smoke test và manual monitoring trước.
+- Không nên tự động rollback nếu metric chưa đủ tin và dễ false positive.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Canary Analysis giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Progressive Delivery]] vì canary analysis là gate quan trọng của progressive rollout.
+- [[Monitoring]] vì analysis dựa trên metric/log thật.
+- [[Rollback]] vì canary fail cần rollback nhanh.
+- [[Service Level Objective]] vì threshold nên gắn với user-visible reliability.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Canary release
+- Metric gate
+- Release safety
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Canary Analysis
 - canary analysis
-- canary analysis design
+- canary release
+- metric gate
+- rollback threshold
+- progressive rollout
 - canary analysis debugging
-- canary analysis production
-- canary analysis best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Google SRE Books
+- Continuous Delivery
