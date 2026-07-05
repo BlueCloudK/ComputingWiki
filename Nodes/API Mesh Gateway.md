@@ -1,53 +1,59 @@
 # API Mesh Gateway
 
-Aliases: API Mesh Gateway, api mesh gateway
+Aliases: API Mesh Gateway, mesh gateway
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-API Mesh Gateway xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+API Mesh Gateway xuất hiện khi hệ thống có nhiều API/service và cần một lớp gateway/mesh để điều phối routing, auth, traffic policy, observability hoặc service-to-service access.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-API Mesh Gateway là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+API Mesh Gateway là lớp gateway/proxy trong kiến trúc API/service mesh, giúp kiểm soát traffic vào/giữa service bằng policy, routing, retry, timeout, rate limit, telemetry hoặc mTLS tùy thiết kế.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+API Mesh Gateway không phải business service. Nó không nên chứa domain logic chính; nó nên xử lý cross-cutting concern ở boundary traffic.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu API Mesh Gateway nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Gateway/proxy nhận request, match route/policy, xác thực/ủy quyền nếu cần, áp timeout/retry/rate limit, forward tới upstream service và ghi metric/log/trace.
 
 ## Project Role / Vai trò trong dự án
 
-API Mesh Gateway giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế edge gateway, internal service mesh, API policy, multi-service routing hoặc debug request đi sai service/timeout/rate limit.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới API Mesh Gateway
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Route/policy config
+- Upstream service map
+- Auth/rate limit/timeout rule
+- Observability signal: log/metric/trace
+- Rollback/change plan
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- API Mesh Gateway giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Gateway nằm ở edge hay internal mesh?
+- Policy nào áp ở gateway, policy nào nằm trong service?
+- Route có version/canary không?
+- Timeout/retry có gây retry storm không?
+- Log/trace có đủ để debug request path không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng API Mesh Gateway sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Gateway chứa quá nhiều business logic.
+- Route sai làm request tới service sai version.
+- Retry/timeout config tạo cascading failure.
+- Authz chỉ kiểm ở gateway nhưng service nội bộ vẫn cần boundary.
+- Observability thiếu làm không trace được request.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu API Mesh Gateway nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Monolith hoặc vài service nhỏ có thể dùng reverse proxy/API gateway đơn giản.
+- Không nên thêm mesh phức tạp nếu team chưa cần service-to-service policy rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ API Mesh Gateway giúp team thiết kế, review, test, deploy hoặc vận hàn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[API Gateway]] vì API Mesh Gateway mở rộng vai trò gateway trong hệ nhiều service.
+- [[Reverse Proxy]] vì gateway thường là proxy điều phối request.
+- [[Rate Limiting]] vì gateway thường áp rate limit.
+- [[Timeout]] vì timeout là policy quan trọng ở gateway.
+- [[Monitoring]] vì gateway là điểm quan sát traffic tốt.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Service mesh
+- Edge gateway
+- API governance
 
 ## Keywords / Từ khóa tìm kiếm
 
 - API Mesh Gateway
-- api mesh gateway
-- api mesh gateway design
-- api mesh gateway debugging
-- api mesh gateway production
-- api mesh gateway best practice
+- mesh gateway
+- service mesh gateway
+- API routing
+- traffic policy
+- gateway observability
+- API mesh gateway debugging
 
 ## Source trace
 
+- Envoy documentation
 - Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
