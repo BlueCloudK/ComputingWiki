@@ -1,53 +1,59 @@
 # Traffic Mirroring
 
-Aliases: Traffic Mirroring, traffic mirroring
+Aliases: Traffic Mirroring, request mirroring
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Traffic Mirroring xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Traffic Mirroring xuất hiện khi team muốn gửi bản sao traffic thật tới service mới hoặc environment shadow để quan sát behavior mà chưa ảnh hưởng response người dùng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Traffic Mirroring là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Traffic Mirroring là kỹ thuật sao chép request từ production path sang target phụ. Response từ target phụ thường bị bỏ qua, chỉ dùng để đo log, metric, compatibility hoặc performance.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Traffic Mirroring không phải canary release thật. Canary trả response cho một phần user; mirroring chỉ quan sát bản sao và không nên tạo side effect production.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Traffic Mirroring nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Proxy, gateway hoặc service mesh nhận request chính, forward tới upstream thật, đồng thời gửi bản sao sang mirror target. Mirror target cần xử lý idempotent/read-only hoặc sandbox side effect.
 
 ## Project Role / Vai trò trong dự án
 
-Traffic Mirroring giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi test service mới, migration backend, API compatibility, performance under real-like traffic hoặc validate release trước khi canary.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Traffic Mirroring
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Mirror source/target config
+- Traffic percentage hoặc filter
+- Side effect isolation rule
+- Metric/log comparison
+- Stop/rollback rule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Traffic Mirroring giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Request nào được mirror?
+- Mirror target có thể tạo side effect không?
+- Dữ liệu nhạy cảm có bị gửi sang môi trường không phù hợp không?
+- Metric nào dùng để so sánh?
+- Có giới hạn traffic/cost không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Traffic Mirroring sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Mirror target ghi dữ liệu thật ngoài ý muốn.
+- Nhân đôi traffic làm tăng cost/load.
+- PII bị gửi sang môi trường chưa đủ bảo vệ.
+- Response mirror bị hiểu nhầm là user-facing.
+- So sánh metric không cùng context nên kết luận sai.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Traffic Mirroring nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Service nhỏ có staging test đủ thì chưa cần mirror traffic.
+- Không nên mirror traffic khi chưa cô lập side effect và dữ liệu nhạy cảm.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Traffic Mirroring giúp team thiết kế, review, test, deploy hoặc vận hà
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[API Gateway]] vì gateway/proxy thường thực hiện request mirroring.
+- [[Progressive Delivery]] vì mirroring là bước an toàn trước rollout thật.
+- [[Monitoring]] vì mirroring cần metric/log để so sánh.
+- [[Load Balancer]] vì traffic control thường nằm gần load balancer/proxy.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Shadow testing
+- Service migration
+- Release validation
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Traffic Mirroring
-- traffic mirroring
-- traffic mirroring design
+- request mirroring
+- shadow traffic
+- shadow testing
+- mirrored request
+- service mesh mirroring
 - traffic mirroring debugging
-- traffic mirroring production
-- traffic mirroring best practice
 
 ## Source trace
 
 - Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Envoy documentation
