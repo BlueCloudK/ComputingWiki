@@ -6,51 +6,58 @@ Type: Data / Database
 
 ## Context / Ngữ cảnh
 
-Transaction xuất hiện khi hệ thống cần lưu, truy vấn, migrate, kiểm soát consistency hoặc hiểu dữ liệu qua thời gian. Nó thường nằm trong database schema, data model, query path hoặc integration payload.
+Transaction xuất hiện khi nhiều thao tác đọc/ghi dữ liệu cần được xem như một đơn vị logic: hoặc cùng thành công, hoặc hệ thống không để lại trạng thái nửa vời. Nó thường dùng trong order/payment, inventory, account balance, booking, state transition, audit trail và workflow có invariant quan trọng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Transaction là một phần của cách dữ liệu được biểu diễn, ràng buộc, truy cập hoặc giữ đúng trong hệ thống.
+Transaction là boundary trong database hoặc hệ thống dữ liệu để gom các thao tác thành một đơn vị commit/rollback. Transaction tốt giúp bảo vệ invariant như “không trừ tiền nếu không tạo order”, “không bán quá tồn kho”, hoặc “audit log đi cùng thay đổi chính”.
 
 ### Nó không phải là gì
 
-Nó không chỉ là nơi cất data; nếu thiếu schema, constraint, transaction hoặc migration strategy thì code rất dễ phải vá dữ liệu sai.
+Transaction không tự giải quyết mọi race condition. Nếu isolation level yếu, check-then-act sai, lock thiếu hoặc transaction kéo dài quá lâu, dữ liệu vẫn có thể sai hoặc performance sập. Transaction cũng không tự mở rộng qua nhiều service; distributed transaction có boundary khác và cost cao hơn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi xoay quanh model/schema, relationship, constraint, transaction, index và migration. Những thứ này quyết định dữ liệu có nhất quán, truy vấn có nhanh và thay đổi có an toàn không.
+Transaction bắt đầu, thực hiện nhiều statement, rồi commit nếu mọi thứ hợp lệ hoặc rollback khi lỗi. ACID mô tả kỳ vọng: atomicity, consistency, isolation, durability. Cơ chế thật dựa trên lock, MVCC, write-ahead log, isolation level, constraint và conflict handling của database engine.
 
 ## Project Role / Vai trò trong dự án
 
-Transaction ảnh hưởng tới database design, query performance, migration, audit/history, backup và cách debug lỗi dữ liệu.
+Transaction là node cần mở khi thiết kế service ghi dữ liệu quan trọng, debug data inconsistency, lost update, double-submit, lock wait, deadlock hoặc rollback không như mong đợi. Nó giúp team xác định transaction boundary, invariant nào cần bảo vệ và nơi nào cần constraint/lock/idempotency.
 
 ## Output / Artifact nên có
 
-- Schema/model hoặc migration note rõ thay đổi dữ liệu
-- Constraint/index/transaction decision nếu ảnh hưởng consistency/performance
-- Checklist backup, audit hoặc data validation cho dữ liệu quan trọng
+- Transaction boundary note: bắt đầu ở đâu, commit ở đâu, rollback path nào
+- Invariant cần bảo vệ và constraint/lock đi kèm
+- Isolation level decision cho transaction quan trọng
+- Test concurrency cho double-submit, lost update, conflict và rollback
+- Monitoring/debug note: lock wait, deadlock, transaction duration, retry count
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Schema có biểu diễn đúng relationship và cardinality không?
-- Migration có plan rollback/backfill và kiểm tra dữ liệu sau chạy không?
-- Transaction boundary có đủ giữ consistency không?
-- Query chính có index và baseline performance chưa?
-- Dữ liệu quan trọng có backup/history/audit đủ truy vết không?
+- Những thao tác nào phải cùng commit hoặc cùng rollback?
+- Invariant nào cần giữ đúng sau transaction?
+- Isolation level hiện tại có đủ cho race condition này không?
+- Có cần row lock, unique constraint hoặc atomic update không?
+- Transaction có gọi network/third-party chậm bên trong không?
+- Transaction duration có quá dài gây lock wait hoặc connection pool saturation không?
+- Khi conflict/deadlock xảy ra, app có retry an toàn không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Schema sai làm code phải vá vòng quanh
-- Migration mất dữ liệu hoặc gây downtime
-- Transaction/consistency yếu làm dữ liệu lệch giữa service
-- Query thiếu index làm production chậm khi data tăng
+- Transaction boundary quá nhỏ làm dữ liệu chính commit nhưng audit/history không ghi.
+- Transaction boundary quá lớn giữ lock lâu và gây timeout/pool saturation.
+- Check-then-act dưới isolation yếu gây lost update hoặc oversell.
+- Gọi third-party trong transaction làm lock bị giữ trong lúc chờ network.
+- Rollback app code nhưng side effect ngoài database đã xảy ra.
+- Không retry deadlock/serialization failure làm user gặp lỗi ngẫu nhiên dưới tải cao.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần model phức tạp khi dữ liệu nhỏ, ít quan hệ và dễ migrate
-- Dễ over-engineer nếu normalize/partition/cache trước khi có query pattern thật
+- Read-only query hoặc write đơn giản một statement có constraint đủ có thể không cần transaction phức tạp.
+- Không nên giữ transaction mở qua UI step hoặc remote API call dài.
+- Không nên dùng distributed transaction nếu có thể thiết kế idempotency, outbox hoặc eventual consistency rõ hơn.
 
 ## Gồm những gì
 
@@ -58,28 +65,37 @@ Transaction ảnh hưởng tới database design, query performance, migration, 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[ACID]] vì transaction là nơi ACID có ý nghĩa thực tế.
+- [[Isolation Level]] vì isolation quyết định transaction nhìn thấy thay đổi của nhau ra sao.
+- [[Database Lock]] vì lock thường bảo vệ row/resource trong transaction.
+- [[Database Migration]] vì migration có thể chạy trong hoặc ngoài transaction tùy database.
+- [[Retry]] vì conflict/deadlock/serialization failure thường cần retry an toàn.
 
 ## Liên quan rộng
 
-- Database
-- Backend
-- Data migration
-- Observability
+- Data correctness
+- Concurrency control
+- Backend workflow
+- Database reliability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Transaction
-- giao dịch
 - database transaction
 - giao dịch database
-- data model
-- query design
-- data consistency
-- pipeline dữ liệu
-- chất lượng dữ liệu
-- Rollback
+- commit
+- rollback
+- ACID
+- transaction boundary
+- lost update
+- deadlock retry
+- lock wait
+- isolation level
+- atomic update
+- transaction duration
+- transaction debugging
 
 ## Source trace
 
-- Database System Concepts Ch04.3 / Part Seven
+- Database System Concepts
+- PostgreSQL transaction documentation
