@@ -1,53 +1,59 @@
 # Public Subnet
 
-Aliases: Public Subnet, public subnet
+Aliases: Public Subnet, internet-facing subnet
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Public Subnet xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Public Subnet xuất hiện trong cloud network khi resource trong subnet cần có đường route ra/vào internet thông qua internet gateway, load balancer hoặc public IP.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Public Subnet là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Public Subnet là subnet có route tới internet gateway và có thể chứa resource internet-facing như load balancer, bastion host hoặc NAT gateway tùy cloud design.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Public Subnet không tự động làm mọi resource public. Security group, firewall, public IP, route table và service binding vẫn quyết định traffic thật có vào được hay không.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Public Subnet nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Subnet gắn với route table có default route ra internet gateway. Resource muốn nhận traffic trực tiếp thường cần public IP hoặc load balancer mapping, đồng thời network ACL/security group cho phép port/protocol phù hợp.
 
 ## Project Role / Vai trò trong dự án
 
-Public Subnet giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế VPC/VNet, expose load balancer, đặt NAT/bastion, debug service không truy cập được từ internet hoặc tách public/private tier.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Public Subnet
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Subnet CIDR
+- Route table
+- Internet gateway mapping
+- Security group/firewall rule
+- Public/private placement decision
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Public Subnet giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Subnet có default route ra internet gateway không?
+- Resource có public IP hoặc load balancer không?
+- Firewall/security group mở đúng port chưa?
+- Resource này có thật sự nên nằm public subnet không?
+- Private subnet có cần NAT để outbound không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Public Subnet sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Route public nhưng security group chặn nên không vào được.
+- Resource nhạy cảm bị đặt public subnet không cần thiết.
+- Public IP mở rộng làm tăng attack surface.
+- Load balancer public nhưng backend/private route sai.
+- Nhầm public subnet với private subnet có outbound NAT.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Public Subnet nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Service nội bộ không cần internet-facing path thì nên ở private subnet.
+- Không nên đưa database/stateful service ra public subnet nếu có thể đặt sau private boundary.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ Public Subnet giúp team thiết kế, review, test, deploy hoặc vận hành h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Least Privilege]] vì public exposure cần scope nhỏ nhất có thể.
+- [[Load Balancer]] vì public traffic thường đi qua load balancer.
+- [[API Gateway]] vì API public có thể nằm trước private backend.
+- [[TLS]] vì public endpoint cần transport security.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- VPC networking
+- Route table
+- Internet gateway
+- Public IP
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Public Subnet
-- public subnet
-- public subnet design
+- internet-facing subnet
+- route table
+- internet gateway
+- public IP
+- security group
 - public subnet debugging
-- public subnet production
-- public subnet best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- AWS VPC documentation
+- Google Cloud VPC documentation
