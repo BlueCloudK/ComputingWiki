@@ -70,7 +70,7 @@ Alert giúp team phản ứng kịp khi production có lỗi thật. Khi thiết
 - [[Service Level Objective]] vì SLO/burn rate thường là nền cho alert ít noise hơn.
 - [[Incident]] vì alert thường là điểm mở incident.
 - [[Health Check]] vì health check failure có thể trigger alert nếu ảnh hưởng traffic.
-- [[Runbook]] vì alert cần hướng dẫn xử lý ban đầu.
+- runbook vì alert cần hướng dẫn xử lý ban đầu.
 
 ## Liên quan rộng
 
