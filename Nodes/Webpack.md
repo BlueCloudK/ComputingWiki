@@ -1,53 +1,59 @@
 # Webpack
 
-Aliases: Webpack, webpack
+Aliases: Webpack
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Webpack xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Webpack xuất hiện khi JavaScript/frontend project cần bundle nhiều module, asset, loader và plugin thành output phù hợp browser hoặc runtime mục tiêu.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Webpack là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Webpack là module bundler. Nó xây dependency graph từ entry point, xử lý module/asset qua loader/plugin và emit bundle/output files.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Webpack không phải frontend framework và không tự quyết định UI architecture. Nó là build tool cho module, asset và optimization pipeline.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Webpack giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Webpack bắt đầu từ entry, resolve import/module, áp loader cho file type, chạy plugin ở build lifecycle, rồi tạo bundle/chunk/asset theo config mode, target và optimization.
 
 ## Project Role / Vai trò trong dự án
 
-Webpack giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug bundle size, loader config, module resolution, asset path, code splitting, sourcemap hoặc build khác dev/prod.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Webpack
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- `webpack.config`
+- Entry/output config
+- Loader/plugin list
+- Module resolution/alias note
+- Bundle analysis report nếu cần
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Webpack nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Entry point và output path có đúng không?
+- Loader nào xử lý file type nào?
+- Alias/module resolution có khớp IDE/test không?
+- Bundle/chunk size có được đo không?
+- Dev/prod config có khác gì nguy hiểm không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Webpack như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Loader order sai làm build fail hoặc output sai.
+- Alias khác giữa build/test/IDE.
+- Bundle quá lớn nhưng không được split.
+- Asset public path sai sau deploy.
+- Sourcemap sai làm production debug khó.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Webpack nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project mới có thể dùng Vite/framework preset thay vì tự config Webpack.
+- Không nên tùy biến loader/plugin sâu nếu preset đủ dùng.
 
 ## Gồm những gì
 
@@ -55,26 +61,29 @@ Webpack giúp chọn đúng abstraction, config, test hoặc debug path khi làm
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[JavaScript]] vì Webpack bundle JavaScript module.
+- [[Module System]] vì Webpack resolve import/module graph.
+- [[Babel]] vì Babel thường được dùng như transform trong Webpack pipeline.
+- [[Vite]] vì Vite là lựa chọn build/dev server hiện đại trong nhiều project.
+- [[Build Cache]] vì cache ảnh hưởng tốc độ build Webpack.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Module bundling
+- Asset pipeline
+- Code splitting
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Webpack
-- webpack
-- webpack design
-- webpack debugging
-- webpack production
+- module bundler
+- webpack config
+- loader
+- plugin
+- code splitting
+- bundle analysis
+- Webpack debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- Webpack documentation
