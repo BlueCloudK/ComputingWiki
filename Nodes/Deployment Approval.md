@@ -1,53 +1,59 @@
 # Deployment Approval
 
-Aliases: Deployment Approval, deployment approval
+Aliases: Deployment Approval, release approval
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Deployment Approval xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Deployment Approval xuất hiện khi một deployment cần người hoặc policy xác nhận trước khi đi tiếp tới environment nhạy cảm như staging shared hoặc production.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Deployment Approval là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Deployment Approval là gate trong release pipeline yêu cầu approval dựa trên risk, environment, change type hoặc incident state.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Deployment Approval không thay thế test, monitoring hoặc rollback. Approval chỉ có ý nghĩa nếu người duyệt thấy đủ context và signal.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Deployment Approval nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline dừng ở gate, hiển thị artifact/version, diff, test result, risk note và rollback plan. Reviewer hoặc policy cho phép deploy tiếp hoặc reject/pause.
 
 ## Project Role / Vai trò trong dự án
 
-Deployment Approval giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế production release, environment protection, change management hoặc deployment policy.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Deployment Approval
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Approval rule
+- Required reviewer/owner
+- Context package: diff, artifact, tests, risk
+- Rollback plan
+- Audit log
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Deployment Approval giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Change nào cần approval?
+- Ai có quyền approve?
+- Reviewer thấy đủ artifact/test/risk chưa?
+- Approval có timeout hoặc escalation không?
+- Emergency deploy xử lý ra sao?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Deployment Approval sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Approval chỉ bấm cho có, không có context.
+- Gate quá nặng làm release chậm không cần thiết.
+- Người approve không đúng owner domain.
+- Pipeline không ghi audit log.
+- Emergency path bypass mọi guardrail.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Deployment Approval nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Prototype hoặc staging cá nhân có thể chưa cần approval formal.
+- Không nên bắt approval mọi deploy nếu automated checks đã đủ cho low-risk change.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Deployment Approval giúp team thiết kế, review, test, deploy hoặc vận h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[CD]] vì approval thường nằm trong deployment pipeline.
+- [[Deployment]] vì approval kiểm soát thời điểm deploy.
+- [[Release Artifact]] vì reviewer cần biết artifact nào sẽ deploy.
+- [[Rollback]] vì approval nên có rollback path rõ.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Release governance
+- Environment protection
+- Change management
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Deployment Approval
-- deployment approval
-- deployment approval design
+- release approval
+- deployment gate
+- production approval
+- environment protection
+- approval audit
 - deployment approval debugging
-- deployment approval production
-- deployment approval best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- GitHub Actions environments documentation
+- Continuous Delivery
