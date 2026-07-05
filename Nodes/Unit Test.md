@@ -6,51 +6,58 @@ Type: Testing / Verification
 
 ## Context / Ngữ cảnh
 
-Unit Test xuất hiện khi cần chứng minh một behavior, artifact hoặc thay đổi kỹ thuật đúng như mong đợi. Nó nằm trong test level, CI, regression, test data và review flow.
+Unit Test xuất hiện khi cần kiểm tra một đơn vị code nhỏ như function, class, method, service use case hoặc domain rule trong isolation tương đối. Nó giúp bắt lỗi logic sớm, bảo vệ refactor và ghi lại expectation của behavior quan trọng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Unit Test là cơ chế kiểm tra một loại rủi ro cụ thể: logic sai, tích hợp vỡ, regression, dữ liệu test lệch hoặc behavior không khớp expectation.
+Unit Test là test tập trung vào một unit nhỏ với input, expected output/side effect và dependency được kiểm soát bằng fake/mock/stub khi cần. Unit tốt thường nhanh, deterministic, chạy trong CI và chỉ fail khi behavior của unit bị phá.
 
 ### Nó không phải là gì
 
-Nó không phải bằng chứng tuyệt đối rằng hệ thống đúng; test luôn có phạm vi, false positive/false negative và blind spot.
+Unit Test không chứng minh toàn hệ thống tích hợp đúng. Nếu mock quá sâu hoặc test implementation detail, test có thể pass dù integration thật fail. Unit test cũng không thay thế integration/system/acceptance test cho database, network, UI hoặc contract nhiều service.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chọn test level phù hợp, chuẩn bị test data đại diện, xác định expected result và đưa check vào CI/regression khi rủi ro lặp lại.
+Test setup tạo input và dependency giả hoặc in-memory, gọi unit cần kiểm tra, rồi assertion output/state/interaction quan trọng. Unit test tốt theo pattern arrange-act-assert, cover happy path, edge case, failure path và regression bug quan trọng.
 
 ## Project Role / Vai trò trong dự án
 
-Unit Test gắn code change với bằng chứng kiểm tra, giúp team quyết định merge/release dựa trên tín hiệu thay vì cảm giác.
+Unit Test là node cần mở khi refactor service/domain logic, sửa bug logic, thêm validation/rule hoặc muốn CI bắt regression nhanh. Nó giúp team tự tin thay đổi code mà không cần chạy toàn bộ app thủ công mỗi lần.
 
 ## Output / Artifact nên có
 
-- Test case hoặc checklist rõ input, expected result và level test
-- Test data cho happy path, edge case và failure case
-- CI/regression rule cho luồng quan trọng
+- Test case rõ input, expected output và reason/risk được cover
+- Test data cho happy path, boundary value, invalid input và failure path
+- Mock/fake/stub policy cho dependency ngoài unit
+- Regression test gắn với bug đã từng xảy ra
+- CI rule chạy unit test nhanh trên mỗi PR/commit quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Test này bắt loại lỗi nào và không bắt loại lỗi nào?
-- Nó thuộc unit, integration, system hay acceptance level?
-- Test data có đủ edge case và dữ liệu lỗi không?
-- False positive/false negative có dễ xảy ra không?
-- Có chạy trong CI/regression suite đúng thời điểm không?
+- Unit này là function/class/service/domain rule nào?
+- Test đang bắt logic behavior hay chỉ test implementation detail?
+- Dependency nào nên fake/mock, dependency nào nên dùng integration test?
+- Có edge case và failure path quan trọng chưa?
+- Test có deterministic, nhanh và không phụ thuộc network/time/random thật không?
+- Khi refactor không đổi behavior, test có vẫn pass không?
+- Có bug cũ nào cần regression test không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Test chỉ cover happy path nên production vẫn lỗi edge case
-- Mock quá sâu làm test pass nhưng integration fail
-- Flaky test làm team mất niềm tin vào CI
-- Thiếu regression nên bug cũ quay lại
+- Test chỉ cover happy path nên production vẫn lỗi edge case.
+- Mock quá sâu làm test pass nhưng integration với database/API fail.
+- Test implementation detail khiến refactor hợp lệ cũng phá test.
+- Flaky test do time/random/thread/network làm team mất niềm tin CI.
+- Assertion quá yếu chỉ kiểm tra “không throw” nên không bắt sai behavior.
+- Unit test nhiều nhưng thiếu integration test nên contract giữa module vẫn vỡ.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần test automation nặng cho spike bỏ đi hoặc prototype rất ngắn
-- Dễ over-engineer nếu test chi tiết implementation khiến refactor nào cũng vỡ test
+- Spike/prototype bỏ đi rất nhanh có thể chưa cần test automation đầy đủ.
+- Không nên unit test getter/setter hoặc code quá đơn giản không có risk.
+- Không nên mock mọi thứ nếu behavior cần kiểm chứng nằm ở integration boundary.
 
 ## Gồm những gì
 
@@ -60,30 +67,37 @@ Unit Test gắn code change với bằng chứng kiểm tra, giúp team quyết 
 
 ## Nối mạnh
 
-- [[Component Testing]] vì nó là check trực tiếp để phát hiện lỗi hoặc xác nhận hành vi
+- [[Regression Test]] vì unit test thường lưu lại bug fix thành regression guard.
+- [[Service Layer]] vì service use case thường là nơi unit test workflow tốt.
+- [[Repository]] vì repository thường được fake/mock khi unit test service.
+- [[Dependency Injection]] vì DI giúp thay dependency trong unit test.
+- [[Validation]] vì validation rule có thể test bằng unit test nhanh.
 
 ## Liên quan rộng
 
 - Quality assurance
 - CI/CD
-- Regression safety
-- Release confidence
+- Refactoring safety
+- Developer feedback loop
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Unit Test
-- unit test checklist
-- unit test strategy
-- kiểm thử Unit
 - unit testing
 - kiểm thử đơn vị
-- test design
-- test execution
-- regression testing
-- kiểm thử phần mềm
-- xác minh chất lượng
-- Assertion
+- arrange act assert
+- test double
+- mock
+- fake
+- stub
+- assertion
+- regression test
+- deterministic test
+- flaky test
+- test isolation
+- unit test debugging
 
 ## Source trace
 
-- Software Testing ISTQB Map / Ch02
+- Software Testing ISTQB Map
+- xUnit Test Patterns
