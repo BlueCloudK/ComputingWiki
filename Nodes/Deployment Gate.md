@@ -1,53 +1,59 @@
 # Deployment Gate
 
-Aliases: Deployment Gate, deployment gate
+Aliases: Deployment Gate, release gate
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Deployment Gate xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Deployment Gate xuất hiện khi pipeline cần chặn hoặc cho phép deploy dựa trên test, approval, policy, metric hoặc trạng thái environment.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Deployment Gate là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Deployment Gate là checkpoint trong CD pipeline/rollout flow, nơi release phải đạt điều kiện nhất định trước khi đi tiếp.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Deployment Gate không phải đảm bảo production an toàn tuyệt đối. Gate chỉ tốt nếu input signal đáng tin và không bị bypass.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Deployment Gate nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline hoặc rollout controller chạy test/policy/approval/metric check. Nếu gate pass, deploy tiếp; nếu fail, pipeline dừng, rollback hoặc yêu cầu người phụ trách xử lý.
 
 ## Project Role / Vai trò trong dự án
 
-Deployment Gate giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế production approval, policy check, canary gate, promotion giữa environment hoặc debug vì sao deploy bị block.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Deployment Gate
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Gate condition list
+- Required checks/tests
+- Approval owner nếu cần
+- Failure/rollback behavior
+- Audit log/run link
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Deployment Gate giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Gate đang bảo vệ rủi ro gì?
+- Signal nào được dùng để pass/fail?
+- Gate có thể bị bypass không?
+- Ai approve nếu manual?
+- Khi gate fail thì rollback, pause hay retry?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Deployment Gate sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Gate quá yếu nên lỗi vẫn vào production.
+- Gate quá chặt làm release kẹt không cần thiết.
+- Manual approval không có context metric/test.
+- Gate bị bypass qua workflow thủ công.
+- Failure không có owner nên deploy treo.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Deployment Gate nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Project nhỏ chưa có production user có thể dùng test đơn giản trước.
+- Không nên thêm nhiều gate nếu mỗi gate không có signal/action rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ Deployment Gate giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Deployment Approval]] vì approval là một dạng deployment gate.
+- [[CD]] vì gate nằm trong delivery pipeline.
+- [[Canary Analysis]] vì canary metric có thể là rollout gate.
+- [[Policy Check]] vì policy check có thể chặn deploy không đạt chuẩn.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Release gate
+- Production approval
+- Policy enforcement
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Deployment Gate
-- deployment gate
-- deployment gate design
+- release gate
+- CD gate
+- production gate
+- approval gate
+- policy gate
 - deployment gate debugging
-- deployment gate production
-- deployment gate best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
+- Continuous Delivery
 - GitHub Actions documentation
+- Google SRE Books
