@@ -1,53 +1,59 @@
 # Join Order
 
-Aliases: Join Order, join order
+Aliases: Join Order, join ordering
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Join Order xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Join Order xuất hiện khi một query join nhiều bảng và database optimizer phải chọn bảng nào join trước để giảm số row trung gian và chi phí execution.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Join Order là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Join Order là thứ tự optimizer/executor kết hợp các relation trong query plan.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Join Order không chỉ là thứ tự bảng viết trong SQL. Optimizer thường có thể reorder join dựa trên statistics, constraint và cost model.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Join Order nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Optimizer ước lượng cardinality/selectivity của từng relation và join predicate, sau đó chọn thứ tự join có chi phí thấp nhất hoặc đủ tốt trong không gian search.
 
 ## Project Role / Vai trò trong dự án
 
-Join Order giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug query join nhiều bảng bị chậm, row estimate lệch, join explosion, plan thay đổi sau data growth hoặc index/statistics không đủ tốt.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Join Order
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- EXPLAIN/ANALYZE plan
+- Join tree/order
+- Estimated vs actual rows per join
+- Join predicate/selectivity note
+- Candidate index/statistics/query rewrite
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Join Order giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Join nào làm row trung gian phình lớn?
+- Estimated rows có lệch actual không?
+- Predicate có selective không?
+- Statistics/index có đủ để optimizer chọn đúng không?
+- Query có outer join/constraint làm hạn chế reorder không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Join Order sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Optimizer join bảng lớn quá sớm làm intermediate result phình.
+- Statistics stale làm chọn join order sai.
+- Predicate correlation không được model đúng.
+- Outer join hoặc function predicate hạn chế khả năng reorder.
+- Dev data nhỏ nên plan ổn, production data lớn thì vỡ.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Join Order nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Query ít bảng, dữ liệu nhỏ và latency ổn thì chưa cần đào sâu.
+- Không nên ép join order nếu chưa hiểu statistics và actual row count.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Join Order giúp team thiết kế, review, test, deploy hoặc vận hành hệ
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Execution Plan]] vì join order là phần quan trọng của execution plan.
+- [[Query Plan]] vì optimizer chọn join order trong query plan.
+- [[Hash Join]] vì join order quyết định build/probe side.
+- [[Nested Loop Join]] vì outer/inner side phụ thuộc join order.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Query optimizer
+- Cardinality estimation
+- Join explosion
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Join Order
-- join order
-- join order design
+- join ordering
+- query optimizer
+- join tree
+- cardinality estimation
+- join explosion
 - join order debugging
-- join order production
-- join order best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
