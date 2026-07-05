@@ -1,53 +1,57 @@
 # APK
 
-Aliases: APK, apk
+Aliases: APK, Android Package
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-APK xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+APK xuất hiện khi Android app cần được đóng gói để cài đặt, test hoặc phát hành ngoài store flow nhất định.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-APK là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+APK là file package cài đặt Android app. Nó chứa code, resource, manifest và signature cần thiết để thiết bị Android cài app.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+APK không phải source code và không phải định dạng publish chính duy nhất trên Play Store hiện đại.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu APK giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Build system compile code/resource, tạo package, ký bằng signing key rồi sinh APK. Thiết bị kiểm tra package name, version, signature và manifest khi cài hoặc cập nhật.
 
 ## Project Role / Vai trò trong dự án
 
-APK giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug build Android, cài app test, signing, versionCode, permission hoặc lỗi install/update.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới APK
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- APK build artifact
+- Signing config
+- Version code/name
+- Manifest/permission note
+- Install/test checklist
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- APK nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- APK build cho debug hay release?
+- Signing key có đúng không?
+- Version code có tăng không?
+- Manifest permission có đúng không?
+- Thiết bị target có tương thích không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng APK như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Signature khác làm update app fail.
+- Version code không tăng nên không update được.
+- Permission hoặc manifest sai làm runtime lỗi.
+- Build debug/release bị nhầm.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu APK nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Nếu chỉ publish qua store hiện đại, AAB thường là artifact chính hơn.
 
 ## Gồm những gì
 
@@ -55,25 +59,26 @@ APK giúp chọn đúng abstraction, config, test hoặc debug path khi làm pro
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[AAB]] vì AAB và APK đều là artifact release Android.
+- [[Kotlin]] vì nhiều Android app viết bằng Kotlin.
+- [[Mobile App]] vì APK là artifact cài đặt app Android.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Android release
+- App signing
+- Mobile testing
 
 ## Keywords / Từ khóa tìm kiếm
 
 - APK
-- apk
-- apk design
-- apk debugging
-- apk production
+- Android Package
+- Android app package
+- APK signing
+- versionCode
+- Android install
+- APK debugging
 
 ## Source trace
 
 - Android Developers documentation
-- Apple Developer documentation
-- React Native documentation
-- Flutter documentation
