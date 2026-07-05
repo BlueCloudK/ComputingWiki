@@ -1,53 +1,59 @@
 # Shader
 
-Aliases: Shader, shader
+Aliases: Shader
 
 Type: Game Development
 
 ## Context / Ngữ cảnh
 
-Shader xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+Shader xuất hiện khi game/rendering cần quyết định cách surface, sprite, particle, post-process hoặc UI được GPU vẽ ra màn hình.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Shader là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+Shader là chương trình chạy trên GPU để xử lý vertex, fragment/pixel hoặc compute data, quyết định màu sắc, ánh sáng, texture, hiệu ứng và render behavior.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Shader không phải material hoàn chỉnh. Material thường là cấu hình dùng shader kèm texture, parameter và render state.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Shader giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Renderer chọn shader/material, gửi mesh/texture/uniform/buffer cho GPU. Shader chạy theo pipeline để transform vertex, sample texture, tính lighting/effect và xuất pixel hoặc data.
 
 ## Project Role / Vai trò trong dự án
 
-Shader giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug object tím/mất material, hiệu ứng sai, shader compile fail, GPU bottleneck, draw call state hoặc khác biệt giữa platform.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Shader
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Shader file/graph
+- Material parameter list
+- Target render pipeline/platform
+- Compile variant note
+- GPU profiler/checklist nếu performance quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Shader nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Shader chạy trong render pipeline nào?
+- Material parameter có đúng không?
+- Shader variant có bị strip/missing không?
+- Bottleneck nằm ở fill-rate, texture sample hay math?
+- Platform target có hỗ trợ feature shader này không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Shader như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Shader compile fail trên platform cụ thể.
+- Material thiếu texture/parameter làm render sai.
+- Quá nhiều variant làm build nặng.
+- Shader quá đắt làm GPU frame time cao.
+- Render pipeline đổi làm shader không tương thích.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Shader nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype gameplay có thể dùng material/shader mặc định trước.
+- Không nên viết shader tùy biến nếu effect chuẩn của engine đủ dùng.
 
 ## Gồm những gì
 
@@ -55,25 +61,30 @@ Shader giúp chọn đúng abstraction, config, test hoặc debug path khi làm 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Draw Call]] vì shader/material state ảnh hưởng batching và draw call.
+- [[Sprite]] vì sprite có thể dùng shader/material riêng.
+- [[Performance Optimization]] vì shader cost ảnh hưởng GPU frame time.
+- [[Asset Pipeline]] vì shader/material là asset cần import/build đúng.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- GPU pipeline
+- Material
+- Lighting
+- Post-processing
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Shader
 - shader
-- shader design
+- GPU shader
+- material shader
+- shader variant
+- shader compile
 - shader debugging
-- shader production
 
 ## Source trace
 
-- Game Programming Patterns
 - Unity documentation
 - Unreal Engine documentation
 - Godot documentation
