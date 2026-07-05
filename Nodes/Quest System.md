@@ -6,48 +6,54 @@ Type: Game Development
 
 ## Context / Ngữ cảnh
 
-Quest System xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+Quest System xuất hiện khi game cần quản lý nhiệm vụ, objective, progress, reward, dialogue trigger hoặc world state liên quan tới hành trình người chơi.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Quest System là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+Quest System là hệ thống theo dõi quest state, objective, condition, event và reward để biết người chơi đang làm gì, đã hoàn thành gì và mở khóa gì tiếp theo.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Quest System không phải chỉ là text hiển thị nhiệm vụ. UI quest log chỉ là một phần; phần lõi là state/progress logic và event integration.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Quest System giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Quest có state như locked, active, completed, failed. Objective lắng nghe event gameplay như kill, collect, enter area, talk NPC hoặc trigger cutscene, rồi cập nhật progress và phát reward/unlock khi condition đạt.
 
 ## Project Role / Vai trò trong dự án
 
-Quest System giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi thiết kế mission/quest flow, debug quest không update, reward không phát, save/load quest state hoặc narrative progression.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Quest System
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Quest state diagram
+- Objective/condition list
+- Event trigger mapping
+- Reward/unlock rule
+- Save/load test checklist
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Quest System nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Quest có những state nào?
+- Objective nghe event nào?
+- Progress được lưu ở đâu?
+- Reward phát một lần hay lặp được?
+- Quest fail/abandon/reset xử lý ra sao?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Quest System như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Event trigger không fire nên quest kẹt.
+- Progress không lưu đúng khi load game.
+- Reward phát nhiều lần vì thiếu idempotency.
+- Quest dependency tạo dead-end.
+- UI quest log hiển thị khác state thật.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Quest System nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Game prototype chưa có progression có thể dùng trigger/script đơn giản.
+- Không nên xây quest engine phức tạp nếu game chỉ có vài nhiệm vụ tuyến tính.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Quest System giúp chọn đúng abstraction, config, test hoặc debug path khi
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Game Loop]] vì quest progress thường cập nhật qua event trong gameplay.
+- [[Finite State AI]] vì NPC/AI state có thể bị quest trigger ảnh hưởng.
+- [[Save System]] vì quest state cần được lưu/khôi phục.
+- [[HUD]] vì objective/progress thường hiển thị cho player.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- Mission system
+- Objective tracking
+- Reward flow
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Quest System
 - quest system
-- quest system design
+- mission system
+- objective tracking
+- quest state
+- reward trigger
 - quest system debugging
-- quest system production
 
 ## Source trace
 
 - Game Programming Patterns
 - Unity documentation
 - Unreal Engine documentation
-- Godot documentation
