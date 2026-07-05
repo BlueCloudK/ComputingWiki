@@ -1,81 +1,92 @@
 # Tool Calling
 
-Aliases: Tool Calling, tool calling
+Aliases: Tool Calling, function calling
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Tool Calling xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Tool Calling xuất hiện khi model không chỉ trả text mà còn chọn và gọi tool/function/API để lấy dữ liệu, thực hiện hành động hoặc quan sát môi trường.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Tool Calling là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Tool Calling là cơ chế model/planner tạo structured tool call theo schema, runtime execute tool và đưa observation quay lại model hoặc workflow.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Tool Calling không tự đồng nghĩa với agent an toàn. Tool call cần schema, permission, sandbox, timeout, retry, logging và approval nếu có side effect.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Tool Calling nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Runtime cung cấp tool schema cho model. Model chọn tool và arguments. Runtime validate, kiểm tra permission, execute tool, nhận result/error rồi đưa observation vào bước tiếp theo của agent loop.
 
 ## Project Role / Vai trò trong dự án
 
-Tool Calling giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế AI agent, RAG tool retrieval, function calling API, tool runner, audit trace hoặc debug vì sao model gọi nhầm tool/argument.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Tool Calling
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Tool list and schema
+- Tool permission matrix
+- Tool call trace
+- Error/retry policy
+- Output observation contract
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tool Calling giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Model có cần tool thật không hay text answer đủ?
+- Tool schema có rõ name/description/argument không?
+- Tool nào read-only, tool nào có side effect?
+- Permission/sandbox được enforce ở đâu?
+- Tool result có được validate trước khi dùng tiếp không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Tool Calling sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Model gọi nhầm tool vì description mơ hồ.
+- Argument sai schema hoặc thiếu field.
+- Tool side effect chạy khi chưa approval.
+- Tool result bị tin tuyệt đối dù lỗi/stale.
+- Không có trace nên không debug được agent làm gì.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Tool Calling nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Q&A đơn giản có thể trả lời trực tiếp, chưa cần tool calling.
+- Không nên thêm write tool nếu read-only tool và guardrail chưa ổn.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Tool Schema]]
+- [[Tool Permission]]
+- [[Tool Error]]
+- [[Tool Retry]]
+- [[Tool Sandbox]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Tool Use]] vì tool calling là cơ chế cụ thể để agent dùng tool.
+- [[Tool Schema]] vì schema định nghĩa format tool call.
+- [[Tool Permission]] vì runtime cần quyết định tool nào được gọi.
+- [[AI Agent]] vì agent thường lặp giữa reasoning và tool calling.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Function calling
+- Agent runtime
+- Structured action
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Tool Calling
-- tool calling
-- tool calling design
+- function calling
+- agent tool call
+- tool schema
+- tool observation
+- structured tool call
 - tool calling debugging
-- tool calling production
-- tool calling best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
-- Anthropic prompt engineering docs
+- Anthropic tool use documentation
