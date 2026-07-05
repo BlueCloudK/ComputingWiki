@@ -1,79 +1,91 @@
 # Mobile Performance
 
-Aliases: Mobile Performance, mobile performance
+Aliases: Mobile Performance, mobile app performance
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-Mobile Performance xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+Mobile Performance xuất hiện khi app mobile cần giữ UI mượt, startup nhanh, network hợp lý, pin/CPU thấp và ổn định trên nhiều thiết bị thật.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Mobile Performance là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+Mobile Performance là tập hợp chỉ số và kỹ thuật tối ưu app mobile: startup time, frame time, memory, battery, network, disk I/O, ANR/crash và responsiveness.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Mobile Performance không chỉ là FPS. App có thể render mượt nhưng startup chậm, tốn pin, leak memory hoặc bị ANR trên thiết bị yếu.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Mobile Performance giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+App mobile chạy trên thiết bị có CPU/GPU/RAM/pin/network giới hạn. Work nặng trên main thread, asset lớn, re-render dư, network chatty hoặc memory leak đều làm user thấy chậm/đơ/nóng máy.
 
 ## Project Role / Vai trò trong dự án
 
-Mobile Performance giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug app lag, startup lâu, scroll giật, pin tụt, memory tăng, ANR, bundle lớn hoặc performance khác giữa debug/release/device.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Mobile Performance
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Performance profile trên device thật
+- Startup/frame/memory/network metric
+- Bottleneck hypothesis
+- Before/after comparison
+- Device matrix test note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Mobile Performance nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Bottleneck là CPU, GPU, memory, network hay disk?
+- Đo trên debug hay release build?
+- Thiết bị test có đại diện user thật không?
+- Work nào đang chạy trên main thread?
+- Optimization có cải thiện metric hay chỉ cảm giác?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Mobile Performance như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Chỉ test trên máy mạnh nên bỏ sót low-end device.
+- Debug build chậm nhưng kết luận sai cho release.
+- Tối ưu render trong khi bottleneck là network/startup.
+- Memory leak chỉ lộ sau dùng lâu.
+- Cache quá nhiều làm memory/pin tệ hơn.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Mobile Performance nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype sớm có thể đo nhẹ trước, chưa cần tối ưu sâu.
+- Không nên tối ưu micro trước khi profiler chỉ ra bottleneck thật.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[ANR]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[ANR]] vì ANR là failure mode quan trọng của mobile performance.
+- [[Performance Optimization]] vì mobile performance là một nhánh tối ưu hiệu năng.
+- [[Flutter]] vì Flutter app có vấn đề frame/rebuild/platform channel riêng.
+- [[React Native]] vì React Native app có bridge/runtime performance concern riêng.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Startup time
+- Frame time
+- Battery usage
+- Memory pressure
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Mobile Performance
-- mobile performance
-- mobile performance design
+- mobile app performance
+- startup time
+- frame time
+- memory leak
+- battery usage
 - mobile performance debugging
-- mobile performance production
 
 ## Source trace
 
 - Android Developers documentation
 - Apple Developer documentation
-- React Native documentation
 - Flutter documentation
+- React Native documentation
