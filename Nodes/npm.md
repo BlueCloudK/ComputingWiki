@@ -1,53 +1,63 @@
 # npm
 
-Aliases: npm, npm
+Aliases: npm, Node Package Manager
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-npm xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+npm xuất hiện khi JavaScript/Node.js project cần quản lý package dependency, script, version, registry và publish package. Nó ảnh hưởng trực tiếp tới install reproducibility, CI speed, supply-chain risk và local development workflow.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-npm là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+npm là package manager và registry ecosystem cho JavaScript. Trong project, npm thường được dùng qua `package.json`, `package-lock.json`, `npm install`, `npm ci`, npm scripts và dependency version ranges.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+npm không phải JavaScript runtime. Node.js mới là runtime chạy code server-side; npm quản lý package và script. npm cũng không tự đảm bảo dependency an toàn hoặc build reproducible nếu lockfile, script và registry policy không rõ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu npm giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+`package.json` khai báo dependencies/devDependencies/scripts. Lockfile ghi dependency tree cụ thể. `npm install` có thể cập nhật lockfile theo ranges; `npm ci` dùng lockfile sạch cho CI. npm tải package từ registry, chạy lifecycle scripts nếu được phép và đặt dependency vào `node_modules` hoặc cache.
 
 ## Project Role / Vai trò trong dự án
 
-npm giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+npm là node cần mở khi debug install fail, dependency version lệch, CI khác local, package script lỗi, supply-chain audit hoặc build frontend/backend Node.js. Nó giúp team kiểm tra lockfile, Node/npm version, registry, script và dependency risk.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới npm
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- `package.json` scripts/dependencies rõ vai trò
+- Lockfile committed và dùng `npm ci` trong CI
+- Node/npm version policy qua `.nvmrc`, `.node-version` hoặc engine field
+- Dependency audit/update policy
+- Debug note cho install cache, peer dependency, registry và lifecycle script
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- npm nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Project dùng npm, pnpm hay yarn, và lockfile nào là source of truth?
+- CI dùng `npm ci` hay `npm install`?
+- Node/npm version có pin hoặc document chưa?
+- Dependency range có quá rộng gây version drift không?
+- Lifecycle script có chạy code không tin cậy không?
+- Registry/private package auth có an toàn không?
+- Có policy update/audit dependency không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng npm như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Local dùng dependency khác CI vì lockfile không được commit hoặc bị update ngẫu nhiên.
+- `npm install` trong CI làm lockfile drift hoặc build không reproducible.
+- Peer dependency conflict làm install fail sau package upgrade.
+- Lifecycle script của dependency chạy code không mong muốn.
+- Private registry/token sai làm CI install fail.
+- Dependency typo-squatting hoặc compromised package gây supply-chain risk.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu npm nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Script JS rất nhỏ không dependency có thể chưa cần npm project đầy đủ.
+- Không nên thêm package cho logic đơn giản nếu native API đủ dùng.
+- Không nên đổi package manager chỉ vì trend nếu team/tooling hiện tại ổn.
 
 ## Gồm những gì
 
@@ -55,26 +65,36 @@ npm giúp chọn đúng abstraction, config, test hoặc debug path khi làm pro
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[JavaScript]] vì npm là package ecosystem chính của JavaScript.
+- [[Node.js]] vì Node.js project thường dùng npm để quản lý dependency/script.
+- [[CI]] vì CI cần install dependency reproducibly bằng lockfile.
+- [[GitHub Actions]] vì Actions thường chạy npm scripts trong workflow.
+- [[Secret]] vì registry token/private package auth là secret cần bảo vệ.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Package management
+- Supply-chain security
+- Frontend tooling
+- Node.js development
 
 ## Keywords / Từ khóa tìm kiếm
 
 - npm
-- npm
-- npm design
+- Node Package Manager
+- package.json
+- package-lock.json
+- npm install
+- npm ci
+- npm scripts
+- dependency version
+- peer dependency
+- npm registry
+- npm audit
+- lifecycle script
 - npm debugging
-- npm production
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
 - npm documentation
-- Maven documentation
-- Gradle documentation
+- Node.js documentation
