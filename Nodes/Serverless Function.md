@@ -1,53 +1,59 @@
 # Serverless Function
 
-Aliases: Serverless Function, serverless function
+Aliases: Serverless Function, cloud function
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Serverless Function xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Serverless Function xuất hiện khi một đoạn logic nhỏ cần chạy theo event/request mà không tự quản lý server dài hạn.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Serverless Function là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Serverless Function là compute unit được cloud/platform chạy theo trigger như HTTP request, queue message, schedule, storage event hoặc webhook.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Serverless Function không có nghĩa là không có server. Server được provider quản lý, nhưng team vẫn chịu trách nhiệm code, timeout, dependency, permission, observability và cost.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Serverless Function nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Platform nhận event, khởi tạo runtime nếu cần, chạy handler, trả response/result và ghi log/metric. Function thường có timeout, memory limit, cold start và permission scope riêng.
 
 ## Project Role / Vai trò trong dự án
 
-Serverless Function giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế webhook, background task nhỏ, scheduled job, lightweight API endpoint hoặc event-driven integration.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Serverless Function
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Function handler
+- Trigger config
+- Runtime/memory/timeout setting
+- IAM/secret config
+- Log/metric/error handling
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Serverless Function giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Trigger là gì?
+- Function có idempotent không?
+- Timeout/memory có đủ không?
+- Permission có least privilege không?
+- Cold start có ảnh hưởng user không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Serverless Function sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Timeout làm job chạy dở.
+- Cold start làm latency cao.
+- Retry event không idempotent gây duplicate side effect.
+- Permission quá rộng hoặc thiếu quyền cần thiết.
+- Log thiếu correlation id nên debug khó.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Serverless Function nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Service stateful hoặc long-running có thể không hợp serverless function.
+- Không nên chia quá nhiều function nhỏ nếu observability và deployment trở nên rối.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Serverless Function giúp team thiết kế, review, test, deploy hoặc vận h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Timeout]] vì function luôn có giới hạn thời gian chạy.
+- [[Least Privilege]] vì function IAM nên scope nhỏ.
+- [[Logging]] vì debug serverless phụ thuộc log tốt.
+- [[API Endpoint]] vì HTTP function có thể là endpoint.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Event-driven architecture
+- Cloud runtime
+- Webhook handler
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Serverless Function
-- serverless function
-- serverless function design
+- cloud function
+- function as a service
+- cold start
+- event trigger
+- serverless timeout
 - serverless function debugging
-- serverless function production
-- serverless function best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- AWS Lambda documentation
+- Google Cloud Functions documentation
