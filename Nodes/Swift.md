@@ -1,53 +1,55 @@
 # Swift
 
-Aliases: Swift, swift
+Aliases: Swift
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-Swift xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+Swift xuất hiện khi phát triển app trong hệ sinh thái Apple như iOS, macOS, watchOS hoặc tvOS.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Swift là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+Swift là ngôn ngữ lập trình của Apple, dùng nhiều cho app iOS và các platform Apple.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Swift không phải iOS và không phải Xcode. iOS là platform, Xcode là toolchain, Swift là ngôn ngữ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Swift giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Swift có static typing, optionals, value type, protocol, async/await và interop với framework Apple. Code được build bằng toolchain Apple để chạy trên target platform.
 
 ## Project Role / Vai trò trong dự án
 
-Swift giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug iOS code, optional crash, concurrency, build setting hoặc native module Apple.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Swift
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Swift source/module
+- Xcode target/scheme
+- Platform target note
+- Test cho logic quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Swift nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Code target iOS hay platform Apple nào?
+- Optional có được xử lý rõ không?
+- Async flow có khớp lifecycle không?
+- Framework Apple nào đang được dùng?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Swift như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Force unwrap nil gây crash.
+- Async task sống quá lifecycle mong muốn.
+- Target/platform setting sai.
+- Interop với framework Apple không rõ permission/lifecycle.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Swift nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project không target Apple platform thì chưa cần Swift.
 
 ## Gồm những gì
 
@@ -55,25 +57,26 @@ Swift giúp chọn đúng abstraction, config, test hoặc debug path khi làm p
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[iOS]] vì Swift thường dùng để viết iOS app.
+- [[Xcode]] vì Swift thường được build bằng Xcode.
+- [[UIKit]] vì Swift có thể dùng để viết UIKit UI.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Apple development
+- Native mobile
+- Static typing
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Swift
-- swift
-- swift design
-- swift debugging
-- swift production
+- Swift language
+- iOS Swift
+- optional
+- async await
+- Swift debugging
 
 ## Source trace
 
-- Android Developers documentation
+- Swift documentation
 - Apple Developer documentation
-- React Native documentation
-- Flutter documentation
