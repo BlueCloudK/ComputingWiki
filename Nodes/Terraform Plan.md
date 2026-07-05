@@ -6,48 +6,54 @@ Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Terraform Plan xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Terraform Plan xuất hiện khi cần xem trước infrastructure change trước khi apply lên cloud/provider thật.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Terraform Plan là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Terraform Plan là bước Terraform so sánh config, state và provider reality để tạo danh sách resource sẽ create, update, replace hoặc destroy.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Terraform Plan không phải đảm bảo tuyệt đối apply sẽ thành công. State có thể đổi sau plan, provider có thể lỗi, permission có thể thiếu hoặc plan có thể bị stale.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Terraform Plan nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Terraform đọc configuration, refresh hoặc đọc state, tính dependency graph và tạo execution plan. Plan cho biết action dự kiến, attribute thay đổi và resource nào có thể bị recreate/destroy.
 
 ## Project Role / Vai trò trong dự án
 
-Terraform Plan giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi review IaC PR, kiểm tra drift, tránh destroy nhầm resource, chuẩn bị approval trước apply hoặc debug vì sao Terraform muốn thay đổi resource ngoài ý muốn.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Terraform Plan
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Plan output hoặc saved plan file
+- Resource action summary
+- Destroy/replace warning
+- Workspace/environment context
+- Reviewer approval note nếu production
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Terraform Plan giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Plan chạy ở workspace/environment nào?
+- Có resource destroy/replace không?
+- Change có đúng với intent PR không?
+- State có mới và không drift không?
+- Apply có dùng đúng plan đã review không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Terraform Plan sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Reviewer bỏ sót `destroy` hoặc `replace`.
+- Plan chạy nhầm workspace.
+- Plan stale vì state/reality đổi trước apply.
+- Sensitive value lộ trong plan/log.
+- Plan pass nhưng provider permission thiếu lúc apply.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Terraform Plan nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Lab nhỏ có thể plan/apply local, nhưng production nên tách plan review rõ.
+- Không nên auto-approve plan nếu chưa có policy check và owner rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,27 @@ Terraform Plan giúp team thiết kế, review, test, deploy hoặc vận hành 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Terraform Apply]] vì plan là input/review trước khi apply.
+- [[Terraform Provider]] vì provider quyết định resource diff và API behavior.
+- [[State Locking]] vì state cần được bảo vệ khi plan/apply.
+- [[Config Drift]] vì plan thường lộ drift giữa config và reality.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Infrastructure as Code
+- Plan review
+- Cloud provisioning
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Terraform Plan
 - terraform plan
-- terraform plan design
+- infrastructure plan
+- resource diff
+- Terraform destroy
+- Terraform replace
 - terraform plan debugging
-- terraform plan production
-- terraform plan best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
 - Terraform documentation
-- GitHub Actions documentation
