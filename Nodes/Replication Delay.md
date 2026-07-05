@@ -1,53 +1,59 @@
 # Replication Delay
 
-Aliases: Replication Delay, replication delay
+Aliases: Replication Delay, replication lag
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Replication Delay xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Replication Delay xuất hiện khi replica không bắt kịp primary, làm dữ liệu đọc từ replica cũ hơn dữ liệu đã ghi trên primary.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Replication Delay là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Replication Delay là độ trễ giữa thời điểm change được commit/ghi trên primary và thời điểm change đó được replica nhận, replay hoặc apply xong.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Replication Delay không chỉ là network latency. Nó còn có thể đến từ write volume, disk I/O, replay chậm, lock, long transaction hoặc replica resource yếu.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Replication Delay nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Primary tạo log/change stream. Replica nhận stream, ghi lại và replay/apply theo thứ tự. Nếu replica xử lý chậm hơn tốc độ change đến, lag tăng và read trên replica có thể stale.
 
 ## Project Role / Vai trò trong dự án
 
-Replication Delay giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug read-after-write inconsistency, replica stale, failover risk, reporting query chậm làm replica tụt hoặc alert replication lag.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Replication Delay
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Replication lag metric
+- Primary/replica topology
+- Replay/apply position
+- Workload causing lag
+- Mitigation plan: throttle, scale, route read, failover rule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Replication Delay giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Lag đo bằng thời gian, byte/log position hay transaction count?
+- Replica dùng cho read path nào?
+- User có cần read-after-write consistency không?
+- Lag tăng do network, disk, CPU hay query trên replica?
+- Failover có an toàn khi replica chưa bắt kịp không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Replication Delay sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- User vừa ghi xong nhưng đọc replica không thấy dữ liệu.
+- Replica lag lớn nhưng vẫn được dùng cho critical read.
+- Failover promote replica thiếu dữ liệu.
+- Reporting query nặng làm replay/apply chậm.
+- Alert chỉ nhìn replica up/down, không nhìn lag.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Replication Delay nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- App một database node chưa có replica thì chưa cần xử lý replication delay.
+- Không nên route read sang replica nếu product cần consistency mạnh mà không có lag guard.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Replication Delay giúp team thiết kế, review, test, deploy hoặc vận hà
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Primary Replica]] vì delay xảy ra giữa primary và replica.
+- [[Follower Replica]] vì follower có thể tụt sau primary.
+- [[Replication Stream]] vì delay phản ánh stream/replay chưa bắt kịp.
+- [[Synchronous Replication]] vì sync mode giảm một số lag đổi lại latency/availability.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Replica lag
+- Stale read
+- Failover safety
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Replication Delay
-- replication delay
-- replication delay design
+- replication lag
+- stale replica
+- read after write
+- replica replay lag
+- failover lag
 - replication delay debugging
-- replication delay production
-- replication delay best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
 - Designing Data-Intensive Applications
