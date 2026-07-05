@@ -1,53 +1,59 @@
 # Workflow Dispatch
 
-Aliases: Workflow Dispatch, workflow dispatch
+Aliases: Workflow Dispatch, manual workflow trigger
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Workflow Dispatch xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Workflow Dispatch xuất hiện khi CI/CD workflow cần được chạy thủ công với input cụ thể, thay vì chỉ trigger từ push, pull request hoặc schedule.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Workflow Dispatch là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Workflow Dispatch là cơ chế trigger thủ công workflow, thường trong GitHub Actions, cho phép operator chọn branch/ref và truyền input như environment, version hoặc action.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Workflow Dispatch không phải nút bấm an toàn mặc định. Nếu input/permission/approval yếu, nó có thể chạy deploy, rollback hoặc job nhạy cảm sai môi trường.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Workflow Dispatch nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Workflow định nghĩa trigger `workflow_dispatch` và input schema. Người có quyền chạy chọn ref/input; GitHub Actions tạo run và job đọc input để quyết định bước tiếp theo.
 
 ## Project Role / Vai trò trong dự án
 
-Workflow Dispatch giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế manual deploy, hotfix, rollback, maintenance job, data migration hoặc debug pipeline cần operator-controlled action.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Workflow Dispatch
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Workflow dispatch input schema
+- Permission rule
+- Environment/approval gate
+- Audit log/run link
+- Rollback or dry-run option nếu cần
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Workflow Dispatch giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Ai được quyền dispatch workflow?
+- Input có enum/validation rõ không?
+- Workflow chạy trên branch/ref nào?
+- Job nhạy cảm có environment approval không?
+- Run có log/audit đủ để trace không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Workflow Dispatch sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Operator chọn nhầm environment.
+- Input tự do làm script chạy lệnh sai.
+- Workflow chạy từ branch không mong muốn.
+- Secret được expose cho run không cần thiết.
+- Manual trigger bypass test/approval bình thường.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Workflow Dispatch nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Job tự động đơn giản có thể dùng push/schedule trigger.
+- Không nên dùng workflow dispatch để thay thế release process có gate rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,26 @@ Workflow Dispatch giúp team thiết kế, review, test, deploy hoặc vận hà
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[GitHub Actions]] vì workflow dispatch là trigger phổ biến trong Actions.
+- [[Deployment Approval]] vì manual deploy thường cần approval gate.
+- [[Pipeline Secret]] vì workflow run có thể dùng secret nhạy cảm.
+- [[Rollback]] vì rollback thủ công thường chạy qua workflow dispatch.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Manual CI trigger
+- Operator action
+- Release operations
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Workflow Dispatch
-- workflow dispatch
-- workflow dispatch design
+- manual workflow trigger
+- GitHub Actions workflow_dispatch
+- workflow input
+- manual deploy
 - workflow dispatch debugging
-- workflow dispatch production
-- workflow dispatch best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
 - GitHub Actions documentation
