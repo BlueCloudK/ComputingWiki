@@ -1,53 +1,59 @@
 # Pipeline Variable
 
-Aliases: Pipeline Variable, pipeline variable
+Aliases: Pipeline Variable, CI variable
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Pipeline Variable xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Pipeline Variable xuất hiện khi CI/CD workflow cần nhận cấu hình không nhạy cảm như environment, version, feature flag, path, image tag hoặc deploy mode.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Pipeline Variable là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Pipeline Variable là biến cấu hình dùng trong pipeline để điều khiển build/test/deploy behavior.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Pipeline Variable không phải secret. Credential, token, private key hoặc password phải nằm trong secret store và được xử lý như Pipeline Secret.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Pipeline Variable nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline khai báo variable ở mức workflow/job/environment/repo/org. Job đọc variable qua environment/context, dùng nó trong condition, script, matrix hoặc deployment command.
 
 ## Project Role / Vai trò trong dự án
 
-Pipeline Variable giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug pipeline chạy sai môi trường, image tag sai, matrix build lệch, config drift giữa CI và local hoặc deploy dùng nhầm version.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Pipeline Variable
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Variable name/purpose
+- Scope and default value
+- Allowed values/validation
+- Producer/consumer job
+- Difference from secret
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Pipeline Variable giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Variable này có nhạy cảm không?
+- Scope của variable là workflow, repo, org hay environment?
+- Giá trị có enum/default rõ không?
+- Job nào đọc variable này?
+- Nếu thiếu hoặc sai thì pipeline fail sớm không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Pipeline Variable sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Dùng variable thường để chứa secret.
+- Variable scope quá rộng làm job không liên quan bị ảnh hưởng.
+- Không validate input làm deploy sai environment.
+- Default value cũ làm pipeline chạy version sai.
+- Local config và pipeline variable drift.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Pipeline Variable nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Script nhỏ có thể dùng config inline tạm thời.
+- Không nên tạo nhiều variable nếu chỉ dùng một lần và không có owner rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Pipeline Variable giúp team thiết kế, review, test, deploy hoặc vận hà
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Pipeline Secret]] vì cần phân biệt variable thường với secret.
+- [[CI]] vì variable điều khiển CI job.
+- [[CD]] vì deploy behavior thường phụ thuộc variable.
+- [[Config Drift]] vì variable khác nhau giữa môi trường gây drift.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- CI configuration
+- Environment config
+- Build matrix
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Pipeline Variable
-- pipeline variable
-- pipeline variable design
+- CI variable
+- workflow variable
+- environment variable
+- pipeline config
+- workflow input
 - pipeline variable debugging
-- pipeline variable production
-- pipeline variable best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
 - GitHub Actions documentation
+- Twelve-Factor App
