@@ -1,53 +1,59 @@
 # Bitmap Index Scan
 
-Aliases: Bitmap Index Scan, bitmap index scan
+Aliases: Bitmap Index Scan, bitmap heap scan
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Bitmap Index Scan xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Bitmap Index Scan xuất hiện trong query plan khi database dùng index để tạo bitmap các row/page candidate rồi đọc heap/table theo bitmap đó.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Bitmap Index Scan là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Bitmap Index Scan là execution strategy dùng index để đánh dấu vị trí row phù hợp, thường hữu ích khi query match nhiều row hoặc cần kết hợp nhiều index.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Bitmap Index Scan không phải một loại index riêng trong mọi database. Nó thường là cách planner sử dụng index trong execution plan.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Bitmap Index Scan nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Database scan index để tạo bitmap tuple/page candidate, có thể combine bitmap bằng AND/OR, rồi đọc table page theo bitmap để lấy row thật và recheck condition nếu cần.
 
 ## Project Role / Vai trò trong dự án
 
-Bitmap Index Scan giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi đọc EXPLAIN plan, debug query chậm, hiểu vì sao planner không dùng index scan trực tiếp hoặc vì sao query vẫn đọc nhiều heap page.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Bitmap Index Scan
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- EXPLAIN/ANALYZE plan
+- Index condition
+- Heap block/page read metric
+- Recheck condition note
+- Before/after query/index comparison
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Bitmap Index Scan giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Bitmap scan đang dùng index nào?
+- Số row/page candidate có quá lớn không?
+- Có recheck condition nhiều không?
+- Bitmap scan tốt hơn seq scan/index scan trực tiếp không?
+- Statistic có cũ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Bitmap Index Scan sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Planner chọn bitmap scan nhưng row estimate sai.
+- Bitmap quá lớn làm memory/temp cost tăng.
+- Heap recheck nhiều làm query chậm.
+- Index condition không selective đủ.
+- Statistic stale khiến plan chọn sai.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Bitmap Index Scan nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Không cần tối ưu khi query đã đủ nhanh và plan ổn định.
+- Không nên ép planner bằng hint/rule nếu chưa hiểu data distribution.
 
 ## Gồm những gì
 
@@ -55,26 +61,27 @@ Bitmap Index Scan giúp team thiết kế, review, test, deploy hoặc vận hà
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Query Plan]] vì bitmap scan là node trong execution plan.
+- [[Index]] vì bitmap scan dựa trên index condition.
+- [[Nonclustered Index]] vì secondary index có thể là nguồn bitmap.
+- [[Performance Optimization]] vì hiểu plan giúp tối ưu query đúng chỗ.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- EXPLAIN ANALYZE
+- Query execution
+- Index selectivity
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Bitmap Index Scan
-- bitmap index scan
-- bitmap index scan design
-- bitmap index scan debugging
-- bitmap index scan production
-- bitmap index scan best practice
+- bitmap heap scan
+- EXPLAIN ANALYZE
+- index condition
+- heap recheck
+- query plan debugging
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
