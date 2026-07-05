@@ -1,53 +1,59 @@
 # Follower Replica
 
-Aliases: Follower Replica, follower replica
+Aliases: Follower Replica, read replica
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Follower Replica xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Follower Replica xuất hiện trong replicated database khi một node nhận change từ primary/leader và thường phục vụ read, backup hoặc failover.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Follower Replica là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Follower Replica là replica đi theo primary bằng cách nhận log/change stream và replay/apply để giữ dữ liệu gần giống primary.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Follower Replica không phải nguồn ghi chính trong mô hình primary-replica bình thường. Write thường đi vào primary; follower có thể read-only hoặc chỉ được promote khi failover.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Follower Replica nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Primary tạo log/change. Follower nhận stream, ghi lại và apply theo thứ tự. Follower có thể bị lag, có thể phục vụ read stale và có thể được promote nếu primary fail.
 
 ## Project Role / Vai trò trong dự án
 
-Follower Replica giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế read scaling, backup trên replica, failover, replication delay, stale read hoặc debug app ghi nhầm vào read-only replica.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Follower Replica
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Replica role/topology
+- Replication lag metric
+- Read routing rule
+- Promotion/failover procedure
+- Backup/reporting workload note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Follower Replica giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Follower dùng để đọc, backup hay failover?
+- Lag tối đa chấp nhận được là bao nhiêu?
+- App có route read stale-sensitive sang follower không?
+- Follower có đủ resource để replay và query không?
+- Promote follower có an toàn không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Follower Replica sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Read từ follower trả dữ liệu cũ.
+- Reporting query nặng làm replica lag tăng.
+- Follower được promote khi chưa bắt kịp log.
+- App cố write vào read-only follower.
+- Backup trên follower tưởng không ảnh hưởng nhưng làm replay chậm.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Follower Replica nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Workload nhỏ chưa cần read scaling/HA có thể chưa cần follower.
+- Không nên thêm follower nếu chưa có monitoring lag và routing rule rõ.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Follower Replica giúp team thiết kế, review, test, deploy hoặc vận hàn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Primary Replica]] vì follower nhận change từ primary.
+- [[Replication Delay]] vì follower có thể bị lag.
+- [[Synchronous Replication]] vì follower có thể là sync/async replica.
+- [[Backup]] vì follower thường được dùng để giảm tải backup khỏi primary.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Read replica
+- Failover
+- Stale read
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Follower Replica
-- follower replica
-- follower replica design
+- read replica
+- follower database
+- replica lag
+- read-only replica
+- failover promotion
 - follower replica debugging
-- follower replica production
-- follower replica best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
 - Designing Data-Intensive Applications
