@@ -6,51 +6,58 @@ Type: Deployment / Operations
 
 ## Context / Ngữ cảnh
 
-CI xuất hiện khi nhiều thay đổi code cần được merge thường xuyên mà vẫn giữ build/test feedback nhanh và đáng tin.
+CI xuất hiện khi code thay đổi liên tục và team cần feedback tự động trước khi merge hoặc release. Nó đặc biệt quan trọng khi nhiều người cùng sửa repo, có test/regression suite, build artifact, lint/static check hoặc nhiều môi trường runtime.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-CI là practice tự động build, test và kiểm tra code mỗi khi thay đổi được push hoặc mở pull request.
+CI là practice tự động checkout code, install dependency, build, lint/static check, chạy test và publish kết quả mỗi khi push hoặc mở pull request. Mục tiêu là phát hiện lỗi sớm và giữ main branch luôn ở trạng thái có thể tiếp tục phát triển.
 
 ### Nó không phải là gì
 
-Nó không phải CD, không thay thế test tốt, và không có giá trị nếu pipeline chậm/flaky đến mức team bỏ qua.
+CI không phải CD. CI tạo confidence cho code và artifact; CD đưa artifact tới environment. CI cũng không thay thế test tốt: pipeline xanh nhưng test rỗng, flaky hoặc thiếu path quan trọng thì vẫn không đáng tin.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là feedback loop: checkout code, install dependency, build, run test/static check, publish result và chặn merge nếu signal đỏ.
+Workflow CI được trigger bởi push/PR. Runner lấy code, cache dependency nếu phù hợp, chạy các job như install, build, unit test, integration test, coverage, security scan, rồi trả status check. Branch protection có thể yêu cầu check xanh trước merge.
 
 ## Project Role / Vai trò trong dự án
 
-CI giúp phát hiện regression sớm và tạo baseline tin cậy trước khi deploy. Nó là lớp an toàn cho refactor, API change và collaboration.
+CI là lớp feedback loop cho refactor, regression và collaboration. Nó giúp repo phát hiện lỗi trước khi code vào main, giữ build reproducible, và tạo baseline cho deployment/CD sau đó.
 
 ## Output / Artifact nên có
 
-- CI workflow/pipeline
-- Build/test/lint result
-- Branch protection hoặc merge rule nếu phù hợp
+- CI workflow config và trigger rule
+- Required checks trước merge: build, test, lint, coverage nếu cần
+- Artifact/log/report: test report, coverage, build output
+- Cache policy cho dependency/build nếu cần tốc độ
+- Flaky test policy và owner xử lý pipeline đỏ
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Check nào phải chạy trước merge?
-- Pipeline có đủ nhanh để dev tin dùng không?
-- Test flaky được xử lý hay bị bỏ qua?
-- Secret trong CI có được giới hạn quyền không?
-- Artifact/log có đủ debug khi fail không?
+- Check nào bắt buộc trước merge?
+- Pipeline có đủ nhanh để dev không bypass không?
+- Test nào chạy ở PR, test nào chạy nightly?
+- Secret/permission trong CI có scope tối thiểu không?
+- Cache có làm build sai hoặc dùng dependency cũ không?
+- Khi fail, log/artifact có đủ debug không?
+- Branch protection có phản ánh risk thật không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Pipeline flaky làm team mất niềm tin
-- CI xanh nhưng không test path quan trọng
-- Secret CI bị lộ hoặc dùng quyền quá rộng
-- Pipeline quá chậm khiến dev tìm cách bypass
+- Pipeline flaky làm team mất niềm tin và ignore màu đỏ.
+- CI xanh nhưng không chạy test path quan trọng.
+- Secret CI bị lộ qua log hoặc dùng quyền quá rộng.
+- Cache sai làm build pass/fail không deterministic.
+- Pipeline quá chậm khiến dev tìm cách bypass.
+- Required checks thiếu nên code chưa build vẫn merge vào main.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần CI phức tạp cho repo thử nghiệm một người rất nhỏ
-- Dễ over-engineer nếu pipeline nhiều stage nhưng không tăng confidence thật
+- Repo thử nghiệm một người có thể bắt đầu bằng script test local trước.
+- Không nên thêm quá nhiều stage nếu không tăng confidence thật.
+- Không nên bắt full E2E nặng ở mọi commit nếu smoke/unit/integration đủ cho PR.
 
 ## Gồm những gì
 
@@ -58,28 +65,35 @@ CI giúp phát hiện regression sớm và tạo baseline tin cậy trước khi
 
 ## Nối mạnh
 
-- [[Test Coverage]] vì CI cần test đủ ý nghĩa để bắt regression
-- [[Regression Test]] vì regression suite thường chạy trong CI
-- [[CD]] vì CD thường bắt đầu từ artifact và confidence do CI tạo ra
+- [[Test Coverage]] vì coverage report/gate thường chạy trong CI.
+- [[Regression Test]] vì regression suite cần CI để bắt bug quay lại.
+- [[CD]] vì CD thường dùng artifact và signal từ CI.
+- [[GitHub Actions]] vì GitHub Actions là tool phổ biến để chạy CI trong repo GitHub.
+- [[Build Cache]] vì cache ảnh hưởng tốc độ và độ ổn định pipeline.
 
 ## Liên quan rộng
 
 - Build automation
 - Pull request checks
 - Quality gates
+- Developer feedback loop
 
 ## Keywords / Từ khóa tìm kiếm
 
 - CI
 - Continuous Integration
+- tích hợp liên tục
 - build verification
 - automated test pipeline
 - merge check
-- integration build
-- tích hợp liên tục
-- kiểm tra khi merge
+- pull request checks
+- branch protection
+- CI pipeline
+- flaky CI
+- CI cache
+- CI debugging
 
 ## Source trace
 
 - Continuous Delivery
-- GitHub Actions docs
+- GitHub Actions documentation
