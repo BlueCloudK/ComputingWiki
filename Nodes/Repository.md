@@ -6,51 +6,58 @@ Type: Code Design / Pattern
 
 ## Context / Ngữ cảnh
 
-Repository xuất hiện trong codebase khi team phải chia trách nhiệm, dependency, interface hoặc biến thể behavior. Nó nằm gần refactor, testability và maintainability.
+Repository xuất hiện khi codebase cần tách domain/service logic khỏi chi tiết persistence như SQL, ORM, external API hoặc storage. Nó thường gặp trong backend có use case phức tạp, cần unit test domain/service, hoặc muốn gom query liên quan tới một aggregate/resource vào boundary rõ.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Repository là cách tổ chức code để một phần thay đổi không kéo theo quá nhiều phần khác.
+Repository là pattern tạo abstraction cho việc truy xuất và lưu trữ object/aggregate/resource. Thay vì controller/service viết SQL/ORM query rải rác, repository expose interface như `findById`, `save`, `exists`, `findByEmail` và che chi tiết database/storage phía sau.
 
 ### Nó không phải là gì
 
-Nó không phải nhãn pattern để làm code trông chuyên nghiệp; nếu không giảm coupling, duplication hoặc volatility thì nó chỉ thêm indirection.
+Repository không phải lớp bắt buộc trong mọi app. Nếu nó chỉ wrap ORM một-một mà không giảm coupling, không gom rule query và không giúp test, nó chỉ thêm indirection. Repository cũng không nên chứa business workflow chính; workflow vẫn nên nằm ở service/use case/domain layer.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là đặt boundary và responsibility: ai sở hữu logic, ai gọi ai, dependency đi hướng nào, interface nào được expose và behavior nào có thể thay thế.
+Service/use case phụ thuộc vào repository interface. Implementation của repository dùng ORM/SQL/API/storage để load/save dữ liệu. Boundary tốt giữ query/persistence details ở repository, còn business decision ở service/domain. Test có thể mock/fake repository khi không cần database thật.
 
 ## Project Role / Vai trò trong dự án
 
-Repository che chi tiết query/persistence sau collection-like interface cho aggregate hoặc domain object.
+Repository là node cần mở khi controller/service đang đầy query, unit test khó vì dính database, hoặc nhiều nơi viết cùng logic truy xuất dữ liệu. Nó giúp team quyết định query nào nên gom, interface nên nhỏ tới đâu và khi nào abstraction đang quá mức.
 
 ## Output / Artifact nên có
 
-- Design decision ngắn ghi responsibility/pattern được chọn
-- Interface hoặc module boundary rõ input/output
-- Refactor checklist và regression test cho behavior cũ
+- Repository interface/module với responsibility rõ
+- Method list theo use case thật, không expose query builder tùy tiện
+- Implementation detail: ORM/SQL/storage/API phía sau
+- Test strategy: fake/mock repository hoặc integration test với database thật
+- Refactor note nếu gom query rải rác vào repository
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Pattern này giải quyết coupling/duplication cụ thể nào?
-- Responsibility mới nằm đúng layer chưa?
-- Interface có đủ nhỏ và dễ test không?
-- Có làm tăng indirection quá mức không?
-- Regression test có giữ behavior cũ không?
+- Repository này che persistence detail nào khỏi service/domain?
+- Method có phản ánh use case/domain language hay chỉ wrap CRUD máy móc?
+- Business rule có bị nhét vào repository sai layer không?
+- Interface có quá rộng hoặc leak ORM/query builder không?
+- Test cần mock/fake repository hay nên dùng integration test database thật?
+- Có nhiều implementation thật không, hay abstraction chỉ để “cho đẹp”?
+- Transaction boundary nằm ở service/use case hay repository, và có rõ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Áp pattern máy móc làm code nhiều lớp hơn nhưng không rõ hơn
-- Business rule bị giấu sai layer
-- Interface quá chung gây leak abstraction
-- Refactor thiếu test làm đổi behavior ngoài ý muốn
+- Repository chỉ wrap ORM CRUD một-một làm code nhiều lớp nhưng không rõ hơn.
+- Business logic bị giấu trong query/repository khiến service nhìn đơn giản giả.
+- Interface quá generic làm mọi nơi truyền condition tùy tiện và mất boundary.
+- Repository che mất query performance, N+1 hoặc transaction behavior.
+- Mock repository quá nhiều làm test pass nhưng integration với database fail.
+- Transaction boundary mơ hồ khi nhiều repository cùng được gọi trong một use case.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần pattern khi logic đơn giản và chưa có biến thể thật
-- Dễ over-engineer nếu tạo abstraction trước khi thấy duplication hoặc volatility
+- CRUD nhỏ, logic đơn giản và ORM đã đủ rõ có thể chưa cần repository riêng.
+- Không nên tạo repository cho mọi table nếu chưa có use case/query phức tạp.
+- Không nên dùng repository để né việc hiểu SQL, transaction và query plan.
 
 ## Gồm những gì
 
@@ -58,26 +65,35 @@ Repository che chi tiết query/persistence sau collection-like interface cho ag
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Service Layer]] vì service/use case thường gọi repository để truy cập dữ liệu.
+- [[ORM]] vì repository hay bọc ORM để giảm coupling với persistence detail.
+- [[Transaction]] vì nhiều repository call trong một use case cần transaction boundary rõ.
+- [[Unit Test]] vì repository abstraction thường nhằm tăng testability.
+- [[Dependency Injection]] vì repository implementation thường được inject vào service.
 
 ## Liên quan rộng
 
 - Codebase
 - Refactoring
-- Unit testing
 - Maintainability
+- Domain modeling
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Repository
 - repository pattern
 - mẫu repository
-- design pattern
-- refactoring
-- module boundary
-- testability
-- mẫu thiết kế
+- persistence abstraction
+- data access layer
+- DAO
+- repository interface
+- fake repository
+- ORM repository
+- query boundary
+- service repository
+- repository pattern debugging
 
 ## Source trace
 
-- Fowler Pattern Map / PEAA adjacent/common
+- Patterns of Enterprise Application Architecture
+- Domain-Driven Design references
