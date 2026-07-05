@@ -1,53 +1,59 @@
 # MobX
 
-Aliases: MobX, mobx
+Aliases: MobX
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-MobX xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+MobX xuất hiện khi frontend app cần state management theo hướng reactive observable, nơi UI tự cập nhật khi state được quan sát thay đổi.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-MobX là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+MobX là state management library dựa trên observable state, computed value và action. Component tự phản ứng với phần state mà nó đọc.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+MobX không phải database và không phải mọi app React đều cần. Nó cũng khác Redux ở chỗ không bắt buộc action/reducer flow tường minh như Redux.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu MobX giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+State được đánh dấu observable. Component hoặc reaction đọc state sẽ trở thành observer. Khi action thay đổi state, MobX tự tính dependency và trigger update những observer liên quan.
 
 ## Project Role / Vai trò trong dự án
 
-MobX giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug UI không update, update quá nhiều, state mutation khó trace hoặc app cần reactive shared state.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới MobX
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Store/domain state structure
+- Observable/computed/action convention
+- Observer boundary
+- Debug rule cho reaction/update
+- Test cho state behavior quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- MobX nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- State nào là observable?
+- Component nào đang observe state?
+- Computed value có pure không?
+- Action có gom mutation rõ không?
+- Có cần trace reaction khi debug không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng MobX như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Mutation ngoài action làm flow khó trace.
+- Observable quá rộng làm update khó đoán.
+- Component không observe đúng nên UI không update.
+- Computed có side effect làm behavior rối.
+- State implicit quá nhiều khiến debug khó hơn Redux-style flow.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu MobX nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- App nhỏ với local state hoặc server state cache đơn giản chưa cần MobX.
+- Không nên dùng MobX nếu team cần event/action log tường minh hơn.
 
 ## Gồm những gì
 
@@ -55,25 +61,28 @@ MobX giúp chọn đúng abstraction, config, test hoặc debug path khi làm pr
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[State Management]] vì MobX là thư viện quản lý state.
+- [[React]] vì MobX thường dùng cùng React component.
+- [[Component]] vì component observe state để rerender.
+- [[RxJS]] vì cả hai đều liên quan tư duy reactive, dù cơ chế khác nhau.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Reactive state
+- Observable model
+- Frontend architecture
 
 ## Keywords / Từ khóa tìm kiếm
 
 - MobX
-- mobx
-- mobx design
-- mobx debugging
-- mobx production
+- observable state
+- computed value
+- action
+- reaction
+- observer component
+- MobX debugging
 
 ## Source trace
 
+- MobX documentation
 - React documentation
-- Vue documentation
-- Angular documentation
-- MDN Web Docs
