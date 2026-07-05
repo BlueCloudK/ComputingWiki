@@ -1,53 +1,59 @@
 # Dynamic Scope
 
-Aliases: Dynamic Scope, dynamic scope
+Aliases: Dynamic Scope, dynamic scoping
 
 Type: Programming Languages Deep
 
 ## Context / Ngữ cảnh
 
-Dynamic Scope xuất hiện trong programming languages deep mở rộng semantics, runtime, type system, memory management, concurrency và language implementation concepts.
+Dynamic Scope xuất hiện khi tên biến/hàm được resolve theo call stack runtime thay vì theo vị trí lexical trong source code.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Dynamic Scope là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Programming Languages Deep.
+Dynamic Scope là scoping rule trong đó binding của tên được tìm theo chuỗi caller đang chạy tại runtime.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Dynamic Scope không giống lexical/static scope. Lexical scope nhìn vào nơi code được viết; dynamic scope nhìn vào ai gọi ai khi chương trình chạy.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Dynamic Scope giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Khi code cần resolve một name, runtime tìm binding trong activation/call stack hiện tại. Function có thể thấy binding từ caller dù binding đó không nằm trong lexical environment của function.
 
 ## Project Role / Vai trò trong dự án
 
-Dynamic Scope giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi học language semantics, debug context implicit, dynamic variable, thread-local/context-local behavior hoặc hiểu vì sao name resolution phụ thuộc call path.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Dynamic Scope
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Scope resolution example
+- Call stack example
+- Binding lookup rule
+- Contrast với lexical scope
+- Failure case khi caller thay đổi
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Dynamic Scope nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Binding được tìm theo source structure hay call stack?
+- Function behavior có đổi khi caller đổi không?
+- Dynamic binding có thread/context boundary không?
+- Có cách truyền dependency tường minh hơn không?
+- Test có cover call path khác nhau không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Dynamic Scope như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Function phụ thuộc caller ngầm nên khó reuse.
+- Đổi call path làm behavior đổi bất ngờ.
+- Dynamic context leak giữa request/task.
+- Debug khó vì dependency không hiện trong parameter list.
+- Concurrency làm context dynamic bị lẫn nếu implementation yếu.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Dynamic Scope nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Hầu hết app code hiện đại dùng lexical scope; chỉ cần đào sâu khi gặp dynamic/context-local behavior.
+- Không nên dùng dynamic scope để che dependency đáng ra nên truyền tường minh.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Dynamic Scope giúp chọn đúng abstraction, config, test hoặc debug path kh
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Runtime]] vì dynamic scope phụ thuộc call stack/runtime context.
+- [[Module System]] vì module/name boundary khác với dynamic binding.
+- [[Function]] vì function behavior có thể phụ thuộc caller runtime.
+- [[Thread Starvation]] vì context-local trong concurrent runtime dễ có failure riêng khi task/thread bị quản lý sai.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Compiler and Interpreter
-- Operating System
+- Name resolution
+- Call stack
+- Context local
+- Lexical scope
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Dynamic Scope
-- dynamic scope
-- dynamic scope design
+- dynamic scoping
+- dynamic binding
+- lexical scope
+- call stack lookup
+- context local
 - dynamic scope debugging
-- dynamic scope production
 
 ## Source trace
 
 - Types and Programming Languages
 - Crafting Interpreters
-- Engineering a Compiler
-- LLVM documentation
