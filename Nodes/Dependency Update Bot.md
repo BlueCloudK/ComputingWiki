@@ -1,53 +1,59 @@
 # Dependency Update Bot
 
-Aliases: Dependency Update Bot, dependency update bot
+Aliases: Dependency Update Bot, dependency bot
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Dependency Update Bot xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Dependency Update Bot xuất hiện khi project cần tự động phát hiện package dependency lỗi thời, tạo pull request update và giúp team giữ dependency không bị tụt quá xa.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Dependency Update Bot là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Dependency Update Bot là automation đọc manifest/lockfile, kiểm tra version mới, rồi tạo PR hoặc alert để update dependency theo rule.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Dependency Update Bot không tự đảm bảo update an toàn. PR update vẫn cần test, review, changelog/risk check và rollback path nếu production bị ảnh hưởng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Dependency Update Bot giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Bot quét dependency file, so với registry/advisory/version policy, tạo branch/PR với manifest và lockfile mới. CI chạy test; reviewer quyết định merge, group, ignore hoặc pin version.
 
 ## Project Role / Vai trò trong dự án
 
-Dependency Update Bot giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi quản lý dependency drift, security update, lockfile maintenance, monorepo package update hoặc giảm toil update thủ công.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Dependency Update Bot
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Bot config
+- Update schedule
+- Grouping/ignore rule
+- PR review checklist
+- CI test gate
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Dependency Update Bot nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Bot update dependency nào và tần suất bao nhiêu?
+- Major/minor/patch có policy khác nhau không?
+- PR có chạy đủ test không?
+- Changelog/breaking change có được đọc không?
+- Có rule group hoặc limit PR noise không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Dependency Update Bot như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Quá nhiều PR làm team bỏ qua.
+- Update major merge khi chưa review breaking change.
+- Lockfile update sai package manager.
+- CI test yếu nên regression lọt qua.
+- Ignore rule rộng làm dependency lỗi thời mãi.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Dependency Update Bot nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Repo thử nghiệm nhỏ có thể update thủ công trước.
+- Không nên bật update ồ ạt nếu CI/test chưa đủ tin.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Dependency Update Bot giúp chọn đúng abstraction, config, test hoặc debug
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Dependency Resolver]] vì bot thay đổi dependency graph/lockfile.
+- [[Pull Request]] vì bot thường tạo PR update.
+- [[CI]] vì update cần test gate.
+- [[Package Registry]] vì version mới lấy từ registry/advisory.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Dependency maintenance
+- Security patching
+- Automation PR
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Dependency Update Bot
-- dependency update bot
-- dependency update bot design
-- dependency update bot debugging
-- dependency update bot production
+- dependency bot
+- Dependabot
+- Renovate
+- dependency update PR
+- lockfile update
+- dependency bot debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- GitHub Dependabot documentation
+- Renovate documentation
