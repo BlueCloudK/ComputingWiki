@@ -1,53 +1,59 @@
 # Pause System
 
-Aliases: Pause System, pause system
+Aliases: Pause System, game pause system
 
 Type: Game Development
 
 ## Context / Ngữ cảnh
 
-Pause System xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+Pause System xuất hiện khi game cần tạm dừng gameplay nhưng vẫn giữ UI, menu, audio, input hoặc một số animation hoạt động theo rule riêng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Pause System là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+Pause System là cơ chế kiểm soát trạng thái paused/unpaused của game, quyết định system nào dừng, system nào vẫn chạy và input nào còn được nhận.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Pause System không chỉ là set time scale về 0. Một số system như pause menu, UI animation, network, audio hoặc cutscene có thể cần behavior riêng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Pause System giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Game có pause state trung tâm. Gameplay update/physics/AI/timer kiểm tra state hoặc time source phù hợp; UI/input/audio dùng rule riêng để cho phép mở menu, resume hoặc quit.
 
 ## Project Role / Vai trò trong dự án
 
-Pause System giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug game vẫn chạy khi pause, UI không nhận input, timer/cooldown sai, audio không dừng hoặc resume bị lệch state.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Pause System
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Pause state diagram
+- System behavior table: pause/resume/ignore
+- Input routing rule
+- Time source rule
+- Test checklist cho pause/resume
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Pause System nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- System nào dừng khi pause?
+- System nào vẫn chạy khi pause?
+- Input nào còn nhận?
+- Timer dùng scaled hay unscaled time?
+- Pause có được save/load hoặc multiplayer support không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Pause System như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Gameplay dừng nhưng timer/cooldown vẫn chạy.
+- Pause menu không nhận input vì input cũng bị chặn.
+- Physics/AI vẫn update khi pause.
+- Audio state không resume đúng.
+- Nhiều source pause/resume làm state conflict.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Pause System nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype chưa có menu có thể dùng pause tối giản.
+- Không nên tạo pause framework phức tạp nếu chỉ cần stop/resume gameplay cơ bản.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Pause System giúp chọn đúng abstraction, config, test hoặc debug path khi
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Game Loop]] vì pause kiểm soát update loop.
+- [[HUD]] vì pause menu/HUD là UI liên quan trực tiếp.
+- [[Finite State AI]] vì AI thường phải dừng hoặc đổi state khi pause.
+- [[State Management]] vì pause là global gameplay state cần quản lý rõ.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- Time scale
+- Pause menu
+- Gameplay state
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Pause System
-- pause system
-- pause system design
+- game pause system
+- time scale
+- unscaled time
+- pause menu
+- gameplay pause
 - pause system debugging
-- pause system production
 
 ## Source trace
 
 - Game Programming Patterns
 - Unity documentation
-- Unreal Engine documentation
 - Godot documentation
