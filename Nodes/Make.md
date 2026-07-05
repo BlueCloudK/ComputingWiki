@@ -1,53 +1,56 @@
 # Make
 
-Aliases: Make, make
+Aliases: Make, Makefile
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Make xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Make xuất hiện khi project cần gom các command lặp lại như build, test, lint, clean, run hoặc deploy vào một interface đơn giản.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Make là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Make là build automation tool dùng `Makefile` để định nghĩa target, dependency và command.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Make không phải package manager và không thay thế build system chuyên sâu nếu project cần dependency graph phức tạp.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Make giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Make đọc target trong `Makefile`, so sánh dependency/file timestamp nếu có, rồi chạy command tương ứng. Trong nhiều project hiện đại, Makefile còn được dùng như command launcher thống nhất.
 
 ## Project Role / Vai trò trong dự án
 
-Make giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi chuẩn hóa lệnh local/CI như `make test`, `make build`, `make run` hoặc `make clean`.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Make
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Makefile
+- Target list
+- Command convention
+- CI mapping nếu dùng trong pipeline
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Make nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Target này chạy command gì?
+- Command có idempotent không?
+- Local và CI có dùng cùng target không?
+- Dependency hoặc env cần thiết có rõ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Make như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Target tên rõ nhưng command bên trong làm quá nhiều việc.
+- Local và CI gọi command khác nhau.
+- Makefile phụ thuộc shell/env không document.
+- Timestamp/dependency rule sai làm build không chạy lại.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Make nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project nhỏ có vài command package script là đủ.
+- Không nên biến Makefile thành deploy framework phức tạp nếu tool chuyên dụng phù hợp hơn.
 
 ## Gồm những gì
 
@@ -55,26 +58,26 @@ Make giúp chọn đúng abstraction, config, test hoặc debug path khi làm pr
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[CLI Tool]] vì Make thường gom các command CLI thành target.
+- [[CI]] vì CI có thể gọi target Make để reuse command local.
+- [[Build Cache]] vì build target có thể tương tác với cache/output.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Build automation
+- Developer workflow
+- Command runner
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Make
-- make
-- make design
-- make debugging
-- make production
+- Makefile
+- make target
+- build automation
+- make test
+- make build
+- Make debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- GNU Make documentation
