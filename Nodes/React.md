@@ -1,79 +1,77 @@
 # React
 
-Aliases: React, react
+Aliases: React, React.js
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-React xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+React là thư viện UI dùng để xây giao diện bằng component.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-React là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+React tổ chức UI thành component, props và state.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+React không phải backend framework hoặc database.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu React giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Component nhận dữ liệu, render UI và cập nhật khi state thay đổi.
 
 ## Project Role / Vai trò trong dự án
 
-React giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi cần hiểu hoặc debug UI component.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới React
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Component tree
+- State ownership map
+- Test cho flow chính
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- React nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- State nằm ở đâu?
+- Component nhận props gì?
+- Component có quá lớn không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng React như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- State đặt sai chỗ.
+- Component quá lớn.
+- Render list thiếu key ổn định.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu React nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Trang tĩnh nhỏ chưa cần React.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[JSX]]
+- [[useRef]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Frontend Framework]] vì React thuộc nhóm frontend framework/library.
+- [[Component]] vì component là đơn vị chính.
+- [[State Management]] vì React app phụ thuộc state ownership.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- UI architecture
+- Browser runtime
 
 ## Keywords / Từ khóa tìm kiếm
 
 - React
-- react
-- react design
-- react debugging
-- react production
+- React.js
+- React component
+- React state
+- React props
 
 ## Source trace
 
 - React documentation
-- Vue documentation
-- Angular documentation
-- MDN Web Docs
