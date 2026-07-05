@@ -1,53 +1,59 @@
 # Artifact Repository
 
-Aliases: Artifact Repository, artifact repository
+Aliases: Artifact Repository, artifact registry
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Artifact Repository xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Artifact Repository xuất hiện khi team cần nơi lưu package, container image, binary hoặc release artifact để CI/CD lấy lại một cách ổn định.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Artifact Repository là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Artifact Repository là kho lưu trữ artifact đã build, có version, metadata, access control và retention policy.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Artifact Repository không phải source repository. Source repo lưu code; artifact repo lưu output build.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Artifact Repository nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+CI publish artifact vào repository với version/digest. CD, developer hoặc runtime pull artifact theo version cụ thể. Repository quản lý permission, retention, cache và metadata.
 
 ## Project Role / Vai trò trong dự án
 
-Artifact Repository giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế package registry, container registry, release retention, rollback hoặc supply-chain trace.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Artifact Repository
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Repository/registry location
+- Artifact naming/versioning convention
+- Access control rule
+- Retention policy
+- Promotion rule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Artifact Repository giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Artifact loại gì được lưu ở đây?
+- Ai được publish và ai được pull?
+- Version có immutable không?
+- Retention có giữ đủ cho rollback không?
+- Artifact có scan/sign/metadata không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Artifact Repository sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Artifact bị overwrite cùng version.
+- Retention xóa artifact rollback.
+- Permission quá rộng làm publish nhầm.
+- CI publish vào registry khác CD đang dùng.
+- Tag mơ hồ làm deploy sai version.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Artifact Repository nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Project chưa release/deploy có thể chưa cần artifact repository riêng.
+- Không nên tạo nhiều registry nếu một registry rõ boundary đủ dùng.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Artifact Repository giúp team thiết kế, review, test, deploy hoặc vận h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Release Artifact]] vì artifact repository lưu release artifact.
+- [[CD]] vì CD pull artifact từ repository để deploy.
+- [[Secret]] vì registry credential là secret cần bảo vệ.
+- [[Least Privilege]] vì publish/pull permission cần scope nhỏ.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Package registry
+- Container registry
+- Release management
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Artifact Repository
-- artifact repository
-- artifact repository design
+- artifact registry
+- package registry
+- container registry
+- artifact retention
+- artifact version
 - artifact repository debugging
-- artifact repository production
-- artifact repository best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- GitHub Packages documentation
+- Continuous Delivery
