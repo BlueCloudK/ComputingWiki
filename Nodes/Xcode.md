@@ -1,53 +1,59 @@
 # Xcode
 
-Aliases: Xcode, xcode
+Aliases: Xcode
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-Xcode xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+Xcode xuất hiện khi phát triển app cho iOS, macOS hoặc hệ sinh thái Apple, từ viết code, build, debug đến archive và release.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Xcode là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+Xcode là IDE và toolchain chính của Apple để viết, build, ký, chạy test, debug và phát hành app.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Xcode không phải ngôn ngữ lập trình. Swift hoặc Objective-C mới là ngôn ngữ thường dùng trong project Apple.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Xcode giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Xcode quản lý project/workspace, target, scheme, signing, simulator/device run, build setting, asset, test và archive release.
 
 ## Project Role / Vai trò trong dự án
 
-Xcode giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug iOS build, signing, simulator/device, archive, test hoặc release app.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Xcode
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Xcode project/workspace
+- Scheme/target note
+- Signing config
+- Archive/release artifact
+- Simulator/device test note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Xcode nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Target/scheme có đúng không?
+- Signing team/profile đúng chưa?
+- Build setting có lệch debug/release không?
+- Simulator/device target là gì?
+- Archive/export có dùng đúng method không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Xcode như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Signing sai làm app không chạy hoặc không upload được.
+- Scheme/target sai làm build nhầm app.
+- Debug/release config lệch.
+- Simulator pass nhưng device fail.
+- Xcode/SDK version khác CI làm build lệch.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Xcode nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Không target Apple platform thì chưa cần Xcode.
+- Không nên phụ thuộc config local nếu CI/release cần reproducible build.
 
 ## Gồm những gì
 
@@ -55,25 +61,28 @@ Xcode giúp chọn đúng abstraction, config, test hoặc debug path khi làm p
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[iOS]] vì Xcode là toolchain chính để phát triển iOS app.
+- [[Swift]] vì Swift thường được viết và build trong Xcode.
+- [[SDK]] vì Xcode đi kèm Apple SDK.
+- [[IPA]] vì Xcode archive/export có thể tạo IPA.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Apple development
+- App signing
+- Simulator
+- Release archive
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Xcode
-- xcode
-- xcode design
-- xcode debugging
-- xcode production
+- Xcode project
+- Xcode scheme
+- iOS signing
+- simulator
+- archive
+- Xcode debugging
 
 ## Source trace
 
-- Android Developers documentation
 - Apple Developer documentation
-- React Native documentation
-- Flutter documentation
