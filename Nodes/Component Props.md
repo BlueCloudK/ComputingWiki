@@ -1,53 +1,59 @@
 # Component Props
 
-Aliases: Component Props, component props
+Aliases: Component Props, props
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-Component Props xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+Component Props xuất hiện khi parent component cần truyền dữ liệu, callback hoặc configuration xuống child component trong UI tree.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Component Props là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+Component Props là input contract của component: dữ liệu và callback mà component nhận từ bên ngoài để render hoặc phát hành động lên parent.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Props không phải global state và không nên bị child mutate trực tiếp. Nếu dữ liệu cần thay đổi, component nên emit callback/action hoặc dùng state boundary rõ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Component Props giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Parent truyền prop vào child. Child đọc prop để render hoặc gọi callback khi user action xảy ra. Khi prop đổi, framework render/update component theo reactivity/model của nó.
 
 ## Project Role / Vai trò trong dự án
 
-Component Props giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug data flow parent-child, component reuse, props drilling, callback contract, controlled/uncontrolled component hoặc props gây rerender dư.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Component Props
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Props interface/schema
+- Required/optional/default value
+- Callback contract
+- Controlled/uncontrolled decision
+- Component test/story nếu quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Component Props nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Prop này là data, config hay callback?
+- Prop có required/default rõ không?
+- Child có mutate prop không?
+- Prop drilling có quá sâu không?
+- Callback có tên và payload rõ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Component Props như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Prop contract mơ hồ làm component khó reuse.
+- Child mutate prop trực tiếp làm data flow rối.
+- Props object/function tạo mới liên tục gây rerender dư.
+- Controlled/uncontrolled state bị trộn.
+- Callback payload không rõ làm parent xử lý sai.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Component Props nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Component chỉ dùng nội bộ một nơi có thể giữ props đơn giản.
+- Không nên tạo props API quá tổng quát trước khi có reuse thật.
 
 ## Gồm những gì
 
@@ -55,25 +61,28 @@ Component Props giúp chọn đúng abstraction, config, test hoặc debug path 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Component]] vì props là input contract của component.
+- [[React]] vì props là cơ chế chính trong React component.
+- [[Vue Component]] vì Vue component cũng có props/emits contract.
+- [[Global State]] vì props drilling quá sâu có thể báo hiệu cần state boundary khác.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Parent-child data flow
+- Controlled component
+- Callback props
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Component Props
-- component props
-- component props design
+- props
+- props contract
+- callback prop
+- props drilling
+- controlled component
 - component props debugging
-- component props production
 
 ## Source trace
 
 - React documentation
 - Vue documentation
-- Angular documentation
-- MDN Web Docs
