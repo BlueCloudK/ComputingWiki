@@ -1,53 +1,60 @@
 # Cloud Backup Policy
 
-Aliases: Cloud Backup Policy, cloud backup policy
+Aliases: Cloud Backup Policy, backup policy
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Cloud Backup Policy xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Cloud Backup Policy xuất hiện khi dữ liệu, config hoặc artifact quan trọng cần được sao lưu định kỳ để phục hồi sau lỗi người dùng, lỗi hệ thống, ransomware, corruption hoặc region failure.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Cloud Backup Policy là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Cloud Backup Policy là rule xác định cái gì được backup, tần suất, retention, encryption, access control, restore test và owner chịu trách nhiệm.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Backup policy không phải chỉ bật snapshot. Nếu không test restore, backup có thể tồn tại nhưng không dùng được khi incident thật.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Cloud Backup Policy nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Policy chọn resource, tạo schedule backup/snapshot/export, lưu bản backup ở storage/region phù hợp, mã hóa và kiểm soát quyền, rồi định kỳ test restore và audit retention.
 
 ## Project Role / Vai trò trong dự án
 
-Cloud Backup Policy giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế disaster recovery, database backup, object storage versioning, infrastructure backup hoặc compliance retention.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Cloud Backup Policy
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Backup scope
+- Schedule và retention
+- Encryption/access rule
+- Restore test checklist
+- RPO/RTO target
+- Owner/on-call note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Cloud Backup Policy giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Dữ liệu nào bắt buộc backup?
+- RPO/RTO là bao nhiêu?
+- Backup nằm cùng region hay cross-region?
+- Ai có quyền xóa/restore backup?
+- Restore test đã chạy gần đây chưa?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Cloud Backup Policy sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Backup có nhưng restore fail.
+- Retention quá ngắn làm mất điểm phục hồi cần thiết.
+- Backup nằm cùng failure domain với dữ liệu gốc.
+- Quyền xóa backup quá rộng.
+- Không backup config/secret cần thiết để khôi phục app.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Cloud Backup Policy nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Dữ liệu disposable có thể không cần backup formal.
+- Không nên mua backup/DR phức tạp khi RPO/RTO chưa rõ.
 
 ## Gồm những gì
 
@@ -55,27 +62,28 @@ Cloud Backup Policy giúp team thiết kế, review, test, deploy hoặc vận h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Backup]] vì cloud backup policy cụ thể hóa backup trong môi trường cloud.
+- [[Incident Response]] vì restore thường xảy ra trong incident.
+- [[Object Storage]] vì backup thường nằm trong object storage/versioning.
+- [[Least Privilege]] vì quyền đọc/xóa backup phải hạn chế.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Disaster recovery
+- Data retention
+- Cloud storage
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Cloud Backup Policy
-- cloud backup policy
-- cloud backup policy design
-- cloud backup policy debugging
-- cloud backup policy production
-- cloud backup policy best practice
+- backup policy
+- backup retention
+- restore test
+- RPO RTO
+- cross-region backup
+- cloud backup debugging
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Google SRE Books
+- AWS Backup documentation
