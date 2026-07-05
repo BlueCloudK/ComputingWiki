@@ -1,53 +1,59 @@
 # Progressive Delivery
 
-Aliases: Progressive Delivery, progressive delivery
+Aliases: Progressive Delivery, progressive rollout
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Progressive Delivery xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Progressive Delivery xuất hiện khi team muốn phát hành thay đổi theo từng bước nhỏ, đo signal thật rồi mới mở rộng traffic hoặc user exposure.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Progressive Delivery là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Progressive Delivery là cách deploy/release có kiểm soát bằng canary, blue-green, feature flag, traffic shifting, metric gate và rollback tự động hoặc thủ công.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Progressive Delivery không phải chỉ là deploy chậm hơn. Nó cần signal, threshold và decision rule rõ để giảm risk production.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Progressive Delivery nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline deploy version mới cho một phần traffic/user, thu metric như error rate, latency, saturation hoặc business signal, rồi tiếp tục tăng traffic, pause hoặc rollback.
 
 ## Project Role / Vai trò trong dự án
 
-Progressive Delivery giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế canary release, feature flag rollout, deployment strategy hoặc release gate dựa trên monitoring.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Progressive Delivery
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Rollout plan
+- Traffic/user percentage step
+- Metric gate
+- Rollback rule
+- Owner/on-call note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Progressive Delivery giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Rollout tăng traffic theo bước nào?
+- Metric nào quyết định pass/fail?
+- Sample traffic có đại diện không?
+- Rollback tự động hay thủ công?
+- Feature flag có tách deploy khỏi release không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Progressive Delivery sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Metric gate không bắt đúng user impact.
+- Canary traffic quá ít nên không có signal.
+- Rollout quá nhanh như deploy full.
+- Rollback không tương thích database/config.
+- Feature flag quên cleanup sau release.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Progressive Delivery nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- App nhỏ ít user có thể dùng rolling deploy và smoke test trước.
+- Không nên thêm progressive rollout nếu monitoring chưa đủ tin.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ Progressive Delivery giúp team thiết kế, review, test, deploy hoặc vận 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Deployment Strategy]] vì progressive delivery là nhóm chiến lược rollout.
+- [[Monitoring]] vì rollout decision dựa trên signal.
+- [[Rollback]] vì rollback là nhánh xử lý khi gate fail.
+- [[CD]] vì progressive delivery thường nằm trong pipeline release.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Canary release
+- Feature flag
+- Traffic shifting
+- Release safety
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Progressive Delivery
-- progressive delivery
-- progressive delivery design
+- progressive rollout
+- canary release
+- feature flag rollout
+- traffic shifting
+- metric gate
 - progressive delivery debugging
-- progressive delivery production
-- progressive delivery best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Continuous Delivery
+- Google SRE Books
