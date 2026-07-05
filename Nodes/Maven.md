@@ -1,53 +1,59 @@
 # Maven
 
-Aliases: Maven, maven
+Aliases: Maven, Apache Maven
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Maven xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Maven xuất hiện khi Java project cần quản lý dependency, build lifecycle, test và packaging theo convention ổn định.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Maven là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Maven là build automation và dependency management tool cho Java/JVM project, dùng `pom.xml` làm cấu hình chính.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Maven không phải Java runtime và không phải framework application như Spring.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Maven giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Maven đọc `pom.xml`, resolve dependency từ repository, chạy lifecycle phase như compile, test, package, verify và tạo artifact như JAR/WAR.
 
 ## Project Role / Vai trò trong dự án
 
-Maven giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug Java build, dependency conflict, test phase, packaging, CI hoặc release artifact.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Maven
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- `pom.xml`
+- Dependency/plugin list
+- Build lifecycle command
+- Artifact output note
+- CI command
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Maven nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Dependency version có rõ không?
+- Plugin build/test có đúng phase không?
+- Artifact cần JAR hay WAR?
+- Local và CI có dùng cùng command không?
+- Java version có khớp project không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Maven như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Dependency conflict làm runtime lỗi.
+- Plugin version không pin gây build lệch.
+- Test bị skip ngoài ý muốn.
+- Java version local khác CI.
+- Artifact package sai loại.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Maven nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project không dùng Java/JVM thì chưa cần Maven.
+- Không nên thêm plugin phức tạp nếu lifecycle chuẩn đủ dùng.
 
 ## Gồm những gì
 
@@ -55,26 +61,27 @@ Maven giúp chọn đúng abstraction, config, test hoặc debug path khi làm p
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Java]] vì Maven thường dùng cho Java project.
+- [[CI]] vì Maven build/test thường chạy trong pipeline.
+- [[Build Cache]] vì Maven dependency cache ảnh hưởng CI speed.
+- [[CLI Tool]] vì Maven thường chạy qua CLI command.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Java build
+- Dependency management
+- Artifact packaging
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Maven
-- maven
-- maven design
-- maven debugging
-- maven production
+- Apache Maven
+- pom.xml
+- mvn test
+- mvn package
+- Java dependency
+- Maven debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
 - Maven documentation
-- Gradle documentation
