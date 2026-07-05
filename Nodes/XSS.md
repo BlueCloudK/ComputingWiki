@@ -2,55 +2,62 @@
 
 Aliases: cross-site scripting, lỗi XSS
 
-Type: Protocol / Data Format
+Type: Security
 
 ## Context / Ngữ cảnh
 
-XSS xuất hiện khi hệ thống cần encode, parse, truyền hoặc hiểu dữ liệu/giao tiếp giữa producer và consumer.
+XSS xuất hiện khi dữ liệu không tin cậy được đưa vào HTML/DOM/JavaScript/CSS/URL context và browser thực thi hoặc diễn giải nó như code. Nó thường gặp ở comment, rich text, markdown preview, search result, profile field, admin dashboard, log viewer, template rendering và frontend DOM manipulation.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-XSS là quy ước compatibility: field/type/version/error behavior phải được hai bên hiểu giống nhau.
+XSS là lỗi cho phép attacker chèn script/markup độc hại vào trang mà người dùng khác hoặc chính attacker mở trong browser. Impact có thể là đánh cắp session token nếu token lộ được, thực hiện action thay user, thay đổi UI, exfiltrate data, keylogging hoặc pivot sang attack khác.
 
 ### Nó không phải là gì
 
-Nó không chỉ là syntax hoặc format file; nếu thiếu schema/versioning/error handling thì integration vẫn dễ vỡ.
+XSS không chỉ được chặn bằng input validation. Defense chính là output encoding đúng context, sanitizer an toàn cho HTML cho phép, CSP defense-in-depth và tránh API nguy hiểm như `innerHTML` với dữ liệu không tin cậy. XSS cũng không phải CSRF, dù XSS có thể bypass nhiều CSRF defense.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là serialization/parsing + schema/contract + compatibility. Producer tạo dữ liệu, consumer parse và xử lý; lỗi xuất hiện khi hai bên hiểu khác nhau.
+App nhận input, lưu hoặc render lại vào browser. Nếu dữ liệu được đặt vào HTML/attribute/JavaScript/CSS/URL context mà không encode/sanitize đúng, browser parse thành executable code. Stored XSS nằm trong dữ liệu lưu; reflected XSS phản chiếu từ request; DOM XSS xảy ra trong JavaScript client-side khi source không tin cậy đi vào sink nguy hiểm.
 
 ## Project Role / Vai trò trong dự án
 
-XSS ảnh hưởng tới API payload, message, config, log, network call hoặc storage format.
+XSS là node cần mở khi thiết kế frontend render user content, markdown/rich text, admin log viewer, template server-side hoặc SPA dùng DOM API. Nó giúp team phân biệt context encoding, HTML sanitization, CSP, cookie flags và data flow source→sink.
 
 ## Output / Artifact nên có
 
-- Schema/contract hoặc format decision ghi rõ field, type và version
-- Parser/serializer validation rule và error handling
-- Compatibility test cho consumer/producer quan trọng
+- XSS review checklist theo output context: HTML, attribute, JS, CSS, URL
+- Sanitizer policy nếu cho phép rich text/HTML
+- CSP policy và report-only rollout nếu dùng
+- Test case cho stored/reflected/DOM XSS ở field quan trọng
+- Cookie/session note: HttpOnly, Secure, SameSite để giảm impact khi XSS xảy ra
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Producer và consumer có hiểu cùng schema/type không?
-- Versioning/backward compatibility được xử lý thế nào?
-- Parse error, missing field và extra field trả lỗi ra sao?
-- Date/time/number/binary encoding có rủi ro mất dữ liệu không?
-- Payload size hoặc protocol behavior có ảnh hưởng performance không?
+- Dữ liệu này có đến từ user/third-party/log/database không?
+- Nó được render vào context nào: HTML text, attribute, JS string, CSS hay URL?
+- Framework có auto-escape không, và có chỗ nào bypass như `dangerouslySetInnerHTML`/`innerHTML` không?
+- Nếu cho phép rich text, sanitizer có allowlist tag/attribute/protocol không?
+- CSP có chặn inline script và giới hạn script source không?
+- Cookie/session token có HttpOnly để script không đọc trực tiếp không?
+- Có test DOM source→sink cho frontend code không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Client/server hiểu khác type hoặc optional field
-- Breaking schema làm consumer cũ lỗi
-- Date/time/number precision bị serialize sai
-- Payload lớn hoặc parsing đắt làm API/log chậm
+- Escape HTML text nhưng lại chèn vào JavaScript string context nên vẫn XSS.
+- Markdown/rich text sanitizer cho phép `javascript:` URL hoặc event handler.
+- Admin log viewer render raw request payload và tự XSS admin.
+- SPA dùng `innerHTML` với dữ liệu API không tin cậy.
+- CSP quá lỏng với `unsafe-inline` nên không giảm impact.
+- Token lưu localStorage bị script độc hại đọc và exfiltrate.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần schema/versioning phức tạp khi dữ liệu nội bộ nhỏ và consumer ít
-- Dễ over-engineer nếu chọn format/protocol nặng hơn nhu cầu tích hợp thật
+- Page chỉ render static content không nhận dữ liệu không tin cậy có risk XSS thấp.
+- Không nên tự viết sanitizer HTML nếu thư viện/framework uy tín đã có.
+- Không nên xem CSP là fix chính nếu output encoding/sanitization vẫn sai.
 
 ## Gồm những gì
 
@@ -58,30 +65,37 @@ XSS ảnh hưởng tới API payload, message, config, log, network call hoặc 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[CSP]] vì CSP là defense-in-depth quan trọng cho XSS.
+- [[Cookie]] vì HttpOnly/SameSite/Secure giảm impact khi XSS xảy ra.
+- [[Browser Security]] vì XSS khai thác browser execution context.
+- [[Input Validation]] vì input validation giúp giảm payload lạ nhưng không thay output encoding.
+- [[Session Management]] vì XSS có thể ảnh hưởng session/token handling.
 
 ## Liên quan rộng
 
-- Interoperability
-- Network communication
-- Data exchange
-- Backward compatibility
+- Output encoding
+- DOM security
+- Rich text sanitization
+- Frontend security
 
 ## Keywords / Từ khóa tìm kiếm
 
 - XSS
-- xss control
-- xss review
-- bảo mật ứng dụng
 - cross-site scripting
 - lỗi XSS
-- data model
-- query design
-- data consistency
-- pipeline dữ liệu
-- chất lượng dữ liệu
-- network protocol
+- stored XSS
+- reflected XSS
+- DOM XSS
+- output encoding
+- HTML sanitization
+- dangerous innerHTML
+- javascript URL
+- CSP XSS
+- cookie HttpOnly
+- XSS prevention
+- XSS debugging
 
 ## Source trace
 
 - OWASP XSS Prevention Cheat Sheet
+- OWASP DOM based XSS Prevention Cheat Sheet
