@@ -1,53 +1,59 @@
 # React Native
 
-Aliases: React Native, react native
+Aliases: React Native
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-React Native xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+React Native xuất hiện khi team muốn xây mobile app bằng JavaScript/React model nhưng vẫn dùng native platform capability của Android và iOS.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-React Native là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+React Native là framework mobile dùng React component model để xây app Android/iOS với native component, JavaScript runtime và native module bridge/runtime architecture.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+React Native không phải web React chạy nguyên trong browser. Nó target mobile runtime và native platform.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu React Native giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+App dùng component React Native, JavaScript runtime, native module và bridge/runtime để gọi capability của Android/iOS. Build pipeline tạo artifact riêng cho từng platform.
 
 ## Project Role / Vai trò trong dự án
 
-React Native giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug mobile UI, native module, build Android/iOS, navigation, performance bridge/runtime hoặc platform-specific behavior.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới React Native
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Component/navigation map
+- Native module list
+- Platform build note
+- State/data flow note
+- Test checklist theo Android/iOS
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- React Native nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Feature này thuần JS hay cần native module?
+- Android/iOS behavior có khác nhau không?
+- Build artifact cần APK/AAB hay IPA?
+- Performance có bị ảnh hưởng bởi bridge/runtime không?
+- Native permission/config đã đủ chưa?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng React Native như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Native module thiếu config theo platform.
+- Android/iOS behavior lệch nhau.
+- Build local pass nhưng release fail.
+- State/UI flow giống React web nhưng platform mobile khác expectation.
+- Bridge/runtime overhead làm interaction chậm.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu React Native nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- App chỉ là web đơn giản có thể chưa cần native mobile framework.
+- Không nên dùng native module nếu API cross-platform có sẵn đủ dùng.
 
 ## Gồm những gì
 
@@ -55,25 +61,28 @@ React Native giúp chọn đúng abstraction, config, test hoặc debug path khi
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[React]] vì React Native dùng React component model.
+- [[APK]] vì Android build có thể tạo APK.
+- [[AAB]] vì Android release có thể dùng AAB.
+- [[iOS]] vì React Native cũng target iOS.
+- [[Xcode]] vì iOS side thường cần Xcode/toolchain.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Cross-platform mobile
+- Native module
+- Mobile UI
 
 ## Keywords / Từ khóa tìm kiếm
 
 - React Native
-- react native
-- react native design
-- react native debugging
-- react native production
+- mobile React
+- native module
+- Android iOS app
+- bridge
+- React Native debugging
 
 ## Source trace
 
-- Android Developers documentation
-- Apple Developer documentation
 - React Native documentation
-- Flutter documentation
+- React documentation
