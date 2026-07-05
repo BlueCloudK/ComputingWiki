@@ -6,48 +6,54 @@ Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Pip xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Pip xuất hiện khi Python project cần cài, quản lý hoặc freeze package dependency.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Pip là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Pip là package installer cho Python, dùng để cài package từ PyPI hoặc package index khác.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Pip không phải Python runtime và không tự quản lý virtual environment nếu không kết hợp với venv/conda/tool khác.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Pip giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Pip đọc requirement hoặc package spec, resolve/download/install package vào environment hiện tại. Environment có thể là system Python, virtualenv hoặc container.
 
 ## Project Role / Vai trò trong dự án
 
-Pip giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug Python dependency, virtual environment, requirements file, package version hoặc CI install.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Pip
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- `requirements.txt` hoặc dependency spec
+- Virtual environment note
+- Install command
+- Python version note
+- CI cache/install note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Pip nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Pip đang cài vào environment nào?
+- Python version có khớp project không?
+- Dependency có pin rõ không?
+- CI có dùng cùng install command không?
+- Package index/credential có đúng không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Pip như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Cài nhầm system Python thay vì venv.
+- Dependency version trôi làm local khác CI.
+- Native wheel thiếu làm install fail.
+- Package cache cũ làm debug khó.
+- Requirements không phản ánh dependency thật.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Pip nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Script Python không dependency ngoài có thể chưa cần pip workflow.
+- Không nên cài package global nếu project cần reproducible environment.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Pip giúp chọn đúng abstraction, config, test hoặc debug path khi làm pro
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Python]] vì pip là installer chính trong Python ecosystem.
+- [[CI]] vì CI cần install dependency Python reproducibly.
+- [[Build Cache]] vì pip cache ảnh hưởng tốc độ install.
+- [[CLI Tool]] vì pip thường chạy qua command line.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Python packaging
+- Virtual environment
+- Dependency management
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Pip
 - pip
-- pip design
+- Python package
+- requirements.txt
+- virtualenv
+- pip install
 - pip debugging
-- pip production
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- pip documentation
+- Python packaging documentation
