@@ -1,53 +1,59 @@
 # Node Pool
 
-Aliases: Node Pool, node pool
+Aliases: Node Pool, Kubernetes node pool
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Node Pool xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Node Pool xuất hiện trong managed Kubernetes khi cluster có nhiều nhóm node với machine type, autoscaling, label, taint hoặc purpose khác nhau.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Node Pool là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Node Pool là nhóm node worker có cấu hình chung, thường cùng instance type, disk, autoscaling rule, zone/region và label/taint.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Node Pool không phải namespace hay workload group. Namespace tổ chức object logic; node pool là capacity compute thật nơi pod được schedule.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Node Pool nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Cluster autoscaler hoặc cloud provider tạo/xóa node trong pool theo nhu cầu. Scheduler đặt pod lên node phù hợp dựa trên resource request, node selector, affinity, taint/toleration và constraint của workload.
 
 ## Project Role / Vai trò trong dự án
 
-Node Pool giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế capacity cho cluster, tách workload GPU/CPU, isolate system/user workload, debug pod pending hoặc tối ưu chi phí node.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Node Pool
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Node pool config
+- Machine type/disk/zone
+- Label/taint rule
+- Autoscaling min/max
+- Workload placement policy
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Node Pool giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Workload nào nên chạy trên pool này?
+- Resource request có khớp capacity node không?
+- Taint/toleration có chặn pod ngoài ý muốn không?
+- Autoscaling min/max có đủ peak không?
+- Pool có làm chi phí tăng vì idle capacity không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Node Pool sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Pod pending vì node selector/taint sai.
+- Pool quá nhỏ hoặc instance type không hợp workload.
+- Autoscaler không scale do request/constraint sai.
+- Tách quá nhiều pool làm fragment capacity và tăng chi phí.
+- System workload bị đặt chung với workload nặng gây nhiễu.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Node Pool nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Cluster nhỏ có thể bắt đầu với một pool chung.
+- Không nên tạo nhiều node pool trước khi có workload placement/cost constraint rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ Node Pool giúp team thiết kế, review, test, deploy hoặc vận hành hệ 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Managed Kubernetes]] vì node pool thường là tính năng của managed cluster.
+- [[Kubernetes Controller]] vì autoscaler/controller quản lý desired capacity.
+- [[Resource Quota]] vì resource request/quota ảnh hưởng capacity planning.
+- [[Limit Range]] vì limit/request default ảnh hưởng scheduling lên node pool.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Cluster autoscaling
+- Workload placement
+- Compute capacity
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Node Pool
-- node pool
-- node pool design
+- Kubernetes node pool
+- managed Kubernetes node pool
+- taint toleration
+- node selector
+- cluster autoscaler
 - node pool debugging
-- node pool production
-- node pool best practice
 
 ## Source trace
 
 - Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Google Kubernetes Engine documentation
+- Amazon EKS documentation
