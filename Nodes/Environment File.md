@@ -1,53 +1,59 @@
 # Environment File
 
-Aliases: Environment File, environment file
+Aliases: Environment File, env file, dotenv file
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Environment File xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Environment File xuất hiện khi project cần lưu cấu hình môi trường local/dev/test như API URL, feature flag, port, mode hoặc non-secret config theo dạng file.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Environment File là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Environment File là file cấu hình biến môi trường, thường như `.env`, được app/tool đọc để set config runtime/build-time.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Environment File không phải nơi an toàn để commit secret. Token, password, private key và production credential nên nằm trong secret manager hoặc CI/CD secret store.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Environment File giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Tool/runtime đọc key-value từ file env, inject vào process hoặc build config. App đọc config qua environment variable hoặc config layer, thường có file mẫu `.env.example` để document key cần có.
 
 ## Project Role / Vai trò trong dự án
 
-Environment File giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi setup local dev, debug config sai môi trường, tách dev/staging/prod, hoặc kiểm tra nguy cơ lộ secret trong repo.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Environment File
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- `.env.example`
+- Env key schema/description
+- Ignore rule cho `.env` thật
+- Runtime/build-time boundary note
+- Secret handling policy
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Environment File nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Key nào là config thường, key nào là secret?
+- `.env` thật có bị git ignore không?
+- `.env.example` có đủ key bắt buộc không?
+- Biến này được đọc ở runtime hay build-time?
+- CI/staging/prod lấy config từ đâu?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Environment File như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Commit nhầm secret vào repo.
+- Local `.env` khác CI làm bug chỉ xuất hiện khi deploy.
+- Build-time env bị nhầm với runtime env.
+- Key thiếu default/validation làm app crash muộn.
+- `.env.example` stale khiến người mới setup lỗi.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Environment File nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Script nhỏ có thể dùng config inline tạm thời.
+- Không nên tạo nhiều env file nếu boundary môi trường chưa rõ.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Environment File giúp chọn đúng abstraction, config, test hoặc debug path
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Environment Variable]] vì env file là cách khai báo environment variable.
+- [[Secret]] vì file env dễ lẫn secret và cần policy rõ.
+- [[Config Drift]] vì env khác nhau giữa môi trường gây drift.
+- [[CI]] vì CI cần inject config/secret khác local.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Dotenv
+- Local development config
+- Runtime configuration
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Environment File
-- environment file
-- environment file design
-- environment file debugging
-- environment file production
+- env file
+- dotenv
+- .env
+- .env.example
+- environment config
+- env file debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- Twelve-Factor App
+- dotenv documentation
