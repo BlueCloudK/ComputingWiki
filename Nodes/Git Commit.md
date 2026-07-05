@@ -1,53 +1,59 @@
 # Git Commit
 
-Aliases: Git Commit, git commit
+Aliases: Git Commit, commit
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Git Commit xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Git Commit xuất hiện khi cần lưu một snapshot thay đổi trong Git history để review, rollback, trace bug hoặc làm mốc cho build/release.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Git Commit là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Git Commit là object trong Git ghi lại tree snapshot, metadata, author/committer, message và parent commit để tạo lịch sử thay đổi.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Git Commit không phải file diff tạm thời trong working tree. Commit là mốc lịch sử đã được ghi vào repository local và có thể push lên remote.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Git Commit giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Developer stage file vào index, tạo commit từ index, Git lưu snapshot và parent pointer. Branch chỉ trỏ tới commit mới nhất trong một dòng lịch sử.
 
 ## Project Role / Vai trò trong dự án
 
-Git Commit giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug lịch sử Git, chia nhỏ change, trace bug về commit, viết commit message rõ hoặc hiểu CI/release artifact gắn với SHA nào.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Git Commit
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Commit SHA
+- Commit message rõ intent
+- Diff đủ nhỏ và tập trung
+- Parent/history context
+- Link tới PR/issue nếu có
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Git Commit nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Commit này giải quyết một ý rõ chưa?
+- Diff có lẫn format/refactor/logic không?
+- Message có nói vì sao thay đổi không?
+- Commit có build/test pass không?
+- Commit SHA có được dùng để trace artifact không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Git Commit như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Commit quá lớn làm review và rollback khó.
+- Message mơ hồ làm lịch sử vô dụng.
+- Commit chứa secret hoặc file build rác.
+- Commit chưa test nhưng đã push/merge.
+- Squash/rebase làm mất context nếu không giữ message tốt.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Git Commit nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Thử nghiệm local nhanh có thể commit tạm, nhưng trước khi share nên dọn lịch sử hợp lý.
+- Không nên chia commit quá nhỏ nếu mỗi commit không build/test được.
 
 ## Gồm những gì
 
@@ -55,26 +61,27 @@ Git Commit giúp chọn đúng abstraction, config, test hoặc debug path khi l
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Git]] vì commit là object lõi của Git.
+- [[Pull Request]] vì PR gom commit/diff để review.
+- [[Git Remote]] vì commit cần push/fetch qua remote để collaboration.
+- [[Release Artifact]] vì artifact nên trace được về commit SHA.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Version history
+- Code review
+- Traceability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Git Commit
+- commit SHA
+- commit message
 - git commit
-- git commit design
-- git commit debugging
-- git commit production
+- staged changes
+- parent commit
+- commit debugging
 
 ## Source trace
 
 - Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
