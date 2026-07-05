@@ -1,80 +1,91 @@
 # Execution Plan
 
-Aliases: Execution Plan, execution plan
+Aliases: Execution Plan, query execution plan
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Execution Plan xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Execution Plan xuất hiện khi database optimizer chọn cách thực thi query: scan bảng nào, dùng index nào, join theo thứ tự nào và chạy operator nào.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Execution Plan là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Execution Plan là cây/graph operator mà database executor sẽ chạy để lấy dữ liệu, join, filter, sort, aggregate và trả result.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Execution Plan không phải SQL text. Cùng một SQL có thể có nhiều plan khác nhau tùy statistics, index, parameter, data size và config.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Execution Plan nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Optimizer ước lượng cost dựa trên statistics và chọn plan gồm operator như sequential scan, index scan, nested loop, hash join, sort hoặc aggregate. Executor chạy plan và tạo actual rows/time/buffer nếu dùng analyze.
 
 ## Project Role / Vai trò trong dự án
 
-Execution Plan giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug query chậm, đọc EXPLAIN, kiểm tra vì sao index không dùng, join sai strategy hoặc performance thay đổi sau data growth.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Execution Plan
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- EXPLAIN / EXPLAIN ANALYZE
+- Estimated vs actual rows
+- Operator tree
+- Buffer/I/O stats
+- Candidate fix: index, rewrite query, update stats
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Execution Plan giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Plan dùng operator nào?
+- Estimated rows có lệch actual không?
+- Bottleneck nằm ở scan, join, sort hay I/O?
+- Index/statistics có phù hợp không?
+- Plan khác giữa dev và production vì data khác không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Execution Plan sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Statistics stale làm optimizer chọn plan sai.
+- Estimated rows lệch khiến join strategy tệ.
+- Sequential scan trên bảng lớn không mong muốn.
+- Sort/hash join spill ra disk.
+- Chỉ nhìn cost mà không xem actual time/buffer.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Execution Plan nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Query nhỏ/chạy hiếm và đủ nhanh thì chưa cần tối ưu plan.
+- Không nên ép planner bằng hint/config nếu chưa hiểu statistics và data distribution.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Sequential Scan]]
+- [[Nested Loop Join]]
+- [[Hash Join]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Query Plan]] vì execution plan là biểu diễn cụ thể của query plan.
+- [[Sequential Scan]] vì scan là operator phổ biến trong plan.
+- [[Nested Loop Join]] vì nested loop là join strategy trong plan.
+- [[Hash Join]] vì hash join là join strategy trong plan.
+- [[Index]] vì index quyết định access path trong plan.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Query optimizer
+- EXPLAIN ANALYZE
+- Cost estimation
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Execution Plan
-- execution plan
-- execution plan design
+- query execution plan
+- EXPLAIN ANALYZE
+- estimated rows
+- actual rows
+- query operator
 - execution plan debugging
-- execution plan production
-- execution plan best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
