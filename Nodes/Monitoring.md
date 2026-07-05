@@ -72,7 +72,7 @@ Monitoring ảnh hưởng tới release, rollback, incident response và ưu ti�
 - [[Service Level Objective]] vì SLO biến reliability thành mục tiêu đo được.
 - [[Incident]] vì monitoring phải dẫn tới incident response khi user impact xảy ra.
 - [[Logging]] vì log là tín hiệu cần thiết để debug sau khi alert nổ.
-- [[Tracing]] vì trace giúp tìm latency/error đi qua service nào.
+- Tracing vì trace giúp tìm latency/error đi qua service nào.
 
 ## Liên quan rộng
 
