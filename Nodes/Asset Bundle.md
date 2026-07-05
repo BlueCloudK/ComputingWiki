@@ -1,53 +1,59 @@
 # Asset Bundle
 
-Aliases: Asset Bundle, asset bundle
+Aliases: Asset Bundle, asset pack
 
 Type: Game Development
 
 ## Context / Ngữ cảnh
 
-Asset Bundle xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+Asset Bundle xuất hiện khi game cần đóng gói asset để tải theo phiên bản, theo màn chơi, theo DLC hoặc tải động sau khi app/game đã phát hành.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Asset Bundle là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+Asset Bundle là artifact chứa asset đã build/import theo định dạng engine/platform để runtime có thể load khi cần.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Asset Bundle không phải source asset gốc trong project. Nó là output build của asset pipeline và cần version, dependency, cache rule rõ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Asset Bundle giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Asset pipeline import texture, prefab, scene, material, shader hoặc audio; gom chúng thành bundle; runtime tải bundle từ local/remote, resolve dependency rồi instantiate/use asset.
 
 ## Project Role / Vai trò trong dự án
 
-Asset Bundle giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug asset thiếu, version mismatch, remote content update, memory tăng do bundle không unload hoặc build khác nhau giữa platform.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Asset Bundle
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Bundle manifest
+- Asset-to-bundle mapping
+- Version/hash rule
+- Dependency list
+- Load/unload test checklist
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Asset Bundle nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Asset nào nằm trong bundle nào?
+- Bundle có version/hash không?
+- Dependency giữa bundle có rõ không?
+- Runtime load/unload ở thời điểm nào?
+- Cache remote content xử lý ra sao?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Asset Bundle như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Bundle thiếu dependency làm asset load fail.
+- Version mismatch khiến client tải asset sai.
+- Không unload bundle làm memory tăng.
+- Platform build khác nhau làm shader/material lỗi.
+- Bundle quá lớn làm loading time cao.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Asset Bundle nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype nhỏ có thể pack asset trực tiếp trong build.
+- Không nên dùng bundle/dynamic content nếu chưa có nhu cầu update hoặc memory/loading rõ.
 
 ## Gồm những gì
 
@@ -55,25 +61,30 @@ Asset Bundle giúp chọn đúng abstraction, config, test hoặc debug path khi
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Asset Pipeline]] vì asset bundle là output của asset pipeline.
+- [[Game Build]] vì bundle thường đi kèm build/release.
+- [[Object Storage]] vì remote bundle thường được host trên object storage/CDN.
+- [[CDN]] vì phân phối asset bundle cần cache/edge delivery.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- Remote content
+- DLC
+- Asset versioning
+- Runtime loading
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Asset Bundle
-- asset bundle
-- asset bundle design
+- asset pack
+- remote asset
+- bundle manifest
+- asset dependency
+- runtime loading
 - asset bundle debugging
-- asset bundle production
 
 ## Source trace
 
-- Game Programming Patterns
 - Unity documentation
 - Unreal Engine documentation
 - Godot documentation
