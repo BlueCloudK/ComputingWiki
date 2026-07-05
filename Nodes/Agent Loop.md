@@ -1,53 +1,59 @@
 # Agent Loop
 
-Aliases: Agent Loop, agent loop
+Aliases: Agent Loop, agentic loop
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Agent Loop xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Agent Loop xuất hiện khi AI agent không chỉ trả lời một lần mà lặp qua các bước quan sát, lập kế hoạch, gọi tool, đọc kết quả và quyết định bước tiếp theo.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Agent Loop là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Agent Loop là vòng lặp điều phối agent: nhận goal/context, decide next action, call tool hoặc answer, observe result, update state và tiếp tục cho tới khi hoàn thành hoặc dừng.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Agent Loop không phải chain prompt tuyến tính đơn giản. Loop có state, stop condition, tool boundary và risk runaway/cost nếu không giới hạn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Agent Loop nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Orchestrator gửi state hiện tại cho model/planner, nhận action proposal, kiểm tra policy/permission, chạy tool nếu được phép, ghi observation vào trace rồi lặp lại cho tới success, failure, timeout hoặc max step.
 
 ## Project Role / Vai trò trong dự án
 
-Agent Loop giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế agent workflow, debug loop bị kẹt, tool call sai, cost tăng, state drift hoặc approval/policy gate trong agent system.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Agent Loop
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Loop state schema
+- Step limit/timeout
+- Tool/action contract
+- Observation/trace log
+- Stop condition và failure handling
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Agent Loop giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Agent dừng khi nào?
+- Step limit và timeout là bao nhiêu?
+- Tool call có policy/approval không?
+- Observation nào được đưa lại vào context?
+- Trace có đủ để replay/debug không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Agent Loop sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Loop không có stop condition rõ nên chạy vòng.
+- Tool result được hiểu sai làm action tiếp theo sai.
+- State/context phình làm mất thông tin quan trọng.
+- Permission quá rộng làm agent gọi tool nguy hiểm.
+- Không có trace nên không biết bước nào sai.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Agent Loop nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Task đơn giản hỏi-đáp một lượt chưa cần agent loop.
+- Không nên thêm loop/tool nếu workflow deterministic code thường xử lý rõ hơn.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ Agent Loop giúp team thiết kế, review, test, deploy hoặc vận hành hệ
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[AI Agent]] vì agent loop là cơ chế chạy của agent.
+- [[Tool Use]] vì loop thường quyết định và gọi tool.
+- [[Timeout]] vì loop cần giới hạn thời gian và bước.
+- [[Logging]] vì trace từng step rất quan trọng để debug.
+- [[Jailbreak]] vì loop có tool/action nên guardrail cần nghiêm hơn chat thường.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Agent orchestration
+- Planner executor
+- Tool approval
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Agent Loop
-- agent loop
-- agent loop design
+- agentic loop
+- AI agent loop
+- tool loop
+- agent trace
+- max steps
 - agent loop debugging
-- agent loop production
-- agent loop best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
