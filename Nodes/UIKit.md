@@ -1,53 +1,57 @@
 # UIKit
 
-Aliases: UIKit, uikit
+Aliases: UIKit
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-UIKit xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+UIKit xuất hiện khi iOS app cần xây giao diện native bằng view controller, view, navigation và event handling của Apple platform.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-UIKit là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+UIKit là UI framework native của Apple cho iOS/iPadOS, cung cấp view, control, navigation, layout và lifecycle cho app giao diện truyền thống.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+UIKit không phải Swift và không phải toàn bộ iOS SDK. Swift là ngôn ngữ, UIKit là framework UI.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu UIKit giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+App dùng view controller quản lý view hierarchy, lifecycle, layout constraint, navigation và user interaction. UI update cần khớp main thread và lifecycle.
 
 ## Project Role / Vai trò trong dự án
 
-UIKit giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug iOS UI, navigation, lifecycle, layout, screen transition hoặc native module dùng UIKit.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới UIKit
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- View controller/screen map
+- Navigation flow
+- Layout constraint note
+- Lifecycle handling note
+- UI test hoặc manual test checklist
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- UIKit nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Screen này thuộc view controller nào?
+- Navigation flow có rõ không?
+- Layout có đúng trên nhiều device không?
+- UI update có đúng lifecycle không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng UIKit như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Layout constraint conflict.
+- Navigation stack sai.
+- Lifecycle xử lý sai làm UI state mất.
+- UI update sai thời điểm làm hành vi khó debug.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu UIKit nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- App không target iOS native thì chưa cần UIKit.
+- Nếu dùng framework UI khác, chỉ cần UIKit ở integration boundary.
 
 ## Gồm những gì
 
@@ -55,25 +59,25 @@ UIKit giúp chọn đúng abstraction, config, test hoặc debug path khi làm p
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[iOS]] vì UIKit là UI framework native của iOS.
+- [[Swift]] vì UIKit thường được dùng với Swift.
+- [[Xcode]] vì UIKit app thường được build/debug trong Xcode.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Native UI
+- View controller
+- iOS lifecycle
 
 ## Keywords / Từ khóa tìm kiếm
 
 - UIKit
-- uikit
-- uikit design
-- uikit debugging
-- uikit production
+- iOS UI
+- ViewController
+- Auto Layout
+- navigation controller
+- UIKit debugging
 
 ## Source trace
 
-- Android Developers documentation
 - Apple Developer documentation
-- React Native documentation
-- Flutter documentation
