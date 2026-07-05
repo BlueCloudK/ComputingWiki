@@ -1,53 +1,59 @@
 # Error Value
 
-Aliases: Error Value, error value
+Aliases: Error Value, error-as-value
 
 Type: Programming Languages Deep
 
 ## Context / Ngữ cảnh
 
-Error Value xuất hiện trong programming languages deep mở rộng semantics, runtime, type system, memory management, concurrency và language implementation concepts.
+Error Value xuất hiện khi ngôn ngữ hoặc API biểu diễn lỗi như một value được return thay vì ném exception qua control flow ẩn.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Error Value là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Programming Languages Deep.
+Error Value là cách xử lý lỗi bằng return value như `Result`, `Either`, error object, tuple `(value, error)` hoặc status object để caller kiểm tra tường minh.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Error Value không tự đảm bảo lỗi được xử lý. Nếu caller bỏ qua error value hoặc unwrap bừa, lỗi vẫn lọt qua và có thể crash hoặc sai dữ liệu.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Error Value giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Function trả về success value hoặc error value theo contract. Caller phải pattern match/check error, chuyển đổi, wrap context hoặc propagate lên tầng trên.
 
 ## Project Role / Vai trò trong dự án
 
-Error Value giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi thiết kế API contract, debug lỗi bị bỏ qua, so sánh exception vs result type, hoặc viết code cần error path rõ và testable.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Error Value
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Return type/error schema
+- Caller handling rule
+- Propagation/wrapping convention
+- Test cho success và failure path
+- Logging/context rule nếu cần
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Error Value nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Caller có bắt buộc kiểm tra error không?
+- Error value có đủ context không?
+- Error nên recover, retry hay propagate?
+- Có phân biệt expected error và bug không?
+- API có làm success/error shape rõ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Error Value như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Caller ignore error value.
+- Error context bị mất khi propagate.
+- Success và error shape mơ hồ.
+- Dùng error value cho bug unrecoverable làm code rối.
+- Không test failure path.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Error Value nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Script nhỏ có thể dùng exception đơn giản hơn.
+- Không nên bọc mọi thứ vào result type nếu framework/language đã có error boundary phù hợp.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Error Value giúp chọn đúng abstraction, config, test hoặc debug path khi 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Validation]] vì validation thường trả error value có thể xử lý được.
+- [[API Contract]] vì API cần định nghĩa error shape rõ.
+- [[Runtime]] vì exception/error value là hai mô hình control flow khác nhau.
+- [[Unit Test]] vì success/failure path cần được test riêng.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Compiler and Interpreter
-- Operating System
+- Result type
+- Exception handling
+- Error propagation
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Error Value
-- error value
-- error value design
+- error-as-value
+- Result type
+- Either
+- error object
+- error propagation
 - error value debugging
-- error value production
 
 ## Source trace
 
 - Types and Programming Languages
-- Crafting Interpreters
-- Engineering a Compiler
-- LLVM documentation
+- Rust documentation
+- Go documentation
