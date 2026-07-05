@@ -1,53 +1,59 @@
 # Crash Recovery
 
-Aliases: Crash Recovery, crash recovery
+Aliases: Crash Recovery, database crash recovery
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Crash Recovery xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Crash Recovery xuất hiện khi database/process/machine dừng đột ngột nhưng hệ thống vẫn phải khôi phục dữ liệu về trạng thái nhất quán.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Crash Recovery là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Crash Recovery là cơ chế database dùng log, checkpoint, dirty page tracking và transaction state để phục hồi sau crash mà không phá vỡ durability/atomicity.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Crash Recovery không phải backup restore. Recovery xử lý crash gần nhất bằng state/log hiện có; backup restore dùng bản sao dữ liệu từ thời điểm khác.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Crash Recovery nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Database ghi transaction log trước khi data page được flush. Sau crash, recovery đọc log/checkpoint, redo thay đổi đã commit nhưng chưa flush đủ và undo thay đổi chưa commit tùy engine.
 
 ## Project Role / Vai trò trong dự án
 
-Crash Recovery giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi hiểu durability, WAL/redo log, checkpoint, database startup chậm sau crash hoặc debug data consistency sau power loss/process kill.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Crash Recovery
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Recovery log/checkpoint note
+- Transaction state at crash
+- Startup recovery metric
+- Data consistency check
+- Backup/restore boundary note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Crash Recovery giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Database dùng WAL/redo log thế nào?
+- Checkpoint gần nhất ở đâu?
+- Transaction nào đã commit trước crash?
+- Recovery mất bao lâu khi restart?
+- Có test crash/restart trong staging không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Crash Recovery sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Log flush policy yếu làm mất durability kỳ vọng.
+- Recovery chạy lâu vì checkpoint quá xa.
+- Disk/cache layer nói dối về fsync.
+- App tưởng commit xong nhưng transaction chưa durable đúng mức.
+- Không phân biệt crash recovery với backup/DR.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Crash Recovery nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- App dùng managed database nhỏ có thể chưa cần biết sâu engine internals, nhưng vẫn cần hiểu durability setting.
+- Không nên tự viết recovery logic nếu database đã cung cấp cơ chế chuẩn.
 
 ## Gồm những gì
 
@@ -55,23 +61,27 @@ Crash Recovery giúp team thiết kế, review, test, deploy hoặc vận hành 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[ACID]] vì crash recovery bảo vệ atomicity/durability.
+- [[Transaction]] vì recovery dựa trên transaction state.
+- [[Backup]] vì backup là boundary khác với crash recovery.
+- [[Incident Response]] vì crash recovery thường xảy ra trong incident.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Write-ahead log
+- Checkpoint
+- Redo undo
+- Durability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Crash Recovery
-- crash recovery
-- crash recovery design
+- database crash recovery
+- WAL
+- redo log
+- checkpoint
+- durability
 - crash recovery debugging
-- crash recovery production
-- crash recovery best practice
 
 ## Source trace
 
