@@ -1,53 +1,59 @@
 # Prompt Versioning
 
-Aliases: Prompt Versioning, prompt versioning
+Aliases: Prompt Versioning, prompt versions
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Prompt Versioning xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Prompt Versioning xuất hiện khi prompt trong AI app thay đổi theo thời gian và cần trace được version nào tạo ra behavior nào.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Prompt Versioning là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Prompt Versioning là việc lưu, đặt tên, so sánh, promote và rollback prompt/system instruction/template như một artifact có version.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Prompt Versioning không phải chỉ copy prompt vào một file. Nếu không có diff, owner, eval result và runtime mapping, rất khó biết version nào đang chạy thật.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Prompt Versioning nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Mỗi prompt có id, version, changelog, variable schema và eval result. Runtime chọn version cụ thể qua config/registry; pipeline so sánh prompt diff và chạy regression trước khi deploy.
 
 ## Project Role / Vai trò trong dự án
 
-Prompt Versioning giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi nhiều prompt được dùng trong RAG/agent workflow, cần rollback prompt gây lỗi, hoặc cần audit vì sao output thay đổi sau release.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Prompt Versioning
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Prompt id/version
+- Prompt diff/changelog
+- Variable schema
+- Eval result per version
+- Runtime mapping: flow nào dùng version nào
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Prompt Versioning giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Prompt version nào đang chạy production?
+- Prompt đổi vì lý do gì?
+- Có eval trước/sau không?
+- Variable schema có đổi không?
+- Rollback về version cũ có nhanh không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Prompt Versioning sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Prompt bị sửa trực tiếp không có lịch sử.
+- Runtime dùng nhầm prompt staging.
+- Prompt diff nhỏ nhưng phá output schema.
+- Không gắn eval result nên không biết version nào tốt hơn.
+- Rollback khó vì prompt nằm rải rác trong code/config.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Prompt Versioning nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Demo một prompt có thể version bằng file và commit trước.
+- Không nên xây registry phức tạp nếu chưa có nhiều prompt hoặc regression thật.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Prompt Versioning giúp team thiết kế, review, test, deploy hoặc vận hà
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Prompt Registry]] vì registry là nơi quản lý prompt version formal hơn.
+- [[Prompt Regression]] vì version mới cần kiểm tra regression.
+- [[Offline Evaluation]] vì eval giúp so sánh version prompt.
+- [[Output Validation]] vì prompt version có thể phá schema output.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Prompt artifact
+- AI config management
+- Rollback
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Prompt Versioning
-- prompt versioning
-- prompt versioning design
+- prompt version
+- prompt diff
+- prompt rollback
+- prompt changelog
+- prompt eval
 - prompt versioning debugging
-- prompt versioning production
-- prompt versioning best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
 - Anthropic prompt engineering docs
