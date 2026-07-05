@@ -1,56 +1,63 @@
 # Component
 
-Aliases: software component, thành phần phần mềm
+Aliases: software component, UI component, thành phần phần mềm
 
 Type: Architecture / System Design
 
 ## Context / Ngữ cảnh
 
-Component xuất hiện ở mức system: component, service, boundary, dependency, deployment shape hoặc failure mode. Nó thường liên quan tới maintainability, scalability và ownership.
+Component xuất hiện khi hệ thống hoặc UI cần chia thành các phần có responsibility rõ. Trong frontend, component là đơn vị UI có props/state/render/event. Trong system design, component là phần hệ thống có boundary, interface, dependency và owner riêng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Component là quyết định về cấu trúc và ranh giới hệ thống: phần nào sở hữu dữ liệu, phần nào gọi phần nào, và hệ thống chịu lỗi/tăng tải ra sao.
+Component là một đơn vị cấu trúc có responsibility, input/output và dependency rõ. Với UI, component nhận props/data, có thể giữ state cục bộ, render view và phát event/callback. Với system, component expose interface và che implementation detail bên trong.
 
 ### Nó không phải là gì
 
-Nó không chỉ là diagram; diagram chỉ là artifact để nói về quyết định architecture.
+Component không chỉ là file hoặc class. Nếu một “component” biết quá nhiều việc, gọi quá nhiều dependency hoặc không có interface rõ, nó chỉ là code được đặt tên. Component cũng không tự tạo kiến trúc tốt nếu responsibility và data flow vẫn lẫn lộn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là boundary + dependency + trade-off. Mỗi boundary tạo ownership và interface; mỗi dependency tạo coupling và failure path; mỗi trade-off đổi simplicity lấy scalability hoặc ngược lại.
+Component nhận input qua props/API/interface, xử lý logic thuộc responsibility của nó, dùng dependency được truyền vào hoặc import, rồi trả output qua render/event/return value. Composition ghép component nhỏ thành component lớn. Boundary tốt làm thay đổi bên trong ít ảnh hưởng bên ngoài.
 
 ## Project Role / Vai trò trong dự án
 
-Component ảnh hưởng tới cách chia module/service, deploy, debug incident, scale và onboard người mới.
+Component là node cần mở khi chia UI, refactor module, vẽ architecture diagram hoặc debug ownership. Nó giúp team hỏi component này sở hữu state nào, nhận props gì, phát event gì, phụ thuộc ai và có đang gánh quá nhiều responsibility không.
 
 ## Output / Artifact nên có
 
-- Architecture decision record hoặc diagram có boundary rõ
-- Danh sách dependency, owner và failure mode chính
-- Trade-off note về scalability, maintainability, cost và complexity
+- Component tree hoặc component diagram cho screen/system chính
+- Component API: props/input, event/output, slot/children nếu có
+- Responsibility note: component này làm gì và không làm gì
+- State ownership: local/shared/server state nào thuộc component này
+- Test story: unit/component test cho render, interaction, edge state
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Boundary giữa component/service đã rõ chưa?
-- Dependency nào là bắt buộc, dependency nào có thể đảo chiều?
-- Failure của phần này lan sang phần nào?
-- Thiết kế này scale bằng cách nào và tốn cost gì?
-- Có cách đơn giản hơn đủ dùng cho giai đoạn hiện tại không?
+- Component này có responsibility rõ không?
+- Input/output có đủ explicit không?
+- State thuộc component này hay nên nâng lên/tách ra store?
+- Component có side effect/API call nằm đúng chỗ không?
+- Có thể reuse component này mà không kéo theo dependency quá lớn không?
+- Component có quá nhiều props hoặc quá nhiều mode không?
+- Khi component fail, user/system thấy lỗi gì?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Component không rõ boundary làm ownership, dependency hoặc data/control flow bị đặt sai chỗ
-- Coupling cao khiến một thay đổi kéo theo nhiều service
-- Không nghĩ failure mode nên incident khó khoanh vùng
-- Thiết kế quá lớn so với nhu cầu hiện tại
+- God component gom UI, data fetching, validation, business logic và side effect.
+- Props quá nhiều hoặc implicit làm component khó dùng lại.
+- State đặt sai chỗ gây stale UI hoặc prop drilling.
+- Side effect chạy trong render hoặc lifecycle sai làm loop/race.
+- Component coupling với API/global store khiến test khó và reuse thấp.
+- Component visual reusable nhưng behavior quá đặc thù làm abstraction rối.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần tách service/layer phức tạp khi một module đơn giản đủ kiểm soát
-- Dễ over-engineer nếu tối ưu scalability chưa có traffic hoặc team vận hành tương ứng
+- UI rất nhỏ có thể chưa cần component hierarchy phức tạp.
+- Không nên tách component quá sớm nếu boundary chưa rõ và chỉ dùng một lần.
+- Không nên tạo design-system-level component cho feature chưa ổn định.
 
 ## Gồm những gì
 
@@ -58,27 +65,38 @@ Component ảnh hưởng tới cách chia module/service, deploy, debug incident
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Frontend Framework]] vì component model là lõi của nhiều frontend framework.
+- [[State Management]] vì component boundary quyết định state đặt ở đâu.
+- [[CSR]] vì client-rendered UI thường được ghép từ component tree.
+- [[Hydration]] vì SSR component phải khớp khi hydrate trên client.
+- [[Unit Test]] vì component interaction/render có thể test ở mức unit/component.
 
 ## Liên quan rộng
 
-- System design
-- Backend
-- Operations
-- Technical decision
+- UI architecture
+- System boundary
+- Reusability
+- Maintainability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Component
 - software component
+- UI component
 - thành phần phần mềm
-- architecture decision
-- system boundary
+- component boundary
 - component responsibility
-- kiến trúc hệ thống
-- ranh giới hệ thống
-- Relationship
+- component props
+- component state
+- component composition
+- component tree
+- God component
+- reusable component
+- component testing
+- component debugging
 
 ## Source trace
 
-- C4 Model Map
+- C4 Model
+- React documentation
+- Vue documentation
