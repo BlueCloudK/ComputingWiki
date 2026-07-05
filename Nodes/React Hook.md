@@ -1,79 +1,89 @@
 # React Hook
 
-Aliases: React Hook, react hook
+Aliases: React Hook, Hook
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-React Hook xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+React Hook xuất hiện khi React function component cần dùng state, side effect, ref, context hoặc logic tái sử dụng mà không viết class component.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-React Hook là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+React Hook là function đặc biệt trong React cho phép component hoặc custom hook kết nối với React state/lifecycle/context system.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+React Hook không phải function tiện ích bình thường. Hook phải tuân thủ rule về nơi gọi và thứ tự gọi để React map state/effect đúng giữa các render.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu React Hook giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+React lưu hook state theo thứ tự gọi trong component render. Khi component render lại, React dựa vào cùng thứ tự hook để trả đúng state/ref/effect. Custom hook chỉ là cách đóng gói hook logic thành function tái sử dụng.
 
 ## Project Role / Vai trò trong dự án
 
-React Hook giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug stale closure, dependency array, rerender loop, custom hook design, useEffect side effect hoặc useRef/useState/useMemo behavior.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới React Hook
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Hook responsibility note
+- Dependency array reasoning
+- Side effect cleanup rule
+- Custom hook API contract
+- Test cho behavior hook quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- React Hook nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Hook có được gọi ở top-level component/custom hook không?
+- Dependency array có đủ giá trị được capture không?
+- Effect có cleanup không?
+- State này có cần hook hay derive từ props được?
+- Custom hook có expose API rõ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng React Hook như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Gọi hook trong condition/loop làm thứ tự hook sai.
+- Dependency array thiếu làm stale closure.
+- Effect update state vô hạn gây rerender loop.
+- Không cleanup subscription/timer gây leak.
+- Custom hook ôm quá nhiều trách nhiệm.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu React Hook nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Logic thuần không cần React state/effect thì viết function thường.
+- Không nên tạo custom hook chỉ để đổi tên code chưa có pattern lặp lại.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[useRef]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[React]] vì hook là cơ chế lõi trong React function component.
+- [[Component]] vì hook chạy trong component/custom hook.
+- [[State Management]] vì hook thường quản lý local/component state.
+- [[Memory Leak]] vì effect cleanup sai có thể gây leak.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- useState
+- useEffect
+- useMemo
+- Custom hook
 
 ## Keywords / Từ khóa tìm kiếm
 
 - React Hook
-- react hook
-- react hook design
-- react hook debugging
-- react hook production
+- Hook
+- useEffect
+- useState
+- dependency array
+- stale closure
+- custom hook
+- React hook debugging
 
 ## Source trace
 
 - React documentation
-- Vue documentation
-- Angular documentation
-- MDN Web Docs
