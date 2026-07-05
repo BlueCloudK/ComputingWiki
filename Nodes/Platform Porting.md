@@ -1,53 +1,59 @@
 # Platform Porting
 
-Aliases: Platform Porting, platform porting
+Aliases: Platform Porting, porting
 
 Type: Game Development
 
 ## Context / Ngữ cảnh
 
-Platform Porting xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+Platform Porting xuất hiện khi game/app đã chạy trên một platform nhưng cần đưa sang platform khác như PC, mobile, console, web hoặc operating system khác.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Platform Porting là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+Platform Porting là quá trình điều chỉnh build, input, rendering, performance, storage, networking, permission và distribution để phần mềm chạy đúng trên platform mới.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Platform Porting không chỉ là compile lại source code. Platform mới thường có constraint khác về hardware, API, UX, file system, input và release rule.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Platform Porting giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Team xác định platform-specific boundary, tách abstraction, thay adapter/build config, test behavior trên device thật, rồi xử lý performance và compliance/release requirement.
 
 ## Project Role / Vai trò trong dự án
 
-Platform Porting giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi đưa game từ desktop sang mobile/web, từ engine build này sang platform khác, hoặc debug lỗi chỉ xảy ra ở một platform.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Platform Porting
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Platform compatibility matrix
+- Build target config
+- Input/rendering/storage adapter note
+- Device/performance test checklist
+- Release/compliance note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Platform Porting nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Platform mới khác gì về input, screen, storage và permission?
+- Rendering/API có tương thích không?
+- Performance target là FPS/latency nào?
+- Asset format/size có cần đổi không?
+- Release package và store rule là gì?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Platform Porting như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Code build được nhưng input/UI không hợp platform.
+- Asset quá nặng cho mobile/web.
+- File path/storage assumption sai.
+- Performance chỉ pass trên máy dev, fail trên device thật.
+- Platform-specific code rải khắp nơi làm maintain khó.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Platform Porting nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype chưa ổn core gameplay thì chưa cần port nhiều platform.
+- Không nên abstract quá sớm nếu chưa biết platform target thật.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Platform Porting giúp chọn đúng abstraction, config, test hoặc debug path
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Game Loop]] vì porting có thể ảnh hưởng frame/update timing.
+- [[Asset Pipeline]] vì asset thường phải đóng gói/tối ưu theo platform.
+- [[Performance Optimization]] vì platform mới thường có budget khác.
+- [[ABI]] vì native/platform boundary có thể liên quan binary compatibility.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- Cross-platform build
+- Device compatibility
+- Game release
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Platform Porting
-- platform porting
-- platform porting design
-- platform porting debugging
-- platform porting production
+- porting
+- cross-platform game
+- platform-specific code
+- device compatibility
+- platform build
+- porting debugging
 
 ## Source trace
 
 - Game Programming Patterns
 - Unity documentation
 - Unreal Engine documentation
-- Godot documentation
