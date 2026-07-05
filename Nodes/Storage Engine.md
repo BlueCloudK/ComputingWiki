@@ -1,77 +1,90 @@
 # Storage Engine
 
-Aliases: Storage Engine, storage engine
+Aliases: Storage Engine, database storage engine
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Storage Engine xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Storage Engine xuất hiện khi cần hiểu database thật sự lưu, đọc, ghi, index, cache, log và khôi phục dữ liệu như thế nào dưới lớp SQL/API.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Storage Engine là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Storage Engine là thành phần chịu trách nhiệm quản lý physical data layout, page/cache, index, write path, transaction log, compaction/vacuum và crash recovery.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Storage Engine không phải query language hay ORM. SQL/ORM là lớp biểu đạt thao tác; storage engine là lớp thực thi dữ liệu ở mức lưu trữ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Storage Engine nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Engine nhận operation từ executor/transaction layer, đọc/ghi page hoặc segment, cập nhật index/log, giữ consistency theo transaction rule và tối ưu I/O bằng cache/layout/compaction.
 
 ## Project Role / Vai trò trong dự án
 
-Storage Engine giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug database chậm, I/O cao, bloat, lock, crash recovery, replication lag hoặc khi chọn database phù hợp workload.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Storage Engine
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Storage layout note
+- Read/write path diagram
+- Index/cache/log behavior
+- Performance metric: I/O, cache hit, latency
+- Failure/recovery behavior
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Storage Engine giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Workload chủ yếu read, write hay mixed?
+- Engine dùng row-store, LSM, heap hay kiểu khác?
+- Write path có log/checkpoint/compaction gì?
+- Read path có index/cache/filter gì?
+- Failure recovery và durability được đảm bảo ra sao?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Storage Engine sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chọn database theo API mà không hiểu storage tradeoff.
+- Write amplification hoặc read amplification tăng theo scale.
+- Cache/layout không hợp workload làm I/O cao.
+- Compaction/vacuum tụt làm latency và disk tăng.
+- Recovery/replication behavior không khớp kỳ vọng production.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Storage Engine nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- App nhỏ dùng managed database có thể chưa cần đào sâu toàn bộ internals.
+- Không nên tối ưu storage engine khi bottleneck thật nằm ở query/app/network.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Storage Layout]]
+- [[Page Cache]]
+- [[Crash Recovery]]
+- [[Read Amplification]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Storage Layout]] vì layout là phần lõi của storage engine.
+- [[Page Cache]] vì cache page ảnh hưởng read path.
+- [[Crash Recovery]] vì engine phải khôi phục sau crash.
+- [[Index]] vì index là access path do engine quản lý.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Database internals
+- Write path
+- Read path
+- Durability
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Storage Engine
-- storage engine
-- storage engine design
+- database storage engine
+- read path
+- write path
+- storage layout
+- transaction log
 - storage engine debugging
-- storage engine production
-- storage engine best practice
 
 ## Source trace
 
