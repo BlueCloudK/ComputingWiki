@@ -1,53 +1,59 @@
 # Tool Retry
 
-Aliases: Tool Retry, tool retry
+Aliases: Tool Retry, tool call retry
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Tool Retry xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Tool Retry xuất hiện khi AI agent/tool runner gọi API, database, browser, file system hoặc external service và tool call có thể fail tạm thời.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Tool Retry là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Tool Retry là policy chạy lại tool call sau lỗi có thể phục hồi, thường với giới hạn số lần, backoff và điều kiện retry rõ.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Tool Retry không phải cách sửa mọi lỗi tool. Lỗi permission, schema sai, validation fail hoặc action không idempotent thường không nên retry mù.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Tool Retry nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Tool runner phân loại lỗi, quyết định có retry không, chờ theo backoff/jitter, chạy lại với cùng hoặc argument đã chỉnh, rồi ghi trace cho mỗi attempt.
 
 ## Project Role / Vai trò trong dự án
 
-Tool Retry giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug agent loop bị lặp, API flake, rate limit, timeout, tool side effect bị chạy nhiều lần hoặc cost tăng do retry sai.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Tool Retry
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Retryable error list
+- Max attempt / timeout budget
+- Backoff and jitter rule
+- Idempotency requirement
+- Attempt trace/log
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tool Retry giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Lỗi này có tạm thời không?
+- Tool call có idempotent không?
+- Retry có làm side effect lặp không?
+- Tổng timeout/cost budget là bao nhiêu?
+- Khi retry hết thì fallback/escalate thế nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Tool Retry sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Retry action ghi/xóa làm side effect lặp.
+- Retry rate limit làm bị throttle nặng hơn.
+- Retry che lỗi schema/permission thật.
+- Agent loop vừa retry tool vừa tự retry plan làm nổ số attempt.
+- Không log attempt nên không biết lỗi xảy ra ở lần nào.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Tool Retry nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Tool local deterministic có thể fail-fast trước.
+- Không nên retry tool write action nếu chưa có idempotency key hoặc compensation path.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Tool Retry giúp team thiết kế, review, test, deploy hoặc vận hành hệ
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Tool Use]] vì retry là behavior của tool runner.
+- [[Tool Error]] vì retry phụ thuộc phân loại lỗi tool.
+- [[Timeout]] vì retry phải nằm trong timeout budget.
+- [[Retry]] vì đây là pattern retry áp cho agent tool call.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Backoff
+- Idempotency
+- Agent trace
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Tool Retry
-- tool retry
-- tool retry design
+- tool call retry
+- agent tool retry
+- retry backoff
+- idempotent tool
+- retry budget
 - tool retry debugging
-- tool retry production
-- tool retry best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
-- Anthropic prompt engineering docs
+- Google SRE Books
