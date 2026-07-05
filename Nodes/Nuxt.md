@@ -1,53 +1,59 @@
 # Nuxt
 
-Aliases: Nuxt, nuxt
+Aliases: Nuxt, Nuxt.js
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-Nuxt xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+Nuxt xuất hiện khi Vue app cần routing, rendering mode, server integration và project convention rõ hơn Vue thuần.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Nuxt là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+Nuxt là meta-framework dựa trên Vue, hỗ trợ file-based routing, layouts, server/client rendering, data loading, runtime config và deployment preset.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Nuxt không phải database hoặc toàn bộ backend business layer, dù có thể có server route/API route.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Nuxt giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Nuxt đọc file structure để tạo route, page, layout và build output. Data loading, runtime config, plugin và middleware quyết định behavior server/client của app.
 
 ## Project Role / Vai trò trong dự án
 
-Nuxt giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug routing, SSR/CSR, data loading, middleware, runtime config, deployment target hoặc hydration trong Vue ecosystem.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Nuxt
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Route/page map
+- Rendering mode decision
+- Data loading convention
+- Runtime config note
+- Deploy target note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Nuxt nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Route này render ở server hay client?
+- Data loading chạy ở đâu?
+- Runtime config có phân biệt public/private không?
+- Middleware có redirect hoặc auth đúng không?
+- Deploy target có hỗ trợ feature đang dùng không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Nuxt như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Server/client render khác nhau gây hydration issue.
+- Runtime config bị nhầm public/private boundary.
+- Route middleware redirect sai.
+- Data loading trùng hoặc stale.
+- Build target không khớp hosting.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Nuxt nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Vue SPA đơn giản có thể chưa cần Nuxt.
+- Không nên dùng meta-framework nếu static/client app đơn giản đủ dùng.
 
 ## Gồm những gì
 
@@ -55,25 +61,30 @@ Nuxt giúp chọn đúng abstraction, config, test hoặc debug path khi làm pr
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Vue]] vì Nuxt được xây trên Vue.
+- [[SSR]] vì Nuxt thường dùng server-side rendering.
+- [[CSR]] vì Nuxt vẫn có behavior phía client.
+- [[Hydration]] vì Nuxt page có thể hydrate trên client.
+- [[Frontend Framework]] vì Nuxt là meta-framework frontend.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Vue ecosystem
+- Routing
+- Rendering mode
+- Deployment
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Nuxt
-- nuxt
-- nuxt design
-- nuxt debugging
-- nuxt production
+- Nuxt.js
+- Vue meta-framework
+- Nuxt routing
+- Nuxt SSR
+- runtime config
+- Nuxt debugging
 
 ## Source trace
 
-- React documentation
+- Nuxt documentation
 - Vue documentation
-- Angular documentation
-- MDN Web Docs
