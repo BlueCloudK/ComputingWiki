@@ -1,53 +1,57 @@
 # FFI
 
-Aliases: FFI, ffi
+Aliases: FFI, Foreign Function Interface
 
 Type: Programming Languages Deep
 
 ## Context / Ngữ cảnh
 
-FFI xuất hiện trong programming languages deep mở rộng semantics, runtime, type system, memory management, concurrency và language implementation concepts.
+FFI xuất hiện khi một ngôn ngữ cần gọi code hoặc thư viện viết bằng ngôn ngữ khác, thường là native library như C/C++/Rust.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-FFI là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Programming Languages Deep.
+FFI là cơ chế cho phép runtime/ngôn ngữ này gọi function, truyền dữ liệu hoặc nhận callback từ thư viện/ngôn ngữ khác.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+FFI không phải API network. Nó chạy trong cùng process hoặc boundary native gần hơn, nên lỗi có thể ảnh hưởng memory, crash và security.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu FFI giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Code gọi qua binding khai báo function signature, type mapping, memory ownership và calling convention. Runtime chuyển data qua boundary rồi nhận kết quả hoặc error.
 
 ## Project Role / Vai trò trong dự án
 
-FFI giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug native module, mobile bridge, Python/Rust/C interop, performance wrapper hoặc crash ở boundary native.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới FFI
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Binding/interface definition
+- Type mapping note
+- Memory ownership rule
+- Error handling convention
+- Test qua boundary native
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- FFI nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Function signature có khớp native library không?
+- Ai sở hữu memory được truyền qua boundary?
+- ABI/calling convention có đúng không?
+- Error native được map về runtime thế nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng FFI như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Type mapping sai làm crash.
+- Memory ownership sai gây leak hoặc use-after-free.
+- ABI mismatch làm behavior khó đoán.
+- Native error không được map rõ.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu FFI nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Nếu có pure library trong cùng ecosystem thì chưa cần FFI.
+- Không nên dùng FFI chỉ để tối ưu sớm khi bottleneck chưa rõ.
 
 ## Gồm những gì
 
@@ -55,25 +59,27 @@ FFI giúp chọn đúng abstraction, config, test hoặc debug path khi làm pro
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[ABI]] vì FFI phụ thuộc binary interface và calling convention.
+- [[Runtime]] vì FFI đi qua boundary runtime/native.
+- [[Memory Management]] vì ownership qua FFI rất dễ lỗi.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Compiler and Interpreter
-- Operating System
+- Native interop
+- Language runtime
+- Mobile bridge
 
 ## Keywords / Từ khóa tìm kiếm
 
 - FFI
-- ffi
-- ffi design
-- ffi debugging
-- ffi production
+- Foreign Function Interface
+- native binding
+- language interop
+- calling convention
+- memory ownership
+- FFI debugging
 
 ## Source trace
 
-- Types and Programming Languages
-- Crafting Interpreters
-- Engineering a Compiler
 - LLVM documentation
+- Rust FFI documentation
