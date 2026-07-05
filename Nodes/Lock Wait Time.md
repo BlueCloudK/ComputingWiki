@@ -1,53 +1,59 @@
 # Lock Wait Time
 
-Aliases: Lock Wait Time, lock wait time
+Aliases: Lock Wait Time, lock wait duration
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Lock Wait Time xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Lock Wait Time xuất hiện khi transaction/query phải chờ lock do transaction khác đang giữ resource như row, table, index page hoặc metadata lock.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Lock Wait Time là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Lock Wait Time là thời gian một session/query bị block trong khi chờ lock tương thích được cấp.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Lock Wait Time không phải toàn bộ query latency. Query có thể chậm vì CPU, I/O, plan sai hoặc network; lock wait chỉ là phần thời gian chờ concurrency control.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Lock Wait Time nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Transaction yêu cầu lock. Lock manager kiểm tra compatibility. Nếu resource đang bị lock bởi holder không tương thích, requester phải chờ tới khi holder commit, rollback hoặc release lock.
 
 ## Project Role / Vai trò trong dự án
 
-Lock Wait Time giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug query treo, migration bị block, lock contention, deadlock, idle transaction hoặc latency spike không giải thích được bằng query plan.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Lock Wait Time
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Waiting session/query
+- Lock holder session/query
+- Locked resource
+- Wait duration trend
+- Mitigation: kill holder, shorten transaction, index, batch, retry
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Lock Wait Time giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Session nào đang chờ lock?
+- Session nào đang giữ lock?
+- Resource bị lock là gì?
+- Holder đang active hay idle in transaction?
+- Có deadlock hoặc timeout policy không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Lock Wait Time sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Transaction idle giữ lock quá lâu.
+- Migration lấy lock mạnh làm block production traffic.
+- Update thiếu index khóa nhiều row hơn dự kiến.
+- App timeout nhưng transaction vẫn còn mở.
+- Chỉ tối ưu SQL mà bỏ qua lock holder thật.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Lock Wait Time nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Workload ít writer và không có lock wait đáng kể thì chưa cần tối ưu sâu.
+- Không nên thay isolation/lock hint nếu chưa có wait graph và holder query.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Lock Wait Time giúp team thiết kế, review, test, deploy hoặc vận hành 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Database Lock]] vì lock wait đến từ lock compatibility.
+- [[Exclusive Lock]] vì writer lock thường gây blocking.
+- [[Shared Lock]] vì reader lock có thể chặn writer tùy engine/isolation.
+- [[Deadlock]] vì lock wait cycle có thể thành deadlock.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Blocking query
+- Lock contention
+- Idle transaction
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Lock Wait Time
-- lock wait time
-- lock wait time design
-- lock wait time debugging
-- lock wait time production
-- lock wait time best practice
+- lock wait duration
+- blocking query
+- lock contention
+- idle in transaction
+- lock timeout
+- lock wait debugging
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
