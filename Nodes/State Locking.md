@@ -1,53 +1,59 @@
 # State Locking
 
-Aliases: State Locking, state locking
+Aliases: State Locking, Terraform state locking
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-State Locking xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+State Locking xuất hiện trong Infrastructure as Code khi nhiều người hoặc pipeline có thể plan/apply cùng một remote state và cần tránh ghi state song song.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-State Locking là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+State Locking là cơ chế khóa state file/backend trong lúc plan/apply/migrate để chỉ một writer được thay đổi state tại một thời điểm.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+State Locking không giải quyết mọi drift hoặc mọi conflict hạ tầng. Nó chỉ bảo vệ state khỏi concurrent write; vẫn cần review plan, access control và drift detection.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu State Locking nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Khi Terraform/OpenTofu bắt đầu operation cần ghi state, backend tạo lock. Operation khác thấy lock sẽ chờ hoặc fail. Khi apply xong hoặc process giải phóng lock, backend unlock để operation tiếp theo chạy.
 
 ## Project Role / Vai trò trong dự án
 
-State Locking giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug Terraform apply bị kẹt, force-unlock, pipeline chạy song song, remote state conflict hoặc state corruption risk.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới State Locking
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Lock backend/mechanism
+- Lock owner/run ID
+- Timeout/wait behavior
+- Force-unlock procedure
+- Audit trail for state writes
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- State Locking giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Backend có hỗ trợ locking không?
+- Ai đang giữ lock và từ run nào?
+- Lock còn sống thật hay stale?
+- Có pipeline nào chạy apply song song không?
+- Force-unlock có an toàn ở thời điểm này không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng State Locking sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Không có locking làm hai apply ghi state đè nhau.
+- Lock stale làm pipeline kẹt.
+- Force-unlock khi apply vẫn đang chạy làm state corrupt.
+- State backend permission sai làm lock không tạo được.
+- Plan/apply tách rời lâu khiến lock không bảo vệ được drift sau plan.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu State Locking nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Lab một người dùng local state có thể chưa cần lock backend.
+- Không nên force-unlock nếu chưa xác minh không còn process đang apply.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ State Locking giúp team thiết kế, review, test, deploy hoặc vận hành h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Remote State]] vì state locking thường đi cùng remote backend.
+- [[Terraform Plan]] vì plan/apply phụ thuộc state nhất quán.
+- [[Terraform Apply]] vì apply ghi state và cần lock.
+- [[Config Drift]] vì state lock không thay thế drift review.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- IaC backend
+- Concurrent apply
+- State corruption
 
 ## Keywords / Từ khóa tìm kiếm
 
 - State Locking
-- state locking
-- state locking design
+- Terraform state locking
+- remote state lock
+- force unlock
+- state backend
+- concurrent apply
 - state locking debugging
-- state locking production
-- state locking best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
 - Terraform documentation
-- GitHub Actions documentation
+- OpenTofu documentation
