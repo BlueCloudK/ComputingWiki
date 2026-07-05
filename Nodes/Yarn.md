@@ -1,53 +1,59 @@
 # Yarn
 
-Aliases: Yarn, yarn
+Aliases: Yarn
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Yarn xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Yarn xuất hiện khi JavaScript project cần package manager để cài dependency, chạy scripts, quản lý lockfile và hỗ trợ workspace.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Yarn là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Yarn là package manager cho JavaScript ecosystem. Nó đọc `package.json`, resolve dependency, ghi lockfile và cài package theo version đã chọn.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Yarn không phải runtime JavaScript và không thay thế npm registry. Nó cũng không tự đảm bảo dependency an toàn nếu version/lockfile/policy không rõ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Yarn giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Yarn resolve dependency graph từ manifest, lock version trong `yarn.lock`, cài package vào project/cache và chạy script như build/test/dev.
 
 ## Project Role / Vai trò trong dự án
 
-Yarn giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug install fail, lockfile drift, workspace, dependency conflict, CI cache hoặc script chạy khác local.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Yarn
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- `package.json`
+- `yarn.lock`
+- Yarn version policy
+- Workspace config nếu có
+- CI install command
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Yarn nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Repo có dùng Yarn là package manager chính không?
+- Lockfile có được commit không?
+- CI có dùng đúng Yarn version không?
+- Workspace package có resolve đúng không?
+- Cache có làm install dùng dependency cũ không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Yarn như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- CI dùng npm/pnpm nhầm với repo Yarn.
+- Lockfile drift làm local khác CI.
+- Workspace dependency resolve sai.
+- Package manager version khác làm install behavior khác.
+- Cache cũ che lỗi dependency thật.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Yarn nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project nhỏ đã ổn với npm có thể chưa cần đổi.
+- Không nên đổi package manager nếu team/tooling chưa thống nhất.
 
 ## Gồm những gì
 
@@ -55,26 +61,29 @@ Yarn giúp chọn đúng abstraction, config, test hoặc debug path khi làm pr
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[npm]] vì Yarn giải quyết cùng vùng package management JavaScript.
+- [[JavaScript]] vì Yarn quản lý dependency cho JavaScript project.
+- [[Dependency Resolver]] vì Yarn cần resolve dependency graph.
+- [[CI]] vì install dependency reproducibly là phần quan trọng của pipeline.
+- [[Build Cache]] vì cache ảnh hưởng tốc độ và độ ổn định install.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Package management
+- JavaScript tooling
+- Monorepo workspace
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Yarn
-- yarn
-- yarn design
-- yarn debugging
-- yarn production
+- yarn.lock
+- Yarn workspace
+- package manager
+- dependency install
+- yarn install
+- Yarn debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
+- Yarn documentation
 - npm documentation
-- Maven documentation
-- Gradle documentation
