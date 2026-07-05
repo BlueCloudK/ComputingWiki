@@ -1,53 +1,59 @@
 # CNI
 
-Aliases: CNI, cni
+Aliases: CNI, Container Network Interface
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-CNI xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+CNI xuất hiện trong Kubernetes/container runtime khi pod/container cần được gán network, IP, route và policy để giao tiếp trong cluster.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-CNI là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+CNI là chuẩn/plugin interface cho container networking. Trong Kubernetes, CNI plugin chịu trách nhiệm thiết lập network namespace, IP address, route và thường cả network policy behavior.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+CNI không phải Service hoặc Ingress. Service/Ingress định nghĩa cách route traffic ở tầng Kubernetes; CNI cung cấp nền network cho pod.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu CNI nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Kubelet/container runtime gọi CNI plugin khi pod được tạo/xóa. Plugin cấp IP, cấu hình interface/route và kết nối pod vào network backend như overlay, routing native hoặc cloud VPC integration.
 
 ## Project Role / Vai trò trong dự án
 
-CNI giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug pod không có IP, pod-to-pod network lỗi, network policy không áp, DNS/service connectivity hoặc cluster networking sau khi cài plugin.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới CNI
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- CNI plugin name/version
+- Pod CIDR/network config
+- Network policy support note
+- Node route/interface check
+- Debug command/log checklist
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- CNI giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Cluster đang dùng CNI plugin nào?
+- Pod CIDR có conflict với mạng hiện có không?
+- Node có route/interface đúng không?
+- NetworkPolicy có được plugin hỗ trợ không?
+- Lỗi xảy ra giữa pod-pod, pod-service hay pod-internet?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng CNI sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Pod không được cấp IP.
+- Pod-to-pod traffic fail giữa node khác nhau.
+- NetworkPolicy tưởng đã áp nhưng plugin không hỗ trợ.
+- CIDR conflict với VPC/LAN.
+- MTU sai làm request lớn bị treo khó debug.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu CNI nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Local single-node cluster có thể dùng default CNI đơn giản.
+- Không nên đổi CNI production nếu chưa có rollback plan và hiểu impact networking.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ CNI giúp team thiết kế, review, test, deploy hoặc vận hành hệ thốn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Kubernetes Service]] vì Service connectivity phụ thuộc pod network hoạt động đúng.
+- [[Kubelet]] vì kubelet/container runtime gọi CNI khi tạo pod.
+- [[Network Segmentation]] vì CNI/network policy liên quan segmentation trong cluster.
+- [[Managed Kubernetes]] vì provider thường gắn CNI riêng với cloud networking.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Kubernetes networking
+- Pod network
+- Network policy
 
 ## Keywords / Từ khóa tìm kiếm
 
 - CNI
-- cni
-- cni design
-- cni debugging
-- cni production
-- cni best practice
+- Container Network Interface
+- Kubernetes CNI
+- pod network
+- pod CIDR
+- network policy
+- CNI debugging
 
 ## Source trace
 
 - Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- CNI specification
