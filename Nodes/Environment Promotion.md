@@ -1,53 +1,59 @@
 # Environment Promotion
 
-Aliases: Environment Promotion, environment promotion
+Aliases: Environment Promotion, promotion between environments
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Environment Promotion xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Environment Promotion xuất hiện khi cùng một release artifact/config cần được đưa lần lượt qua dev, staging, pre-prod và production theo gate rõ.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Environment Promotion là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Environment Promotion là workflow promote một version đã build/test từ environment thấp lên environment cao hơn mà không rebuild tùy ý ở mỗi bước.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Environment Promotion không phải deploy lại từ source mỗi lần. Nếu mỗi environment build artifact khác nhau, traceability và rollback sẽ yếu hơn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Environment Promotion nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+CI tạo artifact từ commit. CD deploy artifact đó vào dev/staging, chạy test/approval, rồi promote cùng artifact hoặc manifest version lên production. Metadata ghi environment nào đang chạy version nào.
 
 ## Project Role / Vai trò trong dự án
 
-Environment Promotion giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế release pipeline, approval gate, rollback, config per environment hoặc audit vì sao production chạy version khác staging.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Environment Promotion
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Artifact/version to promote
+- Environment sequence
+- Promotion gate/checklist
+- Config difference note
+- Rollback rule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Environment Promotion giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Cùng artifact có được dùng qua các environment không?
+- Gate nào cần pass trước khi promote?
+- Config khác nhau ở đâu và có kiểm soát không?
+- Ai được approve promotion lên production?
+- Rollback quay về artifact/version nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Environment Promotion sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Rebuild giữa staging và production làm kết quả không còn giống nhau.
+- Config drift khiến staging pass nhưng production fail.
+- Promotion không ghi audit nên không biết ai đưa version nào lên.
+- Approval chỉ hình thức, thiếu test/metric context.
+- Rollback không có artifact/version cũ.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Environment Promotion nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Prototype một môi trường có thể deploy trực tiếp trước.
+- Không nên thêm nhiều stage nếu không có test/gate thật ở mỗi stage.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Environment Promotion giúp team thiết kế, review, test, deploy hoặc vận
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Release Artifact]] vì promotion nên dùng artifact đã build sẵn.
+- [[CD]] vì promotion là phần của delivery pipeline.
+- [[Deployment Approval]] vì environment cao thường cần approval.
+- [[Config Drift]] vì khác biệt config giữa environment dễ gây lỗi.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Release pipeline
+- Staging production parity
+- Promotion gate
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Environment Promotion
-- environment promotion
-- environment promotion design
+- promotion between environments
+- staging to production
+- release promotion
+- artifact promotion
+- promotion gate
 - environment promotion debugging
-- environment promotion production
-- environment promotion best practice
 
 ## Source trace
 
-- Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
+- Continuous Delivery
 - GitHub Actions documentation
