@@ -6,51 +6,59 @@ Type: Deployment / Operations
 
 ## Context / Ngữ cảnh
 
-CD xuất hiện khi code đã qua CI cần được đưa tới environment một cách lặp lại, kiểm soát được và ít thao tác tay.
+CD xuất hiện khi artifact đã qua CI cần được đưa tới staging/production một cách lặp lại, kiểm soát được và ít thao tác tay. Nó giúp release nhỏ hơn, thường xuyên hơn, có verification và rollback rõ hơn.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-CD là practice tự động hóa release/deployment pipeline để build artifact có thể được đưa tới staging/production an toàn.
+CD là practice tự động hóa release/deployment pipeline. Continuous Delivery nghĩa là artifact luôn sẵn sàng deploy với approval nếu cần; Continuous Deployment nghĩa là change đạt gate sẽ tự deploy production. Cả hai đều cần verification, monitoring và rollback/mitigation.
 
 ### Nó không phải là gì
 
-Nó không phải chỉ copy file lên server, không thay thế rollback/monitoring, và không nhất thiết nghĩa là auto-deploy mọi commit lên production.
+CD không phải chỉ copy file lên server. CD cũng không bắt buộc auto-deploy mọi commit lên production. Nếu thiếu health check, smoke test, rollback, migration compatibility và monitoring, pipeline tự động chỉ làm lỗi lan nhanh hơn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là promotion pipeline: build artifact, deploy vào environment, run verification, expose traffic và rollback/degrade khi signal xấu.
+Pipeline lấy artifact/version đã build, promote qua environment, apply config/secret/migration nếu cần, deploy workload, chờ readiness, chạy smoke test, mở traffic theo deployment strategy, rồi monitor signal như error rate, latency, health và business metric. Nếu signal xấu, pipeline pause/rollback hoặc yêu cầu approval.
 
 ## Project Role / Vai trò trong dự án
 
-CD giảm release fear và làm deployment thành routine. Nó giúp team release nhỏ hơn, quan sát tốt hơn và quay lại nhanh khi có lỗi.
+CD biến deployment thành quy trình repeatable thay vì thao tác thủ công khó nhớ. Nó giúp team trace version nào đang ở môi trường nào, ai approve, signal nào pass/fail và rollback bằng cách nào.
 
 ## Output / Artifact nên có
 
-- Deployment pipeline
-- Release artifact và environment promotion rule
-- Smoke test, rollback và approval policy nếu cần
+- Deployment pipeline với stage: build artifact, staging, production, verification
+- Promotion/approval rule theo environment
+- Smoke test và post-deploy verification
+- Rollback/roll-forward plan trong pipeline
+- Release artifact/version trace về commit và config
+- Deployment logs và monitoring link
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Artifact nào được deploy và có immutable không?
-- Environment nào cần promotion?
-- Verification sau deploy là gì?
-- Rollback hoặc roll-forward plan là gì?
-- Có cần manual approval cho production không?
+- Artifact có immutable và trace được về commit không?
+- Environment promotion cần approval ở đâu?
+- Deploy có chạy migration/config change không?
+- Smoke test và health check sau deploy là gì?
+- Rollback có tự động, thủ công hay cần approval?
+- Pipeline có dừng khi SLO/error/latency xấu không?
+- Secret/permission của deploy runner có quá rộng không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Deploy tự động nhưng không verify health/user impact
-- Artifact không reproducible làm rollback khó
-- Pipeline thiếu approval cho change rủi ro cao
-- Deploy thành công nhưng migration/config làm runtime lỗi
+- Auto deploy production nhưng không verify user impact.
+- Artifact không reproducible làm rollback khó.
+- Pipeline thiếu approval cho change rủi ro cao.
+- Deploy thành công ở pipeline nhưng runtime lỗi vì config/secret khác.
+- Migration không backward compatible làm rollback app code không đủ.
+- Deploy runner có quyền quá rộng, lộ token là lộ production.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần CD phức tạp nếu release rất hiếm và deploy thủ công vẫn an toàn
-- Dễ over-engineer nếu tạo nhiều gate/stage làm release chậm mà không giảm rủi ro
+- Release hiếm, app nhỏ, deploy thủ công có checklist tốt có thể đủ giai đoạn đầu.
+- Không nên build pipeline nhiều gate nếu team không dùng signal để quyết định.
+- Không nên bật continuous deployment production trước khi CI/test/monitoring/rollback đủ tin.
 
 ## Gồm những gì
 
@@ -58,27 +66,33 @@ CD giảm release fear và làm deployment thành routine. Nó giúp team releas
 
 ## Nối mạnh
 
-- [[CI]] vì CD dựa vào confidence và artifact từ CI
-- [[Deployment]] vì CD tự động hóa deployment process
-- [[Rollback]] vì pipeline production cần đường quay lại rõ
-- [[Monitoring]] vì deploy decision cần signal sau release
+- [[CI]] vì CD dựa vào artifact và confidence từ CI.
+- [[Deployment]] vì CD tự động hóa deployment process.
+- [[Deployment Strategy]] vì CD cần biết rollout/traffic strategy.
+- [[Rollback]] vì production pipeline cần đường quay lại rõ.
+- [[Monitoring]] vì deploy decision cần signal sau release.
 
 ## Liên quan rộng
 
 - Release automation
 - Progressive delivery
 - Environment promotion
+- DevOps workflow
 
 ## Keywords / Từ khóa tìm kiếm
 
 - CD
 - Continuous Delivery
 - Continuous Deployment
+- triển khai liên tục
 - release pipeline
 - deployment automation
 - promotion pipeline
-- triển khai liên tục
-- phát hành tự động
+- production approval
+- smoke test
+- post deploy verification
+- deployment rollback
+- CD debugging
 
 ## Source trace
 
