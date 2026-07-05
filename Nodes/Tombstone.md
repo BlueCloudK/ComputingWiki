@@ -1,53 +1,59 @@
 # Tombstone
 
-Aliases: Tombstone, tombstone
+Aliases: Tombstone, delete tombstone
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Tombstone xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Tombstone xuất hiện trong database/storage engine khi delete không xóa dữ liệu vật lý ngay mà ghi một marker để biểu thị record/key đã bị xóa.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Tombstone là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Tombstone là delete marker giúp storage engine, replication hoặc compaction biết key/row nào đã bị xóa và không nên trả về như dữ liệu sống.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Tombstone không phải dữ liệu đã biến mất hoàn toàn. Nó thường còn tồn tại một thời gian trong storage/log/index để đảm bảo delete được truyền và xử lý đúng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Tombstone nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Khi delete xảy ra, engine ghi tombstone thay vì remove ngay. Read path phải lọc tombstone. Compaction/vacuum/cleanup sau đó mới loại bỏ tombstone và data cũ khi an toàn.
 
 ## Project Role / Vai trò trong dự án
 
-Tombstone giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug dữ liệu đã xóa vẫn chiếm storage, read amplification cao, compaction lag, replication delete, soft delete hoặc LSM/MVCC storage behavior.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Tombstone
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Tombstone count/age metric
+- Delete path description
+- Cleanup/compaction policy
+- Read path filtering rule
+- Replication/retention constraint
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tombstone giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Tombstone được tạo khi nào?
+- Cleanup an toàn sau điều kiện nào?
+- Tombstone có làm read path chậm không?
+- Delete đã propagate tới replica chưa?
+- Retention có giữ tombstone quá lâu không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Tombstone sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Tombstone tích tụ làm storage phình.
+- Read path phải scan nhiều tombstone nên chậm.
+- Cleanup quá sớm làm delete không propagate đủ.
+- Query/debug nhầm tombstone là dữ liệu sống.
+- Tombstone retention không khớp backup/replication policy.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Tombstone nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- App dùng database managed không cần thao tác tombstone trực tiếp, chỉ cần hiểu signal bloat/cleanup.
+- Không nên tự implement tombstone nếu database đã có delete/retention mechanism phù hợp.
 
 ## Gồm những gì
 
@@ -55,26 +61,29 @@ Tombstone giúp team thiết kế, review, test, deploy hoặc vận hành hệ 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Storage Engine]] vì tombstone là behavior của storage/write path.
+- [[Read Amplification]] vì tombstone tích tụ làm đọc nhiều data thừa.
+- [[Database Vacuum Lag]] vì cleanup chậm có thể giữ deleted versions lâu.
+- [[Crash Recovery]] vì delete marker phải bền vững qua crash.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Delete marker
+- Compaction
+- Soft delete
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Tombstone
-- tombstone
-- tombstone design
+- delete tombstone
+- delete marker
+- compaction
+- deleted record
+- tombstone cleanup
 - tombstone debugging
-- tombstone production
-- tombstone best practice
 
 ## Source trace
 
-- Database System Concepts
-- PostgreSQL documentation
 - Designing Data-Intensive Applications
+- PostgreSQL documentation
+- Database System Concepts
