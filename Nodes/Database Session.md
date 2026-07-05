@@ -1,53 +1,59 @@
 # Database Session
 
-Aliases: Database Session, database session
+Aliases: Database Session, DB session
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Database Session xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Database Session xuất hiện khi client/app mở kết nối logic tới database và giữ trạng thái như transaction, prepared statement, temp table, setting hoặc lock trong phạm vi session.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Database Session là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Database Session là context làm việc giữa client connection và database backend, nơi database theo dõi state của connection đó trong thời gian nó sống.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Database Session không giống user login session của web app. Nó là session ở tầng database connection/runtime.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Database Session nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Client lấy connection từ pool hoặc mở mới. Database tạo session/backend process/thread, nhận query, giữ transaction state, setting, cursor, temp object và release khi connection đóng hoặc reset.
 
 ## Project Role / Vai trò trong dự án
 
-Database Session giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug connection pool, idle transaction, session setting leak, lock giữ lâu, temp table, prepared statement hoặc query behavior khác nhau giữa request.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Database Session
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Session/connection list
+- Current transaction state
+- Session settings
+- Locks held by session
+- Pool reset/cleanup rule
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Database Session giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Session này đến từ app/pool nào?
+- Có transaction đang mở không?
+- Session giữ lock hoặc temp object gì?
+- Setting/session variable có leak qua request không?
+- Pool có reset session trước khi reuse không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Database Session sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Idle in transaction giữ lock và version cũ.
+- Session setting leak làm request sau chạy khác.
+- Connection pool reuse session bẩn.
+- Prepared statement/temp table tích tụ.
+- App quên close/release connection làm pool cạn.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Database Session nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- App nhỏ ít connection có thể chỉ cần connection pooling cơ bản.
+- Không nên debug session sâu nếu lỗi thật nằm ở query plan hoặc network.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Database Session giúp team thiết kế, review, test, deploy hoặc vận hàn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Connection Pooling]] vì pool quản lý lifecycle database session/connection.
+- [[Transaction]] vì transaction state nằm trong session.
+- [[Database Lock]] vì session có thể giữ lock.
+- [[Temporary Table]] vì temp table thường scoped theo session.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Connection lifecycle
+- Session state
+- Idle transaction
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Database Session
-- database session
-- database session design
+- DB session
+- database connection session
+- idle in transaction
+- session settings
+- connection pool
 - database session debugging
-- database session production
-- database session best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
