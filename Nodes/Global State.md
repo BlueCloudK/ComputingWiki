@@ -1,53 +1,59 @@
 # Global State
 
-Aliases: Global State, global state
+Aliases: Global State, application state
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-Global State xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+Global State xuất hiện khi nhiều component/screen trong frontend cần cùng đọc hoặc cập nhật một phần state chung như user session, theme, cart, feature flag hoặc app-wide UI state.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Global State là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+Global State là state được chia sẻ ngoài phạm vi một component/local subtree, thường được quản lý bằng store, context, signal hoặc state management library.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Global State không phải nơi đổ mọi dữ liệu. Server data/cache, form local state và UI state tạm thời nên có boundary riêng nếu không global store sẽ phình và khó debug.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Global State giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+State được đặt ở store/provider/singleton cao hơn component cần dùng. Component subscribe/observe phần state liên quan và rerender khi state đó đổi. Mutation nên đi qua action/event rõ để trace được flow.
 
 ## Project Role / Vai trò trong dự án
 
-Global State giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug state bị stale, component rerender quá nhiều, user session lệch, data bị share sai scope hoặc app cần quyết định giữa local/server/global state.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Global State
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- State ownership map
+- Store/module boundary
+- Mutation/action convention
+- Subscription/render impact note
+- Test cho flow state quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Global State nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- State này có thật sự cần global không?
+- Ai sở hữu state và ai được mutate?
+- State là client UI state hay server state?
+- Component nào subscribe phần state này?
+- Mutation có trace/debug được không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Global State như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Đưa quá nhiều state vào global làm dependency ngầm khắp app.
+- Server data và client UI state bị trộn.
+- Mutation không rõ source làm debug khó.
+- Store update quá rộng làm nhiều component rerender.
+- State không reset đúng khi logout/chuyển user.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Global State nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- State chỉ dùng trong một component/subtree thì local state đủ.
+- Không nên thêm state library nếu context/local state đơn giản đã giải quyết được.
 
 ## Gồm những gì
 
@@ -55,25 +61,30 @@ Global State giúp chọn đúng abstraction, config, test hoặc debug path khi
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[State Management]] vì global state là bài toán chính của state management.
+- [[Component]] vì component subscribe và render theo state.
+- [[React]] vì React app thường gặp quyết định local/global state.
+- [[MobX]] vì MobX là một cách quản lý global/reactive state.
+- [[Redux]] vì Redux là một cách quản lý global state có action flow rõ.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Client state
+- Store architecture
+- UI consistency
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Global State
-- global state
-- global state design
+- application state
+- frontend state
+- global store
+- client state
+- state ownership
 - global state debugging
-- global state production
 
 ## Source trace
 
 - React documentation
-- Vue documentation
-- Angular documentation
-- MDN Web Docs
+- Redux documentation
+- MobX documentation
