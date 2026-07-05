@@ -1,53 +1,59 @@
 # Jailbreak
 
-Aliases: Jailbreak, jailbreak
+Aliases: Jailbreak, LLM Jailbreak
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Jailbreak xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Jailbreak xuất hiện khi người dùng hoặc input bên ngoài cố làm AI app bỏ qua policy, instruction, role boundary hoặc workflow guardrail đã được thiết kế.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Jailbreak là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Jailbreak là nhóm kỹ thuật/attempt nhằm khiến model hoặc AI workflow hành xử trái với ràng buộc mong muốn, ví dụ bỏ qua system instruction, tiết lộ thông tin không nên lộ hoặc thực hiện action không phù hợp.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Jailbreak không chỉ là prompt injection trong RAG. Prompt injection thường lợi dụng instruction trong dữ liệu/context; jailbreak có thể là trực tiếp từ user hoặc qua nhiều bước tương tác.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Jailbreak nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Attack thường tạo xung đột instruction, đổi vai trò, tạo ngoại lệ giả, ép format, chia nhỏ yêu cầu hoặc lợi dụng context dài để làm model ưu tiên sai instruction. Defense cần nhiều lớp: instruction hierarchy, input/output validation, tool permission và eval.
 
 ## Project Role / Vai trò trong dự án
 
-Jailbreak giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế guardrail cho chatbot/RAG/agent, viết test red-team, phân loại failure mode hoặc review hệ thống có tool/action nhạy cảm.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Jailbreak
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Jailbreak test cases
+- Policy/guardrail mapping
+- Refusal/allow behavior expected
+- Output validation rule
+- Incident/debug note nếu case lọt qua
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Jailbreak giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- App có policy/action nào cần bảo vệ?
+- Jailbreak target là output, data access hay tool action?
+- Có test negative/edge case không?
+- Output có được validate trước khi đi tiếp không?
+- Tool permission có tách khỏi lời model không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Jailbreak sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chỉ dựa vào system prompt, không có validation/tool boundary.
+- Test jailbreak quá ít và không đại diện use case thật.
+- Model từ chối quá rộng làm giảm UX hợp lệ.
+- Tool action tin vào output model mà không kiểm tra permission.
+- Log thiếu trace nên không biết guardrail fail ở lớp nào.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Jailbreak nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Prototype không có dữ liệu/action nhạy cảm có thể bắt đầu bằng test nhỏ.
+- Không nên dùng guardrail phức tạp nếu chưa xác định asset và policy cần bảo vệ.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Jailbreak giúp team thiết kế, review, test, deploy hoặc vận hành hệ 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Prompt Injection]] vì cả hai đều là failure mode instruction/guardrail trong AI app.
+- [[AI Evaluation]] vì jailbreak cần test/eval định kỳ.
+- [[Output Validation]] vì output cần được kiểm tra trước khi dùng tiếp.
+- [[AI Agent]] vì agent có tool/action nên jailbreak có impact lớn hơn chat thường.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- AI safety testing
+- Red teaming
+- Guardrails
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Jailbreak
-- jailbreak
-- jailbreak design
+- LLM jailbreak
+- AI jailbreak
+- guardrail bypass
+- red team test
+- prompt attack
 - jailbreak debugging
-- jailbreak production
-- jailbreak best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
-- Anthropic prompt engineering docs
+- OWASP LLM guidance
