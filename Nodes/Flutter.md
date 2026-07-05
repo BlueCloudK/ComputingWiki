@@ -1,79 +1,90 @@
 # Flutter
 
-Aliases: Flutter, flutter
+Aliases: Flutter
 
 Type: Mobile Development
 
 ## Context / Ngữ cảnh
 
-Flutter xuất hiện trong mobile development mở rộng app lifecycle, ui navigation, native platform, storage, networking, release và mobile production concerns.
+Flutter xuất hiện khi app cần xây UI đa nền tảng từ cùng một codebase, thường cho Android, iOS, web hoặc desktop.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Flutter là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Mobile Development.
+Flutter là UI toolkit dùng Dart để xây app đa nền tảng bằng widget tree.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Flutter không phải Dart. Dart là ngôn ngữ; Flutter là framework/toolkit dùng Dart.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Flutter giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+App Flutter được tổ chức bằng widget. State thay đổi làm widget tree rebuild phần cần thiết. Build tool tạo artifact cho từng platform như APK, AAB hoặc iOS package.
 
 ## Project Role / Vai trò trong dự án
 
-Flutter giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug widget tree, state, navigation, platform build, plugin native hoặc performance trong app Flutter.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Flutter
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Widget tree
+- State ownership map
+- Navigation flow
+- Platform build note
+- Plugin/native dependency list
+- Test cho flow quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Flutter nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- State nằm ở widget nào?
+- Navigation flow có rõ không?
+- Target platform là gì?
+- Build artifact cần APK, AAB hay iOS package?
+- Plugin native có config riêng Android/iOS không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Flutter như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Widget rebuild quá rộng làm UI chậm.
+- State đặt sai chỗ làm UI lệch.
+- Platform config sai làm build fail.
+- Plugin native gây lỗi riêng theo Android/iOS.
+- Work nặng không tách isolate làm UI chậm.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Flutter nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project không cần đa nền tảng hoặc mobile UI thì chưa cần Flutter.
+- Không nên chọn Flutter chỉ để tránh hiểu native platform boundary.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Dart]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Dart]] vì Flutter app viết bằng Dart.
+- [[APK]] vì Flutter Android có thể build APK.
+- [[AAB]] vì Flutter Android release thường dùng AAB.
+- [[iOS]] vì Flutter cũng target iOS.
+- [[Performance Optimization]] vì rebuild và native plugin có thể ảnh hưởng frame time.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Frontend Frameworks
-- API and Integration
+- Cross-platform app
+- Widget tree
+- Mobile UI
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Flutter
-- flutter
-- flutter design
-- flutter debugging
-- flutter production
+- Flutter app
+- widget tree
+- Flutter state
+- Flutter plugin
+- Flutter build
+- Flutter debugging
 
 ## Source trace
 
-- Android Developers documentation
-- Apple Developer documentation
-- React Native documentation
 - Flutter documentation
+- Dart documentation
