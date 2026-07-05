@@ -1,53 +1,59 @@
 # OPA
 
-Aliases: OPA, opa
+Aliases: OPA, Open Policy Agent
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-OPA xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+OPA xuất hiện khi hệ thống cần policy-as-code để kiểm soát admission, authorization, CI policy, infrastructure rule hoặc compliance check.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-OPA là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+OPA là policy engine dùng để đánh giá input data theo policy viết bằng Rego và trả decision như allow/deny/violation.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+OPA không phải IAM hoàn chỉnh tự thân. Nó là engine ra quyết định policy; hệ thống gọi OPA vẫn phải enforce quyết định đó đúng chỗ.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu OPA nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Ứng dụng, Kubernetes admission controller hoặc CI gửi input JSON cho OPA. OPA evaluate policy bundle và trả decision. Policy có thể được test, version và deploy như code.
 
 ## Project Role / Vai trò trong dự án
 
-OPA giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế guardrail cho Kubernetes, Terraform, CI/CD, API authorization hoặc agent/tool approval policy.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới OPA
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Rego policy
+- Input schema/sample
+- Decision contract
+- Policy test cases
+- Enforcement point mapping
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- OPA giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Policy được enforce ở đâu?
+- Input data có đủ field để quyết định không?
+- Decision allow/deny/violation có contract rõ không?
+- Policy có test case positive/negative không?
+- Nếu OPA lỗi thì hệ thống fail open hay fail closed?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng OPA sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Policy đúng nhưng không được enforce thật.
+- Input thiếu field làm decision sai.
+- Rule quá rộng deny nhầm workload hợp lệ.
+- Không test policy nên change nhỏ phá production.
+- Fail-open làm guardrail mất tác dụng khi OPA lỗi.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu OPA nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Hệ thống nhỏ có vài rule có thể dùng validation/config guard đơn giản trước.
+- Không nên thêm OPA nếu chưa xác định enforcement point và owner policy.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ OPA giúp team thiết kế, review, test, deploy hoặc vận hành hệ thốn
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Authorization]] vì OPA thường dùng để ra quyết định allow/deny.
+- [[Kubernetes RBAC]] vì OPA bổ sung policy cho admission/cluster control.
+- [[Least Privilege]] vì policy-as-code giúp enforce quyền tối thiểu.
+- [[Deployment Approval]] vì policy decision có thể là gate trước deploy.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Policy as code
+- Admission control
+- Compliance guardrail
 
 ## Keywords / Từ khóa tìm kiếm
 
 - OPA
-- opa
-- opa design
-- opa debugging
-- opa production
-- opa best practice
+- Open Policy Agent
+- Rego
+- policy as code
+- admission control
+- authorization policy
+- OPA debugging
 
 ## Source trace
 
+- Open Policy Agent documentation
 - Kubernetes official docs
-- OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
