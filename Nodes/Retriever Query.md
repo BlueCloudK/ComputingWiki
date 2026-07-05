@@ -1,53 +1,59 @@
 # Retriever Query
 
-Aliases: Retriever Query, retriever query
+Aliases: Retriever Query, retrieval query
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Retriever Query xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Retriever Query xuất hiện trong RAG khi user question hoặc task input cần được chuyển thành truy vấn phù hợp để tìm đúng tài liệu/chunk.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Retriever Query là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Retriever Query là query gửi vào retriever/vector search/keyword search để lấy candidate context cho LLM.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Retriever Query không nhất thiết giống nguyên văn câu hỏi user. Query tốt có thể được rewrite, expand, filter hoặc tách nhiều subquery.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Retriever Query nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline nhận user input, tạo query embedding hoặc keyword query, thêm filter metadata nếu cần, retrieve top-k candidate, rồi rerank hoặc chọn context đưa vào prompt.
 
 ## Project Role / Vai trò trong dự án
 
-Retriever Query giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug RAG không tìm đúng tài liệu, recall thấp, query mơ hồ, metadata filter sai hoặc context bị nhiễu.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Retriever Query
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Query text/embedding input
+- Metadata filter
+- Top-k setting
+- Retrieved candidate list
+- Query rewrite/expansion note nếu có
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Retriever Query giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Query có giữ đúng intent user không?
+- Có cần rewrite hoặc split query không?
+- Metadata filter có loại nhầm tài liệu không?
+- Top-k có đủ recall không?
+- Retrieved chunks có evidence cần thiết không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Retriever Query sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Query quá ngắn làm retrieve sai.
+- Query rewrite đổi ý user.
+- Metadata filter quá hẹp làm mất tài liệu đúng.
+- Top-k quá thấp làm thiếu evidence.
+- Query chứa nhiễu từ prompt/user làm search lệch.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Retriever Query nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Corpus nhỏ có thể bắt đầu bằng direct query trước.
+- Không nên thêm query rewrite phức tạp nếu lỗi nằm ở chunking/index/filter.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Retriever Query giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[RAG]] vì retriever query là đầu vào của retrieval trong RAG.
+- [[Vector Database]] vì nhiều retriever query chạy trên vector DB.
+- [[Chunking Strategy]] vì query tốt vẫn fail nếu chunk không phù hợp.
+- [[RAG Evaluation]] vì eval cần log query và retrieved evidence.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Query rewriting
+- Hybrid search
+- Retrieval recall
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Retriever Query
-- retriever query
-- retriever query design
+- retrieval query
+- query rewrite
+- query expansion
+- metadata filter
+- top-k retrieval
 - retriever query debugging
-- retriever query production
-- retriever query best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
