@@ -1,53 +1,56 @@
 # REPL
 
-Aliases: REPL, repl
+Aliases: REPL, Read-Eval-Print Loop
 
 Type: Programming Languages Deep
 
 ## Context / Ngữ cảnh
 
-REPL xuất hiện trong programming languages deep mở rộng semantics, runtime, type system, memory management, concurrency và language implementation concepts.
+REPL xuất hiện khi developer muốn thử code, kiểm tra expression, debug API nhỏ hoặc học behavior ngôn ngữ ngay trong phiên tương tác.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-REPL là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Programming Languages Deep.
+REPL là vòng lặp Read-Eval-Print: đọc input, đánh giá code, in kết quả rồi chờ input tiếp theo.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+REPL không phải môi trường production và không thay thế test suite. Nó tốt cho thử nhanh nhưng dễ thiếu reproducibility.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu REPL giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Runtime đọc dòng lệnh hoặc block code, parse/evaluate trong context hiện tại, lưu biến/session state, in result hoặc error, rồi tiếp tục nhận input mới.
 
 ## Project Role / Vai trò trong dự án
 
-REPL giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi cần thử API/library, kiểm tra semantics, debug data nhỏ hoặc tạo reproduction trước khi viết test chính thức.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới REPL
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Reproduction snippet
+- Input/output quan trọng
+- Note về runtime/version
+- Test case chính thức nếu behavior cần giữ lại
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- REPL nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- REPL đang chạy runtime/version nào?
+- State trong phiên có ảnh hưởng kết quả không?
+- Snippet có thể đưa vào test không?
+- Kết quả có phụ thuộc environment không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng REPL như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Tin vào kết quả REPL nhưng production runtime khác.
+- Session state cũ làm kết quả lệch.
+- Snippet thử nhanh không được chuyển thành test.
+- Debug ở REPL bỏ qua config thật của project.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu REPL nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Logic đã có test rõ thì không cần dựa vào REPL.
+- Không nên dùng REPL làm source of truth cho behavior production.
 
 ## Gồm những gì
 
@@ -55,25 +58,27 @@ REPL giúp chọn đúng abstraction, config, test hoặc debug path khi làm pr
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Runtime]] vì REPL chạy trong runtime cụ thể.
+- [[Unit Test]] vì snippet ổn định nên chuyển thành test.
+- [[CLI Tool]] vì REPL thường là command-line interaction.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Compiler and Interpreter
-- Operating System
+- Interactive programming
+- Debugging
+- Language semantics
 
 ## Keywords / Từ khóa tìm kiếm
 
 - REPL
-- repl
-- repl design
-- repl debugging
-- repl production
+- Read-Eval-Print Loop
+- interactive shell
+- runtime session
+- code snippet
+- REPL debugging
 
 ## Source trace
 
-- Types and Programming Languages
 - Crafting Interpreters
-- Engineering a Compiler
-- LLVM documentation
+- Python documentation
+- Node.js documentation
