@@ -1,53 +1,59 @@
 # Temporary Table
 
-Aliases: Temporary Table, temporary table
+Aliases: Temporary Table, temp table
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Temporary Table xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Temporary Table xuất hiện khi query, procedure hoặc ETL job cần lưu dữ liệu trung gian trong phạm vi session/transaction để xử lý tiếp.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Temporary Table là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Temporary Table là bảng tạm được tạo để chứa dữ liệu trung gian, thường chỉ sống trong session hoặc transaction tùy database.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Temporary Table không phải bảng domain lâu dài. Nếu logic nghiệp vụ cần dữ liệu bền vững, dùng bảng chính thức với schema/migration rõ hơn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Temporary Table nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Database tạo table tạm trong namespace/session riêng, insert dữ liệu trung gian, query/join tiếp, rồi tự drop hoặc được drop thủ công khi hết scope.
 
 ## Project Role / Vai trò trong dự án
 
-Temporary Table giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug report query, batch job, migration script, stored procedure hoặc query plan dùng dữ liệu trung gian lớn.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Temporary Table
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Temporary table schema
+- Scope/lifetime rule
+- Index nếu dữ liệu lớn
+- Cleanup/drop rule
+- Query plan note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Temporary Table giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Table tạm sống trong session hay transaction?
+- Dữ liệu có lớn tới mức cần index không?
+- Có cleanup rõ không?
+- Có thể thay bằng CTE/subquery không?
+- Concurrent run có đụng tên hoặc lock không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Temporary Table sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Temp table quá lớn làm đầy temp storage.
+- Thiếu index làm join chậm.
+- Scope hiểu sai làm table biến mất sớm hoặc tồn tại lâu.
+- Concurrent job đụng tên nếu dùng global temp table.
+- Dùng temp table để che query design phức tạp quá mức.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Temporary Table nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Query nhỏ có thể dùng CTE/subquery đủ rõ.
+- Không nên tạo temp table nếu chỉ lưu vài dòng không tái sử dụng.
 
 ## Gồm những gì
 
@@ -55,26 +61,27 @@ Temporary Table giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Query Plan]] vì temp table có thể thay đổi execution plan.
+- [[Database Migration]] vì migration script đôi khi dùng temp table để chuyển dữ liệu.
+- [[Transaction]] vì scope/lifetime có thể gắn với transaction.
+- [[Index]] vì temp table lớn có thể cần index tạm.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Intermediate result
+- Batch processing
+- SQL procedure
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Temporary Table
-- temporary table
-- temporary table design
+- temp table
+- SQL temp table
+- temporary table scope
+- temp storage
 - temporary table debugging
-- temporary table production
-- temporary table best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
