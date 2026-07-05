@@ -1,53 +1,59 @@
 # Changelog Generation
 
-Aliases: Changelog Generation, changelog generation
+Aliases: Changelog Generation, changelog automation
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Changelog Generation xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Changelog Generation xuất hiện khi project cần tạo danh sách thay đổi cho release từ commit, pull request, tag hoặc issue một cách lặp lại.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Changelog Generation là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Changelog Generation là quá trình tạo changelog từ metadata phát triển như commit message, PR title, label, milestone và release tag.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Changelog Generation không tự đảm bảo release note hữu ích. Nếu commit/PR message kém, changelog tự động cũng sẽ nhiễu.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Changelog Generation giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Tool đọc range commit hoặc PR giữa hai tag, nhóm change theo type/label, tạo markdown/release note và gắn với release artifact hoặc GitHub release.
 
 ## Project Role / Vai trò trong dự án
 
-Changelog Generation giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi chuẩn hóa release note, tự động hóa release, trace breaking change hoặc tạo lịch sử thay đổi cho user/team.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Changelog Generation
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Changelog file hoặc release note
+- Tag/version range
+- Grouping rule
+- Breaking change section
+- Link tới PR/issue nếu cần
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Changelog Generation nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Changelog lấy nguồn từ commit hay PR?
+- Version range bắt đầu/kết thúc ở tag nào?
+- Change được nhóm theo rule nào?
+- Breaking change có nổi bật không?
+- User đọc changelog này là ai?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Changelog Generation như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Commit message mơ hồ làm changelog vô dụng.
+- Tag range sai làm thiếu hoặc lặp change.
+- Breaking change bị chôn trong danh sách dài.
+- Changelog chỉ phục vụ dev, không giúp user hiểu impact.
+- Automation publish nhầm draft/release.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Changelog Generation nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project chưa có release định kỳ có thể ghi release note thủ công.
+- Không nên tự động hóa quá sớm nếu commit/PR convention chưa ổn.
 
 ## Gồm những gì
 
@@ -55,26 +61,27 @@ Changelog Generation giúp chọn đúng abstraction, config, test hoặc debug 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Release Artifact]] vì changelog thường đi cùng artifact/version release.
+- [[Pull Request]] vì PR title/label thường là nguồn changelog tốt.
+- [[Git]] vì tag/commit range là input chính.
+- [[CD]] vì pipeline release có thể tạo changelog tự động.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Release note
+- Versioning
+- Developer workflow
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Changelog Generation
-- changelog generation
-- changelog generation design
-- changelog generation debugging
-- changelog generation production
+- changelog automation
+- release notes
+- conventional commits
+- Git tag range
+- changelog debugging
 
 ## Source trace
 
 - Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- GitHub Releases documentation
