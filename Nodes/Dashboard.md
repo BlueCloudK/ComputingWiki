@@ -1,53 +1,59 @@
 # Dashboard
 
-Aliases: Dashboard, dashboard
+Aliases: Dashboard, operational dashboard
 
 Type: Cloud / DevOps Tooling
 
 ## Context / Ngữ cảnh
 
-Dashboard xuất hiện trong cloud devops tooling là vùng kiến thức về iac, ci/cd, gitops, observability, artifact, runtime platform và vận hành cloud.
+Dashboard xuất hiện khi team cần quan sát nhanh trạng thái hệ thống, service, pipeline, cost, incident hoặc SLO bằng metric/log/event đã được chọn lọc.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Dashboard là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Cloud / DevOps Tooling.
+Dashboard là giao diện tổng hợp signal quan trọng để trả lời câu hỏi vận hành cụ thể: hệ thống có ổn không, lỗi nằm ở đâu, xu hướng đang xấu đi không.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Dashboard không phải bãi nhồi mọi metric. Nếu không gắn với câu hỏi/debug path, dashboard dễ đẹp nhưng không giúp ra quyết định.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Dashboard nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Dashboard lấy dữ liệu từ monitoring/log/tracing/cost system, query thành panel, group theo service/environment và dùng threshold/annotation để giúp đọc biến động theo thời gian.
 
 ## Project Role / Vai trò trong dự án
 
-Dashboard giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế observability, incident triage, release monitoring, SLO review, cost review hoặc executive/status view.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Dashboard
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Dashboard purpose
+- Panel list and query
+- Service/environment filters
+- Threshold/annotation rule
+- Owner and review cadence
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Dashboard giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Dashboard trả lời câu hỏi nào?
+- Metric/log nào là signal chính?
+- Có phân biệt service/environment/version không?
+- Panel có threshold hoặc baseline không?
+- Dashboard có owner giữ cho không stale không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Dashboard sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Quá nhiều panel làm người xem không biết nhìn đâu.
+- Metric không gắn với user impact.
+- Dashboard stale sau khi service đổi tên/metric đổi.
+- Chỉ có dashboard, không có alert khi người không nhìn màn hình.
+- Panel đẹp nhưng không giúp debug bước tiếp theo.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Dashboard nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Project nhỏ có thể bắt đầu bằng vài metric/alert cơ bản.
+- Không nên build dashboard trước khi biết câu hỏi vận hành thật.
 
 ## Gồm những gì
 
@@ -55,27 +61,29 @@ Dashboard giúp team thiết kế, review, test, deploy hoặc vận hành hệ 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Monitoring]] vì dashboard hiển thị metric/signal từ monitoring.
+- [[Alert]] vì dashboard và alert nên dùng cùng signal quan trọng.
+- [[Service Level Objective]] vì dashboard nên thể hiện SLO/user impact.
+- [[Cost Review]] vì cost dashboard hỗ trợ review chi phí.
 
 ## Liên quan rộng
 
-- Cloud and Infrastructure
-- Deployment and Operations
-- Linux and Server Admin
-- SRE and Reliability
+- Observability
+- Incident triage
+- Metric visualization
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Dashboard
-- dashboard
+- operational dashboard
+- monitoring dashboard
+- SLO dashboard
+- incident dashboard
 - dashboard design
 - dashboard debugging
-- dashboard production
-- dashboard best practice
 
 ## Source trace
 
-- Kubernetes official docs
+- Google SRE Books
 - OpenTelemetry documentation
-- Terraform documentation
-- GitHub Actions documentation
+- Grafana documentation
