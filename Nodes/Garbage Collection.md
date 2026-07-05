@@ -1,79 +1,89 @@
 # Garbage Collection
 
-Aliases: Garbage Collection, garbage collection
+Aliases: Garbage Collection, GC
 
 Type: Programming Languages Deep
 
 ## Context / Ngữ cảnh
 
-Garbage Collection xuất hiện trong programming languages deep mở rộng semantics, runtime, type system, memory management, concurrency và language implementation concepts.
+Garbage Collection xuất hiện trong language/runtime khi memory được quản lý tự động thay vì developer phải free object thủ công.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Garbage Collection là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Programming Languages Deep.
+Garbage Collection là cơ chế runtime phát hiện object/resource memory không còn cần thiết và thu hồi vùng nhớ đó để tái sử dụng.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Garbage Collection không có nghĩa là không thể memory leak. Nếu object vẫn còn reachable từ root/reference graph, GC sẽ giữ nó lại dù app không còn cần nữa.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Garbage Collection giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Runtime theo dõi allocation và reference. Collector chạy theo thuật toán như tracing, generational, mark-sweep hoặc compacting để xác định object còn sống, thu hồi object chết và đôi khi di chuyển object để giảm fragmentation.
 
 ## Project Role / Vai trò trong dự án
 
-Garbage Collection giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug memory leak, GC pause, heap growth, latency spike, object retention hoặc hiểu tradeoff giữa throughput và responsiveness của runtime.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Garbage Collection
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Heap profile
+- GC log/metric
+- Allocation hotspot
+- Retained object path
+- Before/after memory comparison
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Garbage Collection nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Heap tăng do leak hay do workload thật?
+- Object nào đang giữ reference lâu nhất?
+- GC pause có ảnh hưởng latency/UI không?
+- Allocation hotspot nằm ở module nào?
+- Runtime/collector đang dùng mode nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Garbage Collection như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Object còn referenced nên GC không thể thu hồi.
+- GC pause làm request/UI lag.
+- Allocation quá nhiều tạo áp lực GC.
+- Tuning GC theo cảm tính không có metric.
+- Finalizer/weak reference dùng sai làm behavior khó đoán.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Garbage Collection nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- App nhỏ chưa có memory/latency issue chỉ cần hiểu mô hình tổng quát.
+- Không nên tune GC trước khi có heap profile và GC metric.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Tracing Garbage Collector]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Memory Management]] vì garbage collection là một mô hình quản lý memory.
+- [[Runtime]] vì GC là trách nhiệm của runtime.
+- [[Memory Leak]] vì leak trong managed runtime thường là object bị giữ reference.
+- [[Tracing Garbage Collector]] vì tracing GC là nhóm collector phổ biến.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Compiler and Interpreter
-- Operating System
+- Heap allocation
+- GC pause
+- Object retention
+- Runtime performance
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Garbage Collection
-- garbage collection
-- garbage collection design
+- GC
+- heap profile
+- GC pause
+- object retention
+- memory leak
 - garbage collection debugging
-- garbage collection production
 
 ## Source trace
 
-- Types and Programming Languages
 - Crafting Interpreters
 - Engineering a Compiler
-- LLVM documentation
