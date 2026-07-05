@@ -1,53 +1,59 @@
 # Tracing Garbage Collector
 
-Aliases: Tracing Garbage Collector, tracing garbage collector
+Aliases: Tracing Garbage Collector, tracing GC
 
 Type: Programming Languages Deep
 
 ## Context / Ngữ cảnh
 
-Tracing Garbage Collector xuất hiện trong programming languages deep mở rộng semantics, runtime, type system, memory management, concurrency và language implementation concepts.
+Tracing Garbage Collector xuất hiện trong runtime/language implementation khi memory không được free thủ công mà runtime cần tự tìm object còn sống và thu hồi object không còn reachable.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Tracing Garbage Collector là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Programming Languages Deep.
+Tracing Garbage Collector là cơ chế GC bắt đầu từ tập root, đi theo reference graph để mark object còn reachable, rồi thu hồi phần heap không được mark.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Tracing Garbage Collector không phải reference counting. Nó không giảm counter ngay khi reference biến mất mà chạy theo phase/collection cycle.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Tracing Garbage Collector giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+GC xác định root như stack, global, register hoặc runtime handle. Từ root, collector trace qua object reference, mark object còn sống, sau đó sweep/compact/copy object chết tùy thuật toán.
 
 ## Project Role / Vai trò trong dự án
 
-Tracing Garbage Collector giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi hiểu runtime memory, debug pause time, memory leak trong managed language, object retention hoặc tradeoff giữa throughput và latency.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Tracing Garbage Collector
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Root set model
+- Heap/object graph note
+- Collection algorithm note
+- Pause/latency metric
+- Leak/retention investigation
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tracing Garbage Collector nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Root nào đang giữ object sống?
+- Object bị leak thật hay chỉ bị retained lâu?
+- GC pause có ảnh hưởng latency không?
+- Collector có compact/copy không?
+- Metric heap before/after collection ra sao?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Tracing Garbage Collector như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Object còn reachable ngoài ý muốn nên không được collect.
+- Pause time cao làm request/UI lag.
+- Finalizer/weak reference dùng sai làm behavior khó đoán.
+- Heap fragmentation nếu không compact.
+- Tuning GC theo cảm tính mà không có metric.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Tracing Garbage Collector nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- App nhỏ chưa có memory/latency issue có thể chỉ cần biết cơ chế tổng quát.
+- Không nên tune GC trước khi có heap profile và pause metric.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Tracing Garbage Collector giúp chọn đúng abstraction, config, test hoặc d
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Memory Management]] vì tracing GC là cơ chế quản lý memory tự động.
+- [[Runtime]] vì GC chạy trong runtime.
+- [[Memory Leak]] vì object retained qua root/reference graph gây leak trong managed language.
+- [[Performance Optimization]] vì GC pause/throughput ảnh hưởng performance.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Compiler and Interpreter
-- Operating System
+- Mark and sweep
+- Heap compaction
+- Runtime implementation
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Tracing Garbage Collector
-- tracing garbage collector
-- tracing garbage collector design
-- tracing garbage collector debugging
-- tracing garbage collector production
+- tracing GC
+- mark and sweep
+- root set
+- object graph
+- GC pause
+- heap retention
+- tracing GC debugging
 
 ## Source trace
 
-- Types and Programming Languages
 - Crafting Interpreters
 - Engineering a Compiler
-- LLVM documentation
