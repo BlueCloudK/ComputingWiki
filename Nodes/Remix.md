@@ -1,53 +1,59 @@
 # Remix
 
-Aliases: Remix, remix
+Aliases: Remix, Remix Run
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-Remix xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+Remix xuất hiện khi React app cần routing, server-side data loading, form/action flow và progressive enhancement rõ ràng.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Remix là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+Remix là web framework dựa trên React, tập trung vào nested routes, loaders, actions, server/client data flow và web platform primitives.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Remix không phải chỉ là React router đơn giản. Nó định nghĩa cả cách load data, mutate data, handle form và render route boundary.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Remix giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Route file định nghĩa UI component, loader để đọc data và action để xử lý mutation. Framework điều phối request/response, nested route data, error boundary và client navigation.
 
 ## Project Role / Vai trò trong dự án
 
-Remix giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug route data, form submission, server/client boundary, nested layout, error boundary hoặc deployment adapter của React app.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Remix
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Route map
+- Loader/action contract
+- Error boundary decision
+- Data mutation flow
+- Deployment adapter note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Remix nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Data được load ở route nào?
+- Mutation đi qua action nào?
+- Error boundary có bắt đúng scope không?
+- Route nesting có làm data reload dư không?
+- Server/client code có bị trộn sai boundary không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Remix như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Loader/action trả data shape không khớp component.
+- Server-only code bị import sang client bundle.
+- Nested route reload hoặc cache behavior khó hiểu.
+- Form/action thiếu validation hoặc error state.
+- Deployment adapter không khớp runtime.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Remix nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- React SPA đơn giản có thể dùng router/client data fetching nhẹ hơn.
+- Không nên dùng full-stack framework nếu app chỉ là static UI nhỏ.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Remix giúp chọn đúng abstraction, config, test hoặc debug path khi làm p
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[React]] vì Remix dùng React component model.
+- [[SSR]] vì Remix thường render trên server.
+- [[Route]] vì routing là cơ chế lõi của Remix.
+- [[Validation]] vì action/form mutation cần validate input.
+- [[Frontend Framework]] vì Remix là framework frontend/full-stack web.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Web platform
+- Nested routing
+- Server data loading
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Remix
-- remix
-- remix design
-- remix debugging
-- remix production
+- Remix Run
+- React framework
+- Remix loader
+- Remix action
+- nested routes
+- Remix debugging
 
 ## Source trace
 
+- Remix documentation
 - React documentation
-- Vue documentation
-- Angular documentation
-- MDN Web Docs
