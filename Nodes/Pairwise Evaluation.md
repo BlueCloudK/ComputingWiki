@@ -1,53 +1,59 @@
 # Pairwise Evaluation
 
-Aliases: Pairwise Evaluation, pairwise evaluation
+Aliases: Pairwise Evaluation, pairwise eval
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Pairwise Evaluation xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Pairwise Evaluation xuất hiện khi cần so sánh hai output/model/prompt/retriever trên cùng một input để chọn phương án tốt hơn thay vì chỉ chấm điểm tuyệt đối.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Pairwise Evaluation là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Pairwise Evaluation là phương pháp đưa hai kết quả A/B cho evaluator hoặc judge so sánh theo rubric và chọn winner/tie/loser.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Pairwise Evaluation không tự nói hệ thống đã đạt chuẩn production. Nó chỉ cho biết phương án nào tốt hơn trên tập case và tiêu chí đã chọn.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Pairwise Evaluation nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Cùng một eval case được chạy qua hai candidate. Evaluator nhìn input, context và output A/B, chấm theo rubric như correctness, helpfulness, faithfulness, safety hoặc preference, rồi tổng hợp win rate.
 
 ## Project Role / Vai trò trong dự án
 
-Pairwise Evaluation giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi chọn prompt/model mới, so retriever/reranker, đánh giá RAG answer hoặc giảm bias khi điểm số tuyệt đối khó ổn định.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Pairwise Evaluation
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Candidate A/B definition
+- Eval case list
+- Pairwise rubric
+- Win/tie/loss result
+- Failure analysis by slice
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Pairwise Evaluation giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- A/B khác nhau ở điểm nào?
+- Rubric chọn winner có rõ không?
+- Output có được blind/randomize order không?
+- Win rate có đủ sample không?
+- Winner có tốt hơn theo failure mode quan trọng không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Pairwise Evaluation sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Judge bị bias theo vị trí A/B.
+- Rubric mơ hồ làm evaluator chọn theo cảm giác.
+- Win rate cao nhưng fail ở slice quan trọng.
+- So sánh hai output đều kém nhưng vẫn chọn một winner.
+- Chỉ nhìn aggregate, không đọc case thua.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Pairwise Evaluation nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Một prompt/model duy nhất giai đoạn đầu có thể dùng manual review trước.
+- Không nên dùng pairwise eval nếu cần absolute compliance/safety threshold rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Pairwise Evaluation giúp team thiết kế, review, test, deploy hoặc vận h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[AI Evaluation]] vì pairwise evaluation là một chiến lược eval.
+- [[Human Evaluation]] vì human reviewer thường dùng pairwise comparison.
+- [[Offline Evaluation]] vì pairwise eval thường chạy offline trên golden/eval set.
+- [[Golden Set]] vì cần case ổn định để so sánh A/B.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- A/B comparison
+- Preference evaluation
+- Win rate
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Pairwise Evaluation
-- pairwise evaluation
-- pairwise evaluation design
+- pairwise eval
+- A/B evaluation
+- preference evaluation
+- win rate
+- human pairwise review
 - pairwise evaluation debugging
-- pairwise evaluation production
-- pairwise evaluation best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
