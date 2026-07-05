@@ -1,53 +1,57 @@
 # Bazel
 
-Aliases: Bazel, bazel
+Aliases: Bazel
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Bazel xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Bazel xuất hiện khi repo lớn hoặc monorepo cần build/test nhanh, reproducible và kiểm soát dependency graph rõ.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Bazel là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Bazel là build system dựa trên target, rule và dependency graph. Nó tập trung vào hermetic build, cache và parallel execution.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Bazel không phải package manager chung cho mọi ecosystem. Nó thường cần rule/config riêng để hiểu từng ngôn ngữ và artifact.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Bazel giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Project khai báo target và dependency trong BUILD files. Bazel tính graph, chạy action cần thiết, dùng cache nếu input không đổi và tạo output reproducible.
 
 ## Project Role / Vai trò trong dự án
 
-Bazel giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug monorepo build, cache miss, dependency graph, CI build time hoặc multi-language build.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Bazel
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- BUILD files
+- Target naming convention
+- Rule/dependency map
+- Cache strategy
+- CI command
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Bazel nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Target build/test là gì?
+- Dependency có khai báo explicit không?
+- Cache hit/miss có hợp lý không?
+- Local và CI có dùng cùng config không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Bazel như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Dependency thiếu làm build chỉ fail trên clean machine.
+- Rule quá phức tạp khó maintain.
+- Cache key/input sai làm output stale.
+- Monorepo build chậm vì graph chia chưa tốt.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Bazel nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Repo nhỏ, một ngôn ngữ, build đơn giản thường chưa cần Bazel.
+- Không nên thêm Bazel nếu team chưa đủ nhu cầu monorepo/cache lớn.
 
 ## Gồm những gì
 
@@ -55,26 +59,25 @@ Bazel giúp chọn đúng abstraction, config, test hoặc debug path khi làm p
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Build Cache]] vì Bazel phụ thuộc mạnh vào cache và input tracking.
+- [[CI]] vì Bazel thường dùng để tăng tốc build/test trong CI.
+- [[Matrix Build]] vì monorepo CI có thể chạy target theo matrix.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Monorepo
+- Reproducible build
+- Build graph
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Bazel
-- bazel
-- bazel design
-- bazel debugging
-- bazel production
+- BUILD file
+- build graph
+- hermetic build
+- remote cache
+- Bazel debugging
 
 ## Source trace
 
-- Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
+- Bazel documentation
