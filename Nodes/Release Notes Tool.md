@@ -1,53 +1,59 @@
 # Release Notes Tool
 
-Aliases: Release Notes Tool, release notes tool
+Aliases: Release Notes Tool, release note generator
 
 Type: Frameworks and Tools
 
 ## Context / Ngữ cảnh
 
-Release Notes Tool xuất hiện trong frameworks and tools gom các công cụ ổn định quanh version control, package management, build, test, lint, release và local development.
+Release Notes Tool xuất hiện khi project cần tạo release note/changelog từ pull request, commit, issue, tag hoặc label một cách lặp lại và ít thủ công.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Release Notes Tool là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frameworks and Tools.
+Release Notes Tool là tool tự động gom và format thay đổi của một release thành note cho user, stakeholder hoặc developer.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Release Notes Tool không tự làm nội dung hữu ích nếu PR title, label, changelog convention hoặc breaking change note bị viết kém.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Release Notes Tool giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Tool đọc range giữa các tag hoặc milestone, lấy PR/commit/issue metadata, nhóm theo label/type, rồi sinh markdown hoặc GitHub release note theo template.
 
 ## Project Role / Vai trò trong dự án
 
-Release Notes Tool giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi chuẩn hóa release note, giảm toil release, trace breaking change hoặc public changelog cho repo/sản phẩm.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Release Notes Tool
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Release note template
+- Tag/version range
+- Grouping label/type rule
+- Breaking change section
+- Publish target: file, GitHub Release, docs
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Release Notes Tool nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Release note phục vụ user hay developer?
+- Source là PR, commit hay issue?
+- Tag range có đúng không?
+- Breaking change có nổi bật không?
+- Note có link về PR/issue khi cần không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Release Notes Tool như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Tag range sai làm thiếu hoặc lặp change.
+- PR title mơ hồ khiến note vô dụng.
+- Breaking change bị chôn trong list dài.
+- Tool publish nhầm draft/release.
+- Automation đẹp nhưng không ai kiểm lại nội dung cuối.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Release Notes Tool nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Project chưa release định kỳ có thể viết release note thủ công.
+- Không nên dùng tool phức tạp nếu PR/label convention chưa ổn.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Release Notes Tool giúp chọn đúng abstraction, config, test hoặc debug pa
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Changelog Generation]] vì release notes tool thực thi việc sinh changelog/release note.
+- [[Release Artifact]] vì release note nên gắn với artifact/version.
+- [[Pull Request]] vì PR metadata thường là nguồn note tốt.
+- [[Git]] vì tag/commit range là input chính.
 
 ## Liên quan rộng
 
-- Application Engineering
-- Deployment and Operations
-- Programming Languages
+- Release note
+- Changelog automation
+- Versioning
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Release Notes Tool
-- release notes tool
-- release notes tool design
-- release notes tool debugging
-- release notes tool production
+- release note generator
+- changelog generator
+- GitHub release notes
+- tag range
+- release note automation
+- release notes debugging
 
 ## Source trace
 
+- GitHub Releases documentation
 - Git documentation
-- GitHub Actions documentation
-- npm documentation
-- Maven documentation
-- Gradle documentation
