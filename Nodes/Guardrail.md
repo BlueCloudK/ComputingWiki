@@ -1,53 +1,59 @@
 # Guardrail
 
-Aliases: Guardrail, guardrail
+Aliases: Guardrail, AI guardrail
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Guardrail xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Guardrail xuất hiện khi AI app cần kiểm soát input, output, tool use, policy, safety hoặc data boundary để giảm hành vi sai ngoài ý muốn.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Guardrail là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Guardrail là lớp kiểm soát giúp phát hiện, chặn, sửa, yêu cầu approval hoặc log hành vi rủi ro trong AI workflow.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Guardrail không phải chỉ là system prompt. Guardrail tốt thường gồm runtime policy, validation, permission, eval, logging và fallback behavior.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Guardrail nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Input/output/tool call đi qua các check như schema validation, policy check, allowlist, classifier, citation check hoặc human approval. Nếu fail, workflow deny, rewrite, ask clarification, fallback hoặc escalate.
 
 ## Project Role / Vai trò trong dự án
 
-Guardrail giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế AI app production, RAG leakage prevention, agent tool safety, jailbreak defense, output schema enforcement hoặc audit behavior.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Guardrail
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Guardrail policy matrix
+- Input/output validation rules
+- Tool permission/approval rule
+- Failure/fallback behavior
+- Eval and audit log
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Guardrail giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Guardrail bảo vệ asset/risk nào?
+- Check chạy ở input, retrieval, model output hay tool runtime?
+- Fail thì deny, ask, rewrite hay escalate?
+- Guardrail có metric false positive/false negative không?
+- Có bypass path nào không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Guardrail sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chỉ dựa vào prompt nên bị jailbreak/prompt injection vượt qua.
+- Guardrail quá chặt làm block yêu cầu hợp lệ.
+- Guardrail quá lỏng làm action/data leak lọt qua.
+- Không log reason nên khó debug false positive.
+- Tool permission không enforce ở runtime.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Guardrail nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Demo không có dữ liệu/action nhạy cảm có thể bắt đầu bằng validation đơn giản.
+- Không nên thêm nhiều guardrail nếu chưa xác định risk và asset cụ thể.
 
 ## Gồm những gì
 
@@ -55,27 +61,30 @@ Guardrail giúp team thiết kế, review, test, deploy hoặc vận hành hệ 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Jailbreak]] vì guardrail cần chống bypass instruction/policy.
+- [[Prompt Injection]] vì input/context có thể cố thao túng workflow.
+- [[Output Validation]] vì output là điểm guardrail quan trọng.
+- [[Tool Permission]] vì agent tool action phải được kiểm soát bằng permission runtime.
+- [[Policy Check]] vì policy check là một dạng guardrail rõ ràng.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- AI safety
+- Runtime policy
+- Human approval
+- Audit logging
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Guardrail
-- guardrail
-- guardrail design
+- AI guardrail
+- input guardrail
+- output guardrail
+- policy check
+- tool guardrail
 - guardrail debugging
-- guardrail production
-- guardrail best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
-- Anthropic prompt engineering docs
+- OWASP LLM guidance
