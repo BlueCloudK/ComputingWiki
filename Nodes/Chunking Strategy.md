@@ -1,53 +1,59 @@
 # Chunking Strategy
 
-Aliases: Chunking Strategy, chunking strategy, Chunking
+Aliases: Chunking Strategy, Chunking
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Chunking Strategy xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Chunking Strategy xuất hiện khi tài liệu cần được cắt thành đoạn phù hợp để embed, index và retrieve trong RAG/search.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Chunking Strategy là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Chunking Strategy là cách chia document thành chunk dựa trên size, overlap, heading, semantic boundary, table/code block hoặc domain structure.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Chunking Strategy không phải chỉ chọn một con số token size. Chunk tốt phải giữ context đủ cho retrieval và generation.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Chunking Strategy nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline parse document, nhận diện boundary, cắt chunk, thêm metadata, có thể overlap hoặc hierarchy, rồi embed/index. Khi query retrieve chunk, context phải đủ để trả lời mà không kéo quá nhiều nhiễu.
 
 ## Project Role / Vai trò trong dự án
 
-Chunking Strategy giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi RAG retrieve thiếu ngữ cảnh, citation sai, table bị cắt hỏng, chunk quá dài/quá ngắn hoặc context window bị lãng phí.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Chunking Strategy
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Chunk size/overlap config
+- Boundary rule theo document type
+- Metadata inherited từ document/section
+- Sample chunk inspection
+- Eval comparison theo strategy
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Chunking Strategy giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Chunk có giữ đủ ý để trả lời không?
+- Có cắt ngang bảng/code/list quan trọng không?
+- Metadata section/document có được giữ không?
+- Overlap có cần thiết không?
+- Strategy mới có cải thiện eval không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Chunking Strategy sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chunk quá nhỏ làm mất context.
+- Chunk quá lớn làm retrieve nhiễu.
+- Cắt ngang bảng/code làm evidence vô dụng.
+- Metadata thiếu làm filter/citation sai.
+- Overlap quá lớn làm index phình và duplicate context.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Chunking Strategy nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Corpus nhỏ có thể bắt đầu với chunk đơn giản rồi eval.
+- Không nên tối ưu chunking khi lỗi thật nằm ở query/filter/rerank.
 
 ## Gồm những gì
 
@@ -55,28 +61,28 @@ Chunking Strategy giúp team thiết kế, review, test, deploy hoặc vận hà
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Document Ingestion]] vì chunking nằm trong ingestion pipeline.
+- [[RAG]] vì chunking ảnh hưởng trực tiếp context RAG.
+- [[Vector Database]] vì chunk là record thường được embed/index.
+- [[RAG Evaluation]] vì chunking change cần đo bằng eval.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Text segmentation
+- Semantic chunking
+- Retrieval quality
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Chunking Strategy
-- chunking strategy
 - Chunking
-- chunking strategy design
-- chunking strategy debugging
-- chunking strategy production
-- chunking strategy best practice
+- semantic chunking
+- chunk size
+- chunk overlap
+- RAG chunking
+- chunking debugging
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
