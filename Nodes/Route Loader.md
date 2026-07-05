@@ -1,53 +1,59 @@
 # Route Loader
 
-Aliases: Route Loader, route loader
+Aliases: Route Loader, route data loader
 
 Type: Frontend Framework
 
 ## Context / Ngữ cảnh
 
-Route Loader xuất hiện trong frontend frameworks mở rộng component model, state, routing, rendering, build và testing trong web application hiện đại.
+Route Loader xuất hiện khi web app cần tải dữ liệu theo route trước khi render page hoặc khi điều hướng sang route mới.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Route Loader là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Frontend Framework.
+Route Loader là hàm/cơ chế gắn với route để lấy data, validate params, redirect hoặc trả error trước khi component/page render đầy đủ.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Route Loader không phải component UI. Nó nằm ở data/routing boundary và nên có contract rõ với component nhận data.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Route Loader giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Router match URL, chạy loader của route liên quan, truyền params/request/context vào loader, nhận data/redirect/error rồi render route component hoặc error boundary tương ứng.
 
 ## Project Role / Vai trò trong dự án
 
-Route Loader giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug page data thiếu, loading state, redirect sai, SSR/CSR mismatch, cache invalidation hoặc route-level error handling.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Route Loader
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Loader input/output contract
+- Route params validation
+- Error/redirect behavior
+- Cache/revalidation rule
+- Test cho route data quan trọng
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Route Loader nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Loader chạy ở server, client hay cả hai?
+- Params đã validate chưa?
+- Data shape có khớp component không?
+- Error/redirect được xử lý ở boundary nào?
+- Revalidation xảy ra khi nào?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Route Loader như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Loader trả data shape khác component kỳ vọng.
+- Redirect loop do auth/session logic sai.
+- Loader chạy lại quá nhiều làm request dư.
+- SSR và client navigation dùng data khác nhau.
+- Error không được route boundary bắt nên trắng trang.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Route Loader nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Page static hoặc data đơn giản có thể fetch trong component trước.
+- Không nên đưa business logic quá sâu vào loader nếu cần reuse ở backend/service layer.
 
 ## Gồm những gì
 
@@ -55,25 +61,29 @@ Route Loader giúp chọn đúng abstraction, config, test hoặc debug path khi
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Route]] vì loader gắn với route matching.
+- [[Remix]] vì Remix dùng loader như cơ chế data chính.
+- [[SSR]] vì route loader thường liên quan server rendering.
+- [[Frontend Error Boundary]] vì loader error cần fallback boundary.
 
 ## Liên quan rộng
 
-- Web Development
-- Programming Languages
-- Application Engineering
+- Route data
+- Redirect
+- Revalidation
+- Page loading
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Route Loader
-- route loader
-- route loader design
+- route data loader
+- loader function
+- route params
+- data loading
+- route redirect
 - route loader debugging
-- route loader production
 
 ## Source trace
 
-- React documentation
-- Vue documentation
-- Angular documentation
-- MDN Web Docs
+- Remix documentation
+- React Router documentation
