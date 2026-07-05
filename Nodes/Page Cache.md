@@ -1,53 +1,59 @@
 # Page Cache
 
-Aliases: Page Cache, page cache
+Aliases: Page Cache, buffer cache
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Page Cache xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Page Cache xuất hiện khi database hoặc operating system giữ page/block dữ liệu trong memory để giảm disk I/O khi query đọc lại dữ liệu.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Page Cache là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Page Cache là lớp cache ở mức page/block, lưu dữ liệu đã đọc từ disk để lần đọc sau có thể lấy từ memory nhanh hơn.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Page Cache không giống application cache theo key nghiệp vụ. Nó cache page storage thấp hơn, thường không biết ý nghĩa domain của dữ liệu.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Page Cache nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Khi query đọc table/index page, database hoặc OS nạp page từ disk vào memory. Page được giữ lại theo eviction policy; nếu query đọc lại page đó, hệ thống tránh được disk read.
 
 ## Project Role / Vai trò trong dự án
 
-Page Cache giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug query lần đầu chậm lần sau nhanh, I/O bottleneck, buffer hit ratio, working set vượt RAM hoặc benchmark bị sai do warm cache.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Page Cache
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Buffer/page cache hit ratio
+- Working set estimate
+- Cold vs warm benchmark
+- I/O read metric
+- Query plan with buffer stats
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Page Cache giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Query đang cold cache hay warm cache?
+- Working set có vừa RAM không?
+- Buffer hit ratio có giảm khi tải tăng không?
+- Bottleneck là disk I/O hay CPU/query plan?
+- Benchmark có clear/kiểm soát cache không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Page Cache sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Benchmark warm cache làm tưởng query nhanh hơn production cold path.
+- Working set vượt RAM làm cache churn.
+- Read amplification làm nhiều page cache bị đọc vô ích.
+- OS cache và DB buffer cache bị hiểu lẫn.
+- Tối ưu query trong khi bottleneck thật là cache miss/I/O.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Page Cache nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Dataset nhỏ nằm hết trong RAM thì page cache ít là vấn đề.
+- Không nên chỉnh memory/cache setting nếu chưa có hit ratio và I/O metric.
 
 ## Gồm những gì
 
@@ -55,23 +61,27 @@ Page Cache giúp team thiết kế, review, test, deploy hoặc vận hành hệ
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Storage Layout]] vì page cache lưu page/block theo layout vật lý.
+- [[Query Plan]] vì plan quyết định đọc bao nhiêu page.
+- [[Read Amplification]] vì đọc nhiều page thừa làm cache/I/O tệ.
+- [[Performance Optimization]] vì cache hit ảnh hưởng latency mạnh.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Buffer pool
+- Disk I/O
+- Working set
+- Cache hit ratio
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Page Cache
-- page cache
-- page cache design
+- buffer cache
+- buffer pool
+- cache hit ratio
+- cold cache
+- warm cache
 - page cache debugging
-- page cache production
-- page cache best practice
 
 ## Source trace
 
