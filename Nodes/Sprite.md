@@ -1,53 +1,57 @@
 # Sprite
 
-Aliases: Sprite, sprite
+Aliases: Sprite
 
 Type: Game Development
 
 ## Context / Ngữ cảnh
 
-Sprite xuất hiện trong game development mở rộng game loop, rendering, physics, input, gameplay systems, asset pipeline và engine architecture.
+Sprite xuất hiện khi game hoặc UI 2D cần hiển thị hình ảnh phẳng như nhân vật, vật phẩm, icon, effect hoặc tile.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Sprite là khái niệm giúp đặt tên đúng một cơ chế, artifact hoặc decision trong vùng Game Development.
+Sprite là graphic 2D được render trong game engine, thường lấy từ texture hoặc sprite atlas.
 
 ### Nó không phải là gì
 
-Nó không phải tutorial hoặc tên tool để học thuộc; node này dùng để nối concept với project workflow, debug và source trace.
+Sprite không phải toàn bộ animation system. Animation có thể dùng nhiều sprite frame hoặc transform riêng.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Sprite giải quyết boundary nào, tạo artifact gì, và failure mode nào cần kiểm tra.
+Engine lấy texture region, material/shader và transform để render sprite lên scene/canvas. Sprite có thể nằm trong atlas để giảm draw call và tối ưu memory.
 
 ## Project Role / Vai trò trong dự án
 
-Sprite giúp chọn đúng abstraction, config, test hoặc debug path khi làm project thật.
+Dùng node này khi debug asset 2D, render order, animation frame, sprite atlas hoặc performance UI/game 2D.
 
 ## Output / Artifact nên có
 
-- Note hoặc config liên quan tới Sprite
-- Test/checklist nếu behavior ảnh hưởng user hoặc release
-- Debug signal nếu lỗi thường xuất hiện ở runtime
+- Sprite asset
+- Atlas/import setting
+- Pixel density/scale note
+- Render order/layer note
+- Animation frame note nếu cần
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Sprite nằm ở layer, runtime, build hay operation boundary nào?
-- Có source trace và artifact đủ rõ để người khác tiếp tục không?
-- Nếu dùng sai, lỗi sẽ lộ ở compile, test, runtime hay production?
+- Sprite dùng texture nào?
+- Scale/pixel density có đúng không?
+- Render layer/order có đúng không?
+- Có cần atlas để tối ưu không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Sprite như keyword chung làm graph nhiễu nhưng không giúp debug
-- Thiếu test hoặc metric khiến lỗi chỉ lộ khi integration hoặc production
-- Chọn tool/pattern trước khi hiểu constraint thật
+- Sprite bị mờ do import/scale sai.
+- Render order sai làm bị che.
+- Atlas packing sai làm cắt hình lệch.
+- Quá nhiều sprite riêng làm tăng draw call.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Sprite nếu project chưa chạm vấn đề liên quan
-- Dễ over-engineer nếu thêm abstraction/tool trước khi có failure mode thật
+- Prototype có thể dùng placeholder sprite.
+- Không nên tối ưu atlas quá sớm nếu asset còn thay đổi mạnh.
 
 ## Gồm những gì
 
@@ -55,25 +59,26 @@ Sprite giúp chọn đúng abstraction, config, test hoặc debug path khi làm 
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Shader]] vì sprite có thể dùng shader/material để render.
+- [[Asset Pipeline]] vì sprite cần import/pack/config đúng.
+- [[Performance Optimization]] vì số lượng sprite/draw call ảnh hưởng frame time.
 
 ## Liên quan rộng
 
-- Programming Languages
-- Performance
-- Software Architecture
+- 2D rendering
+- Game asset
+- Animation frame
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Sprite
-- sprite
-- sprite design
+- 2D sprite
+- sprite atlas
+- render order
+- draw call
 - sprite debugging
-- sprite production
 
 ## Source trace
 
-- Game Programming Patterns
 - Unity documentation
-- Unreal Engine documentation
 - Godot documentation
