@@ -1,53 +1,59 @@
 # Tool Error
 
-Aliases: Tool Error, tool error
+Aliases: Tool Error, tool call error
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Tool Error xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Tool Error xuất hiện khi AI agent hoặc tool runner gọi tool nhưng tool trả lỗi, timeout, permission deny, validation fail hoặc output không parse được.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Tool Error là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Tool Error là failure object/signal mô tả tool call không hoàn tất đúng contract, kèm loại lỗi, message, retryability và context cần để agent/runtime xử lý.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Tool Error không phải lúc nào cũng là lỗi của model. Nó có thể đến từ schema, permission, network, external API, resource state hoặc tool implementation.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Tool Error nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Tool runner validate input, execute tool, bắt exception/status lỗi, normalize thành error type và trả observation cho agent loop hoặc orchestration layer để retry, fallback, ask user hoặc stop.
 
 ## Project Role / Vai trò trong dự án
 
-Tool Error giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi debug agent fail, tool output hỏng, retry loop, permission deny, timeout hoặc khi thiết kế error handling cho tool use production.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Tool Error
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Error type taxonomy
+- Tool call input/output trace
+- Retryable vs non-retryable rule
+- User-facing fallback message
+- Audit/debug log
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tool Error giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Error thuộc schema, permission, timeout, network hay business state?
+- Có nên retry không?
+- Agent có được thấy toàn bộ error message không?
+- Error có chứa secret/sensitive data không?
+- Fallback hoặc escalation là gì?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Tool Error sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Trả raw exception chứa secret cho model/user.
+- Không phân loại lỗi nên retry sai.
+- Tool fail nhưng agent tiếp tục như thành công.
+- Error message quá mơ hồ làm agent sửa sai hướng.
+- Không có trace nên không biết tool nào lỗi với argument nào.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Tool Error nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Tool prototype đơn giản có thể bắt đầu bằng error object tối thiểu.
+- Không nên expose lỗi nội bộ đầy đủ nếu tool chạm dữ liệu nhạy cảm.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Tool Error giúp team thiết kế, review, test, deploy hoặc vận hành hệ
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Tool Use]] vì tool error là failure mode trực tiếp của tool call.
+- [[Tool Retry]] vì retry policy cần phân loại tool error.
+- [[Tool Schema]] vì schema lỗi là một loại tool error phổ biến.
+- [[Logging]] vì trace tool error cần cho debug/audit.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Error handling
+- Agent observation
+- Tool runner
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Tool Error
-- tool error
-- tool error design
+- tool call error
+- agent tool error
+- tool timeout
+- tool permission denied
+- tool validation error
 - tool error debugging
-- tool error production
-- tool error best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
-- Anthropic prompt engineering docs
+- Google SRE Books
