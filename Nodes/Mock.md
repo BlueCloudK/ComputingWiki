@@ -6,51 +6,58 @@ Type: Testing / Verification
 
 ## Context / Ngữ cảnh
 
-Mock xuất hiện khi cần chứng minh một behavior, artifact hoặc thay đổi kỹ thuật đúng như mong đợi. Nó nằm trong test level, CI, regression, test data và review flow.
+Mock xuất hiện khi test cần thay dependency thật bằng object/function giả để kiểm soát behavior, tránh network/database thật hoặc kiểm tra interaction. Nó thường dùng trong unit test service layer, external API client, repository, clock/random, message publisher và side effect khó kiểm soát.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Mock là cơ chế kiểm tra một loại rủi ro cụ thể: logic sai, tích hợp vỡ, regression, dữ liệu test lệch hoặc behavior không khớp expectation.
+Mock là test double dùng để giả lập dependency và thường kiểm tra dependency có được gọi đúng không. Mock giúp isolate unit đang test, ép dependency trả success/failure/timeout và assert interaction như method called, argument, call count hoặc order nếu quan trọng.
 
 ### Nó không phải là gì
 
-Nó không phải bằng chứng tuyệt đối rằng hệ thống đúng; test luôn có phạm vi, false positive/false negative và blind spot.
+Mock không phải dữ liệu giả chung chung và không thay thế integration test. Mock quá sâu có thể làm test pass dù contract thật giữa module đã vỡ. Nếu test mock implementation detail thay vì behavior quan trọng, refactor hợp lệ cũng làm test fail.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là chọn test level phù hợp, chuẩn bị test data đại diện, xác định expected result và đưa check vào CI/regression khi rủi ro lặp lại.
+Test tạo mock/fake/stub cho dependency, cấu hình response hoặc expectation, inject vào unit, gọi behavior cần test, rồi assert output/state và interaction cần thiết. Mock tốt nên nằm ở boundary bên ngoài unit, không mock mọi hàm nội bộ chỉ để dễ assert.
 
 ## Project Role / Vai trò trong dự án
 
-Mock gắn code change với bằng chứng kiểm tra, giúp team quyết định merge/release dựa trên tín hiệu thay vì cảm giác.
+Mock giúp unit test nhanh, deterministic và không phụ thuộc external system. Nó hữu ích khi test failure path như API timeout, repository throw error, payment declined, queue publish fail hoặc clock ở mốc thời gian cụ thể.
 
 ## Output / Artifact nên có
 
-- Test case hoặc checklist rõ input, expected result và level test
-- Test data cho happy path, edge case và failure case
-- CI/regression rule cho luồng quan trọng
+- Mock/stub setup cho dependency ngoài unit
+- Expected interaction nếu interaction chính là behavior cần bảo vệ
+- Fake implementation nếu cần behavior stateful hơn mock call count
+- Test case cho success, failure, timeout, invalid response
+- Note dependency nào không nên mock mà cần integration test
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Test này bắt loại lỗi nào và không bắt loại lỗi nào?
-- Nó thuộc unit, integration, system hay acceptance level?
-- Test data có đủ edge case và dữ liệu lỗi không?
-- False positive/false negative có dễ xảy ra không?
-- Có chạy trong CI/regression suite đúng thời điểm không?
+- Dependency này có cần mock không, hay dùng real/fake tốt hơn?
+- Test đang assert behavior hay implementation detail?
+- Mock contract có khớp dependency thật không?
+- Có integration test nào bảo vệ boundary thật không?
+- Mock có làm failure path dễ test hơn không?
+- Call count/order có thật sự quan trọng không?
+- Mock setup có quá phức tạp so với logic đang test không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Test chỉ cover happy path nên production vẫn lỗi edge case
-- Mock quá sâu làm test pass nhưng integration fail
-- Flaky test làm team mất niềm tin vào CI
-- Thiếu regression nên bug cũ quay lại
+- Mock quá sâu làm test pass nhưng integration thật fail.
+- Assert call count/order không quan trọng làm refactor khó.
+- Mock response không giống API/database thật.
+- Mock mọi thứ khiến test chỉ kiểm tra chính mock setup.
+- Thiếu integration test nên contract drift không bị bắt.
+- Mock singleton/global state không reset làm test phụ thuộc thứ tự.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần test automation nặng cho spike bỏ đi hoặc prototype rất ngắn
-- Dễ over-engineer nếu test chi tiết implementation khiến refactor nào cũng vỡ test
+- Pure function không dependency ngoài thường không cần mock.
+- Không nên mock database/API nếu mục tiêu test là mapping/contract thật.
+- Không nên tạo mock framework phức tạp khi fake object đơn giản đủ dùng.
 
 ## Gồm những gì
 
@@ -58,14 +65,18 @@ Mock gắn code change với bằng chứng kiểm tra, giúp team quyết đị
 
 ## Nối mạnh
 
-- [[Unit Test]] vì nó là check trực tiếp để phát hiện lỗi hoặc xác nhận hành vi
+- [[Unit Test]] vì mock thường dùng để isolate unit test.
+- [[Integration Test]] vì integration test bù lại blind spot do mock tạo ra.
+- [[Dependency Injection]] vì DI giúp inject mock/fake vào unit.
+- [[Repository]] vì repository thường được mock/fake khi test service.
+- [[Assertion]] vì mock thường đi kèm assertion về interaction hoặc output.
 
 ## Liên quan rộng
 
-- Quality assurance
-- CI/CD
-- Regression safety
-- Release confidence
+- Test double
+- Stub
+- Fake object
+- Test isolation
 
 ## Keywords / Từ khóa tìm kiếm
 
@@ -73,13 +84,17 @@ Mock gắn code change với bằng chứng kiểm tra, giúp team quyết đị
 - mock object
 - mock function
 - đối tượng giả
-- test design
-- test execution
-- regression testing
-- kiểm thử phần mềm
-- xác minh chất lượng
-- Assertion
+- test double
+- stub
+- fake
+- spy
+- mock interaction
+- call count
+- dependency mock
+- mocking strategy
+- mock debugging
 
 ## Source trace
 
+- xUnit Test Patterns
 - Software Testing ISTQB Map
