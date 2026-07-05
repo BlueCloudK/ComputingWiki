@@ -1,53 +1,59 @@
 # Vector Search
 
-Aliases: Vector Search, vector search
+Aliases: Vector Search, semantic vector search
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Vector Search xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Vector Search xuất hiện khi hệ thống cần tìm document/chunk/item gần nghĩa với query dựa trên embedding thay vì chỉ match keyword chính xác.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Vector Search là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Vector Search là kỹ thuật biến query và data thành vector embedding rồi tìm các vector gần nhau theo similarity/distance để phục vụ semantic retrieval.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Vector Search không tự đảm bảo câu trả lời đúng. Retrieval có thể trả context gần nghĩa nhưng thiếu chính xác, thiếu quyền truy cập hoặc không đủ evidence.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Vector Search nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline tạo embedding cho document/chunk và lưu trong vector index. Khi có query, hệ thống embed query, tìm top-k vector gần nhất, có thể filter metadata/rerank rồi đưa kết quả cho RAG hoặc app.
 
 ## Project Role / Vai trò trong dự án
 
-Vector Search giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế RAG retrieval, semantic search, hybrid search, vector database, chunking/evaluation hoặc debug vì sao search trả kết quả lệch.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Vector Search
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Embedding model and dimension
+- Vector index config
+- Similarity metric
+- Metadata filter rule
+- Retrieval eval: recall, precision, faithfulness impact
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Vector Search giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Embedding model có hợp domain/ngôn ngữ không?
+- Chunk size/metadata có hỗ trợ retrieval không?
+- Similarity metric và index config có đúng không?
+- Top-k có đủ context nhưng không quá nhiễu không?
+- Có filter permission/source/time không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Vector Search sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Chunk sai làm vector search tìm đúng nghĩa nhưng thiếu context.
+- Query embed không hợp domain/ngôn ngữ.
+- Top-k quá cao đưa nhiều nhiễu vào prompt.
+- Metadata filter thiếu làm lộ dữ liệu không đúng quyền.
+- Không eval retrieval nên không biết lỗi nằm ở search hay generation.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Vector Search nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Dataset nhỏ/structured có thể dùng keyword/filter/SQL trước.
+- Không nên dùng vector search thay thế permission model hoặc data quality pipeline.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Vector Search giúp team thiết kế, review, test, deploy hoặc vận hành h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Embedding]] vì vector search dựa trên embedding.
+- [[Vector Database]] vì vector database lưu và query vector index.
+- [[RAG]] vì vector search là retrieval path phổ biến của RAG.
+- [[Groundedness]] vì retrieved evidence ảnh hưởng answer có grounded không.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Semantic search
+- Hybrid search
+- ANN index
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Vector Search
-- vector search
-- vector search design
+- semantic vector search
+- embedding search
+- nearest neighbor search
+- vector index
+- hybrid search
 - vector search debugging
-- vector search production
-- vector search best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
