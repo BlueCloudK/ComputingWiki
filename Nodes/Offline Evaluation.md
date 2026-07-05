@@ -1,81 +1,89 @@
 # Offline Evaluation
 
-Aliases: Offline Evaluation, offline evaluation
+Aliases: Offline Evaluation, offline eval
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Offline Evaluation xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Offline Evaluation xuất hiện khi cần đánh giá model, prompt, retriever hoặc pipeline AI trên tập dữ liệu cố định trước khi đưa ra production.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Offline Evaluation là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Offline Evaluation là eval chạy trên dataset có sẵn, không phụ thuộc traffic live. Nó giúp so sánh version hệ thống trong điều kiện lặp lại được.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Offline Evaluation không thay thế online monitoring hoặc user feedback. Dataset cố định có thể bỏ sót case production mới.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Offline Evaluation nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Pipeline chạy trên eval dataset, tạo prediction/answer/tool trace, tính metric hoặc judge score, rồi so sánh với baseline trước đó. Kết quả thường dùng làm gate trước merge/deploy.
 
 ## Project Role / Vai trò trong dự án
 
-Offline Evaluation giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi cần kiểm tra regression sau khi đổi model, prompt, index, chunking, retriever, tool policy hoặc output schema.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Offline Evaluation
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Eval dataset version
+- Baseline result
+- Metric/judge rubric
+- Regression diff report
+- Failed case list để review thủ công
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Offline Evaluation giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Dataset có version và owner không?
+- Metric nào là pass/fail gate?
+- Baseline là version nào?
+- Eval có deterministic đủ không?
+- Failed cases có được inspect không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Offline Evaluation sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Dataset cũ không còn đại diện production.
+- Gate quá lỏng nên regression lọt qua.
+- Judge không ổn định làm score nhiễu.
+- Chỉ nhìn average score, bỏ qua critical failure.
+- Không lưu baseline nên không biết tốt/xấu hơn.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Offline Evaluation nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Demo nhỏ chưa có use case thật có thể dùng manual review trước.
+- Không nên tự động hóa quá nhiều khi dataset chưa sạch.
 
 ## Gồm những gì
 
-- Chưa tách nhánh
+- [[Eval Dataset]]
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[AI Evaluation]] vì offline eval là một hình thức AI evaluation.
+- [[RAG Evaluation]] vì RAG eval thường bắt đầu bằng offline dataset.
+- [[Prompt Regression]] vì prompt change cần offline regression check.
+- [[Model Regression]] vì model change cần so sánh offline trước rollout.
+- [[CI]] vì offline eval có thể chạy như quality gate.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Benchmarking
+- Regression testing
+- LLM app quality
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Offline Evaluation
-- offline evaluation
-- offline evaluation design
+- offline eval
+- eval dataset
+- baseline comparison
+- regression diff
+- LLM eval
 - offline evaluation debugging
-- offline evaluation production
-- offline evaluation best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
 - Designing Machine Learning Systems
-- Anthropic prompt engineering docs
