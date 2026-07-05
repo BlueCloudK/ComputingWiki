@@ -1,53 +1,59 @@
 # Sequential Scan
 
-Aliases: Sequential Scan, sequential scan
+Aliases: Sequential Scan, table scan
 
 Type: Database Internals
 
 ## Context / Ngữ cảnh
 
-Sequential Scan xuất hiện trong database internals là vùng kiến thức về storage engine, query execution, indexing, concurrency, transaction log, replication và operational behavior của database.
+Sequential Scan xuất hiện trong query plan khi database đọc tuần tự toàn bộ table hoặc một phần lớn table thay vì dùng index lookup trực tiếp.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Sequential Scan là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng Database Internals.
+Sequential Scan là access path trong đó executor đọc các page/row của table theo thứ tự vật lý và filter row theo điều kiện query.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Sequential Scan không luôn xấu. Với table nhỏ, filter không selective hoặc query cần phần lớn rows, sequential scan có thể nhanh hơn index scan.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Sequential Scan nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Executor đọc page từ heap/table storage, kiểm tra visibility và predicate cho từng row, rồi trả row match. Cost phụ thuộc table size, page cache, bloat, predicate selectivity và I/O.
 
 ## Project Role / Vai trò trong dự án
 
-Sequential Scan giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi đọc EXPLAIN plan, debug query chậm, index không được dùng, table bloat hoặc benchmark cold/warm cache khác nhau.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Sequential Scan
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- EXPLAIN/ANALYZE plan
+- Rows scanned vs rows returned
+- Buffer/page read stats
+- Predicate selectivity
+- Index/bloat comparison
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Sequential Scan giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Table lớn hay nhỏ?
+- Query trả phần lớn rows không?
+- Predicate có index phù hợp không?
+- Statistics có stale không?
+- Scan đang đọc từ cache hay disk?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Sequential Scan sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Table lớn bị scan toàn bộ cho query trả ít row.
+- Index thiếu hoặc không selective.
+- Statistics sai làm planner chọn scan nhầm.
+- Bloat làm scan đọc nhiều page hơn cần.
+- Dev data nhỏ nên scan ổn, production data lớn thì chậm.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Sequential Scan nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Table nhỏ và query hiếm chạy thì sequential scan có thể chấp nhận được.
+- Không nên ép index scan nếu planner chọn sequential scan hợp lý theo data distribution.
 
 ## Gồm những gì
 
@@ -55,26 +61,28 @@ Sequential Scan giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Query Plan]] vì sequential scan là node trong execution plan.
+- [[Storage Layout]] vì scan đọc table theo layout vật lý.
+- [[Page Cache]] vì cache quyết định cold/warm scan cost.
+- [[Read Amplification]] vì scan nhiều page thừa làm read amplification cao.
 
 ## Liên quan rộng
 
-- Database Systems
-- Data Intensive Systems
-- Performance
-- Debugging and Failure Patterns
+- Table scan
+- Predicate selectivity
+- Buffer reads
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Sequential Scan
-- sequential scan
-- sequential scan design
+- table scan
+- seq scan
+- EXPLAIN ANALYZE
+- predicate selectivity
+- buffer reads
 - sequential scan debugging
-- sequential scan production
-- sequential scan best practice
 
 ## Source trace
 
-- Database System Concepts
 - PostgreSQL documentation
-- Designing Data-Intensive Applications
+- Database System Concepts
