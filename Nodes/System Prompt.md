@@ -1,53 +1,59 @@
 # System Prompt
 
-Aliases: System Prompt, system prompt
+Aliases: System Prompt, system instruction
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-System Prompt xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+System Prompt xuất hiện khi AI app cần đặt vai trò, nguyên tắc, boundary, output format, tool policy hoặc instruction ưu tiên cao cho model trước user message.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-System Prompt là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+System Prompt là instruction cấp hệ thống được đưa vào context để định hướng behavior của model trong một session/request.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+System Prompt không phải security boundary tuyệt đối. Nó có thể bị prompt injection/jailbreak làm suy yếu nếu runtime không có guardrail, validation và permission enforcement.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu System Prompt nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Runtime compose system prompt với developer/app instruction, user input, retrieved context và tool result. Model dùng instruction này để tạo output, nhưng enforcement thật phải nằm ở runtime khi có tool/data/action nhạy cảm.
 
 ## Project Role / Vai trò trong dự án
 
-System Prompt giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế chatbot/RAG/agent behavior, output format, safety instruction, prompt versioning hoặc debug vì sao model trả lời lệch role/policy.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới System Prompt
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- System prompt text
+- Version/change history
+- Scope and intended behavior
+- Eval/regression cases
+- Runtime guardrail boundary note
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- System Prompt giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Prompt đang định hướng behavior nào?
+- Instruction có rõ priority và boundary không?
+- Prompt có quá dài hoặc mâu thuẫn không?
+- Có eval trước/sau khi sửa prompt không?
+- Policy quan trọng có được enforce ngoài prompt không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng System Prompt sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- System prompt mơ hồ làm behavior không ổn định.
+- Prompt quá nhiều rule xung đột làm model chọn sai.
+- Prompt bị coi là security layer duy nhất.
+- User/context injection làm model bỏ qua instruction mong muốn.
+- Không version prompt nên không trace được regression.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu System Prompt nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Prototype một task đơn giản có thể dùng prompt ngắn trước.
+- Không nên nhồi mọi policy vào system prompt nếu cần runtime enforcement rõ.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ System Prompt giúp team thiết kế, review, test, deploy hoặc vận hành h
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[Prompt Template]] vì system prompt thường là một template/versioned artifact.
+- [[Prompt Versioning]] vì thay đổi system prompt cần trace và rollback.
+- [[Prompt Injection]] vì context/user input có thể cố ghi đè instruction.
+- [[Guardrail]] vì guardrail bổ sung enforcement ngoài prompt.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Instruction hierarchy
+- Prompt design
+- AI behavior contract
 
 ## Keywords / Từ khóa tìm kiếm
 
 - System Prompt
-- system prompt
-- system prompt design
+- system instruction
+- prompt hierarchy
+- AI system prompt
+- prompt versioning
+- prompt injection
 - system prompt debugging
-- system prompt production
-- system prompt best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
 - Anthropic prompt engineering docs
