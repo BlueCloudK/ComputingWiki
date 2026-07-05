@@ -1,53 +1,59 @@
 # Tool Permission
 
-Aliases: Tool Permission, tool permission
+Aliases: Tool Permission, tool access policy
 
 Type: AI / RAG / Agent Engineering
 
 ## Context / Ngữ cảnh
 
-Tool Permission xuất hiện trong ai rag and agent engineering là vùng kiến thức về llm app, retrieval, tool use, agent workflow, evaluation, guardrails và production reliability.
+Tool Permission xuất hiện khi AI agent/app có thể gọi tool như file, database, email, calendar, shell, browser, API hoặc cloud action và cần kiểm soát quyền theo task/user/context.
 
 ## Boundary / Ranh giới
 
 ### Nó là gì
 
-Tool Permission là khái niệm giúp đặt tên đúng một phần của hệ thống, workflow hoặc failure mode trong vùng AI / RAG / Agent Engineering.
+Tool Permission là policy quyết định agent được gọi tool nào, với argument nào, trên resource nào, ở chế độ read/write nào và có cần approval không.
 
 ### Nó không phải là gì
 
-Nó không phải keyword để nhồi vào graph; node này chỉ hữu ích khi nối được với artifact, decision hoặc debug path cụ thể.
+Tool Permission không phải chỉ là prompt nhắc model “đừng làm sai”. Quyền tool phải được enforce ở runtime/gateway/orchestrator, không chỉ dựa vào lời model.
 
 ## Core Mechanism / Cơ chế lõi
 
-Cơ chế lõi là hiểu Tool Permission nằm ở boundary nào, input/output là gì, state hoặc config nào liên quan, và lỗi thường lộ ra bằng signal nào.
+Agent đề xuất tool call. Runtime kiểm tra user/session/task policy, resource scope, risk level và approval state. Tool runner chỉ execute khi policy cho phép, rồi ghi trace/audit log.
 
 ## Project Role / Vai trò trong dự án
 
-Tool Permission giúp team thiết kế, review, test, deploy hoặc vận hành hệ thống bằng cùng một ngôn ngữ thay vì chỉ dựa vào tool cụ thể.
+Dùng node này khi thiết kế agent gateway, approval flow, least privilege tool access, audit log hoặc debug tool call bị deny/execute sai.
 
 ## Output / Artifact nên có
 
-- Decision note hoặc config liên quan tới Tool Permission
-- Test/checklist/metric nếu concept nằm trên critical path
-- Runbook hoặc debug note nếu có impact production
+- Tool permission matrix
+- Read/write/resource scope
+- Approval rule
+- Deny/fallback behavior
+- Audit log schema
 
 ## Decision Checklist / Câu hỏi kiểm tra
 
-- Tool Permission giải quyết constraint cụ thể nào?
-- Owner, boundary và rollback path có rõ không?
-- Có metric, test hoặc source trace đủ để kiểm chứng không?
+- Tool này có read-only hay write action?
+- Resource scope nhỏ nhất là gì?
+- User/task nào được quyền gọi?
+- Action nào cần human approval?
+- Tool call có audit trace không?
 
 ## Failure Modes / Cách nó gây lỗi
 
-- Dùng Tool Permission sai boundary làm debug hoặc design lệch hướng
-- Thiếu metric/test khiến lỗi chỉ lộ khi scale, deploy hoặc tích hợp thật
-- Overfit vào tool cụ thể thay vì hiểu cơ chế ổn định phía sau
+- Agent có quyền tool rộng hơn task cần.
+- Permission chỉ nằm trong prompt, runtime không enforce.
+- Tool argument không validate nên gọi sai resource.
+- Approval bị bypass ở retry/resume path.
+- Không có audit log nên không biết action nào đã chạy.
 
 ## Khi nào chưa cần hoặc dễ over-engineer
 
-- Chưa cần đào sâu Tool Permission nếu hệ thống nhỏ và chưa chạm constraint liên quan
-- Dễ over-engineer nếu thêm abstraction/process trước khi có failure mode thật
+- Chatbot không có tool/action nhạy cảm có thể dùng permission đơn giản.
+- Không nên cấp write tool trước khi read-only flow và audit ổn.
 
 ## Gồm những gì
 
@@ -55,27 +61,28 @@ Tool Permission giúp team thiết kế, review, test, deploy hoặc vận hành
 
 ## Nối mạnh
 
-- Chưa có nối mạnh ngoài các node con trực tiếp
+- [[AI Agent]] vì agent tool use cần permission boundary.
+- [[Tool Use]] vì permission kiểm soát tool call.
+- [[Least Privilege]] vì tool nên được cấp quyền tối thiểu.
+- [[Jailbreak]] vì jailbreak có impact lớn hơn khi tool permission yếu.
 
 ## Liên quan rộng
 
-- AI and ML Engineering
-- Backend Engineering
-- Data Engineering
-- Security Attack Patterns
+- Agent gateway
+- Human approval
+- Tool audit
 
 ## Keywords / Từ khóa tìm kiếm
 
 - Tool Permission
-- tool permission
-- tool permission design
+- tool access policy
+- agent tool permission
+- tool allowlist
+- tool approval
+- tool audit
 - tool permission debugging
-- tool permission production
-- tool permission best practice
 
 ## Source trace
 
 - OpenAI documentation
-- Google Machine Learning Crash Course
-- Designing Machine Learning Systems
-- Anthropic prompt engineering docs
+- OWASP LLM guidance
